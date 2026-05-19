@@ -1,0 +1,76 @@
+"""
+data_loader.py
+──────────────
+Handles all I/O for the TCGA OV pan-cancer atlas dataset.
+Reads raw text files and returns clean DataFrames.
+"""
+
+from __future__ import annotations
+
+import logging
+from pathlib import Path
+
+import pandas as pd
+
+logger = logging.getLogger(__name__)
+
+
+def load_clinical(data_dir: str | Path, filename: str) -> pd.DataFrame:
+    """
+    Load the clinical patient file.
+
+    Args:
+        data_dir: Directory containing the raw data files.
+        filename: Name of the clinical patient file.
+
+    Returns:
+        DataFrame with one row per patient.
+    """
+    path = Path(data_dir) / filename
+    logger.info("Loading clinical data from %s", path)
+
+    df = pd.read_csv(path, sep="\t", comment="#", low_memory=False)
+    logger.info("Clinical data shape: %s", df.shape)
+    return df
+
+
+def load_treatment(data_dir: str | Path, filename: str) -> pd.DataFrame:
+    """
+    Load the treatment timeline file.
+
+    Args:
+        data_dir: Directory containing the raw data files.
+        filename: Name of the treatment timeline file.
+
+    Returns:
+        DataFrame with one row per treatment event.
+    """
+    path = Path(data_dir) / filename
+    logger.info("Loading treatment data from %s", path)
+
+    df = pd.read_csv(path, sep="\t", comment="#", low_memory=False)
+    logger.info("Treatment data shape: %s", df.shape)
+    return df
+
+
+def load_expression(data_dir: str | Path, filename: str) -> pd.DataFrame:
+    """
+    Load the mRNA-seq (RSEM) expression matrix.
+
+    The raw file has genes as rows and patients (sample IDs) as columns.
+    This function does **not** perform any transformation — that is
+    handled downstream in ``preprocessing.py``.
+
+    Args:
+        data_dir: Directory containing the raw data files.
+        filename: Name of the mRNA expression file.
+
+    Returns:
+        Raw expression DataFrame (genes × samples).
+    """
+    path = Path(data_dir) / filename
+    logger.info("Loading expression data from %s", path)
+
+    df = pd.read_csv(path, sep="\t", comment="#", low_memory=False)
+    logger.info("Expression data shape: %s", df.shape)
+    return df
