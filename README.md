@@ -120,18 +120,22 @@ All pipeline parameters are controlled via `config/config.yaml` — no hardcoded
 
 ## Key Results
 
-> Results below are indicative — exact values depend on random splits.
+> Results are means across 30 repeated random splits using
+correct (train-only) feature selection. Single-split results
+vary substantially — see the ablation study for the full
+distribution and confidence intervals.
 
-| Model | 12m AUC | 18m AUC | 24m AUC |
-|-------|---------|---------|---------|
-| Logistic Regression | ~0.67 | ~0.70 | ~0.72 |
-| Random Forest | ~0.63 | ~0.66 | ~0.68 |
-| SVM (RBF) | ~0.65 | ~0.69 | ~0.71 |
+| Model               | 12m AUC | 18m AUC | 24m AUC |
+|---------------------|---------|---------|---------|
+| Logistic Regression | ~0.70   | ~0.70   | ~0.70   |
+| Random Forest       | ~0.67   | ~0.68   | ~0.68   |
+| SVM (RBF)           | ~0.45   | ~0.66   | ~0.67   |
 
-Key observations:
-- **Longer thresholds (24m) consistently produce higher AUC** — the survival signal is cleaner at longer cutoffs.
-- **Logistic Regression marginally outperforms** tree-based methods on this small, high-dimensional dataset — consistent with the genomics literature (LASSO/Ridge often wins in p >> n settings).
-- **SHAP analysis** identifies biologically relevant genes (e.g., *BRCA1*, *CCNE1*) as top predictors, consistent with known platinum-resistance mechanisms.
+> **Note on leakage:** Supervised F-score feature selection inflates
+these AUCs by a mean of +0.22 (up to +0.55 for SVM), significant at
+p<0.0001 in 7/9 model×threshold combinations. Unsupervised variance
+selection shows negligible inflation (+0.01). See
+`run_ablation_study.py` for the full analysis.
 
 ---
 
@@ -141,7 +145,8 @@ Key observations:
 ovarian-cancer-platinum-response/
 │
 ├── config/
-│   └── config.yaml               ← All hyperparameters and paths
+│   ├── config.template.yaml      ← Committed template (copy to config.yaml)
+│   └── config.yaml               ← Local only, gitignored
 │
 ├── data/
 │   ├── README.md                 ← Download instructions
@@ -158,20 +163,34 @@ ovarian-cancer-platinum-response/
 │   ├── models.py                 ← Model factory, training, CV, persistence
 │   ├── evaluation.py             ← Metrics and results table
 │   ├── visualization.py          ← All figure functions
-│   └── pipeline.py               ← End-to-end orchestrator
+│   ├── pipeline.py               ← End-to-end orchestrator
+│   ├── ablation.py               ← Leakage ablation, bootstrap CIs, nested CV
+│   └── label_investigation.py   ← Clinical label validity investigation
+│
+├── tests/
+│   ├── __init__.py
+│   ├── test_preprocessing.py     ← 15 unit tests
+│   ├── test_ablation.py          ← 19 unit tests
+│   └── test_label_investigation.py ← 18 unit tests
 │
 ├── outputs/
 │   ├── figures/                  ← Auto-generated plots (PNG, 300 DPI)
 │   ├── models/                   ← Serialised model files (.pkl)
-│   └── results/                  ← CSV performance summary
+│   └── results/                  ← CSV performance summaries
 │
-├── tests/
-│   └── test_preprocessing.py     ← Unit tests (pytest)
-│
-├── run.py                        ← CLI entry point
-├── requirements.txt
 ├── .gitignore
-└── README.md
+├── CHANGELOG.md
+├── CITATION.cff
+├── CONTRIBUTING.md
+├── LICENSE
+├── README.md
+├── investigate_clinical_labels.py  ← CLI: label validity investigation
+├── paper.bib                       ← JOSS bibliography
+├── paper.md                        ← JOSS submission document
+├── pyproject.toml                  ← Package metadata and entry points
+├── requirements.txt
+├── run.py                          ← CLI: full pipeline
+└── run_ablation_study.py           ← CLI: methods-critique ablation
 ```
 
 ---
@@ -181,7 +200,7 @@ ovarian-cancer-platinum-response/
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/your-username/ovarian-cancer-platinum-response.git
+git clone https://github.com/AaronC-bioinfo/ovarian-cancer-platinum-response.git
 cd ovarian-cancer-platinum-response
 
 python -m venv .venv
@@ -196,12 +215,21 @@ Follow the instructions in `data/README.md` to download the TCGA OV dataset from
 
 ### 3. Configure paths
 
-Edit `config/config.yaml`:
+Copy the config template and fill in your local data path:
+
+```bash
+cp config/config.template.yaml config/config.yaml
+```
+
+Then edit `config/config.yaml` and set:
 
 ```yaml
 data:
-  data_dir: "data/raw/ov_tcga_pan_can_atlas_2018"
+  data_dir: "path/to/your/ov_tcga_pan_can_atlas_2018"
 ```
+
+Note: config/config.yaml is gitignored and never committed.
+See config/config.template.yaml for all available options.
 
 ### 4. Run the full pipeline
 
@@ -278,7 +306,7 @@ model:
 | **No data leakage** | Gene variance computed on train split only |
 | **Reproducibility** | Global seed propagated from config to all stochastic components |
 | **Model persistence** | `pickle` serialisation per model per threshold |
-| **Unit tests** | pytest suite for preprocessing functions |
+| **Unit tests** | 52 pytest tests across 3 modules; all pass without TCGA data on disk |
 | **Modularity** | Clean separation: loader / preprocessing / features / models / evaluation / viz |
 | **CLI** | argparse entry point with help text and overrides |
 
@@ -325,17 +353,27 @@ Outputs:
 - `outputs/figures/fig8_leakage_ablation.png` — paired box plots visualising
   the inflation effect
 
-This analysis requires no data beyond what's already configured for the main
+This analysis requires no data beyond what’s already configured for the main
 pipeline, and is intended as the empirical backbone of a methods-critique
-framing for publication — see the project's research roadmap for full context.
+framing for publication — see the project’s research roadmap for full context.
 
 ---
 
 ## Citation
 
-If you use this code or analysis, please cite the original dataset:
+If you use this software, please cite it using the metadata in
+[CITATION.cff](CITATION.cff).
 
-> Ellrott, K., et al. (2018). Scalable Open Science Approach for Mutation Calling of Tumor Exomes Using Multiple Genomic Pipelines. *Cell Systems*, 6(3), 271-281.
+**Primary dataset:**
+> The Cancer Genome Atlas Research Network. (2011). Integrated genomic
+analyses of ovarian carcinoma. *Nature*, 474(7353), 609–615.
+https://doi.org/10.1038/nature10166
+
+**Data access:**
+> Cerami, E., et al. (2012). The cBio Cancer Genomics Portal: An open
+platform for exploring multidimensional cancer genomics data.
+*Cancer Discovery*, 2(5), 401–404.
+https://doi.org/10.1158/2159-8290.CD-12-0095
 
 ---
 
