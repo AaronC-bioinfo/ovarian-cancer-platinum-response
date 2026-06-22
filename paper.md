@@ -16,6 +16,7 @@ affiliations:
   - name: School of Systems Biology, George Mason University, Manassas, VA, USA
     index: 1
 date: 01 December 2025
+archive: https://doi.org/10.5281/zenodo.20802753
 bibliography: paper.bib
 ---
 
