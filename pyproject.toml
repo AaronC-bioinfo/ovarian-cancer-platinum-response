@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ovarian-cancer-platinum-response"
+version = "1.0.0"
+description = "ML pipeline for predicting platinum chemotherapy response in ovarian cancer using TCGA RNA-seq data, with empirical quantification of feature-selection leakage and label construct-validity investigation."
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Aaron Michael Anuroop Chintala", email = "achinta2@gmu.edu"}
+]
+keywords = [
+  "bioinformatics", "machine learning", "ovarian cancer",
+  "RNA-seq", "TCGA", "feature selection", "data leakage", "reproducibility"
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26.0",
+  "pandas>=2.2.0",
+  "scipy>=1.13.0",
+  "scikit-learn>=1.5.0",
+  "matplotlib>=3.9.0",
+  "seaborn>=0.13.2",
+  "pyyaml>=6.0.1",
+  "lifelines>=0.29.0",
+  "shap>=0.45.0",
+  "umap-learn>=0.5.6",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2.0",
+  "pytest-cov>=5.0.0",
+]
+
+[project.scripts]
+oc-pipeline    = "run:main"
+oc-ablation    = "run_ablation_study:main"
+oc-investigate = "investigate_clinical_labels:main"
+
+[project.urls]
+Homepage      = "https://github.com/AaronC-bioinfo/ovarian-cancer-platinum-response"
+Repository    = "https://github.com/AaronC-bioinfo/ovarian-cancer-platinum-response"
+"Bug Tracker" = "https://github.com/AaronC-bioinfo/ovarian-cancer-platinum-response/issues"
+
+[tool.setuptools.packages.find]
+where   = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths  = ["tests"]
+pythonpath = ["."]

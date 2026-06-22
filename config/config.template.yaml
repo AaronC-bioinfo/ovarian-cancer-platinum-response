@@ -1,0 +1,67 @@
+# ─────────────────────────────────────────────────────────────────
+#  Ovarian Cancer Platinum Response Prediction — Configuration
+#
+#  SETUP INSTRUCTIONS:
+#  1. Copy this file: cp config/config.template.yaml config/config.yaml
+#  2. Fill in your local data_dir path below
+#  3. config.yaml is gitignored — never committed, always local
+# ─────────────────────────────────────────────────────────────────
+
+project:
+  name: "Ovarian Cancer Platinum Response"
+  seed: 42
+  version: "1.0.0"
+
+# ── Data paths ──────────────────────────────────────────────────
+data:
+  # REQUIRED: set this to your local path containing the TCGA-OV files
+  # Example (Windows): "D:/data/ov_tcga_pan_can_atlas_2018"
+  # Example (Linux/Mac): "/home/user/data/ov_tcga_pan_can_atlas_2018"
+  # See data/README.md for download instructions
+  data_dir: "FILL_IN_YOUR_DATA_PATH_HERE"
+  clinical_file: "data_clinical_patient.txt"
+  treatment_file: "data_timeline_treatment.txt"
+  expression_file: "data_mrna_seq_v2_rsem.txt"
+
+# ── Clinical / label settings ────────────────────────────────────
+clinical:
+  time_col: "OS_MONTHS"
+  status_col: "OS_STATUS"
+  platinum_drugs:
+    - "CARBOPLATIN"
+    - "CISPLATIN"
+  thresholds:
+    - 12
+    - 18
+    - 24
+
+# ── Feature engineering ──────────────────────────────────────────
+features:
+  top_n_genes: 500
+
+# ── Model training ───────────────────────────────────────────────
+model:
+  test_size: 0.20
+  cv_folds: 5
+  logistic_regression:
+    max_iter: 5000
+    penalty: "l2"
+    class_weight: "balanced"
+  random_forest:
+    n_estimators: 300
+    max_depth: null
+    min_samples_split: 2
+    class_weight: "balanced"
+  svm:
+    kernel: "rbf"
+    C: 1
+    gamma: "scale"
+    probability: true
+    class_weight: "balanced"
+
+# ── Output settings ──────────────────────────────────────────────
+output:
+  figures_dir: "outputs/figures"
+  models_dir: "outputs/models"
+  results_dir: "outputs/results"
+  figure_dpi: 300

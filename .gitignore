@@ -1,0 +1,11 @@
+
+venv/
+.venv/
+outputs/results/
+outputs/models/
+outputs/figures/
+
+src/__pycache__/
+tests/__pycache__/
+*.pyc
+*.pyo

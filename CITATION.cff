@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+type: software
+title: "Ovarian Cancer Platinum Response: ML Pipeline with Feature-Selection Leakage Analysis"
+version: 1.0.0
+date-released: "2025-12-01"
+authors:
+  - family-names: Chintala
+    given-names: Aaron Michael Anuroop
+    affiliation: "George Mason University, School of Systems Biology"
+abstract: >
+  A modular, reproducible machine learning pipeline for predicting platinum
+  chemotherapy response in ovarian cancer using TCGA RNA-seq gene expression
+  data. Includes a paired ablation study quantifying AUC inflation from
+  feature-selection leakage (supervised vs. unsupervised), bootstrap
+  confidence intervals, nested cross-validation, and a construct-validity
+  investigation of OS-threshold proxy labels against clinical response data.
+keywords:
+  - bioinformatics
+  - machine learning
+  - ovarian cancer
+  - RNA-seq
+  - TCGA
+  - feature selection
+  - data leakage
+  - reproducibility
+license: MIT
+repository-code: "https://github.com/AaronC-bioinfo/ovarian-cancer-platinum-response"
+url: "https://github.com/AaronC-bioinfo/ovarian-cancer-platinum-response"
+references:
+  - type: dataset
+    title: "TCGA Ovarian Serous Cystadenocarcinoma PanCancer Atlas 2018"
+    url: "https://www.cbioportal.org/study/summary?id=ov_tcga_pan_can_atlas_2018"
+    authors:
+      - name: "The Cancer Genome Atlas Research Network"
