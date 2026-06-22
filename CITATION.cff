@@ -3,7 +3,8 @@ message: "If you use this software, please cite it using the metadata below."
 type: software
 title: "Ovarian Cancer Platinum Response: ML Pipeline with Feature-Selection Leakage Analysis"
 version: 1.0.0
-date-released: "2025-12-01"
+doi: 10.5281/zenodo.20802753
+date-released: "2026-06-22"
 authors:
   - family-names: Chintala
     given-names: Aaron Michael Anuroop

@@ -5,6 +5,7 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.5%2B-orange.svg)](https://scikit-learn.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![DOI](https://zenodo.org/badge/1243993955.svg)](https://doi.org/10.5281/zenodo.20802753)
 
 ---
 
@@ -373,10 +374,4 @@ https://doi.org/10.1038/nature10166
 > Cerami, E., et al. (2012). The cBio Cancer Genomics Portal: An open
 platform for exploring multidimensional cancer genomics data.
 *Cancer Discovery*, 2(5), 401–404.
-https://doi.org/10.1158/2159-8290.CD-12-0095
-
----
-
-## License
-
-MIT License — see [LICENSE](LICENSE) for details.
+https://doi.org/10.1158/
