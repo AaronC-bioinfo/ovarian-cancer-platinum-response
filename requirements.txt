@@ -38,3 +38,7 @@ pytest-cov>=5.0.0
 
 # Optional: model persistence
 # joblib is already bundled with scikit-learn
+
+# Methods-critique / ablation study (src/ablation.py) uses only the
+# dependencies already listed above — no additional packages required.
+

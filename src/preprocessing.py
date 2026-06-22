@@ -214,6 +214,14 @@ def clean_expression(expr_raw: pd.DataFrame) -> pd.DataFrame:
     # Average any duplicate samples for the same patient (pandas ≥ 2.0 safe)
     expr = expr.T.groupby(level=0).mean().T
 
+    # Real Hugo_Symbol gene lists occasionally contain entries that pandas/
+    # downstream tools coerce inconsistently (e.g. mixed str/object dtypes
+    # after the groupby/transpose above). Coercing to str here, once, at
+    # the source, avoids fragile column-type mismatches in every consumer
+    # downstream (this surfaced as a real bug in src/ablation.py's
+    # supervised F-score selection when run on the actual TCGA file).
+    expr.index = expr.index.astype(str)
+
     logger.info(
         "Expression cleaned: %d genes × %d patients",
         expr.shape[0],

@@ -182,3 +182,18 @@ class TestCleanExpression:
         clean = clean_expression(raw)
         assert clean.shape[1] == 1
         assert float(clean.iloc[0, 0]) == pytest.approx(3.0)
+
+    def test_gene_index_coerced_to_string(self):
+        # Regression test: some real Hugo_Symbol gene names are
+        # auto-misinterpreted as non-string types by upstream tools
+        # (e.g. date-like gene symbols), causing mixed dtypes that broke
+        # downstream column matching in src/ablation.py on real data.
+        raw = pd.DataFrame(
+            {
+                "Hugo_Symbol": ["BRCA1", "TP53"],
+                "Entrez_Gene_Id": [672, 7157],
+                "TCGA-01-XXXX-01A": [1.0, 2.0],
+            }
+        )
+        clean = clean_expression(raw)
+        assert all(isinstance(g, str) for g in clean.index)

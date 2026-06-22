@@ -74,3 +74,53 @@ def load_expression(data_dir: str | Path, filename: str) -> pd.DataFrame:
     df = pd.read_csv(path, sep="\t", comment="#", low_memory=False)
     logger.info("Expression data shape: %s", df.shape)
     return df
+
+
+def load_clinical_sample(data_dir: str | Path, filename: str = "data_clinical_sample.txt") -> pd.DataFrame:
+    """
+    Load the sample-level clinical file (one row per tumor sample).
+
+    Unlike data_clinical_patient.txt (one row per patient, mostly survival
+    and demographics), this file typically carries sample-level genomic
+    summary fields — tumor grade, MSI score, tumor mutation burden,
+    aneuploidy score — which are candidate covariates for a more rigorous
+    outcome model.
+
+    Args:
+        data_dir: Directory containing the raw data files.
+        filename: Name of the clinical sample file.
+
+    Returns:
+        DataFrame with one row per sample.
+    """
+    path = Path(data_dir) / filename
+    logger.info("Loading clinical sample data from %s", path)
+
+    df = pd.read_csv(path, sep="\t", comment="#", low_memory=False)
+    logger.info("Clinical sample data shape: %s", df.shape)
+    return df
+
+
+def load_timeline_status(data_dir: str | Path, filename: str = "data_timeline_status.txt") -> pd.DataFrame:
+    """
+    Load the disease-status timeline file (one row per status-check event,
+    multiple rows per patient possible).
+
+    This file is the most promising source for a true platinum-response
+    label: it typically carries PRIMARY_THERAPY_OUTCOME_SUCCESS (direct
+    response to first-line therapy), TUMOR_STATUS (disease/no evidence of
+    disease at the timepoint), and CLINICAL_STAGE.
+
+    Args:
+        data_dir: Directory containing the raw data files.
+        filename: Name of the timeline status file.
+
+    Returns:
+        DataFrame with one row per timeline event.
+    """
+    path = Path(data_dir) / filename
+    logger.info("Loading timeline status data from %s", path)
+
+    df = pd.read_csv(path, sep="\t", comment="#", low_memory=False)
+    logger.info("Timeline status data shape: %s", df.shape)
+    return df

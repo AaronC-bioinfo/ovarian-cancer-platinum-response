@@ -299,6 +299,38 @@ model:
 
 ---
 
+## Methods-Critique Ablation Study
+
+`run_ablation_study.py` quantifies, with data rather than assertion, how much
+two common evaluation mistakes inflate reported performance in genomic ML
+papers:
+
+1. **Feature-selection leakage** — computing gene-variance ranking on the
+   full dataset before the train/test split, versus the correct train-only
+   approach. Run across repeated random splits to report a distribution of
+   the inflation, not a single anecdotal number.
+2. **Single-split variance** — how much reported AUC swings purely from the
+   luck of the random train/test split, motivating bootstrap confidence
+   intervals and nested cross-validation over single hold-out reporting.
+
+```bash
+python run_ablation_study.py --n-repeats 30
+```
+
+Outputs:
+- `outputs/results/ablation_leakage_summary.csv` — mean ± std AUC per
+  model/threshold under leaky vs. correct conditions, plus the inflation delta
+- `outputs/results/ablation_split_variance_summary.csv` — AUC range across
+  repeated random splits
+- `outputs/figures/fig8_leakage_ablation.png` — paired box plots visualising
+  the inflation effect
+
+This analysis requires no data beyond what's already configured for the main
+pipeline, and is intended as the empirical backbone of a methods-critique
+framing for publication — see the project's research roadmap for full context.
+
+---
+
 ## Citation
 
 If you use this code or analysis, please cite the original dataset:

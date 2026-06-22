@@ -380,3 +380,103 @@ def plot_kaplan_meier(
     plt.tight_layout()
     _save(fig, save_path)
     return fig
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Figure 8 — Leakage ablation (methods-critique centerpiece)
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def plot_leakage_ablation(
+    ablation_df: pd.DataFrame,
+    title: str = "AUC Inflation from Feature-Selection Leakage",
+    save_path: Optional[str | Path] = None,
+) -> plt.Figure:
+    """
+    Paired box/strip plot comparing test-set AUC distributions under
+    leaky (full-data variance selection) vs. correct (train-only) conditions,
+    across repeated random splits.
+
+    This is the centerpiece figure for a methods-critique framing: it makes
+    the magnitude of leakage-driven AUC inflation visually obvious rather
+    than reporting it as a single anecdotal number.
+
+    Args:
+        ablation_df: Output of ablation.run_leakage_ablation — columns
+                      [threshold_m, model, condition, auc, seed].
+        title:        Plot title.
+        save_path:    Optional file path to save the figure.
+    """
+    models = sorted(ablation_df["model"].unique())
+    thresholds = sorted(ablation_df["threshold_m"].unique())
+
+    fig, axes = plt.subplots(1, len(thresholds), figsize=(5 * len(thresholds), 5), sharey=True)
+    axes = np.atleast_1d(axes)
+
+    condition_order = ["correct_train_only_variance", "leaky_full_data_variance"]
+    condition_labels = {
+        "correct_train_only_variance": "Correct\n(train-only)",
+        "leaky_full_data_variance": "Leaky\n(full-data)",
+    }
+    condition_colors = {
+        "correct_train_only_variance": "#2E86AB",
+        "leaky_full_data_variance": "#E84855",
+    }
+
+    for ax, thr in zip(axes, thresholds):
+        subset = ablation_df[ablation_df["threshold_m"] == thr]
+
+        plot_data = []
+        positions = []
+        colors = []
+        tick_labels = []
+        tick_positions = []
+
+        pos = 0
+        for model in models:
+            group_start = pos
+            for cond in condition_order:
+                vals = subset[(subset["model"] == model) & (subset["condition"] == cond)]["auc"].values
+                plot_data.append(vals)
+                positions.append(pos)
+                colors.append(condition_colors[cond])
+                pos += 1
+            tick_positions.append((group_start + pos - 1) / 2)
+            tick_labels.append(model)
+            pos += 0.8  # gap between model groups
+
+        bp = ax.boxplot(
+            plot_data,
+            positions=positions,
+            widths=0.6,
+            patch_artist=True,
+            showfliers=False,
+            medianprops=dict(color="black", linewidth=1.5),
+        )
+        for patch, color in zip(bp["boxes"], colors):
+            patch.set_facecolor(color)
+            patch.set_alpha(0.75)
+
+        # Overlay jittered raw points
+        rng = np.random.RandomState(0)
+        for x, vals, color in zip(positions, plot_data, colors):
+            jitter = rng.normal(0, 0.05, size=len(vals))
+            ax.scatter(x + jitter, vals, s=10, color=color, alpha=0.4, edgecolor="none", zorder=3)
+
+        ax.set_xticks(tick_positions)
+        ax.set_xticklabels(tick_labels, fontsize=10)
+        ax.set_title(f"{thr}-month endpoint", fontweight="bold")
+        ax.set_ylabel("Test-set ROC-AUC")
+        ax.axhline(0.5, ls="--", color="grey", lw=1, alpha=0.6)
+
+    # Shared legend
+    handles = [
+        plt.Rectangle((0, 0), 1, 1, fc=condition_colors[c], alpha=0.75, label=condition_labels[c].replace("\n", " "))
+        for c in condition_order
+    ]
+    fig.legend(handles=handles, loc="upper center", ncol=2, bbox_to_anchor=(0.5, 1.08), frameon=True)
+
+    fig.suptitle(title, fontsize=13, fontweight="bold", y=1.15)
+    plt.tight_layout()
+    _save(fig, save_path)
+    return fig
