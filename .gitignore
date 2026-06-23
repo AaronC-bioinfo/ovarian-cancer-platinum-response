@@ -9,3 +9,8 @@ src/__pycache__/
 tests/__pycache__/
 *.pyc
 *.pyo
+
+data/external/*.csv
+data/external/*.txt
+data/external/*.gz
+data/external/*.tar
