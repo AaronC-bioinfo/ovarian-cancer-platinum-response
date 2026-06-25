@@ -374,4 +374,10 @@ https://doi.org/10.1038/nature10166
 > Cerami, E., et al. (2012). The cBio Cancer Genomics Portal: An open
 platform for exploring multidimensional cancer genomics data.
 *Cancer Discovery*, 2(5), 401–404.
-https://doi.org/10.1158/
+https://doi.org/10.1158/2159-8290.CD-12-0095
+
+---
+
+## License
+
+MIT License — see [LICENSE](LICENSE) for details.

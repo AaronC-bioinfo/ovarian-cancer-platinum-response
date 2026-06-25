@@ -1,0 +1,3 @@
+"Variable","HR","HR_95CI_low","HR_95CI_hi","p_value"
+"log(TMB + 1)",0.894,0.7423,1.0768,0.2377
+"Aneuploidy Score",1.0213,1.0038,1.0391,0.01686
