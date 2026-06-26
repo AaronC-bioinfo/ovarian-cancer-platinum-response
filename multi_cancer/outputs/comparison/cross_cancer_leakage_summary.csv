@@ -1,0 +1,4 @@
+Cancer,N_combos,Sup_mean_inf,Sup_max_inf,Sup_min_inf,Unsup_mean_inf,Worst_case
+Ovarian (HGSOC),9,0.2234,0.552,-0.0041,0.0106,SVM@12m
+Lung Adeno,9,0.3201,0.4493,0.2301,0.0038,SVM@12m
+Colorectal,9,0.3298,0.4182,0.2228,0.0176,SVM@24m

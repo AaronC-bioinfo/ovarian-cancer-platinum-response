@@ -1,0 +1,10 @@
+threshold_m,model,leaky_condition,correct_condition,mean_inflation,wilcoxon_p,ttest_p,n_pairs,significant_at_05
+18,Logistic Regression,leaky_full_data_variance,correct_train_only_variance,0.0237,0.4235,0.3222,30,False
+18,Random Forest,leaky_full_data_variance,correct_train_only_variance,0.0355,0.0874,0.0963,30,False
+18,SVM,leaky_full_data_variance,correct_train_only_variance,0.0491,0.0627,0.0507,30,False
+24,Logistic Regression,leaky_full_data_variance,correct_train_only_variance,0.0443,0.1104,0.0699,30,False
+24,Random Forest,leaky_full_data_variance,correct_train_only_variance,0.0141,0.5087,0.4652,30,False
+24,SVM,leaky_full_data_variance,correct_train_only_variance,-0.0036,0.6654,0.9073,30,False
+36,Logistic Regression,leaky_full_data_variance,correct_train_only_variance,-0.0167,0.5148,0.4219,30,False
+36,Random Forest,leaky_full_data_variance,correct_train_only_variance,0.0024,0.5128,0.9119,30,False
+36,SVM,leaky_full_data_variance,correct_train_only_variance,0.0095,0.3826,0.5604,30,False

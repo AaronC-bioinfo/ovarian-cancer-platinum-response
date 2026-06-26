@@ -1,0 +1,28 @@
+threshold_m,model,mean_supervised_correct_train_only_fscore,mean_supervised_leaky_full_data_fscore,std_supervised_correct_train_only_fscore,std_supervised_leaky_full_data_fscore,auc_inflation,cancer,cancer_name
+12,Logistic Regression,0.5496,0.5455,0.2005,0.2789,-0.0041,OV,Ovarian (HGSOC)
+12,Random Forest,0.603,0.8232,0.2208,0.1394,0.2201,OV,Ovarian (HGSOC)
+12,SVM,0.4476,0.9996,0.2114,0.0022,0.552,OV,Ovarian (HGSOC)
+18,Logistic Regression,0.7311,0.7956,0.1049,0.1935,0.0645,OV,Ovarian (HGSOC)
+18,Random Forest,0.6691,0.8925,0.1175,0.061,0.2235,OV,Ovarian (HGSOC)
+18,SVM,0.6605,0.9989,0.1433,0.003,0.3384,OV,Ovarian (HGSOC)
+24,Logistic Regression,0.6779,0.8973,0.0926,0.0929,0.2193,OV,Ovarian (HGSOC)
+24,Random Forest,0.7326,0.8494,0.0914,0.0913,0.1168,OV,Ovarian (HGSOC)
+24,SVM,0.6681,0.9486,0.1058,0.0395,0.2805,OV,Ovarian (HGSOC)
+12,Logistic Regression,0.5486,0.7868,0.1351,0.157,0.2382,LUAD,Lung Adeno
+12,Random Forest,0.5672,0.8559,0.1269,0.1092,0.2887,LUAD,Lung Adeno
+12,SVM,0.5385,0.9878,0.1478,0.0311,0.4493,LUAD,Lung Adeno
+18,Logistic Regression,0.6365,0.9541,0.1115,0.0505,0.3175,LUAD,Lung Adeno
+18,Random Forest,0.627,0.8572,0.1375,0.1175,0.2301,LUAD,Lung Adeno
+18,SVM,0.5224,0.9266,0.1148,0.0674,0.4042,LUAD,Lung Adeno
+24,Logistic Regression,0.5711,0.9586,0.1232,0.0312,0.3875,LUAD,Lung Adeno
+24,Random Forest,0.5892,0.8275,0.1069,0.0749,0.2383,LUAD,Lung Adeno
+24,SVM,0.5775,0.9044,0.1275,0.0599,0.3269,LUAD,Lung Adeno
+18,Logistic Regression,0.5912,0.8982,0.1941,0.1192,0.307,COADREAD,Colorectal
+18,Random Forest,0.5759,0.7987,0.1704,0.1542,0.2228,COADREAD,Colorectal
+18,SVM,0.5807,0.9833,0.2071,0.0342,0.4026,COADREAD,Colorectal
+24,Logistic Regression,0.5964,0.9062,0.1706,0.1076,0.3099,COADREAD,Colorectal
+24,Random Forest,0.5823,0.8135,0.1513,0.1147,0.2313,COADREAD,Colorectal
+24,SVM,0.5734,0.9917,0.2269,0.0182,0.4182,COADREAD,Colorectal
+36,Logistic Regression,0.5714,0.973,0.1734,0.0427,0.4016,COADREAD,Colorectal
+36,Random Forest,0.6262,0.8873,0.1493,0.1054,0.2611,COADREAD,Colorectal
+36,SVM,0.5817,0.9952,0.1891,0.0145,0.4135,COADREAD,Colorectal

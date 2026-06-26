@@ -1,0 +1,10 @@
+threshold_m,model,mean_supervised_correct_train_only_fscore,mean_supervised_leaky_full_data_fscore,std_supervised_correct_train_only_fscore,std_supervised_leaky_full_data_fscore,auc_inflation
+12,Logistic Regression,0.5486,0.7868,0.1351,0.157,0.2382
+12,Random Forest,0.5672,0.8559,0.1269,0.1092,0.2887
+12,SVM,0.5385,0.9878,0.1478,0.0311,0.4493
+18,Logistic Regression,0.6365,0.9541,0.1115,0.0505,0.3175
+18,Random Forest,0.627,0.8572,0.1375,0.1175,0.2301
+18,SVM,0.5224,0.9266,0.1148,0.0674,0.4042
+24,Logistic Regression,0.5711,0.9586,0.1232,0.0312,0.3875
+24,Random Forest,0.5892,0.8275,0.1069,0.0749,0.2383
+24,SVM,0.5775,0.9044,0.1275,0.0599,0.3269

@@ -1,0 +1,13 @@
+model,threshold_m,Ovarian (HGSOC),Lung Adeno,Colorectal
+Logistic Regression,12,-0.0041,0.2382,
+Logistic Regression,18,0.0645,0.3175,0.307
+Logistic Regression,24,0.2193,0.3875,0.3099
+Logistic Regression,36,,,0.4016
+Random Forest,12,0.2201,0.2887,
+Random Forest,18,0.2235,0.2301,0.2228
+Random Forest,24,0.1168,0.2383,0.2313
+Random Forest,36,,,0.2611
+SVM,12,0.552,0.4493,
+SVM,18,0.3384,0.4042,0.4026
+SVM,24,0.2805,0.3269,0.4182
+SVM,36,,,0.4135

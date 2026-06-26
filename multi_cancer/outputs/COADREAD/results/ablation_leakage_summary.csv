@@ -1,0 +1,10 @@
+threshold_m,model,mean_correct_train_only_variance,mean_leaky_full_data_variance,std_correct_train_only_variance,std_leaky_full_data_variance,auc_inflation
+18,Logistic Regression,0.4579,0.4816,0.1467,0.1393,0.0237
+18,Random Forest,0.5447,0.5803,0.1568,0.1595,0.0355
+18,SVM,0.4754,0.5246,0.1423,0.1226,0.0491
+24,Logistic Regression,0.4969,0.5411,0.1974,0.1954,0.0443
+24,Random Forest,0.5172,0.5312,0.1866,0.1745,0.0141
+24,SVM,0.399,0.3953,0.1578,0.1729,-0.0036
+36,Logistic Regression,0.5524,0.5357,0.153,0.1912,-0.0167
+36,Random Forest,0.6024,0.6048,0.1663,0.1933,0.0024
+36,SVM,0.4381,0.4476,0.1412,0.1305,0.0095
