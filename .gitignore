@@ -14,3 +14,6 @@ data/external/*.csv
 data/external/*.txt
 data/external/*.gz
 data/external/*.tar
+
+multi_cancer/outputs/_tmp_*/
+multi_cancer/outputs/*/ablation_run.log
