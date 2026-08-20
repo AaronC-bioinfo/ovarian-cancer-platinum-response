@@ -8,7 +8,7 @@
 
 .libPaths(c("C:/Users/AMAC_WORK/R/library", .libPaths()))
 
-# ── 0. Install required packages if missing ────────────────────────────────────
+# ---- 0. Install required packages if missing --------------------------------
 required_pkgs <- c("survival", "survminer", "ggplot2")
 for (pkg in required_pkgs) {
   if (!requireNamespace(pkg, quietly = TRUE)) {
@@ -21,7 +21,7 @@ library(survival)
 library(survminer)
 library(ggplot2)
 
-# ── 1. Paths ───────────────────────────────────────────────────────────────────
+# ---- 1. Paths ---------------------------------------------------------------
 DATA_DIR <- "D:/ALIENWARE/WORK DATA/George Mason/Course Work/3rd Sem FALL 2025/BINF 760 ML/Project data/ov_tcga_pan_can_atlas_2018"
 OUT_DIR  <- "phase2/outputs"
 dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
@@ -32,7 +32,7 @@ load_cbio <- function(path) {
              stringsAsFactors = FALSE, check.names = FALSE)
 }
 
-# ── 2. Load and merge data ─────────────────────────────────────────────────────
+# ---- 2. Load and merge data -------------------------------------------------
 cat("Loading clinical files...\n")
 clin <- load_cbio(file.path(DATA_DIR, "data_clinical_patient.txt"))
 samp <- load_cbio(file.path(DATA_DIR, "data_clinical_sample.txt"))
@@ -51,7 +51,7 @@ df <- merge(clin_plat, samp_dedup, by = "PATIENT_ID",
             all.x = TRUE, suffixes = c("", "_samp"))
 cat(sprintf("  After merge: %d rows\n", nrow(df)))
 
-# ── 3. Prepare survival variables ──────────────────────────────────────────────
+# ---- 3. Prepare survival variables ------------------------------------------
 cat("\nPreparing survival variables...\n")
 
 # OS_TIME: numeric months
@@ -72,7 +72,7 @@ cc <- df[!is.na(df$os_time) & !is.na(df$os_event) &
          !is.na(df$tmb)     & !is.na(df$aneu), ]
 cat(sprintf("  Complete cases for Cox model: %d / %d\n", nrow(cc), nrow(df)))
 
-# ── 4. Descriptive statistics for covariates ───────────────────────────────────
+# ---- 4. Descriptive statistics for covariates -------------------------------
 cat("\nCovariate summary (complete-case subset):\n")
 cat(sprintf("  TMB_NONSYNONYMOUS : min=%.3f  median=%.3f  max=%.3f\n",
             min(cc$tmb), median(cc$tmb), max(cc$tmb)))
@@ -81,12 +81,12 @@ cat(sprintf("  ANEUPLOIDY_SCORE  : min=%.1f   median=%.1f   max=%.1f\n",
 
 # Log-transform TMB (right-skewed; common in survival literature)
 cc$log_tmb <- log1p(cc$tmb)   # log(TMB + 1)
-cat("\n  TMB is right-skewed — using log1p(TMB) in Cox model.\n")
+cat("\n  TMB is right-skewed - using log1p(TMB) in Cox model.\n")
 cat(sprintf("  log1p(TMB): min=%.3f  median=%.3f  max=%.3f\n",
             min(cc$log_tmb), median(cc$log_tmb), max(cc$log_tmb)))
 
-# ── 5. Fit Cox model ───────────────────────────────────────────────────────────
-cat("\n── Fitting Cox proportional hazards model ──\n")
+# ---- 5. Fit Cox model -------------------------------------------------------
+cat("\n---- Fitting Cox proportional hazards model ----\n")
 surv_obj <- Surv(time = cc$os_time, event = cc$os_event)
 
 # Model 1: log(TMB) + ANEUPLOIDY_SCORE
@@ -94,11 +94,11 @@ cox_fit <- coxph(surv_obj ~ log_tmb + aneu, data = cc)
 cat("\nCox model summary:\n")
 print(summary(cox_fit))
 
-# ── 6. C-index ────────────────────────────────────────────────────────────────
+# ---- 6. C-index -------------------------------------------------------------
 cindex <- summary(cox_fit)$concordance
 cat(sprintf("\nC-index: %.4f  (SE: %.4f)\n", cindex[1], cindex[2]))
 
-# ── 7. Hazard ratio table → CSV ───────────────────────────────────────────────
+# ---- 7. Hazard ratio table -> CSV -------------------------------------------
 cat("\nExtracting hazard ratio table...\n")
 cox_sum  <- summary(cox_fit)
 coef_mat <- cox_sum$coefficients
@@ -120,16 +120,16 @@ hr_csv <- file.path(OUT_DIR, "cox_hazard_ratios.csv")
 write.csv(hr_table, hr_csv, row.names = FALSE)
 cat(sprintf("HR table saved: %s\n", hr_csv))
 
-# ── 8. Schoenfeld residuals — proportional hazards assumption test ─────────────
-cat("\n── Proportional hazards assumption (Schoenfeld residuals) ──\n")
+# ---- 8. Schoenfeld residuals - proportional hazards assumption test ---------
+cat("\n---- Proportional hazards assumption (Schoenfeld residuals) ----\n")
 ph_test <- cox.zph(cox_fit)
 print(ph_test)
 ph_csv <- file.path(OUT_DIR, "cox_ph_test.csv")
 write.csv(as.data.frame(ph_test$table), ph_csv, row.names = TRUE)
 cat(sprintf("PH test table saved: %s\n", ph_csv))
 
-# ── 9. Risk group stratification — tertiles of linear predictor ───────────────
-cat("\n── Stratifying patients into risk tertiles ──\n")
+# ---- 9. Risk group stratification - tertiles of linear predictor ------------
+cat("\n---- Stratifying patients into risk tertiles ----\n")
 cc$lp    <- predict(cox_fit, type = "lp")  # linear predictor
 cc$risk_group <- cut(cc$lp,
                      breaks = quantile(cc$lp, probs = c(0, 1/3, 2/3, 1)),
@@ -138,7 +138,7 @@ cc$risk_group <- cut(cc$lp,
 cat("Risk group sizes:\n")
 print(table(cc$risk_group))
 
-# ── 10. Kaplan-Meier curves by risk group ─────────────────────────────────────
+# ---- 10. Kaplan-Meier curves by risk group ----------------------------------
 cat("\nFitting KM curves by risk group...\n")
 km_fit <- survfit(Surv(os_time, os_event) ~ risk_group, data = cc)
 print(km_fit)
@@ -171,17 +171,35 @@ p_km <- ggsurvplot(
 ggsave(km_png, plot = print(p_km), width = 8, height = 7, dpi = 150)
 cat(sprintf("KM plot saved: %s\n", km_png))
 
-# ── 11. Save enriched dataset for Python handoff ──────────────────────────────
+# ---- 11. Save enriched dataset for Python handoff ---------------------------
 handoff_csv <- file.path(OUT_DIR, "cox_patients_with_risk.csv")
 out_cols <- c("PATIENT_ID", "os_time", "os_event", "tmb", "log_tmb",
               "aneu", "lp", "risk_group")
 write.csv(cc[, out_cols], handoff_csv, row.names = FALSE)
 cat(sprintf("Patient risk scores saved: %s\n", handoff_csv))
 
-# ── 12. Summary printout ──────────────────────────────────────────────────────
-cat("\n══════════════════════════════════════════════\n")
-cat("PHASE 2 COX MODEL — RESULTS SUMMARY\n")
-cat("══════════════════════════════════════════════\n")
+# ---- 11b. Persist model-level summary statistics -> CSV ---------------------
+# Added 2026-07-20 (Phase 3 of AUDIT_2026-07-20.md fixes). The C-index and
+# KM log-rank p were computed but only printed to stdout; the manuscript cites
+# both (C-index 0.570, log-rank p 0.023), so they are now written to a file.
+summary_stats <- data.frame(
+  metric = c("n_complete_cases", "n_events", "c_index", "c_index_se",
+             "km_logrank_p", "schoenfeld_global_p"),
+  value  = c(nrow(cc), sum(cc$os_event),
+             round(cindex[1], 4), round(cindex[2], 4),
+             signif(lr_pval, 4),
+             signif(ph_test$table["GLOBAL", "p"], 4)),
+  manuscript_value = c(432, 242, 0.570, NA, 0.023, 0.178),
+  stringsAsFactors = FALSE
+)
+stats_csv <- file.path(OUT_DIR, "cox_summary_stats.csv")
+write.csv(summary_stats, stats_csv, row.names = FALSE)
+cat(sprintf("Model summary stats saved: %s\n", stats_csv))
+
+# ---- 12. Summary printout ---------------------------------------------------
+cat("\n==============================================================================\n")
+cat("PHASE 2 COX MODEL - RESULTS SUMMARY\n")
+cat("==============================================================================\n")
 cat(sprintf("  N (complete cases)  : %d\n", nrow(cc)))
 cat(sprintf("  Events (deaths)     : %d\n", sum(cc$os_event)))
 cat(sprintf("  C-index             : %.4f (SE %.4f)\n", cindex[1], cindex[2]))
@@ -201,5 +219,6 @@ cat(sprintf("    %s\n", hr_csv))
 cat(sprintf("    %s\n", ph_csv))
 cat(sprintf("    %s\n", km_png))
 cat(sprintf("    %s\n", handoff_csv))
-cat("══════════════════════════════════════════════\n")
+cat("==============================================================================\n")
 cat("Done. Paste full output into chat.\n")
+

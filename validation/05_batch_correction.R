@@ -156,6 +156,83 @@ cat("Post-ComBat GEO range:",
     round(min(geo_corrected, na.rm=TRUE), 2), "to",
     round(max(geo_corrected, na.rm=TRUE), 2), "\n")
 
+# =============================================================================
+# --- Cross-platform alignment diagnostics -----------------------------------
+# Added 2026-07-20 (Phase 2 of AUDIT_2026-07-20.md fixes).
+# The manuscript Methods/Results report two diagnostics that were described
+# but never computed in code:
+#   (A) post-ComBat inter-platform Pearson correlation of gene-level mean
+#       expression  (manuscript value: r = -0.005)
+#   (B) variance of TCGA's top-500 selected genes vs variance of all genes,
+#       measured within the GEO dataset itself  (manuscript value: ratio ~1.00)
+# Both are written to validation/outputs/combat_diagnostics.csv so the claim
+# is backed by a reproducible artifact rather than prose alone.
+# =============================================================================
+cat("\n--- Computing cross-platform alignment diagnostics ---\n")
+
+DIAG_DIR <- "validation/outputs"
+if (!dir.exists(DIAG_DIR)) dir.create(DIAG_DIR, recursive = TRUE)
+
+# (A) Inter-platform Pearson correlation of gene-level mean expression,
+#     computed on the common genes AFTER ComBat correction.
+tcga_gene_mean <- rowMeans(tcga_corrected, na.rm = TRUE)
+geo_gene_mean  <- rowMeans(geo_corrected,  na.rm = TRUE)
+stopifnot(length(tcga_gene_mean) == length(geo_gene_mean))
+combat_pearson_r <- cor(tcga_gene_mean, geo_gene_mean,
+                        method = "pearson", use = "complete.obs")
+cat(sprintf("(A) post-ComBat inter-platform Pearson r (gene-level mean) = %.6f\n",
+            combat_pearson_r))
+
+# (B) Variance ratio: TCGA's top-500 variance-selected genes vs all genes,
+#     with variance measured in the GEO dataset's own (pre-ComBat, log2 RMA)
+#     expression. Selection uses variance on the TCGA log2 matrix (the same
+#     unsupervised criterion the classifier pipeline uses), restricted to the
+#     genes common to both platforms.
+top_n_sel   <- 500
+tcga_var_log <- apply(tcga_sub, 1, var, na.rm = TRUE)   # tcga_sub = TCGA log2, common genes
+n_sel        <- min(top_n_sel, sum(!is.na(tcga_var_log)))
+top_genes    <- names(sort(tcga_var_log, decreasing = TRUE))[seq_len(n_sel)]
+
+geo_var_log  <- apply(geo_sub, 1, var, na.rm = TRUE)    # geo_sub  = GEO log2 RMA, common genes
+mean_var_selected_in_geo <- mean(geo_var_log[top_genes], na.rm = TRUE)
+mean_var_all_in_geo      <- mean(geo_var_log,            na.rm = TRUE)
+variance_ratio <- mean_var_selected_in_geo / mean_var_all_in_geo
+cat(sprintf("(B) TCGA-top%d variance / all-gene variance, measured in GEO = %.4f\n",
+            n_sel, variance_ratio))
+
+combat_diag <- data.frame(
+  metric = c("post_combat_interplatform_pearson_r",
+             "geo_variance_ratio_tcga_top500_vs_all",
+             "n_common_genes",
+             "n_tcga_selected_genes",
+             "mean_var_selected_genes_in_geo",
+             "mean_var_all_genes_in_geo"),
+  value = c(combat_pearson_r,
+            variance_ratio,
+            length(common_genes),
+            n_sel,
+            mean_var_selected_in_geo,
+            mean_var_all_in_geo),
+  manuscript_value = c(-0.005, 1.00, NA, 500, NA, NA),
+  stringsAsFactors = FALSE
+)
+write.csv(combat_diag, file.path(DIAG_DIR, "combat_diagnostics.csv"),
+          row.names = FALSE, quote = FALSE)
+cat("Saved", file.path(DIAG_DIR, "combat_diagnostics.csv"), "\n")
+
+# Loud flag if the computed values diverge materially from the manuscript claim.
+if (abs(combat_pearson_r - (-0.005)) > 0.05) {
+  cat("\n*** WARNING: post-ComBat Pearson r =", round(combat_pearson_r, 4),
+      "differs materially from the manuscript's -0.005 ***\n")
+  cat("*** The manuscript external-validation claim must be updated. ***\n")
+}
+if (abs(variance_ratio - 1.00) > 0.15) {
+  cat("\n*** WARNING: variance ratio =", round(variance_ratio, 4),
+      "differs materially from the manuscript's ~1.00 ***\n")
+  cat("*** The manuscript external-validation claim must be updated. ***\n")
+}
+cat("--- Diagnostics complete ---\n\n")
+
 # --- Load and merge metadata ------------------------------------------------
 cat("Loading GSE63885 metadata...\n")
 meta  <- read.csv(file.path(OUT_DIR, "GSE63885_meta_clean.csv"),
@@ -187,10 +264,11 @@ write.csv(as.data.frame(tcga_corrected),
 write.csv(meta_final, file.path(OUT_DIR, "harmonised_metadata.csv"),
           row.names=FALSE, quote=FALSE)
 
-cat("Saved harmonised_expression.csv  —",
+cat("Saved harmonised_expression.csv  -",
     nrow(geo_out), "genes x", ncol(geo_out), "samples\n")
 cat("Saved tcga_corrected_expression.csv\n")
-cat("Saved harmonised_metadata.csv    —", nrow(meta_final), "samples\n")
+cat("Saved harmonised_metadata.csv    -", nrow(meta_final), "samples\n")
 
 cat("\n=== Step 5 Complete ===\n")
 cat("Next: run Python validate_external.py\n")
+

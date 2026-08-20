@@ -269,6 +269,36 @@ def _cohens_kappa(a: np.ndarray, b: np.ndarray) -> float:
     return cohen_kappa_score(a, b)
 
 
+def clopper_pearson_ci(
+    n_success: int,
+    n_total: int,
+    alpha: float = 0.05,
+) -> tuple[float, float]:
+    """
+    Clopper-Pearson exact (Beta) confidence interval for a binomial
+    proportion. Appropriate for the small, extreme-imbalance recall counts
+    here (e.g. 0 of 5), where a normal-approximation interval is invalid.
+
+    Args:
+        n_success: Number of successes (e.g. confirmed non-responders the
+                   OS proxy correctly flagged).
+        n_total:   Number of trials (e.g. overlap with OS labels).
+        alpha:     Significance level (default 0.05 → 95% CI).
+
+    Returns:
+        (ci_low, ci_high). Boundary cases handled exactly: at k=0 the lower
+        bound is 0.0; at k=n the upper bound is 1.0.
+    """
+    from scipy.stats import beta
+
+    if n_total == 0:
+        return (float("nan"), float("nan"))
+
+    ci_low = 0.0 if n_success == 0 else beta.ppf(alpha / 2, n_success, n_total - n_success + 1)
+    ci_high = 1.0 if n_success == n_total else beta.ppf(1 - alpha / 2, n_success + 1, n_total - n_success)
+    return (float(ci_low), float(ci_high))
+
+
 def report_recall_on_confirmed_nonresponders(
     candidate_labels: pd.Series,
     os_labelled_dict: dict[int, pd.DataFrame],
@@ -317,6 +347,11 @@ def report_recall_on_confirmed_nonresponders(
         recall = n_correct / len(overlap)
         missed = list(overlap[os_subset != 1])
 
+        # Clopper-Pearson exact 95% CI on the recall estimate. Reported
+        # because the confirmed-positive set is tiny and extremely skewed,
+        # so a normal-approximation interval would be invalid.
+        ci_low, ci_high = clopper_pearson_ci(int(n_correct), len(overlap), alpha=0.05)
+
         rows.append(
             {
                 "threshold_m": thr,
@@ -324,6 +359,8 @@ def report_recall_on_confirmed_nonresponders(
                 "n_overlap_with_os_labels": len(overlap),
                 "n_correctly_flagged_by_os_proxy": int(n_correct),
                 "recall": round(recall, 3),
+                "recall_ci95_low": round(ci_low, 3),
+                "recall_ci95_high": round(ci_high, 3),
                 "missed_patient_ids": missed,
             }
         )

@@ -1,0 +1,7 @@
+metric,value,manuscript_value
+post_combat_interplatform_pearson_r,-0.00716695212226685,-0.005
+geo_variance_ratio_tcga_top500_vs_all,3.70387222510639,1
+n_common_genes,15994,NA
+n_tcga_selected_genes,500,500
+mean_var_selected_genes_in_geo,1.06572255744786,NA
+mean_var_all_genes_in_geo,0.287731998480926,NA

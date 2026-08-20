@@ -1,0 +1,5 @@
+"metric","value","manuscript_value"
+"n_matched_subset",335,335
+"n_brca_mutant",28,NA
+"c_index_baseline",0.5731,0.573
+"c_index_brca_added",0.5885,0.588
