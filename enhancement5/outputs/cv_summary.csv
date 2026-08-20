@@ -1,0 +1,7 @@
+"cohort","model","lambda","mean_cindex","sd_cindex","n_folds"
+"CohortA_n235","baseline",NA,0.585460348740399,0.0713973392153677,25
+"CohortA_n235","full_expression","lambda.min",0.587279875172405,0.0691503969633265,25
+"CohortA_n235","full_expression","lambda.1se",0.585292794931868,0.0710847833555504,25
+"CohortB_n163","baseline",NA,0.556865576616048,0.077127308537942,25
+"CohortB_n163","full_expression","lambda.min",0.606293796263613,0.0778847268236035,25
+"CohortB_n163","full_expression","lambda.1se",0.558226466340368,0.0786986900521491,25

@@ -1,0 +1,28 @@
+category,item,value,n_total,manuscript
+FLNA_rank,SHAP_12m,338,551,460-505
+FLNA_rank,SHAP_18m,435,553,460-505
+FLNA_rank,SHAP_24m,501,554,460-505
+FLNA_rank,MDI_12m,340,551,460-505
+FLNA_rank,MDI_18m,429,553,460-505
+FLNA_rank,MDI_24m,508,554,460-505
+FLNA_rank,permutation_12m,299,551,460-505
+FLNA_rank,permutation_18m,504,553,460-505
+FLNA_rank,permutation_24m,340,554,460-505
+FLNA_rank,TRUE_RANGE_all_methods,299-508,,460-505
+permutation_spearman,with12m_MDI_vs_Permutation,0.4063,557,0.37-0.41
+permutation_spearman,with12m_Permutation_vs_SHAP,0.3661,557,0.37-0.41
+permutation_spearman,without12m_MDI_vs_Permutation,0.4188,556,0.37-0.41
+permutation_spearman,without12m_Permutation_vs_SHAP,0.38,556,0.37-0.41
+permutation_spearman,TRUE_RANGE,0.3661-0.4188,,0.37-0.41
+ribosome_significance,SHAP-with12m_top50,p=0.371 sig=False,,NS at top50/100
+ribosome_significance,SHAP-with12m_top100,p=0.305 sig=False,,NS at top50/100
+ribosome_significance,SHAP-with12m_top200,p=5.75e-10 sig=True,,NS at top50/100
+ribosome_significance,SHAP-with12m_top500,p=1.95e-51 sig=True,,NS at top50/100
+ribosome_significance,SHAP-without12m_top50,p=0.382 sig=False,,NS at top50/100
+ribosome_significance,SHAP-without12m_top100,p=0.0198 sig=True,,NS at top50/100
+ribosome_significance,SHAP-without12m_top200,p=1.7e-15 sig=True,,NS at top50/100
+ribosome_significance,SHAP-without12m_top500,p=5.05e-50 sig=True,,NS at top50/100
+enh5_alpha_perfold,CohortA_n_folds_alpha0,2/25,25,B: pure ridge alpha=0
+enh5_alpha_perfold,CohortA_alpha_range,0.0-1.0,25,
+enh5_alpha_perfold,CohortB_n_folds_alpha0,8/25,25,B: pure ridge alpha=0
+enh5_alpha_perfold,CohortB_alpha_range,0.0-1.0,25,
