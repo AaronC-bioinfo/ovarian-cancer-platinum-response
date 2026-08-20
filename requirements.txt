@@ -9,7 +9,8 @@ pandas>=2.2.0
 scipy>=1.13.0
 
 # Machine learning
-scikit-learn>=1.5.0
+# scikit-learn is PINNED (not >=) — RF and SVM AUCs in Table 2 are version-sensitive.
+# The published values were produced under 1.9.0; see the pin at the bottom of this file.
 imbalanced-learn>=0.12.0   # SMOTE / resampling (optional extension)
 
 # Explainability
@@ -42,3 +43,10 @@ pytest-cov>=5.0.0
 # Methods-critique / ablation study (src/ablation.py) uses only the
 # dependencies already listed above — no additional packages required.
 
+# ─────────────────────────────────────────────────────────────────
+#  PINNED: Table 2 (leakage-free AUCs) was generated under this exact
+#  version. Random Forest and SVM results differ across scikit-learn
+#  releases; do not loosen this pin without regenerating
+#  outputs/results/clean_auc_table.csv and updating the manuscript.
+# ─────────────────────────────────────────────────────────────────
+scikit-learn==1.9.0
