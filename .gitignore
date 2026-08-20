@@ -1,9 +1,16 @@
 
 venv/
 .venv/
-outputs/results/
+outputs/results/*
 outputs/models/
 outputs/figures/
+# Canonical clean-AUC table is an exception — it is the tracked source of
+# truth for the manuscript's headline performance table (added 2026-07-20).
+!outputs/results/clean_auc_table.csv
+!outputs/results/clean_auc_table_raw.csv
+
+# Sandbox resume checkpoints for the Phase-1 re-run — never commit.
+fixes/.phase1_ckpt/
 
 src/__pycache__/
 tests/__pycache__/

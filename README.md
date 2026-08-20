@@ -128,9 +128,28 @@ distribution and confidence intervals.
 
 | Model               | 12m AUC | 18m AUC | 24m AUC |
 |---------------------|---------|---------|---------|
-| Logistic Regression | ~0.70   | ~0.70   | ~0.70   |
-| Random Forest       | ~0.67   | ~0.68   | ~0.68   |
-| SVM (RBF)           | ~0.45   | ~0.66   | ~0.67   |
+| Logistic Regression | 0.457   | 0.669   | 0.678   |
+| Random Forest       | _pending re-run_ | _pending re-run_ | _pending re-run_ |
+| SVM (RBF)           | _pending re-run_ | _pending re-run_ | _pending re-run_ |
+
+<!--
+AUC table corrected 2026-07-20. The previous values (LR ~0.70; RF ~0.67/0.68/0.68;
+SVM ~0.45/0.66/0.67) were traced to a stale orphan output file
+(ablation_split_variance_summary.csv) that did not agree with its own raw data —
+see fixes/phase1_provenance.md.
+
+Logistic Regression is locked: 0.457 / 0.669 / 0.678. LR is deterministic
+(fixed random_state, version-stable) and reproduces exactly across three
+independent runs a month apart, so these are final.
+
+Random Forest and SVM are version-sensitive (RF bootstrap RNG; SVC
+probability=True Platt calibration) and requirements.txt pins no exact
+scikit-learn version. They must be regenerated in the authors' own environment
+before being published — run:
+    python fixes/phase1_rerun_clean_auc.py --data-dir "<TCGA path>"
+and fill in outputs/results/clean_auc_table.csv.
+-->
+
 
 > **Note on leakage:** Supervised F-score feature selection inflates
 these AUCs by a mean of +0.22 (up to +0.55 for SVM), significant at
