@@ -168,7 +168,9 @@ p_km <- ggsurvplot(
   title         = "Kaplan-Meier: Cox-predicted risk tertiles\n(TCGA-OV, platinum-treated, n=432)",
   ggtheme       = theme_bw(base_size = 13)
 )
-ggsave(km_png, plot = print(p_km), width = 8, height = 7, dpi = 150)
+png(km_png, width = 8, height = 7, units = "in", res = 150)
+print(p_km)
+dev.off()
 cat(sprintf("KM plot saved: %s\n", km_png))
 
 # ---- 11. Save enriched dataset for Python handoff ---------------------------

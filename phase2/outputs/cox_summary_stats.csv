@@ -1,2 +1,7 @@
-"c_index","logrank_p"
-0.569801117952041,0.0234225878501035
+"metric","value","manuscript_value"
+"n_complete_cases",432,432
+"n_events",242,242
+"c_index",0.5698,0.57
+"c_index_se",0.0214,NA
+"km_logrank_p",0.02342,0.023
+"schoenfeld_global_p",0.1785,0.178
