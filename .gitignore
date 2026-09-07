@@ -24,3 +24,14 @@ data/external/*.tar
 
 multi_cancer/outputs/_tmp_*/
 multi_cancer/outputs/*/ablation_run.log
+
+# Local backups and scratch (2026-09-07)
+*.bak_*
+*.bak2_*
+*.bak3_*
+archive/PLOS_redline_pre_*
+archive/f1000_superseded_*/
+Rplots.pdf
+_to_delete/
+*.PRE_RERUN_*.csv
+
