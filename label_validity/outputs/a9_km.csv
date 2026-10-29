@@ -1,0 +1,10 @@
+population,group,n,deaths,km_median_months
+primary_in_2011_release,undetermined,144,71,47.53920505
+primary_in_2011_release,determinate,276,189,47.70358681
+secondary_all_489,undetermined,212,93,48.75563008
+secondary_all_489,determinate,276,189,47.70358681
+secondary_all_489,Missing,87,61,39.02422987
+secondary_all_489,Tooearly,57,10,
+secondary_all_489,Resistant,87,77,32.87635204
+secondary_all_489,Sensitive,189,112,58.15826676
+secondary_all_489,absent,68,22,54.31173357
