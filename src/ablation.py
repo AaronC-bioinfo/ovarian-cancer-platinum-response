@@ -59,7 +59,7 @@ def _select_top_f_score(X: pd.DataFrame, y: np.ndarray, top_n: int) -> pd.Index:
     from sklearn.feature_selection import f_classif
 
     X_filled = X.fillna(0)
-    f_scores, _ = f_classif(X_filled, y)
+    f_scores, _ = f_classif(X_filled.to_numpy(), y)
     f_scores = pd.Series(f_scores, index=X.columns).fillna(0)
     return f_scores.nlargest(top_n).index
 
@@ -230,8 +230,8 @@ def run_supervised_leakage_ablation(
                 "supervised_correct_train_only_fscore": (Xtr_correct, Xte_correct),
             }.items():
                 scaler = StandardScaler()
-                Xtr_sc = scaler.fit_transform(Xtr)
-                Xte_sc = scaler.transform(Xte)
+                Xtr_sc = scaler.fit_transform(Xtr.to_numpy())
+                Xte_sc = scaler.transform(Xte.to_numpy())
 
                 models = get_all_models(cfg)
                 for name, model in models.items():

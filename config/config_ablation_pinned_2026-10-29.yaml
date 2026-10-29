@@ -1,0 +1,51 @@
+# Ovarian Cancer Platinum Response Prediction - Configuration
+
+project:
+  name: "Ovarian Cancer Platinum Response"
+  seed: 42
+  version: "1.0.0"
+
+data:
+  data_dir: "C:/PROJECTS/OV Data/Project data/ov_tcga_pan_can_atlas_2018"
+  clinical_file: "data_clinical_patient.txt"
+  treatment_file: "data_timeline_treatment.txt"
+  expression_file: "data_mrna_seq_v2_rsem.txt"
+
+clinical:
+  time_col: "OS_MONTHS"
+  status_col: "OS_STATUS"
+  platinum_drugs:
+    - "CARBOPLATIN"
+    - "CISPLATIN"
+  thresholds:
+    - 12
+    - 18
+    - 24
+
+features:
+  top_n_genes: 500
+
+model:
+  test_size: 0.20
+  cv_folds: 5
+  logistic_regression:
+    max_iter: 5000
+    penalty: "l2"
+    class_weight: "balanced"
+  random_forest:
+    n_estimators: 300
+    max_depth: null
+    min_samples_split: 2
+    class_weight: "balanced"
+  svm:
+    kernel: "rbf"
+    C: 1
+    gamma: "scale"
+    probability: true
+    class_weight: "balanced"
+
+output:
+  figures_dir: "outputs/figures_pinned_2026-10-29"
+  models_dir: "outputs/models"
+  results_dir: "outputs/results_pinned_2026-10-29"
+  figure_dpi: 300

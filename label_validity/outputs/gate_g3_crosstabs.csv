@@ -1,0 +1,265 @@
+row_var,col_var,row,col,n
+pancan_ptos,pub_platinum_status,Complete Remission/Response,Missing,9
+pancan_ptos,pub_platinum_status,Complete Remission/Response,NA,27
+pancan_ptos,pub_platinum_status,Complete Remission/Response,Resistant,4
+pancan_ptos,pub_platinum_status,Complete Remission/Response,Sensitive,51
+pancan_ptos,pub_platinum_status,Complete Remission/Response,Tooearly,25
+pancan_ptos,pub_platinum_status,NA,Missing,70
+pancan_ptos,pub_platinum_status,NA,NA,37
+pancan_ptos,pub_platinum_status,NA,Resistant,80
+pancan_ptos,pub_platinum_status,NA,Sensitive,130
+pancan_ptos,pub_platinum_status,NA,Tooearly,30
+pancan_ptos,pub_platinum_status,Partial Remission/Response,Missing,1
+pancan_ptos,pub_platinum_status,Partial Remission/Response,NA,3
+pancan_ptos,pub_platinum_status,Partial Remission/Response,Resistant,0
+pancan_ptos,pub_platinum_status,Partial Remission/Response,Sensitive,4
+pancan_ptos,pub_platinum_status,Partial Remission/Response,Tooearly,0
+pancan_ptos,pub_platinum_status,Progressive Disease,Missing,3
+pancan_ptos,pub_platinum_status,Progressive Disease,NA,1
+pancan_ptos,pub_platinum_status,Progressive Disease,Resistant,1
+pancan_ptos,pub_platinum_status,Progressive Disease,Sensitive,2
+pancan_ptos,pub_platinum_status,Progressive Disease,Tooearly,0
+pancan_ptos,pub_platinum_status,Stable Disease,Missing,4
+pancan_ptos,pub_platinum_status,Stable Disease,NA,0
+pancan_ptos,pub_platinum_status,Stable Disease,Resistant,2
+pancan_ptos,pub_platinum_status,Stable Disease,Sensitive,3
+pancan_ptos,pub_platinum_status,Stable Disease,Tooearly,2
+pancan_ptos,pfi_plat6_class,Complete Remission/Response,NA,8
+pancan_ptos,pfi_plat6_class,Complete Remission/Response,indeterminate,28
+pancan_ptos,pfi_plat6_class,Complete Remission/Response,long,74
+pancan_ptos,pfi_plat6_class,Complete Remission/Response,short,6
+pancan_ptos,pfi_plat6_class,NA,NA,44
+pancan_ptos,pfi_plat6_class,NA,indeterminate,12
+pancan_ptos,pfi_plat6_class,NA,long,187
+pancan_ptos,pfi_plat6_class,NA,short,104
+pancan_ptos,pfi_plat6_class,Partial Remission/Response,NA,1
+pancan_ptos,pfi_plat6_class,Partial Remission/Response,indeterminate,1
+pancan_ptos,pfi_plat6_class,Partial Remission/Response,long,6
+pancan_ptos,pfi_plat6_class,Partial Remission/Response,short,0
+pancan_ptos,pfi_plat6_class,Progressive Disease,NA,0
+pancan_ptos,pfi_plat6_class,Progressive Disease,indeterminate,2
+pancan_ptos,pfi_plat6_class,Progressive Disease,long,3
+pancan_ptos,pfi_plat6_class,Progressive Disease,short,2
+pancan_ptos,pfi_plat6_class,Stable Disease,NA,0
+pancan_ptos,pfi_plat6_class,Stable Disease,indeterminate,4
+pancan_ptos,pfi_plat6_class,Stable Disease,long,4
+pancan_ptos,pfi_plat6_class,Stable Disease,short,3
+pub_ptos,pub_platinum_status,Complete Response,Missing,23
+pub_ptos,pub_platinum_status,Complete Response,NA,0
+pub_ptos,pub_platinum_status,Complete Response,Resistant,35
+pub_ptos,pub_platinum_status,Complete Response,Sensitive,156
+pub_ptos,pub_platinum_status,Complete Response,Tooearly,43
+pub_ptos,pub_platinum_status,NA,Missing,21
+pub_ptos,pub_platinum_status,NA,NA,68
+pub_ptos,pub_platinum_status,NA,Resistant,9
+pub_ptos,pub_platinum_status,NA,Sensitive,13
+pub_ptos,pub_platinum_status,NA,Tooearly,12
+pub_ptos,pub_platinum_status,Partial Response,Missing,17
+pub_ptos,pub_platinum_status,Partial Response,NA,0
+pub_ptos,pub_platinum_status,Partial Response,Resistant,23
+pub_ptos,pub_platinum_status,Partial Response,Sensitive,13
+pub_ptos,pub_platinum_status,Partial Response,Tooearly,0
+pub_ptos,pub_platinum_status,Progressive Disease,Missing,16
+pub_ptos,pub_platinum_status,Progressive Disease,NA,0
+pub_ptos,pub_platinum_status,Progressive Disease,Resistant,15
+pub_ptos,pub_platinum_status,Progressive Disease,Sensitive,3
+pub_ptos,pub_platinum_status,Progressive Disease,Tooearly,0
+pub_ptos,pub_platinum_status,Stable Disease,Missing,10
+pub_ptos,pub_platinum_status,Stable Disease,NA,0
+pub_ptos,pub_platinum_status,Stable Disease,Resistant,5
+pub_ptos,pub_platinum_status,Stable Disease,Sensitive,5
+pub_ptos,pub_platinum_status,Stable Disease,Tooearly,2
+pub_platinum_status,pfi_plat6_class,Missing,NA,33
+pub_platinum_status,pfi_plat6_class,Missing,indeterminate,9
+pub_platinum_status,pfi_plat6_class,Missing,long,35
+pub_platinum_status,pfi_plat6_class,Missing,short,10
+pub_platinum_status,pfi_plat6_class,NA,NA,15
+pub_platinum_status,pfi_plat6_class,NA,indeterminate,4
+pub_platinum_status,pfi_plat6_class,NA,long,36
+pub_platinum_status,pfi_plat6_class,NA,short,13
+pub_platinum_status,pfi_plat6_class,Resistant,NA,2
+pub_platinum_status,pfi_plat6_class,Resistant,indeterminate,0
+pub_platinum_status,pfi_plat6_class,Resistant,long,0
+pub_platinum_status,pfi_plat6_class,Resistant,short,85
+pub_platinum_status,pfi_plat6_class,Sensitive,NA,3
+pub_platinum_status,pfi_plat6_class,Sensitive,indeterminate,0
+pub_platinum_status,pfi_plat6_class,Sensitive,long,183
+pub_platinum_status,pfi_plat6_class,Sensitive,short,4
+pub_platinum_status,pfi_plat6_class,Tooearly,NA,0
+pub_platinum_status,pfi_plat6_class,Tooearly,indeterminate,34
+pub_platinum_status,pfi_plat6_class,Tooearly,long,20
+pub_platinum_status,pfi_plat6_class,Tooearly,short,3
+pancan_ptos,cdr_treatment_outcome_first_course,Complete Remission/Response,Complete Remission/Response,116
+pancan_ptos,cdr_treatment_outcome_first_course,Complete Remission/Response,Partial Remission/Response,0
+pancan_ptos,cdr_treatment_outcome_first_course,Complete Remission/Response,Progressive Disease,0
+pancan_ptos,cdr_treatment_outcome_first_course,Complete Remission/Response,Stable Disease,0
+pancan_ptos,cdr_treatment_outcome_first_course,Complete Remission/Response,[Discrepancy],0
+pancan_ptos,cdr_treatment_outcome_first_course,Complete Remission/Response,[Not Applicable],0
+pancan_ptos,cdr_treatment_outcome_first_course,Complete Remission/Response,[Not Available],0
+pancan_ptos,cdr_treatment_outcome_first_course,NA,Complete Remission/Response,183
+pancan_ptos,cdr_treatment_outcome_first_course,NA,Partial Remission/Response,51
+pancan_ptos,cdr_treatment_outcome_first_course,NA,Progressive Disease,33
+pancan_ptos,cdr_treatment_outcome_first_course,NA,Stable Disease,15
+pancan_ptos,cdr_treatment_outcome_first_course,NA,[Discrepancy],1
+pancan_ptos,cdr_treatment_outcome_first_course,NA,[Not Applicable],1
+pancan_ptos,cdr_treatment_outcome_first_course,NA,[Not Available],63
+pancan_ptos,cdr_treatment_outcome_first_course,Partial Remission/Response,Complete Remission/Response,0
+pancan_ptos,cdr_treatment_outcome_first_course,Partial Remission/Response,Partial Remission/Response,8
+pancan_ptos,cdr_treatment_outcome_first_course,Partial Remission/Response,Progressive Disease,0
+pancan_ptos,cdr_treatment_outcome_first_course,Partial Remission/Response,Stable Disease,0
+pancan_ptos,cdr_treatment_outcome_first_course,Partial Remission/Response,[Discrepancy],0
+pancan_ptos,cdr_treatment_outcome_first_course,Partial Remission/Response,[Not Applicable],0
+pancan_ptos,cdr_treatment_outcome_first_course,Partial Remission/Response,[Not Available],0
+pancan_ptos,cdr_treatment_outcome_first_course,Progressive Disease,Complete Remission/Response,1
+pancan_ptos,cdr_treatment_outcome_first_course,Progressive Disease,Partial Remission/Response,0
+pancan_ptos,cdr_treatment_outcome_first_course,Progressive Disease,Progressive Disease,6
+pancan_ptos,cdr_treatment_outcome_first_course,Progressive Disease,Stable Disease,0
+pancan_ptos,cdr_treatment_outcome_first_course,Progressive Disease,[Discrepancy],0
+pancan_ptos,cdr_treatment_outcome_first_course,Progressive Disease,[Not Applicable],0
+pancan_ptos,cdr_treatment_outcome_first_course,Progressive Disease,[Not Available],0
+pancan_ptos,cdr_treatment_outcome_first_course,Stable Disease,Complete Remission/Response,0
+pancan_ptos,cdr_treatment_outcome_first_course,Stable Disease,Partial Remission/Response,0
+pancan_ptos,cdr_treatment_outcome_first_course,Stable Disease,Progressive Disease,0
+pancan_ptos,cdr_treatment_outcome_first_course,Stable Disease,Stable Disease,11
+pancan_ptos,cdr_treatment_outcome_first_course,Stable Disease,[Discrepancy],0
+pancan_ptos,cdr_treatment_outcome_first_course,Stable Disease,[Not Applicable],0
+pancan_ptos,cdr_treatment_outcome_first_course,Stable Disease,[Not Available],0
+pancan_ptos,pub_ptos,Complete Remission/Response,Complete Response,87
+pancan_ptos,pub_ptos,Complete Remission/Response,NA,29
+pancan_ptos,pub_ptos,Complete Remission/Response,Partial Response,0
+pancan_ptos,pub_ptos,Complete Remission/Response,Progressive Disease,0
+pancan_ptos,pub_ptos,Complete Remission/Response,Stable Disease,0
+pancan_ptos,pub_ptos,NA,Complete Response,169
+pancan_ptos,pub_ptos,NA,NA,90
+pancan_ptos,pub_ptos,NA,Partial Response,48
+pancan_ptos,pub_ptos,NA,Progressive Disease,29
+pancan_ptos,pub_ptos,NA,Stable Disease,11
+pancan_ptos,pub_ptos,Partial Remission/Response,Complete Response,0
+pancan_ptos,pub_ptos,Partial Remission/Response,NA,3
+pancan_ptos,pub_ptos,Partial Remission/Response,Partial Response,5
+pancan_ptos,pub_ptos,Partial Remission/Response,Progressive Disease,0
+pancan_ptos,pub_ptos,Partial Remission/Response,Stable Disease,0
+pancan_ptos,pub_ptos,Progressive Disease,Complete Response,1
+pancan_ptos,pub_ptos,Progressive Disease,NA,1
+pancan_ptos,pub_ptos,Progressive Disease,Partial Response,0
+pancan_ptos,pub_ptos,Progressive Disease,Progressive Disease,5
+pancan_ptos,pub_ptos,Progressive Disease,Stable Disease,0
+pancan_ptos,pub_ptos,Stable Disease,Complete Response,0
+pancan_ptos,pub_ptos,Stable Disease,NA,0
+pancan_ptos,pub_ptos,Stable Disease,Partial Response,0
+pancan_ptos,pub_ptos,Stable Disease,Progressive Disease,0
+pancan_ptos,pub_ptos,Stable Disease,Stable Disease,11
+pancan_ptos,label_os18,Complete Remission/Response,0.0,38
+pancan_ptos,label_os18,Complete Remission/Response,1.0,0
+pancan_ptos,label_os18,Complete Remission/Response,NA,78
+pancan_ptos,label_os18,NA,0.0,139
+pancan_ptos,label_os18,NA,1.0,22
+pancan_ptos,label_os18,NA,NA,186
+pancan_ptos,label_os18,Partial Remission/Response,0.0,3
+pancan_ptos,label_os18,Partial Remission/Response,1.0,0
+pancan_ptos,label_os18,Partial Remission/Response,NA,5
+pancan_ptos,label_os18,Progressive Disease,0.0,0
+pancan_ptos,label_os18,Progressive Disease,1.0,0
+pancan_ptos,label_os18,Progressive Disease,NA,7
+pancan_ptos,label_os18,Stable Disease,0.0,4
+pancan_ptos,label_os18,Stable Disease,1.0,0
+pancan_ptos,label_os18,Stable Disease,NA,7
+pancan_ptos,label_os24,Complete Remission/Response,0.0,35
+pancan_ptos,label_os24,Complete Remission/Response,1.0,0
+pancan_ptos,label_os24,Complete Remission/Response,NA,81
+pancan_ptos,label_os24,NA,0.0,123
+pancan_ptos,label_os24,NA,1.0,36
+pancan_ptos,label_os24,NA,NA,188
+pancan_ptos,label_os24,Partial Remission/Response,0.0,1
+pancan_ptos,label_os24,Partial Remission/Response,1.0,0
+pancan_ptos,label_os24,Partial Remission/Response,NA,7
+pancan_ptos,label_os24,Progressive Disease,0.0,0
+pancan_ptos,label_os24,Progressive Disease,1.0,0
+pancan_ptos,label_os24,Progressive Disease,NA,7
+pancan_ptos,label_os24,Stable Disease,0.0,4
+pancan_ptos,label_os24,Stable Disease,1.0,0
+pancan_ptos,label_os24,Stable Disease,NA,7
+pub_platinum_status,label_os18,Missing,0.0,38
+pub_platinum_status,label_os18,Missing,1.0,13
+pub_platinum_status,label_os18,Missing,NA,36
+pub_platinum_status,label_os18,NA,0.0,4
+pub_platinum_status,label_os18,NA,1.0,2
+pub_platinum_status,label_os18,NA,NA,62
+pub_platinum_status,label_os18,Resistant,0.0,34
+pub_platinum_status,label_os18,Resistant,1.0,5
+pub_platinum_status,label_os18,Resistant,NA,48
+pub_platinum_status,label_os18,Sensitive,0.0,98
+pub_platinum_status,label_os18,Sensitive,1.0,2
+pub_platinum_status,label_os18,Sensitive,NA,90
+pub_platinum_status,label_os18,Tooearly,0.0,10
+pub_platinum_status,label_os18,Tooearly,1.0,0
+pub_platinum_status,label_os18,Tooearly,NA,47
+pub_platinum_status,label_os24,Missing,0.0,34
+pub_platinum_status,label_os24,Missing,1.0,16
+pub_platinum_status,label_os24,Missing,NA,37
+pub_platinum_status,label_os24,NA,0.0,3
+pub_platinum_status,label_os24,NA,1.0,2
+pub_platinum_status,label_os24,NA,NA,63
+pub_platinum_status,label_os24,Resistant,0.0,28
+pub_platinum_status,label_os24,Resistant,1.0,11
+pub_platinum_status,label_os24,Resistant,NA,48
+pub_platinum_status,label_os24,Sensitive,0.0,88
+pub_platinum_status,label_os24,Sensitive,1.0,7
+pub_platinum_status,label_os24,Sensitive,NA,95
+pub_platinum_status,label_os24,Tooearly,0.0,10
+pub_platinum_status,label_os24,Tooearly,1.0,0
+pub_platinum_status,label_os24,Tooearly,NA,47
+pfi_plat6_class,label_os18,NA,0.0,23
+pfi_plat6_class,label_os18,NA,1.0,5
+pfi_plat6_class,label_os18,NA,NA,25
+pfi_plat6_class,label_os18,indeterminate,0.0,0
+pfi_plat6_class,label_os18,indeterminate,1.0,1
+pfi_plat6_class,label_os18,indeterminate,NA,46
+pfi_plat6_class,label_os18,long,0.0,121
+pfi_plat6_class,label_os18,long,1.0,5
+pfi_plat6_class,label_os18,long,NA,148
+pfi_plat6_class,label_os18,short,0.0,40
+pfi_plat6_class,label_os18,short,1.0,11
+pfi_plat6_class,label_os18,short,NA,64
+pfi_plat6_class,label_os24,NA,0.0,19
+pfi_plat6_class,label_os24,NA,1.0,7
+pfi_plat6_class,label_os24,NA,NA,27
+pfi_plat6_class,label_os24,indeterminate,0.0,0
+pfi_plat6_class,label_os24,indeterminate,1.0,1
+pfi_plat6_class,label_os24,indeterminate,NA,46
+pfi_plat6_class,label_os24,long,0.0,111
+pfi_plat6_class,label_os24,long,1.0,10
+pfi_plat6_class,label_os24,long,NA,153
+pfi_plat6_class,label_os24,short,0.0,33
+pfi_plat6_class,label_os24,short,1.0,18
+pfi_plat6_class,label_os24,short,NA,64
+pub_platinum_status,cdr_pfi_from_dx_6m,Missing,<6m_from_dx,14
+pub_platinum_status,cdr_pfi_from_dx_6m,Missing,>=6m_from_dx,73
+pub_platinum_status,cdr_pfi_from_dx_6m,Missing,NA,0
+pub_platinum_status,cdr_pfi_from_dx_6m,NA,<6m_from_dx,7
+pub_platinum_status,cdr_pfi_from_dx_6m,NA,>=6m_from_dx,61
+pub_platinum_status,cdr_pfi_from_dx_6m,NA,NA,0
+pub_platinum_status,cdr_pfi_from_dx_6m,Resistant,<6m_from_dx,17
+pub_platinum_status,cdr_pfi_from_dx_6m,Resistant,>=6m_from_dx,70
+pub_platinum_status,cdr_pfi_from_dx_6m,Resistant,NA,0
+pub_platinum_status,cdr_pfi_from_dx_6m,Sensitive,<6m_from_dx,1
+pub_platinum_status,cdr_pfi_from_dx_6m,Sensitive,>=6m_from_dx,188
+pub_platinum_status,cdr_pfi_from_dx_6m,Sensitive,NA,1
+pub_platinum_status,cdr_pfi_from_dx_6m,Tooearly,<6m_from_dx,18
+pub_platinum_status,cdr_pfi_from_dx_6m,Tooearly,>=6m_from_dx,39
+pub_platinum_status,cdr_pfi_from_dx_6m,Tooearly,NA,0
+pub_platinum_status,cdr_pfi_from_dx_12m,Missing,<12m_from_dx,29
+pub_platinum_status,cdr_pfi_from_dx_12m,Missing,>=12m_from_dx,58
+pub_platinum_status,cdr_pfi_from_dx_12m,Missing,NA,0
+pub_platinum_status,cdr_pfi_from_dx_12m,NA,<12m_from_dx,27
+pub_platinum_status,cdr_pfi_from_dx_12m,NA,>=12m_from_dx,41
+pub_platinum_status,cdr_pfi_from_dx_12m,NA,NA,0
+pub_platinum_status,cdr_pfi_from_dx_12m,Resistant,<12m_from_dx,79
+pub_platinum_status,cdr_pfi_from_dx_12m,Resistant,>=12m_from_dx,8
+pub_platinum_status,cdr_pfi_from_dx_12m,Resistant,NA,0
+pub_platinum_status,cdr_pfi_from_dx_12m,Sensitive,<12m_from_dx,15
+pub_platinum_status,cdr_pfi_from_dx_12m,Sensitive,>=12m_from_dx,174
+pub_platinum_status,cdr_pfi_from_dx_12m,Sensitive,NA,1
+pub_platinum_status,cdr_pfi_from_dx_12m,Tooearly,<12m_from_dx,39
+pub_platinum_status,cdr_pfi_from_dx_12m,Tooearly,>=12m_from_dx,18
+pub_platinum_status,cdr_pfi_from_dx_12m,Tooearly,NA,0

@@ -1,0 +1,37 @@
+gene_set,size,label,model,endpoint,auc
+Chen2022_10,10,label_platinum,Logistic Regression,E1_tcga_cv,0.7345215759849907
+Chen2022_10,10,label_platinum,Logistic Regression,E2_geo_dfs,0.4985294117647059
+Chen2022_10,10,label_platinum,Logistic Regression,E3_geo_clinical,0.5296875
+Chen2022_10,10,label_platinum,Random Forest,E1_tcga_cv,0.7160647279549719
+Chen2022_10,10,label_platinum,Random Forest,E2_geo_dfs,0.5746323529411764
+Chen2022_10,10,label_platinum,Random Forest,E3_geo_clinical,0.54140625
+Chen2022_10,10,label_platinum,SVM,E1_tcga_cv,0.6761257035647279
+Chen2022_10,10,label_platinum,SVM,E2_geo_dfs,0.5029411764705882
+Chen2022_10,10,label_platinum,SVM,E3_geo_clinical,0.5359375000000001
+Chen2022_10,10,label_pfiplat6,Logistic Regression,E1_tcga_cv,0.6866247379454926
+Chen2022_10,10,label_pfiplat6,Logistic Regression,E2_geo_dfs,0.48529411764705876
+Chen2022_10,10,label_pfiplat6,Logistic Regression,E3_geo_clinical,0.5140625000000001
+Chen2022_10,10,label_pfiplat6,Random Forest,E1_tcga_cv,0.6461495457721872
+Chen2022_10,10,label_pfiplat6,Random Forest,E2_geo_dfs,0.5408088235294117
+Chen2022_10,10,label_pfiplat6,Random Forest,E3_geo_clinical,0.4703125
+Chen2022_10,10,label_pfiplat6,SVM,E1_tcga_cv,0.6449196366177498
+Chen2022_10,10,label_pfiplat6,SVM,E2_geo_dfs,0.48235294117647065
+Chen2022_10,10,label_pfiplat6,SVM,E3_geo_clinical,0.5359375
+Gao2025_5,5,label_platinum,Logistic Regression,E1_tcga_cv,0.5369136960600376
+Gao2025_5,5,label_platinum,Logistic Regression,E2_geo_dfs,0.5014705882352941
+Gao2025_5,5,label_platinum,Logistic Regression,E3_geo_clinical,0.49218750000000006
+Gao2025_5,5,label_platinum,Random Forest,E1_tcga_cv,0.5079737335834896
+Gao2025_5,5,label_platinum,Random Forest,E2_geo_dfs,0.46286764705882355
+Gao2025_5,5,label_platinum,Random Forest,E3_geo_clinical,0.50390625
+Gao2025_5,5,label_platinum,SVM,E1_tcga_cv,0.450984990619137
+Gao2025_5,5,label_platinum,SVM,E2_geo_dfs,0.4220588235294118
+Gao2025_5,5,label_platinum,SVM,E3_geo_clinical,0.4296875
+Gao2025_5,5,label_pfiplat6,Logistic Regression,E1_tcga_cv,0.5172606568832984
+Gao2025_5,5,label_pfiplat6,Logistic Regression,E2_geo_dfs,0.5205882352941176
+Gao2025_5,5,label_pfiplat6,Logistic Regression,E3_geo_clinical,0.48593749999999997
+Gao2025_5,5,label_pfiplat6,Random Forest,E1_tcga_cv,0.4917260656883299
+Gao2025_5,5,label_pfiplat6,Random Forest,E2_geo_dfs,0.4349264705882353
+Gao2025_5,5,label_pfiplat6,Random Forest,E3_geo_clinical,0.45078125
+Gao2025_5,5,label_pfiplat6,SVM,E1_tcga_cv,0.4857721872816212
+Gao2025_5,5,label_pfiplat6,SVM,E2_geo_dfs,0.5860294117647058
+Gao2025_5,5,label_pfiplat6,SVM,E3_geo_clinical,0.515625

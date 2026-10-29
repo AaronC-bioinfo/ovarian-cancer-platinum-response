@@ -1,0 +1,541 @@
+threshold_m,model,condition,auc,seed
+12,Logistic Regression,leaky_full_data_variance,0.47560975609756095,42
+12,Random Forest,leaky_full_data_variance,0.45731707317073167,42
+12,SVM,leaky_full_data_variance,0.5609756097560976,42
+12,Logistic Regression,correct_train_only_variance,0.47560975609756095,42
+12,Random Forest,correct_train_only_variance,0.46951219512195125,42
+12,SVM,correct_train_only_variance,0.4512195121951219,42
+12,Logistic Regression,leaky_full_data_variance,0.5609756097560976,43
+12,Random Forest,leaky_full_data_variance,0.2804878048780488,43
+12,SVM,leaky_full_data_variance,0.2926829268292683,43
+12,Logistic Regression,correct_train_only_variance,0.6097560975609756,43
+12,Random Forest,correct_train_only_variance,0.35365853658536583,43
+12,SVM,correct_train_only_variance,0.3780487804878049,43
+12,Logistic Regression,leaky_full_data_variance,0.40243902439024387,44
+12,Random Forest,leaky_full_data_variance,0.20731707317073172,44
+12,SVM,leaky_full_data_variance,0.6341463414634146,44
+12,Logistic Regression,correct_train_only_variance,0.4146341463414634,44
+12,Random Forest,correct_train_only_variance,0.29268292682926833,44
+12,SVM,correct_train_only_variance,0.5121951219512195,44
+12,Logistic Regression,leaky_full_data_variance,0.17073170731707316,45
+12,Random Forest,leaky_full_data_variance,0.1402439024390244,45
+12,SVM,leaky_full_data_variance,0.2682926829268293,45
+12,Logistic Regression,correct_train_only_variance,0.23170731707317072,45
+12,Random Forest,correct_train_only_variance,0.22560975609756095,45
+12,SVM,correct_train_only_variance,0.2926829268292683,45
+12,Logistic Regression,leaky_full_data_variance,0.9634146341463415,46
+12,Random Forest,leaky_full_data_variance,0.8048780487804879,46
+12,SVM,leaky_full_data_variance,0.1951219512195122,46
+12,Logistic Regression,correct_train_only_variance,0.975609756097561,46
+12,Random Forest,correct_train_only_variance,0.8597560975609756,46
+12,SVM,correct_train_only_variance,0.18292682926829268,46
+12,Logistic Regression,leaky_full_data_variance,0.7439024390243902,47
+12,Random Forest,leaky_full_data_variance,0.3780487804878049,47
+12,SVM,leaky_full_data_variance,0.5,47
+12,Logistic Regression,correct_train_only_variance,0.6097560975609756,47
+12,Random Forest,correct_train_only_variance,0.475609756097561,47
+12,SVM,correct_train_only_variance,0.47560975609756095,47
+12,Logistic Regression,leaky_full_data_variance,0.41463414634146345,48
+12,Random Forest,leaky_full_data_variance,0.5731707317073171,48
+12,SVM,leaky_full_data_variance,0.475609756097561,48
+12,Logistic Regression,correct_train_only_variance,0.3902439024390244,48
+12,Random Forest,correct_train_only_variance,0.47560975609756095,48
+12,SVM,correct_train_only_variance,0.524390243902439,48
+12,Logistic Regression,leaky_full_data_variance,0.6219512195121952,49
+12,Random Forest,leaky_full_data_variance,0.4329268292682927,49
+12,SVM,leaky_full_data_variance,0.2682926829268293,49
+12,Logistic Regression,correct_train_only_variance,0.47560975609756095,49
+12,Random Forest,correct_train_only_variance,0.524390243902439,49
+12,SVM,correct_train_only_variance,0.3902439024390244,49
+12,Logistic Regression,leaky_full_data_variance,0.1097560975609756,50
+12,Random Forest,leaky_full_data_variance,0.1097560975609756,50
+12,SVM,leaky_full_data_variance,0.6829268292682926,50
+12,Logistic Regression,correct_train_only_variance,0.20731707317073172,50
+12,Random Forest,correct_train_only_variance,0.23170731707317072,50
+12,SVM,correct_train_only_variance,0.2195121951219512,50
+12,Logistic Regression,leaky_full_data_variance,0.36585365853658536,51
+12,Random Forest,leaky_full_data_variance,0.39634146341463417,51
+12,SVM,leaky_full_data_variance,0.3780487804878049,51
+12,Logistic Regression,correct_train_only_variance,0.35365853658536583,51
+12,Random Forest,correct_train_only_variance,0.38414634146341464,51
+12,SVM,correct_train_only_variance,0.6219512195121951,51
+12,Logistic Regression,leaky_full_data_variance,0.5,52
+12,Random Forest,leaky_full_data_variance,0.5365853658536586,52
+12,SVM,leaky_full_data_variance,0.36585365853658536,52
+12,Logistic Regression,correct_train_only_variance,0.475609756097561,52
+12,Random Forest,correct_train_only_variance,0.49390243902439024,52
+12,SVM,correct_train_only_variance,0.3780487804878049,52
+12,Logistic Regression,leaky_full_data_variance,0.35365853658536583,53
+12,Random Forest,leaky_full_data_variance,0.12195121951219512,53
+12,SVM,leaky_full_data_variance,0.4268292682926829,53
+12,Logistic Regression,correct_train_only_variance,0.20731707317073172,53
+12,Random Forest,correct_train_only_variance,0.18292682926829268,53
+12,SVM,correct_train_only_variance,0.1951219512195122,53
+12,Logistic Regression,leaky_full_data_variance,0.2195121951219512,54
+12,Random Forest,leaky_full_data_variance,0.12195121951219512,54
+12,SVM,leaky_full_data_variance,0.14634146341463417,54
+12,Logistic Regression,correct_train_only_variance,0.25609756097560976,54
+12,Random Forest,correct_train_only_variance,0.1585365853658537,54
+12,SVM,correct_train_only_variance,0.14634146341463417,54
+12,Logistic Regression,leaky_full_data_variance,0.7195121951219512,55
+12,Random Forest,leaky_full_data_variance,0.5792682926829268,55
+12,SVM,leaky_full_data_variance,0.646341463414634,55
+12,Logistic Regression,correct_train_only_variance,0.6463414634146342,55
+12,Random Forest,correct_train_only_variance,0.40853658536585363,55
+12,SVM,correct_train_only_variance,0.5487804878048781,55
+12,Logistic Regression,leaky_full_data_variance,0.4268292682926829,56
+12,Random Forest,leaky_full_data_variance,0.38414634146341464,56
+12,SVM,leaky_full_data_variance,0.6585365853658536,56
+12,Logistic Regression,correct_train_only_variance,0.4024390243902439,56
+12,Random Forest,correct_train_only_variance,0.4390243902439024,56
+12,SVM,correct_train_only_variance,0.6341463414634146,56
+12,Logistic Regression,leaky_full_data_variance,0.17073170731707316,57
+12,Random Forest,leaky_full_data_variance,0.14634146341463417,57
+12,SVM,leaky_full_data_variance,0.36585365853658536,57
+12,Logistic Regression,correct_train_only_variance,0.17073170731707316,57
+12,Random Forest,correct_train_only_variance,0.17073170731707316,57
+12,SVM,correct_train_only_variance,0.3170731707317073,57
+12,Logistic Regression,leaky_full_data_variance,0.7926829268292682,58
+12,Random Forest,leaky_full_data_variance,0.7804878048780488,58
+12,SVM,leaky_full_data_variance,0.2804878048780488,58
+12,Logistic Regression,correct_train_only_variance,0.7926829268292683,58
+12,Random Forest,correct_train_only_variance,0.7621951219512195,58
+12,SVM,correct_train_only_variance,0.40243902439024387,58
+12,Logistic Regression,leaky_full_data_variance,0.17073170731707316,59
+12,Random Forest,leaky_full_data_variance,0.15243902439024387,59
+12,SVM,leaky_full_data_variance,0.6585365853658536,59
+12,Logistic Regression,correct_train_only_variance,0.20731707317073172,59
+12,Random Forest,correct_train_only_variance,0.2865853658536585,59
+12,SVM,correct_train_only_variance,0.7073170731707317,59
+12,Logistic Regression,leaky_full_data_variance,0.4512195121951219,60
+12,Random Forest,leaky_full_data_variance,0.42682926829268286,60
+12,SVM,leaky_full_data_variance,0.5121951219512195,60
+12,Logistic Regression,correct_train_only_variance,0.3902439024390244,60
+12,Random Forest,correct_train_only_variance,0.4817073170731707,60
+12,SVM,correct_train_only_variance,0.5,60
+12,Logistic Regression,leaky_full_data_variance,0.8170731707317074,61
+12,Random Forest,leaky_full_data_variance,0.5609756097560976,61
+12,SVM,leaky_full_data_variance,0.23170731707317072,61
+12,Logistic Regression,correct_train_only_variance,0.8048780487804879,61
+12,Random Forest,correct_train_only_variance,0.6158536585365854,61
+12,SVM,correct_train_only_variance,0.29268292682926833,61
+12,Logistic Regression,leaky_full_data_variance,0.40243902439024387,62
+12,Random Forest,leaky_full_data_variance,0.21341463414634146,62
+12,SVM,leaky_full_data_variance,0.1585365853658537,62
+12,Logistic Regression,correct_train_only_variance,0.3902439024390244,62
+12,Random Forest,correct_train_only_variance,0.40853658536585363,62
+12,SVM,correct_train_only_variance,0.3048780487804878,62
+12,Logistic Regression,leaky_full_data_variance,0.7560975609756098,63
+12,Random Forest,leaky_full_data_variance,0.6707317073170732,63
+12,SVM,leaky_full_data_variance,0.28048780487804875,63
+12,Logistic Regression,correct_train_only_variance,0.7560975609756098,63
+12,Random Forest,correct_train_only_variance,0.6524390243902439,63
+12,SVM,correct_train_only_variance,0.29268292682926833,63
+12,Logistic Regression,leaky_full_data_variance,0.8048780487804879,64
+12,Random Forest,leaky_full_data_variance,0.8719512195121951,64
+12,SVM,leaky_full_data_variance,0.6707317073170731,64
+12,Logistic Regression,correct_train_only_variance,0.8048780487804879,64
+12,Random Forest,correct_train_only_variance,0.8414634146341463,64
+12,SVM,correct_train_only_variance,0.6951219512195123,64
+12,Logistic Regression,leaky_full_data_variance,0.1585365853658537,65
+12,Random Forest,leaky_full_data_variance,0.17682926829268292,65
+12,SVM,leaky_full_data_variance,0.41463414634146345,65
+12,Logistic Regression,correct_train_only_variance,0.25609756097560976,65
+12,Random Forest,correct_train_only_variance,0.23780487804878048,65
+12,SVM,correct_train_only_variance,0.2682926829268293,65
+12,Logistic Regression,leaky_full_data_variance,0.5609756097560976,66
+12,Random Forest,leaky_full_data_variance,0.29268292682926833,66
+12,SVM,leaky_full_data_variance,0.6951219512195121,66
+12,Logistic Regression,correct_train_only_variance,0.6097560975609757,66
+12,Random Forest,correct_train_only_variance,0.4268292682926829,66
+12,SVM,correct_train_only_variance,0.5,66
+12,Logistic Regression,leaky_full_data_variance,0.46341463414634143,67
+12,Random Forest,leaky_full_data_variance,0.4573170731707317,67
+12,SVM,leaky_full_data_variance,0.5487804878048781,67
+12,Logistic Regression,correct_train_only_variance,0.5121951219512195,67
+12,Random Forest,correct_train_only_variance,0.49390243902439024,67
+12,SVM,correct_train_only_variance,0.5365853658536586,67
+12,Logistic Regression,leaky_full_data_variance,0.1585365853658537,68
+12,Random Forest,leaky_full_data_variance,0.12195121951219512,68
+12,SVM,leaky_full_data_variance,0.3170731707317073,68
+12,Logistic Regression,correct_train_only_variance,0.1707317073170732,68
+12,Random Forest,correct_train_only_variance,0.15853658536585363,68
+12,SVM,correct_train_only_variance,0.20731707317073172,68
+12,Logistic Regression,leaky_full_data_variance,0.10975609756097565,69
+12,Random Forest,leaky_full_data_variance,0.2926829268292683,69
+12,SVM,leaky_full_data_variance,0.31707317073170727,69
+12,Logistic Regression,correct_train_only_variance,0.12195121951219512,69
+12,Random Forest,correct_train_only_variance,0.4451219512195122,69
+12,SVM,correct_train_only_variance,0.3048780487804878,69
+12,Logistic Regression,leaky_full_data_variance,0.4878048780487805,70
+12,Random Forest,leaky_full_data_variance,0.44512195121951215,70
+12,SVM,leaky_full_data_variance,0.4634146341463415,70
+12,Logistic Regression,correct_train_only_variance,0.524390243902439,70
+12,Random Forest,correct_train_only_variance,0.43902439024390244,70
+12,SVM,correct_train_only_variance,0.4878048780487805,70
+12,Logistic Regression,leaky_full_data_variance,0.43902439024390244,71
+12,Random Forest,leaky_full_data_variance,0.2804878048780488,71
+12,SVM,leaky_full_data_variance,0.36585365853658536,71
+12,Logistic Regression,correct_train_only_variance,0.4634146341463415,71
+12,Random Forest,correct_train_only_variance,0.4451219512195122,71
+12,SVM,correct_train_only_variance,0.36585365853658536,71
+18,Logistic Regression,leaky_full_data_variance,0.6776315789473684,42
+18,Random Forest,leaky_full_data_variance,0.618421052631579,42
+18,SVM,leaky_full_data_variance,0.6644736842105263,42
+18,Logistic Regression,correct_train_only_variance,0.6973684210526316,42
+18,Random Forest,correct_train_only_variance,0.6743421052631579,42
+18,SVM,correct_train_only_variance,0.3355263157894737,42
+18,Logistic Regression,leaky_full_data_variance,0.5,43
+18,Random Forest,leaky_full_data_variance,0.4671052631578948,43
+18,SVM,leaky_full_data_variance,0.39473684210526316,43
+18,Logistic Regression,correct_train_only_variance,0.5394736842105263,43
+18,Random Forest,correct_train_only_variance,0.4210526315789474,43
+18,SVM,correct_train_only_variance,0.4078947368421053,43
+18,Logistic Regression,leaky_full_data_variance,0.5855263157894737,44
+18,Random Forest,leaky_full_data_variance,0.6776315789473685,44
+18,SVM,leaky_full_data_variance,0.5263157894736843,44
+18,Logistic Regression,correct_train_only_variance,0.5526315789473684,44
+18,Random Forest,correct_train_only_variance,0.6480263157894737,44
+18,SVM,correct_train_only_variance,0.5328947368421053,44
+18,Logistic Regression,leaky_full_data_variance,0.8223684210526316,45
+18,Random Forest,leaky_full_data_variance,0.7763157894736842,45
+18,SVM,leaky_full_data_variance,0.7697368421052632,45
+18,Logistic Regression,correct_train_only_variance,0.7763157894736843,45
+18,Random Forest,correct_train_only_variance,0.680921052631579,45
+18,SVM,correct_train_only_variance,0.6842105263157896,45
+18,Logistic Regression,leaky_full_data_variance,0.6710526315789475,46
+18,Random Forest,leaky_full_data_variance,0.5592105263157895,46
+18,SVM,leaky_full_data_variance,0.6052631578947368,46
+18,Logistic Regression,correct_train_only_variance,0.7236842105263157,46
+18,Random Forest,correct_train_only_variance,0.49342105263157904,46
+18,SVM,correct_train_only_variance,0.6118421052631579,46
+18,Logistic Regression,leaky_full_data_variance,0.6907894736842105,47
+18,Random Forest,leaky_full_data_variance,0.7960526315789473,47
+18,SVM,leaky_full_data_variance,0.6578947368421053,47
+18,Logistic Regression,correct_train_only_variance,0.75,47
+18,Random Forest,correct_train_only_variance,0.7467105263157894,47
+18,SVM,correct_train_only_variance,0.6842105263157895,47
+18,Logistic Regression,leaky_full_data_variance,0.5789473684210527,48
+18,Random Forest,leaky_full_data_variance,0.5394736842105263,48
+18,SVM,leaky_full_data_variance,0.5723684210526316,48
+18,Logistic Regression,correct_train_only_variance,0.605263157894737,48
+18,Random Forest,correct_train_only_variance,0.5953947368421054,48
+18,SVM,correct_train_only_variance,0.4736842105263158,48
+18,Logistic Regression,leaky_full_data_variance,0.9144736842105263,49
+18,Random Forest,leaky_full_data_variance,0.9671052631578947,49
+18,SVM,leaky_full_data_variance,0.9342105263157895,49
+18,Logistic Regression,correct_train_only_variance,0.9078947368421053,49
+18,Random Forest,correct_train_only_variance,0.9605263157894737,49
+18,SVM,correct_train_only_variance,0.9144736842105263,49
+18,Logistic Regression,leaky_full_data_variance,0.625,50
+18,Random Forest,leaky_full_data_variance,0.6381578947368421,50
+18,SVM,leaky_full_data_variance,0.6776315789473684,50
+18,Logistic Regression,correct_train_only_variance,0.75,50
+18,Random Forest,correct_train_only_variance,0.625,50
+18,SVM,correct_train_only_variance,0.6644736842105263,50
+18,Logistic Regression,leaky_full_data_variance,0.8486842105263159,51
+18,Random Forest,leaky_full_data_variance,0.805921052631579,51
+18,SVM,leaky_full_data_variance,0.8157894736842106,51
+18,Logistic Regression,correct_train_only_variance,0.875,51
+18,Random Forest,correct_train_only_variance,0.8486842105263158,51
+18,SVM,correct_train_only_variance,0.8355263157894737,51
+18,Logistic Regression,leaky_full_data_variance,0.8289473684210525,52
+18,Random Forest,leaky_full_data_variance,0.8256578947368421,52
+18,SVM,leaky_full_data_variance,0.7302631578947368,52
+18,Logistic Regression,correct_train_only_variance,0.7828947368421052,52
+18,Random Forest,correct_train_only_variance,0.6973684210526316,52
+18,SVM,correct_train_only_variance,0.7302631578947368,52
+18,Logistic Regression,leaky_full_data_variance,0.5263157894736842,53
+18,Random Forest,leaky_full_data_variance,0.5460526315789473,53
+18,SVM,leaky_full_data_variance,0.6776315789473685,53
+18,Logistic Regression,correct_train_only_variance,0.5394736842105263,53
+18,Random Forest,correct_train_only_variance,0.4769736842105263,53
+18,SVM,correct_train_only_variance,0.618421052631579,53
+18,Logistic Regression,leaky_full_data_variance,0.40131578947368424,54
+18,Random Forest,leaky_full_data_variance,0.5855263157894737,54
+18,SVM,leaky_full_data_variance,0.40789473684210525,54
+18,Logistic Regression,correct_train_only_variance,0.5197368421052632,54
+18,Random Forest,correct_train_only_variance,0.5789473684210527,54
+18,SVM,correct_train_only_variance,0.4407894736842105,54
+18,Logistic Regression,leaky_full_data_variance,0.7171052631578947,55
+18,Random Forest,leaky_full_data_variance,0.6546052631578947,55
+18,SVM,leaky_full_data_variance,0.6776315789473685,55
+18,Logistic Regression,correct_train_only_variance,0.7039473684210527,55
+18,Random Forest,correct_train_only_variance,0.6940789473684211,55
+18,SVM,correct_train_only_variance,0.6052631578947368,55
+18,Logistic Regression,leaky_full_data_variance,0.5460526315789473,56
+18,Random Forest,leaky_full_data_variance,0.7138157894736842,56
+18,SVM,leaky_full_data_variance,0.6381578947368421,56
+18,Logistic Regression,correct_train_only_variance,0.618421052631579,56
+18,Random Forest,correct_train_only_variance,0.625,56
+18,SVM,correct_train_only_variance,0.6381578947368421,56
+18,Logistic Regression,leaky_full_data_variance,0.6447368421052632,57
+18,Random Forest,leaky_full_data_variance,0.5592105263157895,57
+18,SVM,leaky_full_data_variance,0.5328947368421053,57
+18,Logistic Regression,correct_train_only_variance,0.6513157894736842,57
+18,Random Forest,correct_train_only_variance,0.5197368421052632,57
+18,SVM,correct_train_only_variance,0.5460526315789475,57
+18,Logistic Regression,leaky_full_data_variance,0.7960526315789475,58
+18,Random Forest,leaky_full_data_variance,0.763157894736842,58
+18,SVM,leaky_full_data_variance,0.6842105263157895,58
+18,Logistic Regression,correct_train_only_variance,0.7236842105263158,58
+18,Random Forest,correct_train_only_variance,0.8519736842105263,58
+18,SVM,correct_train_only_variance,0.7171052631578947,58
+18,Logistic Regression,leaky_full_data_variance,0.8223684210526316,59
+18,Random Forest,leaky_full_data_variance,0.5032894736842105,59
+18,SVM,leaky_full_data_variance,0.7269736842105263,59
+18,Logistic Regression,correct_train_only_variance,0.6052631578947368,59
+18,Random Forest,correct_train_only_variance,0.5625,59
+18,SVM,correct_train_only_variance,0.631578947368421,59
+18,Logistic Regression,leaky_full_data_variance,0.7828947368421053,60
+18,Random Forest,leaky_full_data_variance,0.7302631578947368,60
+18,SVM,leaky_full_data_variance,0.625,60
+18,Logistic Regression,correct_train_only_variance,0.7236842105263158,60
+18,Random Forest,correct_train_only_variance,0.6447368421052632,60
+18,SVM,correct_train_only_variance,0.611842105263158,60
+18,Logistic Regression,leaky_full_data_variance,0.6710526315789473,61
+18,Random Forest,leaky_full_data_variance,0.6052631578947368,61
+18,SVM,leaky_full_data_variance,0.605263157894737,61
+18,Logistic Regression,correct_train_only_variance,0.5197368421052632,61
+18,Random Forest,correct_train_only_variance,0.506578947368421,61
+18,SVM,correct_train_only_variance,0.5394736842105263,61
+18,Logistic Regression,leaky_full_data_variance,0.7631578947368421,62
+18,Random Forest,leaky_full_data_variance,0.743421052631579,62
+18,SVM,leaky_full_data_variance,0.5888157894736842,62
+18,Logistic Regression,correct_train_only_variance,0.6052631578947368,62
+18,Random Forest,correct_train_only_variance,0.6578947368421053,62
+18,SVM,correct_train_only_variance,0.5131578947368421,62
+18,Logistic Regression,leaky_full_data_variance,0.625,63
+18,Random Forest,leaky_full_data_variance,0.6480263157894737,63
+18,SVM,leaky_full_data_variance,0.5723684210526316,63
+18,Logistic Regression,correct_train_only_variance,0.644736842105263,63
+18,Random Forest,correct_train_only_variance,0.5098684210526316,63
+18,SVM,correct_train_only_variance,0.5723684210526316,63
+18,Logistic Regression,leaky_full_data_variance,0.625,64
+18,Random Forest,leaky_full_data_variance,0.6414473684210527,64
+18,SVM,leaky_full_data_variance,0.7105263157894737,64
+18,Logistic Regression,correct_train_only_variance,0.6447368421052632,64
+18,Random Forest,correct_train_only_variance,0.674342105263158,64
+18,SVM,correct_train_only_variance,0.7368421052631579,64
+18,Logistic Regression,leaky_full_data_variance,0.5460526315789473,65
+18,Random Forest,leaky_full_data_variance,0.32894736842105265,65
+18,SVM,leaky_full_data_variance,0.493421052631579,65
+18,Logistic Regression,correct_train_only_variance,0.5657894736842105,65
+18,Random Forest,correct_train_only_variance,0.43092105263157887,65
+18,SVM,correct_train_only_variance,0.5263157894736842,65
+18,Logistic Regression,leaky_full_data_variance,0.743421052631579,66
+18,Random Forest,leaky_full_data_variance,0.7368421052631579,66
+18,SVM,leaky_full_data_variance,0.7039473684210527,66
+18,Logistic Regression,correct_train_only_variance,0.7039473684210527,66
+18,Random Forest,correct_train_only_variance,0.7631578947368421,66
+18,SVM,correct_train_only_variance,0.6907894736842106,66
+18,Logistic Regression,leaky_full_data_variance,0.7105263157894737,67
+18,Random Forest,leaky_full_data_variance,0.6611842105263158,67
+18,SVM,leaky_full_data_variance,0.6973684210526315,67
+18,Logistic Regression,correct_train_only_variance,0.75,67
+18,Random Forest,correct_train_only_variance,0.5197368421052632,67
+18,SVM,correct_train_only_variance,0.7039473684210525,67
+18,Logistic Regression,leaky_full_data_variance,0.5197368421052633,68
+18,Random Forest,leaky_full_data_variance,0.825657894736842,68
+18,SVM,leaky_full_data_variance,0.5657894736842106,68
+18,Logistic Regression,correct_train_only_variance,0.5460526315789473,68
+18,Random Forest,correct_train_only_variance,0.7664473684210527,68
+18,SVM,correct_train_only_variance,0.5921052631578947,68
+18,Logistic Regression,leaky_full_data_variance,0.8355263157894736,69
+18,Random Forest,leaky_full_data_variance,0.7401315789473685,69
+18,SVM,leaky_full_data_variance,0.8289473684210527,69
+18,Logistic Regression,correct_train_only_variance,0.7697368421052632,69
+18,Random Forest,correct_train_only_variance,0.6611842105263157,69
+18,SVM,correct_train_only_variance,0.75,69
+18,Logistic Regression,leaky_full_data_variance,0.6513157894736842,70
+18,Random Forest,leaky_full_data_variance,0.5526315789473685,70
+18,SVM,leaky_full_data_variance,0.5263157894736843,70
+18,Logistic Regression,correct_train_only_variance,0.6052631578947368,70
+18,Random Forest,correct_train_only_variance,0.5197368421052632,70
+18,SVM,correct_train_only_variance,0.5526315789473684,70
+18,Logistic Regression,leaky_full_data_variance,0.6578947368421053,71
+18,Random Forest,leaky_full_data_variance,0.6546052631578948,71
+18,SVM,leaky_full_data_variance,0.6776315789473685,71
+18,Logistic Regression,correct_train_only_variance,0.6710526315789473,71
+18,Random Forest,correct_train_only_variance,0.6085526315789473,71
+18,SVM,correct_train_only_variance,0.7105263157894737,71
+24,Logistic Regression,leaky_full_data_variance,0.8658008658008659,42
+24,Random Forest,leaky_full_data_variance,0.8571428571428572,42
+24,SVM,leaky_full_data_variance,0.8138528138528138,42
+24,Logistic Regression,correct_train_only_variance,0.9134199134199135,42
+24,Random Forest,correct_train_only_variance,0.8701298701298701,42
+24,SVM,correct_train_only_variance,0.8528138528138529,42
+24,Logistic Regression,leaky_full_data_variance,0.7748917748917747,43
+24,Random Forest,leaky_full_data_variance,0.6212121212121212,43
+24,SVM,leaky_full_data_variance,0.6926406926406926,43
+24,Logistic Regression,correct_train_only_variance,0.7662337662337663,43
+24,Random Forest,correct_train_only_variance,0.6645021645021645,43
+24,SVM,correct_train_only_variance,0.7532467532467533,43
+24,Logistic Regression,leaky_full_data_variance,0.6666666666666667,44
+24,Random Forest,leaky_full_data_variance,0.6666666666666666,44
+24,SVM,leaky_full_data_variance,0.7575757575757576,44
+24,Logistic Regression,correct_train_only_variance,0.6883116883116883,44
+24,Random Forest,correct_train_only_variance,0.6926406926406926,44
+24,SVM,correct_train_only_variance,0.7835497835497836,44
+24,Logistic Regression,leaky_full_data_variance,0.6017316017316017,45
+24,Random Forest,leaky_full_data_variance,0.7142857142857143,45
+24,SVM,leaky_full_data_variance,0.7748917748917749,45
+24,Logistic Regression,correct_train_only_variance,0.6017316017316018,45
+24,Random Forest,correct_train_only_variance,0.696969696969697,45
+24,SVM,correct_train_only_variance,0.7835497835497836,45
+24,Logistic Regression,leaky_full_data_variance,0.6017316017316017,46
+24,Random Forest,leaky_full_data_variance,0.79004329004329,46
+24,SVM,leaky_full_data_variance,0.6233766233766234,46
+24,Logistic Regression,correct_train_only_variance,0.5887445887445887,46
+24,Random Forest,correct_train_only_variance,0.683982683982684,46
+24,SVM,correct_train_only_variance,0.6839826839826839,46
+24,Logistic Regression,leaky_full_data_variance,0.6233766233766234,47
+24,Random Forest,leaky_full_data_variance,0.6363636363636364,47
+24,SVM,leaky_full_data_variance,0.6277056277056277,47
+24,Logistic Regression,correct_train_only_variance,0.6190476190476191,47
+24,Random Forest,correct_train_only_variance,0.5562770562770563,47
+24,SVM,correct_train_only_variance,0.6363636363636364,47
+24,Logistic Regression,leaky_full_data_variance,0.7965367965367964,48
+24,Random Forest,leaky_full_data_variance,0.8506493506493507,48
+24,SVM,leaky_full_data_variance,0.8138528138528138,48
+24,Logistic Regression,correct_train_only_variance,0.7878787878787878,48
+24,Random Forest,correct_train_only_variance,0.8614718614718615,48
+24,SVM,correct_train_only_variance,0.8095238095238095,48
+24,Logistic Regression,leaky_full_data_variance,0.6623376623376622,49
+24,Random Forest,leaky_full_data_variance,0.9090909090909091,49
+24,SVM,leaky_full_data_variance,0.8701298701298702,49
+24,Logistic Regression,correct_train_only_variance,0.722943722943723,49
+24,Random Forest,correct_train_only_variance,0.8549783549783551,49
+24,SVM,correct_train_only_variance,0.8528138528138529,49
+24,Logistic Regression,leaky_full_data_variance,0.6753246753246753,50
+24,Random Forest,leaky_full_data_variance,0.8419913419913421,50
+24,SVM,leaky_full_data_variance,0.7835497835497836,50
+24,Logistic Regression,correct_train_only_variance,0.7575757575757576,50
+24,Random Forest,correct_train_only_variance,0.8484848484848485,50
+24,SVM,correct_train_only_variance,0.8441558441558442,50
+24,Logistic Regression,leaky_full_data_variance,0.7619047619047619,51
+24,Random Forest,leaky_full_data_variance,0.8506493506493507,51
+24,SVM,leaky_full_data_variance,0.8484848484848485,51
+24,Logistic Regression,correct_train_only_variance,0.7316017316017316,51
+24,Random Forest,correct_train_only_variance,0.8982683982683982,51
+24,SVM,correct_train_only_variance,0.7965367965367967,51
+24,Logistic Regression,leaky_full_data_variance,0.6796536796536796,52
+24,Random Forest,leaky_full_data_variance,0.712121212121212,52
+24,SVM,leaky_full_data_variance,0.7186147186147186,52
+24,Logistic Regression,correct_train_only_variance,0.6277056277056277,52
+24,Random Forest,correct_train_only_variance,0.6471861471861472,52
+24,SVM,correct_train_only_variance,0.7056277056277056,52
+24,Logistic Regression,leaky_full_data_variance,0.7402597402597403,53
+24,Random Forest,leaky_full_data_variance,0.5670995670995671,53
+24,SVM,leaky_full_data_variance,0.5930735930735931,53
+24,Logistic Regression,correct_train_only_variance,0.70995670995671,53
+24,Random Forest,correct_train_only_variance,0.606060606060606,53
+24,SVM,correct_train_only_variance,0.6666666666666666,53
+24,Logistic Regression,leaky_full_data_variance,0.58008658008658,54
+24,Random Forest,leaky_full_data_variance,0.6363636363636364,54
+24,SVM,leaky_full_data_variance,0.6060606060606061,54
+24,Logistic Regression,correct_train_only_variance,0.5887445887445888,54
+24,Random Forest,correct_train_only_variance,0.6103896103896104,54
+24,SVM,correct_train_only_variance,0.6363636363636364,54
+24,Logistic Regression,leaky_full_data_variance,0.7359307359307359,55
+24,Random Forest,leaky_full_data_variance,0.8246753246753247,55
+24,SVM,leaky_full_data_variance,0.9047619047619047,55
+24,Logistic Regression,correct_train_only_variance,0.7662337662337663,55
+24,Random Forest,correct_train_only_variance,0.8463203463203463,55
+24,SVM,correct_train_only_variance,0.9437229437229437,55
+24,Logistic Regression,leaky_full_data_variance,0.8008658008658008,56
+24,Random Forest,leaky_full_data_variance,0.5822510822510822,56
+24,SVM,leaky_full_data_variance,0.6580086580086579,56
+24,Logistic Regression,correct_train_only_variance,0.722943722943723,56
+24,Random Forest,correct_train_only_variance,0.5476190476190476,56
+24,SVM,correct_train_only_variance,0.7575757575757576,56
+24,Logistic Regression,leaky_full_data_variance,0.7142857142857142,57
+24,Random Forest,leaky_full_data_variance,0.8506493506493507,57
+24,SVM,leaky_full_data_variance,0.7316017316017316,57
+24,Logistic Regression,correct_train_only_variance,0.6709956709956709,57
+24,Random Forest,correct_train_only_variance,0.8138528138528138,57
+24,SVM,correct_train_only_variance,0.7922077922077921,57
+24,Logistic Regression,leaky_full_data_variance,0.6493506493506493,58
+24,Random Forest,leaky_full_data_variance,0.7705627705627706,58
+24,SVM,leaky_full_data_variance,0.6493506493506493,58
+24,Logistic Regression,correct_train_only_variance,0.6666666666666667,58
+24,Random Forest,correct_train_only_variance,0.7792207792207793,58
+24,SVM,correct_train_only_variance,0.6926406926406927,58
+24,Logistic Regression,leaky_full_data_variance,0.645021645021645,59
+24,Random Forest,leaky_full_data_variance,0.7554112554112553,59
+24,SVM,leaky_full_data_variance,0.6580086580086579,59
+24,Logistic Regression,correct_train_only_variance,0.6536796536796536,59
+24,Random Forest,correct_train_only_variance,0.699134199134199,59
+24,SVM,correct_train_only_variance,0.6969696969696969,59
+24,Logistic Regression,leaky_full_data_variance,0.6926406926406926,60
+24,Random Forest,leaky_full_data_variance,0.787878787878788,60
+24,SVM,leaky_full_data_variance,0.6060606060606061,60
+24,Logistic Regression,correct_train_only_variance,0.7272727272727273,60
+24,Random Forest,correct_train_only_variance,0.7337662337662337,60
+24,SVM,correct_train_only_variance,0.6623376623376623,60
+24,Logistic Regression,leaky_full_data_variance,0.5324675324675324,61
+24,Random Forest,leaky_full_data_variance,0.6536796536796536,61
+24,SVM,leaky_full_data_variance,0.6363636363636364,61
+24,Logistic Regression,correct_train_only_variance,0.4415584415584416,61
+24,Random Forest,correct_train_only_variance,0.6623376623376623,61
+24,SVM,correct_train_only_variance,0.6709956709956709,61
+24,Logistic Regression,leaky_full_data_variance,0.5670995670995671,62
+24,Random Forest,leaky_full_data_variance,0.7727272727272727,62
+24,SVM,leaky_full_data_variance,0.7186147186147186,62
+24,Logistic Regression,correct_train_only_variance,0.6060606060606061,62
+24,Random Forest,correct_train_only_variance,0.735930735930736,62
+24,SVM,correct_train_only_variance,0.7316017316017316,62
+24,Logistic Regression,leaky_full_data_variance,0.6233766233766233,63
+24,Random Forest,leaky_full_data_variance,0.6580086580086579,63
+24,SVM,leaky_full_data_variance,0.5281385281385281,63
+24,Logistic Regression,correct_train_only_variance,0.645021645021645,63
+24,Random Forest,correct_train_only_variance,0.6818181818181819,63
+24,SVM,correct_train_only_variance,0.6926406926406927,63
+24,Logistic Regression,leaky_full_data_variance,0.5238095238095237,64
+24,Random Forest,leaky_full_data_variance,0.8333333333333334,64
+24,SVM,leaky_full_data_variance,0.7792207792207791,64
+24,Logistic Regression,correct_train_only_variance,0.5497835497835497,64
+24,Random Forest,correct_train_only_variance,0.8160173160173161,64
+24,SVM,correct_train_only_variance,0.7748917748917749,64
+24,Logistic Regression,leaky_full_data_variance,0.8831168831168831,65
+24,Random Forest,leaky_full_data_variance,0.7965367965367965,65
+24,SVM,leaky_full_data_variance,0.7489177489177489,65
+24,Logistic Regression,correct_train_only_variance,0.8571428571428571,65
+24,Random Forest,correct_train_only_variance,0.7337662337662337,65
+24,SVM,correct_train_only_variance,0.8398268398268398,65
+24,Logistic Regression,leaky_full_data_variance,0.5714285714285714,66
+24,Random Forest,leaky_full_data_variance,0.6212121212121212,66
+24,SVM,leaky_full_data_variance,0.5367965367965368,66
+24,Logistic Regression,correct_train_only_variance,0.6493506493506493,66
+24,Random Forest,correct_train_only_variance,0.6277056277056278,66
+24,SVM,correct_train_only_variance,0.632034632034632,66
+24,Logistic Regression,leaky_full_data_variance,0.6623376623376622,67
+24,Random Forest,leaky_full_data_variance,0.6428571428571428,67
+24,SVM,leaky_full_data_variance,0.58008658008658,67
+24,Logistic Regression,correct_train_only_variance,0.670995670995671,67
+24,Random Forest,correct_train_only_variance,0.5844155844155845,67
+24,SVM,correct_train_only_variance,0.6493506493506493,67
+24,Logistic Regression,leaky_full_data_variance,0.5194805194805194,68
+24,Random Forest,leaky_full_data_variance,0.6082251082251082,68
+24,SVM,leaky_full_data_variance,0.6233766233766234,68
+24,Logistic Regression,correct_train_only_variance,0.5541125541125541,68
+24,Random Forest,correct_train_only_variance,0.6125541125541126,68
+24,SVM,correct_train_only_variance,0.6580086580086579,68
+24,Logistic Regression,leaky_full_data_variance,0.7099567099567099,69
+24,Random Forest,leaky_full_data_variance,0.7272727272727273,69
+24,SVM,leaky_full_data_variance,0.6883116883116883,69
+24,Logistic Regression,correct_train_only_variance,0.7142857142857142,69
+24,Random Forest,correct_train_only_variance,0.6688311688311688,69
+24,SVM,correct_train_only_variance,0.7359307359307359,69
+24,Logistic Regression,leaky_full_data_variance,0.7012987012987013,70
+24,Random Forest,leaky_full_data_variance,0.6861471861471861,70
+24,SVM,leaky_full_data_variance,0.6623376623376622,70
+24,Logistic Regression,correct_train_only_variance,0.6623376623376623,70
+24,Random Forest,correct_train_only_variance,0.7164502164502164,70
+24,SVM,correct_train_only_variance,0.6623376623376622,70
+24,Logistic Regression,leaky_full_data_variance,0.6536796536796536,71
+24,Random Forest,leaky_full_data_variance,0.7294372294372294,71
+24,SVM,leaky_full_data_variance,0.5757575757575757,71
+24,Logistic Regression,correct_train_only_variance,0.670995670995671,71
+24,Random Forest,correct_train_only_variance,0.7597402597402597,71
+24,SVM,correct_train_only_variance,0.6017316017316017,71

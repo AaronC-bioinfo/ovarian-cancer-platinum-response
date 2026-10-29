@@ -1,9 +1,61 @@
 # Project Log — Ovarian Cancer Platinum Response
 
-**Last updated:** 2026-07-20
+**Last updated:** 2026-10-29
 **Status:** Analysis complete across Findings 1–6 and Enhancements 3–5. Consolidating
 into a single manuscript. This log supersedes `archive/PROJECT_LOG_2026-06-22.md`
 (kept for history).
+
+---
+
+## 2026-10-29 (evening) — v3 draft, independent audit, leakage ablation rerun in the pinned environment
+
+- **v3 manuscript:** `manuscript_v3/manuscript_v3.md` (canonical) → `PLOS_Draft_Chintala_v3_LabelValidity.docx`
+  via `manuscript_v3/build_docx.py` (pandoc 3.1.3). Not yet sent to Lockhart.
+- **Independent audit** (Fable agent, prompt `manuscript_v3/AUDIT_PROMPT_v3_Fable.md`; output `audit_v3/`):
+  150 numbers traced, none wrong from an analysis output.
+  - Blockers: leakage provenance; Data availability (Zenodo/GitHub lack the v3 work); four text slips.
+  - Text fixes applied, plus majors M1/M4 and minors 1–4, 6–8, 10–11, 13.
+- **A7 leakage ablation rerun** (`label_validity/07_ablation_rerun_PRERUN.md`, predictions written first):
+  - Host run: Python 3.14.5 / scikit-learn 1.9.0 (`outputs/results_pinned_2026-10-29/ENVIRONMENT.txt`).
+  - Patch (Aaron approved 18:19 ET): `src/ablation.py` l.62, l.233–234 pass `.to_numpy()` to
+    `f_classif` / `StandardScaler`, because scikit-learn 1.9.0 rejects duplicate gene symbols. Output
+    identical under 1.7.2.
+  - P1–P4 all held. 18/24-mo mean inflation: supervised +0.208 (June +0.207), unsupervised +0.006
+    (June +0.003). Only RF rows and two unsupervised SVM rows changed.
+  - F4 now reads `outputs/results_pinned_2026-10-29/`. The June `outputs/results/ablation_*` files are
+    superseded but kept, and the old figures are kept in `figures/v3/superseded_june-ablation_2026-10-29/`.
+- **R environment recorded:** R 4.6.0, survival 3.8.6 (`label_validity/outputs/R_ENVIRONMENT.txt`).
+- **Open (Aaron):**
+  - commit, push and tag the v3 work, then make a new Zenodo version and cite its version DOI;
+  - S1–S7 Tables and S1 Text are not yet built;
+  - `_to_delete/` holds stray build files.
+
+---
+
+## 2026-10-29 — Paper reorganised around Q2 (label construct validity); decision gate run
+
+- **Decision (Aaron, 2026-10-29):** the v2 draft is reorganised around one question — *Does TCGA-OV
+  support a valid platinum-response label, and what do classifiers trained on the common proxy labels
+  actually predict?* Plan: `claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md` (claude.ai project).
+- **Primary response label:** `PLATINUM_STATUS` (Resistant vs Sensitive) from cBioPortal `ov_tcga_pub`
+  (TCGA, Nature 2011). Sensitivity label: PFI from end of first-line platinum = CDR `PFI.time` − last
+  `Adjuvant` platinum `STOP_DATE`, 183-day cutoff. The `PLATINUM_STATUS` definition is still to be
+  verified verbatim from the TCGA 2011 paper.
+- **Gate G1–G4** (`label_validity/00_gate_pfi_coverage.py`, `validation/00_gse63885_labels.py`,
+  predictions in headers):
+  - G1 PASS — CDR PFI for 214/214, 206/206, 199/199 classification patients and 432/432 Cox patients.
+  - G2 PASS — `PLATINUM_STATUS` determinate for 134 patients in the 24m cohort (39 R / 95 S);
+    agrees with PFI-from-platinum in 268/272 = 0.985.
+  - G3 FAIL as pre-registered (power: 5 PD patients with a platinum label in the pan-can response field).
+    Post hoc (`00b_gate_posthoc_response_sources.py`): with the ov_tcga_pub/CDR copies of the same
+    field, P(Resistant | PD) = 15/18 = 0.833; P(short PFI-from-platinum | PD) = 18/30 = 0.600.
+    OS18 flags 11/49 and OS24 17/49 Resistant patients as non-responders.
+  - G4 — all predictions held; definitions in `validation/GSE63885_label_definitions.md`.
+    Chen et al.'s 34/41 = all 75 annotated GSE63885 samples with no histology filter.
+- **Correction:** "~89% missing PRIMARY_THERAPY_OUTCOME_SUCCESS" is true only of the pan-can
+  `data_timeline_status.txt`. The field is present for 366/489 (ov_tcga_pub) and 424/489 (CDR)
+  platinum patients. The v2 label-validity statement must be restated.
+- **Dropped:** AACR 2027 abstract (Nov 10). Preprint target moves from Nov 5 to about Nov 13–14.
 
 ---
 
@@ -27,9 +79,10 @@ into a single manuscript. This log supersedes `archive/PROJECT_LOG_2026-06-22.md
   target. All findings fold into the single PLOS submission. Pre-correction F1000 base
   draft moved to `archive/`.
 - Nature Communications only as a stretch goal, contingent on co-authorship and data access.
-- To confirm with Dr. Lockhart before final submission: that Findings 1–3 (leakage
+- ~~To confirm with Dr. Lockhart before final submission: that Findings 1–3 (leakage
   ablation, label construct validity, external-validation failure) fold into the PLOS
-  paper rather than being dropped or retargeted.
+  paper rather than being dropped or retargeted.~~ *Superseded 2026-10-29: the paper is
+  reorganised around label construct validity (Q2); see the 2026-10-29 entry.*
 
 ---
 

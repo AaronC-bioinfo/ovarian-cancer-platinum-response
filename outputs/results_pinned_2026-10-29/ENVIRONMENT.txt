@@ -1,0 +1,2 @@
+﻿3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]
+sklearn 1.9.0 numpy 2.4.6 pandas 3.0.3 scipy 1.17.1

@@ -1,0 +1,10 @@
+Python 3.10.12 (CPython), GIL enabled: n/a
+sklearn 1.7.2, numpy 2.2.6
+12m / variant S / GEO clinical label; TCGA n=214, events=11; v2 recorded RF AUC 0.6312
+
+n_jobs=-1  AUC 0.6312
+n_jobs=-1  AUC 0.6312
+n_jobs=-1  AUC 0.6312
+n_jobs= 1  AUC 0.6312
+n_jobs= 1  AUC 0.6312
+n_jobs= 1  AUC 0.6312

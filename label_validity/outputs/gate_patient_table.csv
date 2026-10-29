@@ -1,0 +1,588 @@
+PATIENT_ID,in_platinum_exact,in_platinum_substring,in_cox432,has_rnaseq,in_cls12,label_os12,in_cls18,label_os18,in_cls24,label_os24,cdr_PFI,cdr_PFI_time_d,cdr_redaction,cdr_treatment_outcome_first_course,has_cdr_pfi,pub_platinum_status,pub_ptos,pancan_ptos,has_firstline_platinum_row,firstline_platinum_stop_d,pfi_from_platinum_d,pfi_plat6_class,pfi_plat_negative
+TCGA-04-1331,True,True,True,False,False,,False,,False,,1.0,459.0,Redacted,Complete Remission/Response,True,Sensitive,Complete Response,,True,169.0,290.0,long,False
+TCGA-04-1332,True,True,False,False,False,,False,,False,,1.0,393.0,Redacted,[Not Available],True,Sensitive,,,True,179.0,214.0,long,False
+TCGA-04-1335,False,False,False,False,False,,False,,False,,1.0,55.0,Redacted,[Not Available],True,,,,False,,,,False
+TCGA-04-1336,True,True,True,False,False,,False,,False,,0.0,1495.0,Redacted,Complete Remission/Response,True,Missing,Complete Response,Complete Remission/Response,True,144.0,1351.0,long,False
+TCGA-04-1337,False,False,False,False,False,,False,,False,,1.0,61.0,Redacted,[Not Available],True,Missing,,,False,,,,False
+TCGA-04-1338,True,True,True,False,False,,False,,False,,1.0,380.0,Redacted,[Not Available],True,Resistant,,,True,201.0,179.0,short,False
+TCGA-04-1341,False,False,False,False,False,,False,,False,,0.0,33.0,Redacted,Complete Remission/Response,True,Missing,,,False,,,,False
+TCGA-04-1342,True,True,True,False,False,,False,,False,,1.0,563.0,Redacted,Progressive Disease,True,Missing,Progressive Disease,,True,142.0,421.0,long,False
+TCGA-04-1343,True,True,True,False,False,,False,,False,,1.0,361.0,Redacted,Progressive Disease,True,Missing,Progressive Disease,,True,170.0,191.0,long,False
+TCGA-04-1346,False,False,False,False,False,,False,,False,,0.0,1993.0,Redacted,Complete Remission/Response,True,Missing,Complete Response,Complete Remission/Response,False,,,,False
+TCGA-04-1347,True,True,True,False,False,,False,,False,,0.0,1919.0,Redacted,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,173.0,1746.0,long,False
+TCGA-04-1348,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,575.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,184.0,391.0,long,False
+TCGA-04-1349,True,True,True,False,False,,False,,False,,1.0,428.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,373.0,55.0,short,False
+TCGA-04-1350,True,True,True,False,False,,False,,False,,1.0,111.0,,Stable Disease,True,Missing,Stable Disease,,False,,,,False
+TCGA-04-1351,False,False,False,False,False,,False,,False,,1.0,1658.0,,Complete Remission/Response,True,,,Complete Remission/Response,False,,,,False
+TCGA-04-1353,False,False,False,False,False,,False,,False,,0.0,16.0,,[Not Available],True,,,,False,,,,False
+TCGA-04-1356,True,True,True,False,False,,False,,False,,1.0,156.0,,Progressive Disease,True,Missing,Progressive Disease,,False,,,,False
+TCGA-04-1357,False,False,False,True,False,,False,,False,,0.0,,,[Not Available],False,Missing,,,False,,,,False
+TCGA-04-1360,False,False,False,False,False,,False,,False,,0.0,,,[Not Available],False,,,,False,,,,False
+TCGA-04-1361,True,True,True,False,False,,False,,False,,1.0,927.0,,Stable Disease,True,Missing,Stable Disease,Stable Disease,True,844.0,83.0,short,False
+TCGA-04-1362,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,223.0,,[Not Available],True,Resistant,,,True,172.0,51.0,short,False
+TCGA-04-1364,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,288.0,,Progressive Disease,True,Resistant,Progressive Disease,,True,188.0,100.0,short,False
+TCGA-04-1365,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1328.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,189.0,1139.0,long,False
+TCGA-04-1367,True,True,True,False,False,,False,,False,,1.0,2997.0,,Complete Remission/Response,True,Sensitive,Complete Response,Progressive Disease,True,199.0,2798.0,long,False
+TCGA-04-1369,True,True,False,False,False,,False,,False,,1.0,315.0,,[Not Available],True,,,,True,238.0,77.0,short,False
+TCGA-04-1370,False,False,False,False,False,,False,,False,,0.0,1824.0,,[Not Available],True,,,,False,,,,False
+TCGA-04-1371,True,True,False,False,False,,False,,False,,0.0,2506.0,,[Not Available],True,,,,True,199.0,2307.0,long,False
+TCGA-04-1514,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1221.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,185.0,1036.0,long,False
+TCGA-04-1516,True,True,True,False,False,,False,,False,,0.0,1265.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,157.0,1108.0,long,False
+TCGA-04-1517,True,True,True,False,False,,False,,False,,1.0,349.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,144.0,205.0,long,False
+TCGA-04-1519,False,False,False,True,False,,False,,False,,0.0,24.0,,[Unknown],True,Missing,,,False,,,,False
+TCGA-04-1525,True,True,False,False,False,,False,,False,,1.0,213.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,184.0,29.0,short,False
+TCGA-04-1530,True,True,True,False,False,,False,,False,,1.0,350.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,153.0,197.0,long,False
+TCGA-04-1536,True,True,True,False,False,,False,,False,,1.0,498.0,,[Not Available],True,Sensitive,,,True,232.0,266.0,long,False
+TCGA-04-1542,True,True,True,False,False,,False,,False,,1.0,1020.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,167.0,853.0,long,False
+TCGA-04-1638,True,True,True,False,False,,False,,False,,1.0,298.0,,[Not Available],True,Resistant,,,True,193.0,105.0,short,False
+TCGA-04-1644,True,True,True,False,False,,False,,False,,1.0,634.0,,Partial Remission/Response,True,,,,True,221.0,413.0,long,False
+TCGA-04-1646,True,True,True,False,False,,False,,False,,1.0,508.0,,[Not Available],True,Sensitive,,,True,239.0,269.0,long,False
+TCGA-04-1648,True,True,True,False,False,,False,,False,,1.0,412.0,,[Not Available],True,Sensitive,,,True,149.0,263.0,long,False
+TCGA-04-1649,True,True,True,False,False,,False,,False,,1.0,1672.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-04-1651,True,True,True,False,False,,False,,False,,1.0,990.0,,[Not Available],True,Sensitive,,,True,150.0,840.0,long,False
+TCGA-04-1652,True,True,True,False,False,,False,,False,,1.0,880.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,199.0,681.0,long,False
+TCGA-04-1654,True,True,False,False,False,,False,,False,,1.0,808.0,,[Not Available],True,Sensitive,,,True,52.0,756.0,long,False
+TCGA-04-1655,True,True,True,False,False,,False,,False,,1.0,819.0,,[Not Available],True,Sensitive,,,True,139.0,680.0,long,False
+TCGA-09-0364,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,395.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,188.0,207.0,long,False
+TCGA-09-0365,True,True,True,False,False,,False,,False,,1.0,251.0,,Complete Remission/Response,True,,,,True,70.0,181.0,short,False
+TCGA-09-0366,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,190.0,,Stable Disease,True,Resistant,Stable Disease,,True,113.0,77.0,short,False
+TCGA-09-0367,True,True,True,True,True,0.0,True,1.0,True,1.0,1.0,547.0,,Progressive Disease,True,Missing,Progressive Disease,,True,92.0,455.0,long,False
+TCGA-09-0369,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,274.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,99.0,175.0,short,False
+TCGA-09-1659,True,True,True,True,True,1.0,True,1.0,True,1.0,1.0,304.0,,Stable Disease,True,Missing,Stable Disease,,True,137.0,167.0,short,False
+TCGA-09-1661,True,True,False,False,False,,False,,False,,1.0,1169.0,,Stable Disease,True,Missing,Stable Disease,,True,165.0,1004.0,long,False
+TCGA-09-1662,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1046.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,141.0,905.0,long,False
+TCGA-09-1664,True,True,True,False,False,,False,,False,,0.0,2279.0,,Complete Remission/Response,True,,,,True,139.0,2140.0,long,False
+TCGA-09-1665,True,True,True,False,False,,False,,False,,1.0,468.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,208.0,260.0,long,False
+TCGA-09-1666,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,480.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,173.0,307.0,long,False
+TCGA-09-1667,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,460.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,118.0,342.0,long,False
+TCGA-09-1668,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,1684.0,,Complete Remission/Response,True,Missing,Complete Response,Complete Remission/Response,True,135.0,1549.0,long,False
+TCGA-09-1669,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,928.0,,Complete Remission/Response,True,Missing,Complete Response,Complete Remission/Response,True,132.0,796.0,long,False
+TCGA-09-1670,True,True,False,True,True,0.0,False,,False,,1.0,547.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,179.0,368.0,long,False
+TCGA-09-1672,True,True,True,False,False,,False,,False,,0.0,178.0,,[Not Available],True,,,,True,,,,False
+TCGA-09-1673,True,True,True,True,False,,False,,False,,0.0,92.0,,[Not Available],True,Missing,,,True,,,,False
+TCGA-09-1674,True,True,True,True,False,,False,,False,,0.0,260.0,,Complete Remission/Response,True,Missing,Complete Response,Complete Remission/Response,True,145.0,115.0,indeterminate,False
+TCGA-09-1675,True,True,True,False,False,,False,,False,,0.0,2967.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,187.0,2780.0,long,False
+TCGA-09-2043,False,False,False,False,False,,False,,False,,0.0,188.0,,Complete Remission/Response,True,,,Complete Remission/Response,False,,,,False
+TCGA-09-2044,True,True,True,True,False,,False,,False,,0.0,186.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,151.0,35.0,indeterminate,False
+TCGA-09-2045,True,True,False,True,True,0.0,True,0.0,True,0.0,1.0,631.0,,Stable Disease,True,Sensitive,Stable Disease,,True,239.0,392.0,long,False
+TCGA-09-2048,False,False,False,False,False,,False,,False,,1.0,138.0,,Stable Disease,True,Missing,Stable Disease,,False,,,,False
+TCGA-09-2049,True,True,True,False,False,,False,,False,,1.0,953.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,172.0,781.0,long,False
+TCGA-09-2050,True,True,True,False,False,,False,,False,,0.0,2163.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,110.0,2053.0,long,False
+TCGA-09-2051,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,583.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,155.0,428.0,long,False
+TCGA-09-2053,True,True,True,False,False,,False,,False,,0.0,1209.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,138.0,1071.0,long,False
+TCGA-09-2054,True,True,True,True,True,0.0,True,0.0,True,1.0,1.0,637.0,,Progressive Disease,True,Missing,Progressive Disease,,True,161.0,476.0,long,False
+TCGA-09-2055,True,True,True,False,False,,False,,False,,0.0,819.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,189.0,630.0,long,False
+TCGA-09-2056,False,False,False,False,False,,False,,False,,0.0,379.0,,Complete Remission/Response,True,Sensitive,Complete Response,,False,,,,False
+TCGA-10-0925,True,True,False,False,False,,False,,False,,1.0,558.0,,Partial Remission/Response,True,,,,True,293.0,265.0,long,False
+TCGA-10-0926,True,True,True,False,False,,False,,False,,1.0,287.0,,Complete Remission/Response,True,Resistant,Complete Response,,False,,,,False
+TCGA-10-0927,True,True,True,False,False,,False,,False,,1.0,1001.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,121.0,880.0,long,False
+TCGA-10-0928,False,False,False,True,False,,False,,False,,1.0,563.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-10-0930,True,True,True,False,False,,False,,False,,1.0,680.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,124.0,556.0,long,False
+TCGA-10-0931,True,True,True,False,False,,False,,False,,1.0,300.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,124.0,176.0,short,False
+TCGA-10-0933,True,True,True,False,False,,False,,False,,1.0,356.0,,Complete Remission/Response,True,Sensitive,Complete Response,,False,,,,False
+TCGA-10-0934,True,True,True,False,False,,False,,False,,1.0,111.0,,Progressive Disease,True,Resistant,Progressive Disease,,True,56.0,55.0,short,False
+TCGA-10-0935,True,True,True,False,False,,False,,False,,1.0,1078.0,,[Not Available],True,Missing,,,True,34.0,1044.0,long,False
+TCGA-10-0936,True,True,False,True,True,0.0,True,0.0,True,0.0,1.0,1123.0,,Partial Remission/Response,True,Missing,Partial Response,,True,194.0,929.0,long,False
+TCGA-10-0937,True,True,True,False,False,,False,,False,,1.0,235.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,146.0,89.0,short,False
+TCGA-10-0938,True,True,True,False,False,,False,,False,,1.0,362.0,,Progressive Disease,True,Resistant,Progressive Disease,,False,,,,False
+TCGA-13-0714,True,True,True,False,False,,False,,False,,1.0,110.0,,Progressive Disease,True,Missing,Progressive Disease,,True,,,,False
+TCGA-13-0717,True,True,False,False,False,,False,,False,,1.0,294.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,182.0,112.0,short,False
+TCGA-13-0720,True,True,False,False,False,,False,,False,,1.0,292.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,180.0,112.0,short,False
+TCGA-13-0723,True,True,False,False,False,,False,,False,,1.0,210.0,,Progressive Disease,True,Resistant,Progressive Disease,,True,200.0,10.0,short,False
+TCGA-13-0724,True,True,True,False,False,,False,,False,,1.0,83.0,,Progressive Disease,True,Resistant,Progressive Disease,,True,75.0,8.0,short,False
+TCGA-13-0725,True,True,False,False,False,,False,,False,,1.0,190.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,215.0,-25.0,short,True
+TCGA-13-0726,True,True,True,False,False,,False,,False,,1.0,392.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,169.0,223.0,long,False
+TCGA-13-0727,True,True,True,False,False,,False,,False,,1.0,253.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,120.0,133.0,short,False
+TCGA-13-0730,False,False,False,True,False,,False,,False,,0.0,542.0,,[Unknown],True,Missing,,,False,,,,False
+TCGA-13-0751,True,True,True,False,False,,False,,False,,1.0,653.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,266.0,387.0,long,False
+TCGA-13-0755,True,True,True,False,False,,False,,False,,1.0,34.0,,Progressive Disease,True,Resistant,Progressive Disease,,True,41.0,-7.0,short,True
+TCGA-13-0757,True,True,True,False,False,,False,,False,,1.0,293.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,267.0,26.0,short,False
+TCGA-13-0758,True,True,False,False,False,,False,,False,,1.0,212.0,,Partial Remission/Response,True,,,,True,161.0,51.0,short,False
+TCGA-13-0760,False,False,False,False,False,,False,,False,,0.0,351.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-13-0761,True,True,False,False,False,,False,,False,,1.0,424.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,221.0,203.0,long,False
+TCGA-13-0762,True,True,True,False,False,,False,,False,,1.0,1003.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,141.0,862.0,long,False
+TCGA-13-0764,True,True,True,False,False,,False,,False,,1.0,272.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,160.0,112.0,short,False
+TCGA-13-0765,True,True,False,False,False,,False,,False,,1.0,668.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,163.0,505.0,long,False
+TCGA-13-0766,False,False,False,False,False,,False,,False,,1.0,628.0,,Complete Remission/Response,True,Sensitive,Complete Response,,False,,,,False
+TCGA-13-0768,True,True,True,False,False,,False,,False,,1.0,398.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,148.0,250.0,long,False
+TCGA-13-0791,True,True,True,False,False,,False,,False,,1.0,281.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,141.0,140.0,short,False
+TCGA-13-0792,True,True,False,False,False,,False,,False,,1.0,816.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,160.0,656.0,long,False
+TCGA-13-0793,True,True,False,False,False,,False,,False,,1.0,351.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,159.0,192.0,long,False
+TCGA-13-0794,True,True,True,False,False,,False,,False,,1.0,845.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,132.0,713.0,long,False
+TCGA-13-0795,True,True,True,False,False,,False,,False,,1.0,325.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,205.0,120.0,short,False
+TCGA-13-0797,True,True,True,False,False,,False,,False,,1.0,525.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,146.0,379.0,long,False
+TCGA-13-0799,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1262.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,146.0,1116.0,long,False
+TCGA-13-0800,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1396.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,142.0,1254.0,long,False
+TCGA-13-0801,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,345.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,144.0,201.0,long,False
+TCGA-13-0802,True,True,False,False,False,,False,,False,,1.0,510.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,188.0,322.0,long,False
+TCGA-13-0803,False,False,False,False,False,,False,,False,,1.0,337.0,,Complete Remission/Response,True,Resistant,Complete Response,,False,,,,False
+TCGA-13-0804,True,True,True,False,False,,False,,False,,1.0,329.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,161.0,168.0,short,False
+TCGA-13-0805,True,True,True,False,False,,False,,False,,1.0,177.0,,Progressive Disease,True,Resistant,Progressive Disease,,True,151.0,26.0,short,False
+TCGA-13-0807,False,False,False,False,False,,False,,False,,0.0,414.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-13-0883,True,True,True,False,False,,False,,False,,1.0,819.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,350.0,469.0,long,False
+TCGA-13-0884,True,True,True,False,False,,False,,False,,1.0,1251.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,307.0,944.0,long,False
+TCGA-13-0885,True,True,True,False,False,,False,,False,,0.0,3388.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,110.0,3278.0,long,False
+TCGA-13-0886,True,True,True,False,False,,False,,False,,0.0,4665.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,263.0,4402.0,long,False
+TCGA-13-0887,True,True,True,False,False,,False,,False,,1.0,514.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,268.0,246.0,long,False
+TCGA-13-0888,True,True,True,False,False,,False,,False,,0.0,2811.0,,[Discrepancy],True,Sensitive,Partial Response,,True,232.0,2579.0,long,False
+TCGA-13-0889,True,True,True,False,False,,False,,False,,0.0,2894.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,159.0,2735.0,long,False
+TCGA-13-0890,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,4424.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,235.0,4189.0,long,False
+TCGA-13-0891,True,True,True,False,False,,False,,False,,1.0,762.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,183.0,579.0,long,False
+TCGA-13-0893,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,461.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,284.0,177.0,short,False
+TCGA-13-0894,True,True,False,False,False,,False,,False,,1.0,565.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,330.0,235.0,long,False
+TCGA-13-0897,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,554.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,140.0,414.0,long,False
+TCGA-13-0899,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,547.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,126.0,421.0,long,False
+TCGA-13-0900,True,True,True,False,False,,False,,False,,0.0,4077.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,162.0,3915.0,long,False
+TCGA-13-0901,True,True,True,False,False,,False,,False,,1.0,390.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,165.0,225.0,long,False
+TCGA-13-0903,True,True,True,False,False,,False,,False,,0.0,3887.0,,Complete Remission/Response,True,Missing,Complete Response,,True,127.0,3760.0,long,False
+TCGA-13-0904,True,True,True,False,False,,False,,False,,1.0,330.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,251.0,79.0,short,False
+TCGA-13-0905,True,True,True,False,False,,False,,False,,1.0,1535.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,223.0,1312.0,long,False
+TCGA-13-0906,True,True,True,False,False,,False,,False,,0.0,3619.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,147.0,3472.0,long,False
+TCGA-13-0908,True,True,False,False,False,,False,,False,,1.0,552.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,244.0,308.0,long,False
+TCGA-13-0910,True,True,True,False,False,,False,,False,,1.0,1212.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,289.0,923.0,long,False
+TCGA-13-0911,True,True,True,False,False,,False,,False,,1.0,279.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,189.0,90.0,short,False
+TCGA-13-0912,True,True,True,False,False,,False,,False,,1.0,469.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,147.0,322.0,long,False
+TCGA-13-0913,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,871.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,161.0,710.0,long,False
+TCGA-13-0916,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,1785.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,161.0,1624.0,long,False
+TCGA-13-0919,True,True,False,False,False,,False,,False,,0.0,2571.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,160.0,2411.0,long,False
+TCGA-13-0920,False,False,False,True,False,,False,,False,,1.0,297.0,,Complete Remission/Response,True,Resistant,Complete Response,,False,,,,False
+TCGA-13-0921,True,True,True,False,False,,False,,False,,0.0,1483.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,140.0,1343.0,long,False
+TCGA-13-0923,True,True,True,False,False,,False,,False,,1.0,1719.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,151.0,1568.0,long,False
+TCGA-13-0924,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,962.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,143.0,819.0,long,False
+TCGA-13-1403,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,418.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,142.0,276.0,long,False
+TCGA-13-1404,True,True,True,False,False,,False,,False,,1.0,1581.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,274.0,1307.0,long,False
+TCGA-13-1405,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,228.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,147.0,81.0,short,False
+TCGA-13-1407,True,True,True,False,False,,False,,False,,1.0,1333.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,184.0,1149.0,long,False
+TCGA-13-1408,True,True,True,False,False,,False,,False,,1.0,765.0,,Partial Remission/Response,True,Missing,Partial Response,,True,201.0,564.0,long,False
+TCGA-13-1409,True,True,True,False,False,,False,,False,,1.0,690.0,,[Not Available],True,Missing,,,True,,,,False
+TCGA-13-1410,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,319.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,125.0,194.0,long,False
+TCGA-13-1411,True,True,True,True,True,0.0,True,1.0,True,1.0,1.0,238.0,,Partial Remission/Response,True,Missing,Partial Response,,True,128.0,110.0,short,False
+TCGA-13-1412,True,True,True,False,False,,False,,False,,1.0,409.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,205.0,204.0,long,False
+TCGA-13-1477,True,True,True,False,False,,False,,False,,1.0,235.0,,Progressive Disease,True,Resistant,Progressive Disease,,True,206.0,29.0,short,False
+TCGA-13-1481,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,2648.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,242.0,2406.0,long,False
+TCGA-13-1482,True,True,True,False,False,,False,,False,,1.0,602.0,,Partial Remission/Response,True,Sensitive,Partial Response,,True,152.0,450.0,long,False
+TCGA-13-1483,True,True,True,False,False,,False,,False,,1.0,297.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,239.0,58.0,short,False
+TCGA-13-1484,True,True,True,False,False,,False,,False,,1.0,497.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,191.0,306.0,long,False
+TCGA-13-1485,True,True,False,False,False,,False,,False,,1.0,170.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,149.0,21.0,short,False
+TCGA-13-1487,True,True,True,False,False,,False,,False,,1.0,412.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,208.0,204.0,long,False
+TCGA-13-1488,True,True,True,False,False,,False,,False,,1.0,351.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,165.0,186.0,long,False
+TCGA-13-1489,True,True,True,False,False,,False,,False,,1.0,806.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,272.0,534.0,long,False
+TCGA-13-1491,True,True,True,False,False,,False,,False,,1.0,508.0,,Partial Remission/Response,True,Sensitive,Partial Response,,True,154.0,354.0,long,False
+TCGA-13-1492,True,True,True,False,False,,False,,False,,0.0,3819.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,247.0,3572.0,long,False
+TCGA-13-1494,False,False,False,False,False,,False,,False,,1.0,693.0,,Complete Remission/Response,True,Sensitive,Complete Response,,False,,,,False
+TCGA-13-1495,True,True,True,False,False,,False,,False,,1.0,977.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,140.0,837.0,long,False
+TCGA-13-1496,True,True,True,False,False,,False,,False,,0.0,129.0,,[Not Available],True,Missing,,,True,33.0,96.0,indeterminate,False
+TCGA-13-1497,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,813.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,185.0,628.0,long,False
+TCGA-13-1498,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,534.0,,Partial Remission/Response,True,Sensitive,Partial Response,,True,216.0,318.0,long,False
+TCGA-13-1499,True,True,True,False,False,,False,,False,,1.0,583.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,187.0,396.0,long,False
+TCGA-13-1500,True,True,True,False,False,,False,,False,,1.0,253.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,225.0,28.0,short,False
+TCGA-13-1501,True,True,True,False,False,,False,,False,,1.0,392.0,,Partial Remission/Response,True,Sensitive,Partial Response,,True,183.0,209.0,long,False
+TCGA-13-1504,False,False,False,False,False,,False,,False,,1.0,548.0,,Complete Remission/Response,True,Sensitive,Complete Response,,False,,,,False
+TCGA-13-1505,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1561.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,167.0,1394.0,long,False
+TCGA-13-1506,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,666.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,197.0,469.0,long,False
+TCGA-13-1507,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,324.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,166.0,158.0,short,False
+TCGA-13-1509,True,True,True,False,False,,False,,False,,1.0,578.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,127.0,451.0,long,False
+TCGA-13-1510,True,True,True,False,False,,False,,False,,1.0,1189.0,,[Not Available],True,Tooearly,,,True,174.0,1015.0,long,False
+TCGA-13-1511,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,459.0,,Partial Remission/Response,True,Missing,Partial Response,,True,186.0,273.0,long,False
+TCGA-13-1512,True,True,True,True,True,0.0,False,,False,,1.0,427.0,,[Not Available],True,Tooearly,,,True,94.0,333.0,long,False
+TCGA-13-1817,False,False,False,False,False,,False,,False,,1.0,541.0,,Partial Remission/Response,True,,,,False,,,,False
+TCGA-13-1819,False,False,False,False,False,,False,,False,,1.0,429.0,,Complete Remission/Response,True,,,,False,,,,False
+TCGA-13-2057,True,True,True,False,False,,False,,False,,1.0,897.0,,Complete Remission/Response,True,,,,True,159.0,738.0,long,False
+TCGA-13-2059,True,True,True,False,False,,False,,False,,1.0,1005.0,,Complete Remission/Response,True,,,,True,158.0,847.0,long,False
+TCGA-13-2060,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1475.0,,Complete Remission/Response,True,Tooearly,Complete Response,,True,143.0,1332.0,long,False
+TCGA-13-2061,True,True,True,False,False,,False,,False,,0.0,2339.0,,Complete Remission/Response,True,,,,True,168.0,2171.0,long,False
+TCGA-13-2065,True,True,True,False,False,,False,,False,,1.0,946.0,,Complete Remission/Response,True,,,,True,141.0,805.0,long,False
+TCGA-13-2066,True,True,False,False,False,,False,,False,,1.0,1028.0,,Complete Remission/Response,True,,,,True,169.0,859.0,long,False
+TCGA-13-2071,True,True,True,False,False,,False,,False,,1.0,322.0,,Complete Remission/Response,True,,,,True,146.0,176.0,short,False
+TCGA-13-A5FT,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,2143.0,,Complete Remission/Response,True,,,,False,,,,False
+TCGA-13-A5FU,True,True,True,False,False,,False,,False,,1.0,256.0,,Partial Remission/Response,True,,,,False,,,,False
+TCGA-20-0987,True,True,True,False,False,,False,,False,,1.0,442.0,Redacted,[Not Available],True,Missing,,,True,,,,False
+TCGA-20-0990,True,True,False,False,False,,False,,False,,1.0,871.0,Redacted,[Not Available],True,Sensitive,,,True,236.0,635.0,long,False
+TCGA-20-0991,True,True,True,False,False,,False,,False,,0.0,797.0,Redacted,Complete Remission/Response,True,Missing,Complete Response,Complete Remission/Response,True,,,,False
+TCGA-20-0996,True,True,False,False,False,,False,,False,,0.0,2196.0,,[Not Available],True,,,,True,224.0,1972.0,long,False
+TCGA-20-1682,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,837.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,145.0,692.0,long,False
+TCGA-20-1683,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,618.0,,Stable Disease,True,Sensitive,Stable Disease,Stable Disease,True,135.0,483.0,long,False
+TCGA-20-1684,True,True,True,True,True,0.0,True,0.0,False,,0.0,581.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,120.0,461.0,long,False
+TCGA-20-1685,True,True,True,True,True,0.0,False,,False,,0.0,508.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,144.0,364.0,long,False
+TCGA-20-1686,True,True,True,False,False,,False,,False,,0.0,89.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,131.0,-42.0,indeterminate,True
+TCGA-20-1687,True,True,True,True,False,,False,,False,,0.0,81.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,172.0,-91.0,indeterminate,True
+TCGA-23-1021,True,True,True,False,False,,False,,False,,1.0,1446.0,Redacted,Partial Remission/Response,True,Missing,Partial Response,,True,119.0,1327.0,long,False
+TCGA-23-1022,True,True,True,False,False,,False,,False,,1.0,450.0,Redacted,Complete Remission/Response,True,Sensitive,Complete Response,,True,162.0,288.0,long,False
+TCGA-23-1023,True,True,False,True,True,0.0,True,0.0,True,0.0,1.0,490.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,120.0,370.0,long,False
+TCGA-23-1024,True,True,True,False,False,,False,,False,,0.0,468.0,Redacted,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,304.0,164.0,indeterminate,False
+TCGA-23-1026,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,797.0,Redacted,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,108.0,689.0,long,False
+TCGA-23-1027,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,114.0,Redacted,Progressive Disease,True,Resistant,Progressive Disease,,True,250.0,-136.0,short,True
+TCGA-23-1028,True,True,True,False,False,,False,,False,,1.0,133.0,Redacted,Complete Remission/Response,True,Resistant,Complete Response,Complete Remission/Response,True,110.0,23.0,short,False
+TCGA-23-1029,True,True,True,True,False,,False,,False,,0.0,268.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,78.0,190.0,long,False
+TCGA-23-1030,True,True,True,False,False,,False,,False,,1.0,544.0,Redacted,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,165.0,379.0,long,False
+TCGA-23-1031,True,True,False,False,False,,False,,False,,1.0,575.0,Redacted,Partial Remission/Response,True,Missing,Partial Response,,True,446.0,129.0,short,False
+TCGA-23-1032,False,False,False,False,False,,False,,False,,1.0,84.0,Redacted,[Not Available],True,Missing,,,False,,,,False
+TCGA-23-1107,False,False,False,False,False,,False,,False,,1.0,9.0,Redacted,[Not Available],True,Missing,,,False,,,,False
+TCGA-23-1109,False,False,False,True,False,,False,,False,,1.0,987.0,Redacted,Partial Remission/Response,True,Missing,Partial Response,,False,,,,False
+TCGA-23-1110,True,True,True,False,False,,False,,False,,1.0,326.0,Redacted,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,110.0,216.0,long,False
+TCGA-23-1111,True,True,True,True,False,,False,,False,,0.0,98.0,,[Not Available],True,Tooearly,,,True,129.0,-31.0,indeterminate,True
+TCGA-23-1113,True,True,True,False,False,,False,,False,,1.0,949.0,Redacted,Partial Remission/Response,True,Missing,Partial Response,,True,187.0,762.0,long,False
+TCGA-23-1114,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,634.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,182.0,452.0,long,False
+TCGA-23-1116,True,True,True,False,False,,False,,False,,1.0,286.0,Redacted,Complete Remission/Response,True,Tooearly,,,True,187.0,99.0,short,False
+TCGA-23-1117,True,True,True,False,False,,False,,False,,1.0,418.0,Redacted,Complete Remission/Response,True,Resistant,Complete Response,,True,294.0,124.0,short,False
+TCGA-23-1118,True,True,True,False,False,,False,,False,,0.0,2616.0,Redacted,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,196.0,2420.0,long,False
+TCGA-23-1119,True,True,True,False,False,,False,,False,,1.0,3378.0,Redacted,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,125.0,3253.0,long,False
+TCGA-23-1120,True,True,True,True,False,,False,,False,,0.0,130.0,Redacted,Complete Remission/Response,True,Tooearly,,Complete Remission/Response,True,146.0,-16.0,indeterminate,True
+TCGA-23-1121,True,True,True,False,False,,False,,False,,0.0,194.0,Redacted,[Not Available],True,Tooearly,,,True,194.0,0.0,indeterminate,False
+TCGA-23-1122,True,True,False,True,True,0.0,True,0.0,True,0.0,1.0,447.0,Redacted,Complete Remission/Response,True,Sensitive,Complete Response,,True,244.0,203.0,long,False
+TCGA-23-1123,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1018.0,Redacted,Progressive Disease,True,Missing,Progressive Disease,,True,250.0,768.0,long,False
+TCGA-23-1124,True,True,True,False,False,,False,,False,,1.0,641.0,Redacted,Complete Remission/Response,True,Sensitive,Complete Response,,True,197.0,444.0,long,False
+TCGA-23-1809,True,True,True,True,False,,False,,False,,0.0,16.0,,[Not Available],True,Tooearly,,,True,107.0,-91.0,indeterminate,True
+TCGA-23-2072,True,True,True,False,False,,False,,False,,1.0,476.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,151.0,325.0,long,False
+TCGA-23-2077,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1232.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,155.0,1077.0,long,False
+TCGA-23-2078,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,2661.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,149.0,2512.0,long,False
+TCGA-23-2079,True,True,True,False,False,,False,,False,,1.0,283.0,,Complete Remission/Response,True,Resistant,Complete Response,Complete Remission/Response,True,125.0,158.0,short,False
+TCGA-23-2081,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,2342.0,,Progressive Disease,True,Missing,Progressive Disease,,True,173.0,2169.0,long,False
+TCGA-23-2084,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,619.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,155.0,464.0,long,False
+TCGA-23-2641,False,False,False,False,False,,False,,False,,0.0,84.0,,[Not Available],True,,,,False,,,,False
+TCGA-23-2643,True,True,True,False,False,,False,,False,,0.0,143.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,129.0,14.0,indeterminate,False
+TCGA-23-2645,False,False,False,False,False,,False,,False,,0.0,137.0,,[Not Available],True,,,,False,,,,False
+TCGA-23-2647,False,False,False,False,False,,False,,False,,0.0,135.0,,[Not Available],True,,,,False,,,,False
+TCGA-23-2649,False,False,False,False,False,,False,,False,,0.0,116.0,,[Not Available],True,,,,False,,,,False
+TCGA-24-0966,True,True,True,False,False,,False,,False,,0.0,232.0,,Stable Disease,True,Missing,Stable Disease,Stable Disease,True,120.0,112.0,indeterminate,False
+TCGA-24-0968,True,True,False,False,False,,False,,False,,1.0,,Redacted,Partial Remission/Response,False,Sensitive,Partial Response,Partial Remission/Response,True,119.0,,,False
+TCGA-24-0970,True,True,True,False,False,,False,,False,,1.0,280.0,Redacted,Partial Remission/Response,True,Resistant,Partial Response,,True,314.0,-34.0,short,True
+TCGA-24-0975,True,True,False,True,True,0.0,True,0.0,True,1.0,1.0,663.0,Redacted,Partial Remission/Response,True,Missing,Partial Response,,True,,,,False
+TCGA-24-0979,True,True,False,False,False,,False,,False,,1.0,428.0,Redacted,Complete Remission/Response,True,Sensitive,Complete Response,,True,187.0,241.0,long,False
+TCGA-24-0980,True,True,True,False,False,,False,,False,,1.0,145.0,,Progressive Disease,True,Resistant,Progressive Disease,,True,178.0,-33.0,short,True
+TCGA-24-0982,True,True,True,False,False,,False,,False,,1.0,153.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,125.0,28.0,short,False
+TCGA-24-1103,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,678.0,Redacted,Complete Remission/Response,True,Sensitive,Complete Response,,True,127.0,551.0,long,False
+TCGA-24-1104,True,True,True,False,False,,False,,False,,1.0,959.0,Redacted,Complete Remission/Response,True,Sensitive,Complete Response,,True,175.0,784.0,long,False
+TCGA-24-1105,True,True,True,False,False,,False,,False,,1.0,470.0,Redacted,Complete Remission/Response,True,Sensitive,Complete Response,,True,178.0,292.0,long,False
+TCGA-24-1413,True,True,True,True,False,,False,,False,,0.0,192.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,145.0,47.0,indeterminate,False
+TCGA-24-1416,True,True,True,True,False,,False,,False,,0.0,194.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,170.0,24.0,indeterminate,False
+TCGA-24-1417,True,True,True,True,False,,False,,False,,0.0,238.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,156.0,82.0,indeterminate,False
+TCGA-24-1418,True,True,True,True,False,,False,,False,,0.0,243.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,161.0,82.0,indeterminate,False
+TCGA-24-1419,True,True,True,True,False,,False,,False,,0.0,239.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,121.0,118.0,indeterminate,False
+TCGA-24-1422,False,False,False,False,False,,False,,False,,0.0,23.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-24-1423,True,True,True,True,False,,False,,False,,0.0,190.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,151.0,39.0,indeterminate,False
+TCGA-24-1424,True,True,True,True,False,,False,,False,,0.0,183.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,120.0,63.0,indeterminate,False
+TCGA-24-1425,True,True,True,True,False,,False,,False,,0.0,181.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,145.0,36.0,indeterminate,False
+TCGA-24-1426,True,True,True,False,False,,False,,False,,0.0,163.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,142.0,21.0,indeterminate,False
+TCGA-24-1427,True,True,True,True,False,,False,,False,,0.0,147.0,,Partial Remission/Response,True,Missing,Partial Response,Partial Remission/Response,True,147.0,0.0,indeterminate,False
+TCGA-24-1428,True,True,True,True,True,0.0,False,,False,,1.0,448.0,,Complete Remission/Response,True,Missing,,Complete Remission/Response,True,130.0,318.0,long,False
+TCGA-24-1430,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,449.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,106.0,343.0,long,False
+TCGA-24-1431,True,True,True,False,False,,False,,False,,1.0,199.0,,[Not Available],True,Resistant,,,True,147.0,52.0,short,False
+TCGA-24-1434,True,True,True,True,True,0.0,True,0.0,True,1.0,1.0,337.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,228.0,109.0,short,False
+TCGA-24-1435,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,505.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,149.0,356.0,long,False
+TCGA-24-1436,True,True,True,True,True,1.0,True,1.0,True,1.0,1.0,260.0,,Partial Remission/Response,True,Missing,Partial Response,,True,135.0,125.0,short,False
+TCGA-24-1463,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,971.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,123.0,848.0,long,False
+TCGA-24-1464,True,True,True,False,False,,False,,False,,1.0,323.0,,[Not Available],True,Resistant,,,True,163.0,160.0,short,False
+TCGA-24-1466,True,True,True,False,False,,False,,False,,1.0,491.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,145.0,346.0,long,False
+TCGA-24-1467,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1253.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,110.0,1143.0,long,False
+TCGA-24-1469,False,False,False,True,False,,False,,False,,0.0,277.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,False,,,,False
+TCGA-24-1470,True,True,True,False,False,,False,,False,,0.0,105.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,83.0,22.0,indeterminate,False
+TCGA-24-1471,False,False,False,False,False,,False,,False,,0.0,36.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-24-1474,True,True,True,True,True,0.0,True,0.0,True,1.0,1.0,332.0,,Partial Remission/Response,True,Sensitive,Partial Response,,True,123.0,209.0,long,False
+TCGA-24-1544,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,643.0,,Partial Remission/Response,True,Sensitive,Partial Response,,True,203.0,440.0,long,False
+TCGA-24-1545,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,861.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,285.0,576.0,long,False
+TCGA-24-1546,False,False,False,True,False,,False,,False,,0.0,1955.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-24-1548,True,True,True,True,True,0.0,True,1.0,True,1.0,1.0,207.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,123.0,84.0,short,False
+TCGA-24-1549,False,False,False,True,False,,False,,False,,1.0,1042.0,,Complete Remission/Response,True,Missing,Complete Response,,False,,,,False
+TCGA-24-1550,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,892.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,174.0,718.0,long,False
+TCGA-24-1551,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,764.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,135.0,629.0,long,False
+TCGA-24-1552,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,403.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,265.0,138.0,short,False
+TCGA-24-1553,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,553.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,154.0,399.0,long,False
+TCGA-24-1555,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1577.0,,Complete Remission/Response,True,Missing,Complete Response,,False,,,,False
+TCGA-24-1556,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,539.0,,Complete Remission/Response,True,Missing,Complete Response,,False,,,,False
+TCGA-24-1557,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,447.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,281.0,166.0,short,False
+TCGA-24-1558,True,True,True,True,True,0.0,True,0.0,True,1.0,1.0,273.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,247.0,26.0,short,False
+TCGA-24-1560,True,True,False,True,True,0.0,True,0.0,True,0.0,1.0,143.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,117.0,26.0,short,False
+TCGA-24-1562,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,229.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,152.0,77.0,short,False
+TCGA-24-1563,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,396.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,144.0,252.0,long,False
+TCGA-24-1564,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,221.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,116.0,105.0,short,False
+TCGA-24-1565,True,True,True,False,False,,False,,False,,1.0,145.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,123.0,22.0,short,False
+TCGA-24-1567,True,True,True,True,True,0.0,True,1.0,True,1.0,1.0,319.0,,[Not Available],True,Resistant,,,True,153.0,166.0,short,False
+TCGA-24-1603,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,992.0,,Complete Remission/Response,True,Missing,Complete Response,,False,,,,False
+TCGA-24-1604,False,False,False,True,False,,False,,False,,1.0,2688.0,,Complete Remission/Response,True,Missing,Complete Response,,False,,,,False
+TCGA-24-1614,True,True,False,False,False,,False,,False,,1.0,644.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,188.0,456.0,long,False
+TCGA-24-1616,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,405.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,165.0,240.0,long,False
+TCGA-24-1842,True,True,True,True,False,,False,,False,,0.0,253.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,253.0,0.0,indeterminate,False
+TCGA-24-1843,True,True,True,True,False,,False,,False,,0.0,106.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,134.0,-28.0,indeterminate,True
+TCGA-24-1844,True,True,True,True,False,,False,,False,,0.0,113.0,,[Not Available],True,Tooearly,,,True,134.0,-21.0,indeterminate,True
+TCGA-24-1845,True,True,True,False,False,,False,,False,,0.0,116.0,,[Not Available],True,Tooearly,,,True,123.0,-7.0,indeterminate,True
+TCGA-24-1846,True,True,True,True,False,,False,,False,,0.0,133.0,,[Not Available],True,Tooearly,,,True,175.0,-42.0,indeterminate,True
+TCGA-24-1847,True,True,True,True,False,,False,,False,,0.0,343.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,143.0,200.0,long,False
+TCGA-24-1849,True,True,True,True,False,,False,,False,,0.0,176.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,141.0,35.0,indeterminate,False
+TCGA-24-1850,True,True,True,True,False,,False,,False,,0.0,168.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,138.0,30.0,indeterminate,False
+TCGA-24-1852,False,False,False,False,False,,False,,False,,1.0,1009.0,,Complete Remission/Response,True,,,,False,,,,False
+TCGA-24-1920,True,True,False,False,False,,False,,False,,0.0,298.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,144.0,154.0,indeterminate,False
+TCGA-24-1923,True,True,False,False,False,,False,,False,,1.0,343.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,233.0,110.0,short,False
+TCGA-24-1924,True,True,False,True,True,0.0,True,0.0,True,0.0,1.0,320.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,161.0,159.0,short,False
+TCGA-24-1927,True,True,True,False,False,,False,,False,,1.0,290.0,,Complete Remission/Response,True,,,,True,132.0,158.0,short,False
+TCGA-24-1928,True,True,True,True,True,1.0,True,1.0,True,1.0,1.0,70.0,,Progressive Disease,True,Resistant,Progressive Disease,,True,126.0,-56.0,short,True
+TCGA-24-1930,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,544.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,274.0,270.0,long,False
+TCGA-24-2019,False,False,False,True,False,,False,,False,,0.0,148.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-24-2020,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,723.0,,Complete Remission/Response,True,Missing,Complete Response,,True,414.0,309.0,long,False
+TCGA-24-2023,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1069.0,,Complete Remission/Response,True,Missing,Complete Response,,True,502.0,567.0,long,False
+TCGA-24-2024,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,421.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,120.0,301.0,long,False
+TCGA-24-2026,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,1059.0,,[Not Available],True,Missing,,,True,,,,False
+TCGA-24-2027,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,617.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,258.0,359.0,long,False
+TCGA-24-2029,True,True,False,False,False,,False,,False,,1.0,372.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,218.0,154.0,short,False
+TCGA-24-2030,True,True,True,False,False,,False,,False,,1.0,646.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,127.0,519.0,long,False
+TCGA-24-2033,True,True,True,True,True,0.0,True,0.0,True,1.0,1.0,351.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,232.0,119.0,short,False
+TCGA-24-2035,False,False,False,True,False,,False,,False,,1.0,287.0,,Partial Remission/Response,True,Missing,Partial Response,,False,,,,False
+TCGA-24-2036,False,False,False,False,False,,False,,False,,1.0,914.0,,Complete Remission/Response,True,Sensitive,Complete Response,,False,,,,False
+TCGA-24-2038,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1169.0,,Complete Remission/Response,True,Missing,Complete Response,,False,,,,False
+TCGA-24-2254,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,606.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,165.0,441.0,long,False
+TCGA-24-2260,True,True,True,False,False,,False,,False,,1.0,667.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,135.0,532.0,long,False
+TCGA-24-2261,False,False,False,True,False,,False,,False,,1.0,24.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-24-2262,False,False,False,True,False,,False,,False,,1.0,11.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-24-2267,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,512.0,,Complete Remission/Response,True,Missing,Complete Response,,True,219.0,293.0,long,False
+TCGA-24-2271,False,False,False,True,False,,False,,False,,1.0,827.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-24-2280,True,True,True,False,False,,False,,False,,1.0,535.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,178.0,357.0,long,False
+TCGA-24-2281,False,False,False,True,False,,False,,False,,0.0,1357.0,,Complete Remission/Response,True,Missing,Complete Response,Complete Remission/Response,False,,,,False
+TCGA-24-2288,True,True,True,True,True,1.0,True,1.0,True,1.0,1.0,25.0,,[Not Available],True,Missing,,,True,21.0,4.0,short,False
+TCGA-24-2289,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,568.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,183.0,385.0,long,False
+TCGA-24-2290,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,324.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,119.0,205.0,long,False
+TCGA-24-2293,False,False,False,True,False,,False,,False,,0.0,506.0,,Partial Remission/Response,True,Missing,Progressive Disease,,False,,,,False
+TCGA-24-2295,True,True,True,False,False,,False,,False,,1.0,281.0,,Complete Remission/Response,True,,,,True,133.0,148.0,short,False
+TCGA-24-2297,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,1699.0,,Complete Remission/Response,True,Missing,Complete Response,,True,153.0,1546.0,long,False
+TCGA-24-2298,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,469.0,,Complete Remission/Response,True,Missing,Complete Response,,True,218.0,251.0,long,False
+TCGA-25-1312,False,False,False,True,False,,False,,False,,0.0,31.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-25-1313,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,394.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,151.0,243.0,long,False
+TCGA-25-1314,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,274.0,,Partial Remission/Response,True,Missing,Partial Response,,True,,,,False
+TCGA-25-1315,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,153.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,153.0,0.0,short,False
+TCGA-25-1316,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,276.0,,Progressive Disease,True,Resistant,Progressive Disease,,True,214.0,62.0,short,False
+TCGA-25-1317,True,True,False,True,True,1.0,True,1.0,True,1.0,0.0,61.0,,[Not Available],True,Missing,,,True,31.0,30.0,indeterminate,False
+TCGA-25-1318,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,185.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,122.0,63.0,short,False
+TCGA-25-1319,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,730.0,,[Not Available],True,Missing,,,True,,,,False
+TCGA-25-1320,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,424.0,,Progressive Disease,True,Sensitive,Progressive Disease,,True,181.0,243.0,long,False
+TCGA-25-1321,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,454.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,181.0,273.0,long,False
+TCGA-25-1322,True,True,True,True,True,1.0,True,1.0,True,1.0,1.0,91.0,,[Not Available],True,Missing,,,True,91.0,0.0,short,False
+TCGA-25-1323,True,True,True,True,True,0.0,True,1.0,True,1.0,1.0,365.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,122.0,243.0,long,False
+TCGA-25-1324,False,False,False,True,False,,False,,False,,0.0,1035.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-25-1325,False,False,False,False,False,,False,,False,,0.0,976.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-25-1326,True,True,False,True,True,0.0,True,0.0,True,0.0,1.0,396.0,,Partial Remission/Response,True,Sensitive,Partial Response,,True,153.0,243.0,long,False
+TCGA-25-1328,True,True,False,True,True,0.0,True,0.0,True,0.0,1.0,244.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,214.0,30.0,short,False
+TCGA-25-1329,False,False,False,True,False,,False,,False,,0.0,457.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-25-1623,True,True,True,True,True,0.0,True,0.0,True,1.0,1.0,342.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,138.0,204.0,long,False
+TCGA-25-1625,False,False,False,True,False,,False,,False,,1.0,526.0,,Stable Disease,True,Missing,Stable Disease,,False,,,,False
+TCGA-25-1626,True,True,True,True,True,0.0,True,1.0,True,1.0,1.0,318.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,208.0,110.0,short,False
+TCGA-25-1627,False,False,False,True,False,,False,,False,,0.0,394.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-25-1628,True,True,True,True,True,0.0,True,0.0,True,1.0,1.0,287.0,,Stable Disease,True,Resistant,Stable Disease,,True,182.0,105.0,short,False
+TCGA-25-1630,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,1162.0,,Complete Remission/Response,True,Missing,Complete Response,,True,,,,False
+TCGA-25-1631,False,False,False,True,False,,False,,False,,0.0,9.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-25-1632,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,537.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,200.0,337.0,long,False
+TCGA-25-1633,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,616.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,184.0,432.0,long,False
+TCGA-25-1634,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,380.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,206.0,174.0,short,False
+TCGA-25-1635,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,614.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,233.0,381.0,long,False
+TCGA-25-1870,True,True,True,True,True,0.0,True,1.0,True,1.0,1.0,243.0,,Partial Remission/Response,True,Missing,Partial Response,,True,,,,False
+TCGA-25-1871,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,230.0,,Progressive Disease,True,Missing,Progressive Disease,,True,,,,False
+TCGA-25-1877,True,True,True,False,False,,False,,False,,1.0,549.0,,Complete Remission/Response,True,Missing,Complete Response,,True,,,,False
+TCGA-25-1878,True,True,False,False,False,,False,,False,,1.0,971.0,,Complete Remission/Response,True,Missing,Complete Response,,True,,,,False
+TCGA-25-2042,True,True,True,True,True,0.0,True,1.0,True,1.0,1.0,396.0,,Progressive Disease,True,Missing,Progressive Disease,,True,123.0,273.0,long,False
+TCGA-25-2390,False,False,False,False,False,,False,,False,,0.0,,,[Not Available],False,,,,False,,,,False
+TCGA-25-2391,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,1492.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,153.0,1339.0,long,False
+TCGA-25-2392,False,False,False,True,False,,False,,False,,0.0,31.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-25-2393,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,305.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,123.0,182.0,short,False
+TCGA-25-2396,False,False,False,True,False,,False,,False,,0.0,92.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-25-2397,False,False,False,True,False,,False,,False,,0.0,365.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-25-2398,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,577.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,151.0,426.0,long,False
+TCGA-25-2399,True,True,True,True,True,0.0,True,0.0,True,1.0,1.0,243.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,182.0,61.0,short,False
+TCGA-25-2400,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,577.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,182.0,395.0,long,False
+TCGA-25-2401,False,False,False,True,False,,False,,False,,0.0,90.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-25-2404,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,426.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,122.0,304.0,long,False
+TCGA-25-2408,True,True,True,False,False,,False,,False,,1.0,334.0,,Partial Remission/Response,True,Missing,Partial Response,,True,,,,False
+TCGA-25-2409,True,True,False,True,True,0.0,True,0.0,True,0.0,1.0,304.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,182.0,122.0,short,False
+TCGA-29-1688,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,184.0,,Stable Disease,True,Missing,Stable Disease,,False,,,,False
+TCGA-29-1690,True,True,False,True,True,0.0,True,0.0,True,0.0,1.0,1448.0,,[Not Available],True,Missing,,,True,,,,False
+TCGA-29-1691,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,613.0,,Complete Remission/Response,True,Sensitive,Complete Response,,False,,,,False
+TCGA-29-1692,False,False,False,False,False,,False,,False,,1.0,544.0,,Complete Remission/Response,True,,,,False,,,,False
+TCGA-29-1693,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,694.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,191.0,503.0,long,False
+TCGA-29-1694,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1187.0,,Stable Disease,True,Missing,Stable Disease,,True,161.0,1026.0,long,False
+TCGA-29-1695,False,False,False,True,False,,False,,False,,0.0,1229.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-29-1696,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,342.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,171.0,171.0,short,False
+TCGA-29-1697,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,500.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,182.0,318.0,long,False
+TCGA-29-1698,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,181.0,,Complete Remission/Response,True,Resistant,Complete Response,Complete Remission/Response,True,237.0,-56.0,short,True
+TCGA-29-1699,False,False,False,True,False,,False,,False,,0.0,1106.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-29-1701,True,True,True,True,True,0.0,True,1.0,True,1.0,1.0,298.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,160.0,138.0,short,False
+TCGA-29-1702,False,False,False,True,False,,False,,False,,1.0,286.0,,Complete Remission/Response,True,Resistant,Complete Response,,False,,,,False
+TCGA-29-1703,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,324.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,163.0,161.0,short,False
+TCGA-29-1704,False,False,False,False,False,,False,,False,,1.0,568.0,,Complete Remission/Response,True,,,,False,,,,False
+TCGA-29-1705,True,True,True,True,True,0.0,True,0.0,True,1.0,1.0,283.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,167.0,116.0,short,False
+TCGA-29-1707,True,True,True,False,False,,False,,False,,1.0,1201.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,143.0,1058.0,long,False
+TCGA-29-1710,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,315.0,,Partial Remission/Response,True,Missing,Partial Response,,True,150.0,165.0,short,False
+TCGA-29-1711,False,True,True,True,False,,False,,False,,0.0,1053.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,136.0,917.0,long,False
+TCGA-29-1761,True,True,True,True,True,0.0,True,1.0,True,1.0,1.0,528.0,,Stable Disease,True,Missing,Stable Disease,,True,202.0,326.0,long,False
+TCGA-29-1762,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1375.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,140.0,1235.0,long,False
+TCGA-29-1763,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,428.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,100.0,328.0,long,False
+TCGA-29-1764,True,True,True,False,False,,False,,False,,1.0,792.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,167.0,625.0,long,False
+TCGA-29-1766,True,True,True,False,False,,False,,False,,1.0,672.0,,Progressive Disease,True,Sensitive,Progressive Disease,,True,189.0,483.0,long,False
+TCGA-29-1768,True,True,True,False,False,,False,,False,,1.0,547.0,,Stable Disease,True,Sensitive,Stable Disease,,True,103.0,444.0,long,False
+TCGA-29-1769,True,True,True,False,False,,False,,False,,0.0,699.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,150.0,549.0,long,False
+TCGA-29-1770,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,377.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,136.0,241.0,long,False
+TCGA-29-1771,True,True,True,False,False,,False,,False,,1.0,595.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,140.0,455.0,long,False
+TCGA-29-1774,True,True,True,False,False,,False,,False,,1.0,234.0,,Progressive Disease,True,Sensitive,Progressive Disease,Progressive Disease,True,133.0,101.0,short,False
+TCGA-29-1775,True,True,True,False,False,,False,,False,,1.0,341.0,,Complete Remission/Response,True,Resistant,Complete Response,Complete Remission/Response,True,166.0,175.0,short,False
+TCGA-29-1776,True,True,True,True,False,,False,,False,,0.0,360.0,,Stable Disease,True,Missing,Stable Disease,Stable Disease,True,154.0,206.0,long,False
+TCGA-29-1777,True,True,True,False,False,,False,,False,,0.0,374.0,,Progressive Disease,True,Missing,Progressive Disease,Progressive Disease,True,325.0,49.0,indeterminate,False
+TCGA-29-1778,True,True,True,True,True,0.0,False,,False,,0.0,454.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,125.0,329.0,long,False
+TCGA-29-1781,True,True,True,True,False,,False,,False,,0.0,255.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,255.0,0.0,indeterminate,False
+TCGA-29-1783,True,True,True,True,False,,False,,False,,0.0,220.0,,[Not Available],True,Tooearly,,,True,156.0,64.0,indeterminate,False
+TCGA-29-1784,True,True,True,True,False,,False,,False,,0.0,163.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,136.0,27.0,indeterminate,False
+TCGA-29-1785,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,473.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,156.0,317.0,long,False
+TCGA-29-2414,False,False,False,False,False,,False,,False,,1.0,552.0,,Complete Remission/Response,True,Sensitive,Complete Response,,False,,,,False
+TCGA-29-2425,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1577.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,202.0,1375.0,long,False
+TCGA-29-2427,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1582.0,,Complete Remission/Response,True,Missing,Complete Response,Complete Remission/Response,True,49.0,1533.0,long,False
+TCGA-29-2428,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,1372.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,141.0,1231.0,long,False
+TCGA-29-2429,False,False,False,False,False,,False,,False,,1.0,421.0,,[Unknown],True,,,,False,,,,False
+TCGA-29-2431,True,True,True,False,False,,False,,False,,1.0,960.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,138.0,822.0,long,False
+TCGA-29-2432,True,True,True,False,False,,False,,False,,1.0,174.0,,Progressive Disease,True,,,,True,157.0,17.0,short,False
+TCGA-29-2433,False,False,False,False,False,,False,,False,,0.0,620.0,,Complete Remission/Response,True,,,,False,,,,False
+TCGA-29-2434,True,True,True,False,False,,False,,False,,0.0,349.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,134.0,215.0,long,False
+TCGA-29-2435,False,False,False,False,False,,False,,False,,0.0,34.0,,[Not Available],True,,,,False,,,,False
+TCGA-29-2436,True,True,True,False,False,,False,,False,,0.0,297.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,191.0,106.0,indeterminate,False
+TCGA-29-A5NZ,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,358.0,,Complete Remission/Response,True,,,,False,,,,False
+TCGA-30-1714,True,True,True,False,False,,False,,False,,1.0,241.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,123.0,118.0,short,False
+TCGA-30-1718,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,896.0,,[Not Available],True,Sensitive,,,True,178.0,718.0,long,False
+TCGA-30-1853,True,True,True,False,False,,False,,False,,1.0,634.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,126.0,508.0,long,False
+TCGA-30-1855,False,False,False,True,False,,False,,False,,1.0,75.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-30-1856,True,True,True,False,False,,False,,False,,1.0,220.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,195.0,25.0,short,False
+TCGA-30-1857,False,False,False,True,False,,False,,False,,1.0,8.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-30-1859,True,True,False,False,False,,False,,False,,1.0,1463.0,,Partial Remission/Response,True,Missing,Partial Response,,True,199.0,1264.0,long,False
+TCGA-30-1860,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,397.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,207.0,190.0,long,False
+TCGA-30-1861,False,False,False,True,False,,False,,False,,0.0,1058.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-30-1862,False,False,False,True,False,,False,,False,,1.0,186.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-30-1866,True,True,True,False,False,,False,,False,,1.0,285.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,126.0,159.0,short,False
+TCGA-30-1867,False,False,False,False,False,,False,,False,,1.0,37.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-30-1869,False,False,False,False,False,,False,,False,,1.0,767.0,,Complete Remission/Response,True,,,,False,,,,False
+TCGA-30-1880,True,True,False,False,False,,False,,False,,1.0,348.0,,Partial Remission/Response,True,Sensitive,Partial Response,,True,152.0,196.0,long,False
+TCGA-30-1887,True,True,False,False,False,,False,,False,,1.0,738.0,,Partial Remission/Response,True,Missing,Partial Response,,True,134.0,604.0,long,False
+TCGA-30-1891,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,181.0,,Partial Remission/Response,True,Resistant,Partial Response,,True,141.0,40.0,short,False
+TCGA-30-1892,True,True,False,False,False,,False,,False,,1.0,253.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,132.0,121.0,short,False
+TCGA-31-1944,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,678.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,223.0,455.0,long,False
+TCGA-31-1946,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,664.0,,[Not Available],True,Sensitive,,,True,43.0,621.0,long,False
+TCGA-31-1950,True,True,True,True,True,0.0,True,0.0,False,,1.0,349.0,,Partial Remission/Response,True,Sensitive,Partial Response,Partial Remission/Response,True,144.0,205.0,long,False
+TCGA-31-1951,True,True,True,True,True,0.0,True,0.0,False,,1.0,659.0,,[Not Available],True,Sensitive,,,True,146.0,513.0,long,False
+TCGA-31-1953,True,True,True,True,False,,False,,False,,1.0,70.0,,Progressive Disease,True,Resistant,Progressive Disease,Progressive Disease,True,65.0,5.0,short,False
+TCGA-31-1955,True,True,False,False,False,,False,,False,,1.0,918.0,Redacted,[Not Available],True,,,,True,147.0,771.0,long,False
+TCGA-31-1956,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,1342.0,Redacted,[Not Available],True,Missing,,,True,188.0,1154.0,long,False
+TCGA-31-1959,True,True,True,True,False,,False,,False,,0.0,67.0,,[Not Available],True,Missing,,,True,,,,False
+TCGA-36-1568,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,548.0,,Partial Remission/Response,True,Sensitive,Partial Response,Partial Remission/Response,True,123.0,425.0,long,False
+TCGA-36-1569,False,False,False,True,False,,False,,False,,0.0,885.0,,Partial Remission/Response,True,Missing,Partial Response,Partial Remission/Response,False,,,,False
+TCGA-36-1570,True,True,True,True,True,0.0,True,0.0,False,,1.0,375.0,,Partial Remission/Response,True,Sensitive,Partial Response,Partial Remission/Response,True,133.0,242.0,long,False
+TCGA-36-1571,True,True,True,True,True,0.0,True,0.0,True,1.0,1.0,375.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,173.0,202.0,long,False
+TCGA-36-1574,True,True,True,True,True,0.0,True,0.0,False,,1.0,648.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,204.0,444.0,long,False
+TCGA-36-1575,False,False,False,True,False,,False,,False,,0.0,260.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-36-1576,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,817.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,222.0,595.0,long,False
+TCGA-36-1577,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,783.0,,Complete Remission/Response,True,Missing,Complete Response,Complete Remission/Response,True,84.0,699.0,long,False
+TCGA-36-1578,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,310.0,,[Not Available],True,Resistant,,,True,212.0,98.0,short,False
+TCGA-36-1580,True,True,False,True,True,0.0,True,0.0,True,0.0,1.0,440.0,,[Not Available],True,Resistant,,,True,348.0,92.0,short,False
+TCGA-36-1581,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,702.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,141.0,561.0,long,False
+TCGA-36-2529,True,True,False,False,False,,False,,False,,1.0,567.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,136.0,431.0,long,False
+TCGA-36-2530,True,True,True,False,False,,False,,False,,1.0,630.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,135.0,495.0,long,False
+TCGA-36-2532,True,True,True,False,False,,False,,False,,0.0,897.0,,[Not Available],True,,,,True,140.0,757.0,long,False
+TCGA-36-2533,False,False,False,False,False,,False,,False,,0.0,,,[Not Available],False,,,,False,,,,False
+TCGA-36-2534,True,True,True,False,False,,False,,False,,1.0,383.0,,Partial Remission/Response,True,,,Partial Remission/Response,True,154.0,229.0,long,False
+TCGA-36-2537,True,True,True,False,False,,False,,False,,1.0,431.0,,Partial Remission/Response,True,,,Partial Remission/Response,True,125.0,306.0,long,False
+TCGA-36-2538,True,True,True,False,False,,False,,False,,1.0,523.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,212.0,311.0,long,False
+TCGA-36-2540,True,True,True,False,False,,False,,False,,1.0,665.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,185.0,480.0,long,False
+TCGA-36-2542,True,True,True,False,False,,False,,False,,0.0,657.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,152.0,505.0,long,False
+TCGA-36-2543,False,False,False,False,False,,False,,False,,1.0,27.0,,Progressive Disease,True,,,,False,,,,False
+TCGA-36-2544,True,True,True,False,False,,False,,False,,1.0,325.0,,Partial Remission/Response,True,,,Partial Remission/Response,True,128.0,197.0,long,False
+TCGA-36-2545,True,True,True,False,False,,False,,False,,0.0,557.0,,[Not Available],True,,,,True,145.0,412.0,long,False
+TCGA-36-2547,True,True,True,False,False,,False,,False,,0.0,624.0,,[Not Available],True,,,,True,,,,False
+TCGA-36-2548,True,True,True,False,False,,False,,False,,1.0,395.0,,[Not Available],True,,,,True,267.0,128.0,short,False
+TCGA-36-2549,True,True,False,False,False,,False,,False,,0.0,184.0,,[Not Available],True,,,,True,181.0,3.0,indeterminate,False
+TCGA-36-2551,True,True,True,False,False,,False,,False,,1.0,338.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,198.0,140.0,short,False
+TCGA-36-2552,True,True,True,False,False,,False,,False,,0.0,349.0,,[Not Available],True,,,,True,121.0,228.0,long,False
+TCGA-3P-A9WA,True,True,True,True,True,0.0,False,,False,,0.0,420.0,,Complete Remission/Response,True,,,Complete Remission/Response,False,,,,False
+TCGA-42-2582,True,True,True,False,False,,False,,False,,1.0,616.0,,Stable Disease,True,,,,True,185.0,431.0,long,False
+TCGA-42-2587,True,True,True,False,False,,False,,False,,0.0,722.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,276.0,446.0,long,False
+TCGA-42-2588,True,True,True,False,False,,False,,False,,1.0,112.0,,Progressive Disease,True,,,,True,90.0,22.0,short,False
+TCGA-42-2589,True,True,True,False,False,,False,,False,,1.0,364.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,126.0,238.0,long,False
+TCGA-42-2590,True,True,True,False,False,,False,,False,,1.0,226.0,,Progressive Disease,True,,,,True,,,,False
+TCGA-42-2591,True,True,True,False,False,,False,,False,,0.0,1240.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,204.0,1036.0,long,False
+TCGA-42-2593,False,False,False,False,False,,False,,False,,1.0,45.0,,[Not Applicable],True,,,,False,,,,False
+TCGA-57-1582,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,731.0,,Progressive Disease,True,Missing,Progressive Disease,,True,170.0,561.0,long,False
+TCGA-57-1583,True,True,True,True,True,1.0,True,1.0,True,1.0,1.0,346.0,,[Not Available],True,Missing,,,True,,,,False
+TCGA-57-1584,True,True,True,True,True,0.0,True,0.0,False,,1.0,530.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-57-1585,True,True,True,True,True,1.0,True,1.0,True,1.0,1.0,53.0,,Progressive Disease,True,Missing,Progressive Disease,,True,53.0,0.0,short,False
+TCGA-57-1586,True,True,True,False,False,,False,,False,,1.0,259.0,,[Not Available],True,Resistant,,,True,163.0,96.0,short,False
+TCGA-57-1992,False,False,False,False,False,,False,,False,,0.0,882.0,,Complete Remission/Response,True,,,Complete Remission/Response,False,,,,False
+TCGA-57-1993,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,763.0,,[Not Available],True,Missing,,,True,,,,False
+TCGA-57-1994,False,False,False,True,False,,False,,False,,0.0,761.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-59-2348,False,False,False,True,False,,False,,False,,0.0,5481.0,,Complete Remission/Response,True,Missing,Complete Response,Complete Remission/Response,False,,,,False
+TCGA-59-2349,False,False,False,False,False,,False,,False,,0.0,2437.0,,Complete Remission/Response,True,,,,False,,,,False
+TCGA-59-2350,False,False,False,True,False,,False,,False,,1.0,211.0,,Partial Remission/Response,True,Missing,Partial Response,,False,,,,False
+TCGA-59-2351,False,False,False,True,False,,False,,False,,1.0,2139.0,,Complete Remission/Response,True,Missing,Complete Response,Complete Remission/Response,False,,,,False
+TCGA-59-2352,False,False,False,True,False,,False,,False,,1.0,286.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-59-2354,False,False,False,True,False,,False,,False,,1.0,462.0,,Stable Disease,True,Missing,Stable Disease,,False,,,,False
+TCGA-59-2355,False,False,False,True,False,,False,,False,,1.0,65.0,,[Not Available],True,Missing,,,False,,,,False
+TCGA-59-2363,False,False,False,True,False,,False,,False,,0.0,165.0,,Complete Remission/Response,True,Missing,Complete Response,Complete Remission/Response,False,,,,False
+TCGA-59-2372,False,False,False,False,False,,False,,False,,0.0,1363.0,,[Not Available],True,,,,False,,,,False
+TCGA-59-A5PD,False,False,False,True,False,,False,,False,,1.0,145.0,,Complete Remission/Response,True,,,,False,,,,False
+TCGA-5X-AA5U,True,True,True,True,False,,False,,False,,0.0,361.0,,Complete Remission/Response,True,,,Complete Remission/Response,False,,,,False
+TCGA-61-1721,True,True,False,True,False,,False,,False,,0.0,338.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,317.0,21.0,indeterminate,False
+TCGA-61-1722,False,False,False,False,False,,False,,False,,0.0,246.0,,Stable Disease,True,,,Stable Disease,False,,,,False
+TCGA-61-1724,True,True,True,True,True,0.0,True,0.0,True,1.0,1.0,637.0,,Progressive Disease,True,Missing,Progressive Disease,,False,,,,False
+TCGA-61-1725,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,844.0,,Stable Disease,True,Sensitive,Stable Disease,Stable Disease,True,158.0,686.0,long,False
+TCGA-61-1727,True,True,True,False,False,,False,,False,,0.0,564.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,153.0,411.0,long,False
+TCGA-61-1728,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,533.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,204.0,329.0,long,False
+TCGA-61-1730,False,False,False,False,False,,False,,False,,1.0,132.0,,[Not Available],True,,,,False,,,,False
+TCGA-61-1733,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,175.0,,Stable Disease,True,Resistant,Stable Disease,Stable Disease,True,127.0,48.0,short,False
+TCGA-61-1734,True,True,False,False,False,,False,,False,,0.0,866.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,158.0,708.0,long,False
+TCGA-61-1736,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,764.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,138.0,626.0,long,False
+TCGA-61-1737,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,1364.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,176.0,1188.0,long,False
+TCGA-61-1738,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,276.0,,Progressive Disease,True,Resistant,Progressive Disease,,True,276.0,0.0,short,False
+TCGA-61-1740,False,False,False,True,False,,False,,False,,1.0,74.0,,Progressive Disease,True,Missing,Progressive Disease,,False,,,,False
+TCGA-61-1741,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,488.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,180.0,308.0,long,False
+TCGA-61-1743,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,809.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,172.0,637.0,long,False
+TCGA-61-1895,True,True,True,False,False,,False,,False,,0.0,44.0,,Stable Disease,True,Tooearly,Stable Disease,Stable Disease,True,156.0,-112.0,indeterminate,True
+TCGA-61-1899,True,True,True,False,False,,False,,False,,0.0,256.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,159.0,97.0,indeterminate,False
+TCGA-61-1900,True,True,True,True,False,,False,,False,,0.0,176.0,,Stable Disease,True,Tooearly,Stable Disease,Stable Disease,True,76.0,100.0,indeterminate,False
+TCGA-61-1901,True,True,True,False,False,,False,,False,,1.0,329.0,,Stable Disease,True,Resistant,Stable Disease,,True,294.0,35.0,short,False
+TCGA-61-1903,True,True,True,False,False,,False,,False,,0.0,396.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,147.0,249.0,long,False
+TCGA-61-1904,True,True,True,False,False,,False,,False,,0.0,276.0,,Complete Remission/Response,True,Tooearly,Complete Response,Complete Remission/Response,True,161.0,115.0,indeterminate,False
+TCGA-61-1906,True,True,True,False,False,,False,,False,,1.0,236.0,,Complete Remission/Response,True,Resistant,Complete Response,,True,153.0,83.0,short,False
+TCGA-61-1907,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,743.0,,Stable Disease,True,Sensitive,Stable Disease,Stable Disease,True,163.0,580.0,long,False
+TCGA-61-1910,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,1127.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,161.0,966.0,long,False
+TCGA-61-1911,True,True,True,False,False,,False,,False,,1.0,844.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,144.0,700.0,long,False
+TCGA-61-1913,True,True,True,False,False,,False,,False,,0.0,1488.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,127.0,1361.0,long,False
+TCGA-61-1914,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1674.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,193.0,1481.0,long,False
+TCGA-61-1915,True,True,True,False,False,,False,,False,,0.0,2061.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,143.0,1918.0,long,False
+TCGA-61-1916,False,False,False,False,False,,False,,False,,1.0,326.0,,[Not Available],True,,,,False,,,,False
+TCGA-61-1917,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,1321.0,,Complete Remission/Response,True,Missing,Complete Response,,True,,,,False
+TCGA-61-1918,True,True,True,True,True,0.0,True,1.0,True,1.0,1.0,413.0,,Complete Remission/Response,True,Sensitive,Complete Response,,True,146.0,267.0,long,False
+TCGA-61-1919,False,False,False,True,False,,False,,False,,1.0,439.0,,Complete Remission/Response,True,Missing,Complete Response,,False,,,,False
+TCGA-61-1995,True,True,True,True,False,,False,,False,,0.0,61.0,,Stable Disease,True,Missing,Stable Disease,Stable Disease,True,132.0,-71.0,indeterminate,True
+TCGA-61-1998,True,True,True,True,False,,False,,False,,0.0,168.0,,[Not Available],True,Missing,,,True,77.0,91.0,indeterminate,False
+TCGA-61-2000,True,True,True,True,True,0.0,False,,False,,1.0,339.0,,Stable Disease,True,Resistant,Stable Disease,Stable Disease,True,231.0,108.0,short,False
+TCGA-61-2002,True,True,True,True,True,0.0,False,,False,,0.0,547.0,,Progressive Disease,True,Missing,Progressive Disease,Progressive Disease,True,129.0,418.0,long,False
+TCGA-61-2003,True,True,True,True,False,,False,,False,,0.0,122.0,,Progressive Disease,True,Missing,Progressive Disease,Progressive Disease,True,121.0,1.0,indeterminate,False
+TCGA-61-2008,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,818.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,149.0,669.0,long,False
+TCGA-61-2009,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,101.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,83.0,18.0,short,False
+TCGA-61-2012,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,932.0,,[Not Available],True,Missing,,,True,,,,False
+TCGA-61-2016,False,False,False,True,False,,False,,False,,1.0,36.0,,Progressive Disease,True,Missing,Progressive Disease,,False,,,,False
+TCGA-61-2017,True,True,False,False,False,,False,,False,,1.0,1006.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,,,,False
+TCGA-61-2018,True,True,True,False,False,,False,,False,,0.0,1381.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,139.0,1242.0,long,False
+TCGA-61-2087,True,True,True,False,False,,False,,False,,0.0,146.0,,Complete Remission/Response,True,,,Complete Remission/Response,True,,,,False
+TCGA-61-2088,True,True,True,True,False,,False,,False,,0.0,145.0,,[Not Available],True,Tooearly,,,True,145.0,0.0,indeterminate,False
+TCGA-61-2092,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,1573.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,160.0,1413.0,long,False
+TCGA-61-2094,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,2182.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,166.0,2016.0,long,False
+TCGA-61-2095,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,445.0,,Complete Remission/Response,True,Missing,Complete Response,,True,602.0,-157.0,short,True
+TCGA-61-2096,True,True,True,False,False,,False,,False,,1.0,421.0,,Progressive Disease,True,,,Progressive Disease,True,79.0,342.0,long,False
+TCGA-61-2097,True,True,False,True,True,0.0,True,0.0,True,0.0,0.0,1844.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,167.0,1677.0,long,False
+TCGA-61-2098,True,True,True,True,True,0.0,True,0.0,True,0.0,0.0,1993.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,145.0,1848.0,long,False
+TCGA-61-2101,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1688.0,,Partial Remission/Response,True,Missing,Partial Response,,True,221.0,1467.0,long,False
+TCGA-61-2102,True,True,True,True,True,1.0,True,1.0,True,1.0,1.0,197.0,,[Not Available],True,Missing,,,True,,,,False
+TCGA-61-2104,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,1680.0,,Complete Remission/Response,True,Missing,Complete Response,Complete Remission/Response,True,,,,False
+TCGA-61-2109,True,True,True,True,True,0.0,True,0.0,True,1.0,1.0,465.0,,[Not Available],True,Sensitive,,,True,253.0,212.0,long,False
+TCGA-61-2110,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,213.0,,Progressive Disease,True,Resistant,Progressive Disease,,True,161.0,52.0,short,False
+TCGA-61-2111,True,True,False,True,True,0.0,True,0.0,True,0.0,1.0,2205.0,,Complete Remission/Response,True,Sensitive,Complete Response,Complete Remission/Response,True,133.0,2072.0,long,False
+TCGA-61-2113,True,True,True,True,True,0.0,True,0.0,True,1.0,1.0,291.0,,[Not Available],True,Sensitive,,,True,143.0,148.0,short,False
+TCGA-61-2610,True,True,True,False,False,,False,,False,,1.0,524.0,,Stable Disease,True,,,,True,357.0,167.0,short,False
+TCGA-61-2611,True,True,True,False,False,,False,,False,,1.0,383.0,,Complete Remission/Response,True,,,,True,316.0,67.0,short,False
+TCGA-61-2612,True,True,True,False,False,,False,,False,,1.0,179.0,,Stable Disease,True,,,,True,151.0,28.0,short,False
+TCGA-61-2613,True,True,True,False,False,,False,,False,,1.0,358.0,,Stable Disease,True,,,,True,,,,False
+TCGA-61-2614,False,False,False,False,False,,False,,False,,1.0,38.0,,Stable Disease,True,,,,False,,,,False
+TCGA-OY-A56P,True,True,True,True,True,0.0,True,0.0,True,0.0,1.0,794.0,,Complete Remission/Response,True,,,Complete Remission/Response,False,,,,False
+TCGA-OY-A56Q,True,True,True,True,True,0.0,True,0.0,False,,0.0,576.0,,Complete Remission/Response,True,,,Complete Remission/Response,False,,,,False
+TCGA-VG-A8LO,True,True,True,True,True,1.0,True,1.0,True,1.0,1.0,24.0,,[Not Applicable],True,,,,False,,,,False
+TCGA-WR-A838,True,True,True,True,True,1.0,True,1.0,True,1.0,1.0,245.0,,Progressive Disease,True,,,,False,,,,False

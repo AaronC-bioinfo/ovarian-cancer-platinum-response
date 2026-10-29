@@ -1,0 +1,102 @@
+sample_id,histology,clinical_status,platinum_category,dfs_days,serous_or_undiff,label_clinical,label_dfs,in_expr_matrix,harm_present,harm_clinical,harm_dfs
+GSM1559299,serous ovarian ca.,P,resistant,0.0,True,1.0,1.0,True,True,1.0,1.0
+GSM1559300,serous ovarian ca.,P,resistant,0.0,True,1.0,1.0,True,True,1.0,1.0
+GSM1559301,serous ovarian ca.,P,resistant,0.0,True,1.0,1.0,True,True,1.0,1.0
+GSM1559302,serous ovarian ca.,P,resistant,0.0,True,1.0,1.0,True,True,1.0,1.0
+GSM1559303,serous ovarian ca.,P,resistant,0.0,True,1.0,1.0,True,True,1.0,1.0
+GSM1559304,serous ovarian ca.,PR,resistant,0.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559305,serous ovarian ca.,PR,resistant,0.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559306,serous ovarian ca.,SD,resistant,0.0,True,1.0,1.0,True,True,1.0,1.0
+GSM1559307,serous ovarian ca.,PR,resistant,0.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559308,serous ovarian ca.,PR,resistant,0.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559309,serous ovarian ca.,P,resistant,0.0,True,1.0,1.0,True,True,1.0,1.0
+GSM1559310,undifferentiated ovarian ca.,PR,resistant,0.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559311,serous ovarian ca.,PR,resistant,0.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559312,serous ovarian ca.,PR,resistant,0.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559313,serous ovarian ca.,PR,resistant,0.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559314,serous ovarian ca.,PR,resistant,0.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559315,serous ovarian ca.,P,resistant,0.0,True,1.0,1.0,True,True,1.0,1.0
+GSM1559316,serous ovarian ca.,PR,resistant,0.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559317,serous ovarian ca.,PR,resistant,0.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559318,serous ovarian ca.,PR,resistant,0.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559319,undifferentiated ovarian ca.,PR,resistant,0.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559320,serous ovarian ca.,SD,resistant,0.0,True,1.0,1.0,True,True,1.0,1.0
+GSM1559321,serous ovarian ca.,PR,resistant,0.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559322,serous ovarian ca.,PR,resistant,0.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559323,serous ovarian ca.,SD,resistant,0.0,True,1.0,1.0,True,True,1.0,1.0
+GSM1559324,serous ovarian ca.,CR,resistant,97.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559325,serous ovarian ca.,CR,resistant,111.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559326,serous ovarian ca.,CR,resistant,116.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559327,serous ovarian ca.,CR,resistant,127.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559328,serous ovarian ca.,CR,resistant,132.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559329,serous ovarian ca.,CR,resistant,157.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559330,serous ovarian ca.,CR,resistant,171.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559331,serous ovarian ca.,CR,resistant,176.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559332,serous ovarian ca.,CR,resistant,176.0,True,0.0,1.0,True,True,0.0,1.0
+GSM1559333,serous ovarian ca.,CR,moderately sensitive,188.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559334,serous ovarian ca.,CR,moderately sensitive,189.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559335,serous ovarian ca.,CR,moderately sensitive,208.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559336,serous ovarian ca.,CR,moderately sensitive,222.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559337,serous ovarian ca.,CR,moderately sensitive,226.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559338,serous ovarian ca.,CR,moderately sensitive,230.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559339,serous ovarian ca.,CR,moderately sensitive,247.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559340,undifferentiated ovarian ca.,CR,moderately sensitive,251.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559341,serous ovarian ca.,CR,moderately sensitive,264.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559342,serous ovarian ca.,CR,moderately sensitive,285.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559343,serous ovarian ca.,CR,moderately sensitive,292.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559344,serous ovarian ca.,CR,moderately sensitive,307.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559345,serous ovarian ca.,CR,moderately sensitive,346.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559346,serous ovarian ca.,CR,moderately sensitive,393.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559347,serous ovarian ca.,CR,moderately sensitive,408.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559348,serous ovarian ca.,CR,moderately sensitive,412.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559349,serous ovarian ca.,CR,moderately sensitive,420.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559350,serous ovarian ca.,CR,moderately sensitive,436.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559351,serous ovarian ca.,CR,moderately sensitive,476.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559352,endometrioid ovarian ca.,CR,moderately sensitive,490.0,False,0.0,0.0,False,False,,
+GSM1559353,serous ovarian ca.,CR,moderately sensitive,510.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559354,serous ovarian ca.,CR,moderately sensitive,523.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559355,serous ovarian ca.,CR,moderately sensitive,525.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559356,serous ovarian ca.,CR,moderately sensitive,528.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559357,serous ovarian ca.,CR,moderately sensitive,578.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559358,serous ovarian ca.,CR,moderately sensitive,623.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559359,serous ovarian ca.,CR,moderately sensitive,707.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559360,serous ovarian ca.,CR,moderately sensitive,730.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559361,serous ovarian ca.,CR,highly sensitive,753.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559362,serous ovarian ca.,CR,highly sensitive,766.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559363,undifferentiated ovarian ca.,CR,highly sensitive,807.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559364,serous ovarian ca.,CR,highly sensitive,815.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559365,serous ovarian ca.,CR,highly sensitive,950.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559366,serous ovarian ca.,CR,highly sensitive,1115.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559367,serous ovarian ca.,CR,highly sensitive,1429.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559368,serous ovarian ca.,CR,highly sensitive,1450.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559369,serous ovarian ca.,CR,highly sensitive,1468.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559370,serous ovarian ca.,CR,highly sensitive,1527.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559371,serous ovarian ca.,CR,highly sensitive,1579.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559372,serous ovarian ca.,CR,highly sensitive,2521.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559373,serous ovarian ca.,CR,highly sensitive,3875.0,True,0.0,0.0,True,True,0.0,0.0
+GSM1559374,undifferentiated ovarian ca.,,,,True,,,True,True,,
+GSM1559375,serous ovarian ca.,,,,True,,,True,True,,
+GSM1559376,serous ovarian ca.,,,,True,,,True,True,,
+GSM1559377,serous ovarian ca.,,,,True,,,True,True,,
+GSM1559378,undifferentiated ovarian ca.,,,,True,,,True,True,,
+GSM1559379,endometrioid ovarian ca.,,,,False,,,False,False,,
+GSM1559380,endometrioid ovarian ca.,,,,False,,,False,False,,
+GSM1559381,endometrioid ovarian ca.,,,,False,,,False,False,,
+GSM1559382,endometrioid ovarian ca.,,,,False,,,False,False,,
+GSM1559383,endometrioid ovarian ca.,,,,False,,,False,False,,
+GSM1559384,endometrioid ovarian ca.,,,,False,,,False,False,,
+GSM1559385,endometrioid ovarian ca.,,,,False,,,False,False,,
+GSM1559386,endometrioid ovarian ca.,,,,False,,,False,False,,
+GSM1559387,endometrioid ovarian ca.,,,,False,,,False,False,,
+GSM1559388,endometrioid ovarian ca.,,,,False,,,False,False,,
+GSM1559389,undifferentiated ovarian ca.,,,,True,,,True,True,,
+GSM1559390,endometrioid ovarian ca.,,,,False,,,False,False,,
+GSM1559391,clearcell ovarian ca.,,,,False,,,False,False,,
+GSM1559392,clearcell ovarian ca.,,,,False,,,False,False,,
+GSM1559393,clearcell ovarian ca.,,,,False,,,False,False,,
+GSM1559394,clearcell ovarian ca.,,,,False,,,False,False,,
+GSM1559395,clearcell ovarian ca.,,,,False,,,False,False,,
+GSM1559396,clearcell ovarian ca.,,,,False,,,False,False,,
+GSM1559397,clearcell ovarian ca.,,,,False,,,False,False,,
+GSM1559398,clearcell ovarian ca.,,,,False,,,False,False,,
+GSM1559399,clearcell ovarian ca.,,,,False,,,False,False,,

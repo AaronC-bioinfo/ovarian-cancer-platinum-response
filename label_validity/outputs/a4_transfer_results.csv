@@ -1,0 +1,73 @@
+train_label,variant,model,label,train_n,train_nonresponder,n,n_nonresponder,auc,ci_lo,ci_hi,ci_excludes_half,supplement
+label_platinum,P,Logistic Regression,clinical,145,41,74,10,0.6156,0.4077,0.8047,False,False
+label_platinum,P,Logistic Regression,dfs,145,41,74,34,0.5632,0.4279,0.6941,False,False
+label_platinum,P,Random Forest,clinical,145,41,74,10,0.7117,0.5592,0.843,True,False
+label_platinum,P,Random Forest,dfs,145,41,74,34,0.5882,0.4537,0.7169,False,False
+label_platinum,P,SVM,clinical,145,41,74,10,0.6891,0.5093,0.8453,True,False
+label_platinum,P,SVM,dfs,145,41,74,34,0.6162,0.4838,0.7485,False,False
+label_platinum,S,Logistic Regression,clinical,145,41,74,10,0.6766,0.4577,0.8781,False,False
+label_platinum,S,Logistic Regression,dfs,145,41,74,34,0.6596,0.5287,0.7794,True,False
+label_platinum,S,Random Forest,clinical,145,41,74,10,0.6508,0.4515,0.8414,False,False
+label_platinum,S,Random Forest,dfs,145,41,74,34,0.5971,0.4629,0.7195,False,False
+label_platinum,S,SVM,clinical,145,41,74,10,0.6422,0.4266,0.8329,False,False
+label_platinum,S,SVM,dfs,145,41,74,34,0.6257,0.4963,0.7471,False,False
+label_pfiplat6,P,Logistic Regression,clinical,188,53,74,10,0.6703,0.5,0.8312,False,False
+label_pfiplat6,P,Logistic Regression,dfs,188,53,74,34,0.5522,0.4184,0.6824,False,False
+label_pfiplat6,P,Random Forest,clinical,188,53,74,10,0.7453,0.5906,0.8805,True,False
+label_pfiplat6,P,Random Forest,dfs,188,53,74,34,0.625,0.4871,0.7541,False,False
+label_pfiplat6,P,SVM,clinical,188,53,74,10,0.7063,0.5406,0.8578,True,False
+label_pfiplat6,P,SVM,dfs,188,53,74,34,0.6103,0.4735,0.7412,False,False
+label_pfiplat6,S,Logistic Regression,clinical,188,53,74,10,0.7578,0.5562,0.9234,True,False
+label_pfiplat6,S,Logistic Regression,dfs,188,53,74,34,0.675,0.5441,0.7963,True,False
+label_pfiplat6,S,Random Forest,clinical,188,53,74,10,0.625,0.4562,0.7821,False,False
+label_pfiplat6,S,Random Forest,dfs,188,53,74,34,0.5125,0.3809,0.6449,False,False
+label_pfiplat6,S,SVM,clinical,188,53,74,10,0.6875,0.4766,0.8641,False,False
+label_pfiplat6,S,SVM,dfs,188,53,74,34,0.6581,0.5265,0.7831,True,False
+label_response,P,Logistic Regression,clinical,219,35,74,10,0.6297,0.4594,0.7828,False,False
+label_response,P,Logistic Regression,dfs,219,35,74,34,0.5581,0.4199,0.6956,False,False
+label_response,P,Random Forest,clinical,219,35,74,10,0.5469,0.346,0.7438,False,False
+label_response,P,Random Forest,dfs,219,35,74,34,0.561,0.4324,0.696,False,False
+label_response,P,SVM,clinical,219,35,74,10,0.6266,0.4469,0.7906,False,False
+label_response,P,SVM,dfs,219,35,74,34,0.5735,0.439,0.7081,False,False
+label_response,S,Logistic Regression,clinical,219,35,74,10,0.6156,0.4093,0.8062,False,False
+label_response,S,Logistic Regression,dfs,219,35,74,34,0.7022,0.5765,0.8184,True,False
+label_response,S,Random Forest,clinical,219,35,74,10,0.6664,0.4859,0.8344,False,False
+label_response,S,Random Forest,dfs,219,35,74,34,0.5949,0.457,0.725,False,False
+label_response,S,SVM,clinical,219,35,74,10,0.5859,0.3891,0.7812,False,False
+label_response,S,SVM,dfs,219,35,74,34,0.6728,0.5507,0.7883,True,False
+label_os18,P,Logistic Regression,clinical,206,22,74,10,0.5078,0.2984,0.7203,False,False
+label_os18,P,Logistic Regression,dfs,206,22,74,34,0.5809,0.4522,0.7155,False,False
+label_os18,P,Random Forest,clinical,206,22,74,10,0.4211,0.2219,0.6234,False,False
+label_os18,P,Random Forest,dfs,206,22,74,34,0.5548,0.4209,0.6923,False,False
+label_os18,P,SVM,clinical,206,22,74,10,0.55,0.3562,0.7345,False,False
+label_os18,P,SVM,dfs,206,22,74,34,0.5449,0.4132,0.675,False,False
+label_os18,S,Logistic Regression,clinical,206,22,74,10,0.5328,0.3109,0.7516,False,False
+label_os18,S,Logistic Regression,dfs,206,22,74,34,0.525,0.3926,0.6581,False,False
+label_os18,S,Random Forest,clinical,206,22,74,10,0.4813,0.2812,0.6891,False,False
+label_os18,S,Random Forest,dfs,206,22,74,34,0.4555,0.329,0.5985,False,False
+label_os18,S,SVM,clinical,206,22,74,10,0.5422,0.3515,0.7266,False,False
+label_os18,S,SVM,dfs,206,22,74,34,0.5485,0.4169,0.6802,False,False
+label_os24,P,Logistic Regression,clinical,199,36,74,10,0.5047,0.3,0.7125,False,False
+label_os24,P,Logistic Regression,dfs,199,36,74,34,0.6221,0.4971,0.7471,False,False
+label_os24,P,Random Forest,clinical,199,36,74,10,0.4836,0.3015,0.6672,False,False
+label_os24,P,Random Forest,dfs,199,36,74,34,0.6452,0.5224,0.7724,True,False
+label_os24,P,SVM,clinical,199,36,74,10,0.575,0.3656,0.7579,False,False
+label_os24,P,SVM,dfs,199,36,74,34,0.6096,0.4787,0.7346,False,False
+label_os24,S,Logistic Regression,clinical,199,36,74,10,0.6031,0.3688,0.8172,False,False
+label_os24,S,Logistic Regression,dfs,199,36,74,34,0.5949,0.4603,0.7294,False,False
+label_os24,S,Random Forest,clinical,199,36,74,10,0.5531,0.368,0.7446,False,False
+label_os24,S,Random Forest,dfs,199,36,74,34,0.6496,0.5202,0.7794,True,False
+label_os24,S,SVM,clinical,199,36,74,10,0.5469,0.3437,0.7469,False,False
+label_os24,S,SVM,dfs,199,36,74,34,0.6118,0.4779,0.7419,False,False
+label_os12,P,Logistic Regression,clinical,214,11,74,10,0.5063,0.3188,0.6953,False,True
+label_os12,P,Logistic Regression,dfs,214,11,74,34,0.536,0.4065,0.6684,False,True
+label_os12,P,Random Forest,clinical,214,11,74,10,0.4625,0.2594,0.668,False,True
+label_os12,P,Random Forest,dfs,214,11,74,34,0.5812,0.4533,0.7132,False,True
+label_os12,P,SVM,clinical,214,11,74,10,0.5641,0.3671,0.7563,False,True
+label_os12,P,SVM,dfs,214,11,74,34,0.4985,0.3515,0.6383,False,True
+label_os12,S,Logistic Regression,clinical,214,11,74,10,0.5703,0.3843,0.7469,False,True
+label_os12,S,Logistic Regression,dfs,214,11,74,34,0.5897,0.4537,0.7184,False,True
+label_os12,S,Random Forest,clinical,214,11,74,10,0.4711,0.3219,0.6149,False,True
+label_os12,S,Random Forest,dfs,214,11,74,34,0.5129,0.3757,0.6507,False,True
+label_os12,S,SVM,clinical,214,11,74,10,0.5297,0.3625,0.6985,False,True
+label_os12,S,SVM,dfs,214,11,74,34,0.5676,0.4331,0.6941,False,True

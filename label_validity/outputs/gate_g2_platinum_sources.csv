@@ -1,0 +1,7 @@
+cohort,n,pub_Resistant,pub_Sensitive,pub_Tooearly,pub_Missing,pub_absent,pub_determinate,has_firstline_platinum_row,has_firstline_stop_date,pfi_plat6_short,pfi_plat6_long,pfi_plat6_indeterminate,pfi_plat_negative,either_determinate
+all_patients,587,90,197,58,143,99,287,467,438,115,275,47,19,404
+platinum_exact_489,489,87,190,57,87,68,277,466,437,115,274,47,19,394
+cox_432,432,74,169,55,78,56,243,409,384,98,243,43,18,345
+cls_12m,214,40,103,11,53,7,143,199,185,52,132,1,4,185
+cls_18m,206,39,100,10,51,6,139,192,178,51,126,1,4,178
+cls_24m,199,39,95,10,50,5,134,187,173,51,121,1,4,173
