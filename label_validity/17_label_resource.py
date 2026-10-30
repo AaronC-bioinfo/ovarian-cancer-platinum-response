@@ -62,7 +62,7 @@ def main() -> None:
         ("label_pfiplat6", "Platinum-free interval re-derived from TCGA-CDR PFI.time minus the stop date of the last adjuvant platinum regimen: 1 if progression < 183 days after end of platinum (including negative intervals), 0 if >= 183 days, empty if censored earlier."),
         ("pfi_from_platinum_d", "Re-derived platinum-free interval in days (negative = progression recorded before the end of platinum)."),
         ("group", "For patients with label_pfiplat6 determinate: overlap_with_platinum_status or added_by_reconstruction."),
-        ("provenance_class", "clean_resistant (recorded new tumour event, no flag); clean_sensitive (interval >= 183 days, no flag); flagged (any flag, or a resistant call from a death counted as progression); negative_interval."),
+        ("provenance_class", "'clean' means that no specified provenance flag applied, not that the call is clinically verified. clean_resistant (recorded new tumour event, of any recorded or unrecorded type, no flag; 2 of the 12 added clean_resistant calls have an unrecorded event type); clean_sensitive (interval >= 183 days, no flag); flagged (any flag, or a resistant call from a death counted as progression); negative_interval."),
         ("event_source", "For resistant calls: recorded_new_tumour_event:<type> (new_tumor_event_dx_days_to equals PFI.time +/- 1 day) or death_counted_as_progression; type_not_recorded = event recorded without a type."),
         ("redacted", "Flag: TCGA-CDR record marked Redacted."),
         ("adj_platinum_stop_missing", "Flag: an adjuvant platinum row lacks a STOP_DATE."),

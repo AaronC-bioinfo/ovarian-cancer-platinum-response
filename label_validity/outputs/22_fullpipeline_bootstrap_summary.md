@@ -15,3 +15,7 @@ P1 (full-pipeline interval for ΔAUC_24 wider than the conditional interval): he
 Decision rule: full-pipeline interval for ΔAUC_24 excludes 0: False.
 
 Notes (added after the run): the header's conditional width "0.192" is 0.1925 unrounded (printed 0.193 above). Chunks were run as replicates 0–20, 20–160, 160–300, 300–440 and 440–500 rather than the 100-replicate chunks shown in the header's run line; each replicate has its own seed, so the chunking does not affect the results. The fits used scikit-learn 1.7.2, in which random-forest fits differ slightly from the A16 environment (scikit-learn 1.9.0).
+
+Deviation (added 2026-10-30, after a fifth review): the decision rule above was not followed. The out-of-bag range estimates the variability of single refits on about 63% of the distinct patients evaluated on the remainder, a different quantity from the repeated-cross-validation estimate in A16, so the manuscript reports it separately as a sensitivity analysis with its own median and percentile range, and keeps the A16 conditional interval for the A16 estimate.
+
+Note (added after the run): the header's "Writing started 2026-10-30 00:31 ET" is close to the save time of the corrected script (04:31:40 UTC); writing began at about 00:30 ET, after A21 finished. The time string was not changed.

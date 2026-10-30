@@ -7,6 +7,39 @@ into a single manuscript. This log supersedes `archive/PROJECT_LOG_2026-06-22.md
 
 ---
 
+## 2026-10-30 (01:04–02:00 ET) — Fifth review (7.5/10; major revision, "credible path to acceptance"): A23, round 7, restructure
+
+- **Fifth review (of revision 6):** the remaining problems are uncertainty reporting, a reproducibility package, and length.
+  - My error, now corrected: A22's decision rule made the out-of-bag range "the main uncertainty" for the CV estimate, and the text called it "probably conservative".
+- **A23** (`23_followup_checks.py`; decision rule before the run; run 01:05 ET):
+  - IPCW with the censoring distribution estimated in status-known patients, or stratified by status: changes ≤ 0.011. Max weight 1.24; ESS ≈ n; Cox variant excluded 23 patients for missing covariates.
+  - Carboplatin/cisplatin-only anchor: 0 calls changed, 2 undetermined (1 among the 78 unflagged additions).
+  - A1–A3: 0 changes among the 78. The 2 resistant RNA-seq additions are unchanged.
+  - 2 unflagged added resistant calls have an unrecorded event type.
+- **Checks:** Lisowska 2014 (97 tumours; 72 serous/undifferentiated with clinical data, 62/10; 33 resistant) vs deposited GSE63885 (101 samples; 74 annotated, 64/10; 34/40), reconciled in the text. Wang 2024 PDF confirms the six-month relapse definition for the ROC-plotter analysis.
+- **Round 7** (`apply_review5_round7_2026-10-30.py`, 25 edits):
+  - the CV estimate with its conditional interval is separated from the out-of-bag sensitivity analysis (own medians and percentiles); "probably conservative" removed;
+  - A22 deviation disclosed (its rule not followed); out-of-bag reproducibility details (500/500 valid, duplicates kept, same patients for all models, Platt scaling);
+  - IPCW population check; the missing-OS patient named; oxaliplatin and anchor results for the additions;
+  - "unflagged" defined; batch-level transfer; Lisowska reconciliation; Table 1 called illustrative; Wang 2024/2025 cells; Cox wording; GCIG context.
+  - Dictionary: "clean" defined.
+- **Restructure** (fresh editing agent; constraints: no number changed or added, required qualifications kept):
+  - Abstract→Conclusion cut from ~8,200 to ~6,700 words; Methods from 3,359 to ~2,300; A-numbers removed from the main text except one pointer.
+  - Development history and technical details moved to `manuscript_v5/SI/S1_Text_analysis_history.md`, now included in S1 Text by `build_SI.py`.
+  - Editor's report: `manuscript_v5/restructure_report.md`. Pre-restructure source archived as `archive_pre_external_review_2026-10-29/manuscript_v5_src_after_round7.md`.
+- **Independent audit of round 7 + restructure:**
+  - No number changed meaning; all qualifications survive; all pointers resolve.
+  - Fixed in `apply_review5_round7b_2026-10-30.py` (10 edits):
+    - the missing-OS patient restored to the main text (TCGA-24-0968, platinum-sensitive, died without an OS time);
+    - oxaliplatin and the carboplatin/cisplatin-only result restored;
+    - abstract out-of-bag wording (median and 2.5th–97.5th percentiles, not "ranged");
+    - pre-specification exceptions pointer; grammar; κ referent; 47.7 comparator; exploratory pointer; S1 Text caption.
+  - S1 history: the max weight is 1.08 for the status-known variants (1.24 was A19's whole-cohort KM).
+  - A22 and A23 "writing started" times are save times; disclosed in their summaries.
+- **Not done:** `[[ZENODO_DOI]]` (deliberately, after Lockhart); the AI-use paragraph (Aaron decides at the end).
+
+---
+
 ## 2026-10-30 (00:29–01:00 ET) — A21 event-type sensitivity; A22 full-pipeline bootstrap; rounds 6 and 6b
 
 - Aaron asked for both analyses, which round 5 had left out. On the full-pipeline uncertainty, I had chosen the descriptive option the reviewer allowed; that was a judgement call, now reversed.

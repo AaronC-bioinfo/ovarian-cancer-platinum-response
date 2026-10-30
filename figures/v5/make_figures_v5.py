@@ -264,10 +264,10 @@ def f3():
         r = pdf.loc[k_]
         flo, fhi = np.percentile(fpb[k_].dropna(), [2.5, 97.5])
         bx.plot([flo, fhi], [yi, yi], color=BASE, linewidth=5, solid_capstyle="butt", zorder=1,
-                label="Whole pipeline refitted (500 bootstrap samples)" if yi == yb[0] else None)
+                label="Out-of-bag refits of the whole pipeline (2.5th–97.5th percentiles; sensitivity analysis)" if yi == yb[0] else None)
         note("F3B", k_ + " full-pipeline", f"[{flo:+.3f}, {fhi:+.3f}]")
         bx.plot([r.boot_lo, r.boot_hi], [yi, yi], color=INK2, linewidth=1.5, solid_capstyle="round",
-                label="Patients resampled, models not refitted" if yi == yb[0] else None)
+                label="Conditional 95% interval (patients resampled, models not refitted)" if yi == yb[0] else None)
         bx.plot(r.delta_repeat_averaged_scores, yi, "o", color=INK2, markersize=5.5, markeredgecolor="white", zorder=3)
         note("F3B", k_, f"{r.delta_repeat_averaged_scores:+.3f} [{r.boot_lo:+.3f}, {r.boot_hi:+.3f}], n {int(r.n)} ({int(r.n_pos)} positive)")
     ref_line(bx, 0)

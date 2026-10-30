@@ -1,10 +1,51 @@
 ---
-title: "S1 Text. Pre-specified predictions and decision rules for each analysis, with observed outcomes"
+title: "S1 Text. Pre-specified predictions and decision rules for each analysis, with observed outcomes, and the analysis history and deviations"
 ---
 
-This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such in the summaries; headers were not edited after running, except the time strings in the A18 and A21 headers (disclosed in their summaries; the A18 summary also notes an inaccurate description of platinum agents in that header) and a bug fix in A22 before any result (disclosed in its header). Scripts A8–A10 were deposited in the public repository before they were run (commits d5bd844 and e98b3d9), and A15 and A16, added in a later revision, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full. Headers are reproduced unchanged; those of A13b and A15–A17 refer to the critiques of earlier drafts that prompted those analyses as an 'external review' or a 'second review'.
+This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such in the summaries; headers were not edited after running, except the time strings in the A18 and A21 headers (disclosed in their summaries; the A18 summary also notes an inaccurate description of platinum agents in that header) and a bug fix in A22 before any result (disclosed in its header); A22's decision rule was not followed (see its status line). Scripts A8–A10 were deposited in the public repository before they were run (commits d5bd844 and e98b3d9), and A15 and A16, added in a later revision, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full. Headers are reproduced unchanged; those of A13b and A15–A17 refer to the critiques of earlier drafts that prompted those analyses as an 'external review' or a 'second review'.
 
 Analysis history (moved from the manuscript's Methods). The study's interpretation changed during the work. An earlier draft concluded, from somatic BRCA1/2 variants and from OS labels analysed only in patients with RNA-seq data, that OS thresholds measure survival rather than platinum response; the publicly deposited analyses with germline variants and the full cohort did not support that conclusion, and the paper was revised. In later revisions, the OS thresholds were reframed as candidate surrogates, the survival decomposition was reported as associations only and restricted to patients at risk at the end of platinum (A13b), the provenance audit was added (A15), and the claim that the training label changes classifier performance was withdrawn when the controlled comparison detected no difference (A16). In the provenance audit, the code omitted one pre-specified flag (an interval within 150–215 days); this was found when the results were scored, and a correction run that adds only that flag (A15b) gives the provenance-filtered label reported in the manuscript (355 patients, against 367 as first run). The descriptive full-cohort tables (agreement, coverage, threshold sweep, cohort characteristics) and the exploratory analyses were added after the main results were known.
+
+# Analysis history and deviations
+
+*Details moved from the main text when the manuscript was shortened (verbatim or lightly edited; no number changed). See also the analysis-history paragraph above.*
+
+## Analyses by level of specification
+
+The main text describes analyses by name. Their identifiers in this file are:
+
+- **Predictions written before the analysis, after the authors' earlier work on the same cohort:** label construction (A1), agreement (A2), associations with *BRCA1/2* and clinical characteristics (A3), transfer to GSE63885 (A4), within-TCGA cross-label classifiers (A5), published gene sets (A6) and feature-selection leakage (A7).
+- **Secondary predictions, written after earlier results of this study had been seen** (scripts deposited before running; commits d5bd844, e98b3d9 and d349b2b): *BRCA1/2* germline and somatic variants and *CCNE1* (A8), patients without a platinum status (A9), prognostic characteristics in the full cohort (A10), the provenance audit (A15, corrected in A15b) and the controlled comparison of training labels (A16).
+- **Post hoc analyses with decision rules:** survival decomposition restricted to patients at risk at the end of platinum (A13b), treatment-anchor sensitivity (A18), inverse-probability-of-censoring weights (A19), event-type sensitivity (A21), follow-up checks (A23), and the out-of-bag full-pipeline bootstrap (A22, with one prediction).
+- **Exploratory or descriptive analyses without predictions:** the full-cohort label table, agreement and OS-as-test (A11), approximate AUC intervals (A12), exploratory label structure (A13: cohort flow, threshold sweep, reference bounds, clinical-only models, alternative residual-disease coding, minimum detectable differences, redaction), cohort characteristics (A14), the patient-level label table (A17) and descriptive checks (A20). The descriptive full-cohort tables and the exploratory analyses were added after the main results were known; the exploratory analyses in A13 (the survival decomposition, clinical-only models and redaction analysis, with the threshold sweep, reference bounds, minimum detectable differences and alternative residual-disease coding) were added at the request of internal reviewers.
+
+## Deviations and corrections
+
+- **Provenance audit (A15).** The audit code omitted one pre-specified flag (an interval within 150–215 days). This was found when the results were scored; a correction run that adds only that flag (A15b) gives the provenance-filtered label reported in the manuscript (355 patients, against 367 as first run). The as-run label is retained as a sensitivity analysis (label table column label_combined_strict_asrun).
+- **Out-of-bag full-pipeline bootstrap (A22).** The pre-specified rule, which made the out-of-bag percentile range the main uncertainty for the controlled comparison, was not followed. Because single fits on about 63% of the distinct patients, evaluated on the remainder, estimate a different quantity from the repeated cross-validation, the out-of-bag results are reported separately, with their own median and percentile range. A bug in A22 was fixed before it produced any result (disclosed in its header), and the replicates were run in chunks other than those shown in the header's run line, which does not affect the results (each replicate has its own seed).
+- **Header time strings.** The time strings of two headers (A18 and A21) were corrected after their runs; the A18 summary also notes an inaccurate description of platinum agents in that header. All are disclosed in the corresponding summaries.
+
+## How the interpretation changed
+
+With somatic variants alone, the OS labels showed no clear *BRCA1/2* association, because only 12 carriers had an OS label; including germline variants, which account for most *BRCA1/2* alterations in HGSOC and for 44 of the 55 carriers here, made the association visible under every label (S3 Table). Several pre-specified predictions failed, including that *BRCA1/2* would show no clear association with the OS thresholds and that platinum-trained classifiers would predict platinum status better than OS-trained ones; all predictions and outcomes are listed in the analysis sections of this file.
+
+## Software environments
+
+All scikit-learn analyses were run in one pinned environment (Python 3.14.5, scikit-learn 1.9.0, NumPy 2.4.6), except the exploratory clinical-only models, the fold recount in A20 and the full-pipeline bootstrap in A22 (Python 3.10, scikit-learn 1.7.2, in which random-forest fits differ slightly from those in the A16 environment); Cox models used R 4.6.0 (survival 3.8.6) and, for the exploratory analyses, lifelines 0.30.0. The A16 script rerun in a second software environment gave the same conclusions, which checks computational consistency only. SVM probabilities came from scikit-learn's internal five-fold Platt scaling.
+
+## Details moved from the main text
+
+**Treatment anchor of the re-derived interval (A18, A23).** Platinum rows were treatment-timeline rows whose agent name contains "platin" (carboplatin and cisplatin, and oxaliplatin, which supplies the anchor for 3 patients, 2 of them with a determinate interval); no platinum row carried a neoadjuvant indication. Restricting the anchor to carboplatin and cisplatin changed no call and left 2 patients undetermined, 1 of them among the unflagged added patients (A23). When several adjuvant platinum rows were recorded (60 of the 389 patients with a determinate interval, 8 of them with overlapping rows and 7 with tied stop dates), the latest stop date was used; 1 patient had an adjuvant platinum row without a stop date, 1 had an adjuvant row starting after a later-line regimen, 6 had a platinum row with another or no indication, and 23 cohort patients had no adjuvant platinum row. The alternative anchors were the earliest adjuvant stop date, the end of the first platinum regimen whatever its indication (which also labels 18 patients without an adjuvant row), and the latest stop date among adjuvant rows starting before any later-line regimen (which leaves one patient undetermined); 0 to 5 of the calls determinate under both anchors changed (κ with the primary label about 0.97), and none of the 78 unflagged added patients changed under any of them.
+
+**Provenance of resistant calls (A15b, A21).** Of the 26 added resistant calls, 20 were dated by a recorded new tumour event (13 recurrences, 3 progressions and 4 of unrecorded type) and 6 by a death counted as progression. Across all 115 resistant re-derived calls, 90 were dated by a recorded recurrence, 15 by a recorded progression, 4 by a new tumour event of unrecorded type and 6 by a death counted as progression. None of the 10 calls dated only by a death or by an event of unrecorded type had a platinum status, so setting them aside left κ with platinum status unaffected; their removal changed the sensitivity and PPV of the OS thresholds against the broad combined reference by at most 0.04. Of the four patients in whom the two platinum labels disagreed, the one with a 101-day interval had three adjuvant platinum rows. Against the provenance-filtered combined label, the OS thresholds had sensitivities of 0.23 at 18 months and 0.41 at 24 months and PPVs of 0.79 and 0.75, within 0.05 of their values against the broad combined label. Excluding the 38 redacted TCGA-CDR records, κ of the re-derived interval with platinum status was 0.964, against 0.966 with them.
+
+**Censoring weights (A19, A23).** Patients censored before each threshold numbered 8 and 17 of those with a platinum status, and 69 and 87 in the cohort, in which 1 further patient (TCGA-24-0968, platinum-sensitive) died without a recorded survival time. The Cox censoring model excluded 23 patients with missing covariates. When the censoring distribution was also estimated only in patients with a platinum status, and separately within each status group (A23), the largest weight was 1.08 (1.24 with the whole-cohort Kaplan–Meier weights of A19; Cox-variant weights were not summarised), and no weights were truncated.
+
+**Survival decomposition (A13b).** Of the 489 patients, 53 had no re-derived interval (52 without a recorded stop date for first-line platinum and 1 without a TCGA-CDR progression-free interval time), so 436 entered this step and 408 were analysed. The 28 patients with an interval of 0 days or less were the 19 negative intervals (8 with an event, 11 censored) and 9 intervals of 0 days (4 with an event, 5 censored). Times were TCGA-CDR days from diagnosis (PFI.time, OS.time) and treatment-timeline stop dates.
+
+**Controlled comparison (A16, A20, A22).** The estimate is the AUC difference for out-of-fold scores averaged over the 20 repeats; the mean of the per-repeat differences was −0.016. The 18-month OS label had 3 to 7 positives per training fit and none in 22 of the 100 held-out folds. In A22 the bootstrap samples were drawn with duplicates kept; all 500 samples gave a valid AUC for every contrast, and none had a single-class training label or out-of-bag target.
+
+**GSE63885 (A4).** Affymetrix GPL570; series-matrix log2 RMA values; probes mapped with hgu133plus2.db, keeping the probe with the highest mean expression per gene; genes z-scored within GSE63885, using that cohort's own expression distribution. The original publication analysed 97 tumours, 72 of them serous or undifferentiated with clinical data (62 responders, 10 non-responders; 33 platinum-resistant) (Lisowska et al. 2014, cited in the main text); the deposited series has 101 samples, and our 74 annotated serous or undifferentiated samples include 2 more responders and 1 more resistant tumour, which cannot be identified because the publication lists no sample identifiers. Chen et al. reported 75 samples (34 resistant, 41 sensitive), consistent with including one endometrioid tumour excluded here (S7 Table).
 
 # Gate G1–G4: label coverage and sources
 
@@ -2527,7 +2568,7 @@ Note (added after the run): the header first gave its writing time as "00:29–0
 
 # A22: full-pipeline bootstrap for the controlled comparison
 
-*Status:* post hoc; one prediction and a decision rule written before running. *Script:* `label_validity/22_fullpipeline_bootstrap.py`. *Summary:* `label_validity/outputs/22_fullpipeline_bootstrap_summary.md`.
+*Status:* post hoc; one prediction and a decision rule written before running; the decision rule was not followed, because the out-of-bag range estimates a different quantity from the repeated cross-validation (see the manuscript Methods). *Script:* `label_validity/22_fullpipeline_bootstrap.py`. *Summary:* `label_validity/outputs/22_fullpipeline_bootstrap_summary.md`.
 
 ## Header (verbatim)
 
@@ -2590,6 +2631,98 @@ P1 (full-pipeline interval for ΔAUC_24 wider than the conditional interval): he
 Decision rule: full-pipeline interval for ΔAUC_24 excludes 0: False.
 
 Notes (added after the run): the header's conditional width "0.192" is 0.1925 unrounded (printed 0.193 above). Chunks were run as replicates 0–20, 20–160, 160–300, 300–440 and 440–500 rather than the 100-replicate chunks shown in the header's run line; each replicate has its own seed, so the chunking does not affect the results. The fits used scikit-learn 1.7.2, in which random-forest fits differ slightly from the A16 environment (scikit-learn 1.9.0).
+
+Deviation (added 2026-10-30, after a fifth review): the decision rule above was not followed. The out-of-bag range estimates the variability of single refits on about 63% of the distinct patients evaluated on the remainder, a different quantity from the repeated-cross-validation estimate in A16, so the manuscript reports it separately as a sensitivity analysis with its own median and percentile range, and keeps the A16 conditional interval for the A16 estimate.
+
+Note (added after the run): the header's "Writing started 2026-10-30 00:31 ET" is close to the save time of the corrected script (04:31:40 UTC); writing began at about 00:30 ET, after A21 finished. The time string was not changed.
+
+# A23: follow-up checks (IPCW population, anchor drugs, anchors in the additions)
+
+*Status:* post hoc; decision rule written before running. *Script:* `label_validity/23_followup_checks.py`. *Summary:* `label_validity/outputs/23_followup_checks_summary.md`.
+
+## Header (verbatim)
+
+```text
+label_validity/23_followup_checks.py
+────────────────────────────────────
+A23 — follow-up checks requested by a fifth review of the revised manuscript. Post hoc.
+Writing started 2026-10-30 01:05 ET, BEFORE this script was run (run time is recorded in the summary).
+Known before writing: A18 (anchors), A19 (IPCW with the censoring distribution estimated in all 489 patients:
+largest change 0.037), the provenance classes (a15b), and that oxaliplatin rows supply the anchor for 3 patients.
+Not seen: any result below.
+  C1  IPCW with the censoring distribution estimated only in patients with a determinate platinum status
+      (Kaplan–Meier), and separately within each platinum-status group (stratified Kaplan–Meier); for each variant:
+      sensitivity, specificity, PPV of OS < 18 / 24 months; maximum weight; Kish effective sample size
+      (Σw)² / Σw². Also, for the A19 Cox variant, the number of patients excluded for missing covariates.
+      No weight truncation.
+  C2  Anchor restricted to carboplatin and cisplatin rows (AGENT contains CARBO or CISPLATIN; oxaliplatin
+      excluded): changed and newly undetermined label_pfiplat6 calls overall, among the 117 added patients, among
+      the 78 unflagged added patients, among the 4 discordant patients, and among the 2 resistant unflagged added
+      patients with RNA-seq data.
+  C3  A18 alternative anchors (A1–A3) among the 78 unflagged added patients and the 2 resistant ones with RNA-seq
+      data: calls changed and calls becoming undetermined.
+  C4  Unflagged added resistant calls whose new tumour event has no recorded type.
+DECISION RULE (for the manuscript)
+  * C1: if any estimate differs from the unweighted one by more than 0.05 under either new variant, report it in
+    Results; otherwise one sentence in Methods/Results. C2–C4: reported in one or two sentences, details in S11.
+  No predictions are made.
+Run (from the repo root): python label_validity/23_followup_checks.py --data-root "<...>/OV Data/Project data"
+Outputs → label_validity/outputs/a23_ipcw_variants.csv, a23_anchor_checks.csv, 23_followup_checks_summary.md
+```
+
+## Summary: results and scorecard (verbatim)
+
+# A23 — Follow-up checks (IPCW population, anchor drugs, anchors in added patients, unknown event types)
+
+Run 2026-10-30 05:05:10 UTC
+
+## C1 IPCW variants
+
+```
+ threshold_months                 variant   n  sensitivity  specificity   ppv  max_weight     ess
+               18              unweighted 268        0.214        0.978 0.818       1.000 268.000
+               18               km_all489 268        0.206        0.979 0.815       1.172 267.934
+               18         km_status_known 268        0.211        0.979 0.818       1.031 267.991
+               18 km_stratified_by_status 268        0.211        0.979 0.820       1.039 267.986
+               24              unweighted 259        0.386        0.938 0.744       1.000 259.000
+               24               km_all489 259        0.369        0.940 0.739       1.235 258.789
+               24         km_status_known 259        0.375        0.940 0.742       1.073 258.922
+               24 km_stratified_by_status 259        0.379        0.940 0.744       1.077 258.923
+```
+
+A19 Cox-variant exclusions for missing covariates (patients with status and OS label): {18: 23, 24: 23}
+
+Largest |change| from unweighted under the two new variants: 0.011; decision rule (> 0.05): False
+
+## C2–C3 Anchor checks
+
+```
+                                 group         anchor   n  changed  became_undetermined  became_determinate
+                       all determinate carbo_cis_only 389        0                    2                   0
+                       all determinate             A1 389        5                    0                   0
+                       all determinate             A2 389        5                    0                   0
+                       all determinate             A3 389        0                    1                   0
+                           added (117) carbo_cis_only 117        0                    1                   0
+                           added (117)             A1 117        2                    0                   0
+                           added (117)             A2 117        2                    0                   0
+                           added (117)             A3 117        0                    1                   0
+                  unflagged added (78) carbo_cis_only  78        0                    1                   0
+                  unflagged added (78)             A1  78        0                    0                   0
+                  unflagged added (78)             A2  78        0                    0                   0
+                  unflagged added (78)             A3  78        0                    0                   0
+                        discordant (4) carbo_cis_only   4        0                    0                   0
+                        discordant (4)             A1   4        1                    0                   0
+                        discordant (4)             A2   4        1                    0                   0
+                        discordant (4)             A3   4        0                    0                   0
+unflagged added resistant with RNA-seq carbo_cis_only   2        0                    0                   0
+unflagged added resistant with RNA-seq             A1   2        0                    0                   0
+unflagged added resistant with RNA-seq             A2   2        0                    0                   0
+unflagged added resistant with RNA-seq             A3   2        0                    0                   0
+```
+
+## C4 Unflagged added resistant calls with an unrecorded event type: 2
+
+Note (added after the run): the header's "Writing started 2026-10-30 01:05 ET" is the time the script was saved (05:05:09 UTC), one second before the run (05:05:10 UTC); writing began at about 01:04 ET. The time string was not changed.
 
 # A7: feature-selection leakage rerun in the pinned environment
 

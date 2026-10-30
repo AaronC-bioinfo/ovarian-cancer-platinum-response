@@ -85,7 +85,7 @@ workbook("S2_Table", "S2 Table. Pairwise agreement and OS-threshold test charact
          {"A11_kappa_full": O / "a11_kappa_full.csv", "A11_os_test_full": O / "a11_os_test_full.csv",
           "A11_coverage": O / "a11_coverage.csv", "A2_pairwise_rnaseq": O / "a2_pairwise_agreement.csv",
           "A2_os_sens_spec_rnaseq": O / "a2_os_sens_spec.csv", "A9_os_label_metrics": O / "a9_os_label_metrics.csv",
-          "A13_threshold_sweep": O / "a13_threshold_sweep.csv", "A19_ipcw": O / "a19_ipcw.csv"})
+          "A13_threshold_sweep": O / "a13_threshold_sweep.csv", "A19_ipcw": O / "a19_ipcw.csv", "A23_ipcw_variants": O / "a23_ipcw_variants.csv"})
 
 # ── S3 Table: BRCA / CCNE1 ───────────────────────────────────────────────────
 md = pd.read_csv(O / "a13_min_detectable.csv")
@@ -180,7 +180,7 @@ workbook("S11_Table", "S11 Table. Patient-level label table, version 1.0 (A17): 
           "A15b_event_source": O / "a15b_resistant_event_source.csv", "A15b_os_test_strict": O / "a15b_os_test_strict.csv",
           "A15_os_test_strict_asrun": O / "a15_os_test_strict.csv", "A20_discordant_patients": O / "a20_discordant.csv",
           "A18_anchor_summary": O / "a18_anchor_summary.csv", "A18_anchor_counts": O / "a18_anchor_counts.csv",
-          "A21_event_type": O / "a21_event_type.csv"})
+          "A21_event_type": O / "a21_event_type.csv", "A23_anchor_checks": O / "a23_anchor_checks.csv"})
 
 # ── S1 Text: pre-specified predictions and outcomes ─────────────────────────
 def header(path: Path) -> str:
@@ -233,15 +233,19 @@ ANALYSES = [
     ("A19: IPCW analysis of the OS thresholds as tests", "19_ipcw_os_thresholds.py", "19_ipcw_os_thresholds_summary.md", "post hoc; decision rule written before running"),
     ("A20: descriptive checks (A16 folds, discordant patients, Cox assumptions)", "20_documentation_checks.py", "20_documentation_checks_summary.md", "descriptive; no predictions"),
     ("A21: event-type sensitivity of the re-derived interval", "21_event_type_sensitivity.py", "21_event_type_sensitivity_summary.md", "post hoc; decision rule written before running"),
-    ("A22: full-pipeline bootstrap for the controlled comparison", "22_fullpipeline_bootstrap.py", "22_fullpipeline_bootstrap_summary.md", "post hoc; one prediction and a decision rule written before running"),
+    ("A22: full-pipeline bootstrap for the controlled comparison", "22_fullpipeline_bootstrap.py", "22_fullpipeline_bootstrap_summary.md", "post hoc; one prediction and a decision rule written before running; the decision rule was not followed, because the out-of-bag range estimates a different quantity from the repeated cross-validation (see the manuscript Methods)"),
+    ("A23: follow-up checks (IPCW population, anchor drugs, anchors in the additions)", "23_followup_checks.py", "23_followup_checks_summary.md", "post hoc; decision rule written before running"),
 ]
-L = ["---", 'title: "S1 Text. Pre-specified predictions and decision rules for each analysis, with observed outcomes"', "---", "",
+L = ["---", 'title: "S1 Text. Pre-specified predictions and decision rules for each analysis, with observed outcomes, and the analysis history and deviations"', "---", "",
      "This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, "
      "descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such "
-     "in the summaries; headers were not edited after running, except the time strings in the A18 and A21 headers (disclosed in their summaries; the A18 summary also notes an inaccurate description of platinum agents in that header) and a bug fix in A22 before any result (disclosed in its header). Scripts A8–A10 were deposited in the public repository before they were run "
+     "in the summaries; headers were not edited after running, except the time strings in the A18 and A21 headers (disclosed in their summaries; the A18 summary also notes an inaccurate description of platinum agents in that header) and a bug fix in A22 before any result (disclosed in its header); A22's decision rule was not followed (see its status line). Scripts A8–A10 were deposited in the public repository before they were run "
      "(commits d5bd844 and e98b3d9), and A15 and A16, added in a later revision, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full. "
      "Headers are reproduced unchanged; those of A13b and A15–A17 refer to the critiques of earlier drafts that prompted those analyses as an 'external review' or a 'second review'.", "",
      "Analysis history (moved from the manuscript's Methods). The study's interpretation changed during the work. An earlier draft concluded, from somatic BRCA1/2 variants and from OS labels analysed only in patients with RNA-seq data, that OS thresholds measure survival rather than platinum response; the publicly deposited analyses with germline variants and the full cohort did not support that conclusion, and the paper was revised. In later revisions, the OS thresholds were reframed as candidate surrogates, the survival decomposition was reported as associations only and restricted to patients at risk at the end of platinum (A13b), the provenance audit was added (A15), and the claim that the training label changes classifier performance was withdrawn when the controlled comparison detected no difference (A16). In the provenance audit, the code omitted one pre-specified flag (an interval within 150–215 days); this was found when the results were scored, and a correction run that adds only that flag (A15b) gives the provenance-filtered label reported in the manuscript (355 patients, against 367 as first run). The descriptive full-cohort tables (agreement, coverage, threshold sweep, cohort characteristics) and the exploratory analyses were added after the main results were known.", ""]
+_hist = SI / "S1_Text_analysis_history.md"
+if _hist.exists():
+    L += [_hist.read_text(encoding="utf-8").strip(), ""]
 for title, script, summ, status in ANALYSES:
     L += [f"# {title}", "", f"*Status:* {status}. *Script:* `label_validity/{script}`" + (f". *Summary:* `label_validity/outputs/{summ}`" if summ else "") + ".", "",
           "## Header (verbatim)", "", "```text", header(LV / script), "```", ""]

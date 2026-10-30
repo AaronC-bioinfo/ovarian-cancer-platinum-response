@@ -1,0 +1,21 @@
+group,anchor,n,changed,became_undetermined,became_determinate
+all determinate,carbo_cis_only,389,0,2,0
+all determinate,A1,389,5,0,0
+all determinate,A2,389,5,0,0
+all determinate,A3,389,0,1,0
+added (117),carbo_cis_only,117,0,1,0
+added (117),A1,117,2,0,0
+added (117),A2,117,2,0,0
+added (117),A3,117,0,1,0
+unflagged added (78),carbo_cis_only,78,0,1,0
+unflagged added (78),A1,78,0,0,0
+unflagged added (78),A2,78,0,0,0
+unflagged added (78),A3,78,0,0,0
+discordant (4),carbo_cis_only,4,0,0,0
+discordant (4),A1,4,1,0,0
+discordant (4),A2,4,1,0,0
+discordant (4),A3,4,0,0,0
+unflagged added resistant with RNA-seq,carbo_cis_only,2,0,0,0
+unflagged added resistant with RNA-seq,A1,2,0,0,0
+unflagged added resistant with RNA-seq,A2,2,0,0,0
+unflagged added resistant with RNA-seq,A3,2,0,0,0
