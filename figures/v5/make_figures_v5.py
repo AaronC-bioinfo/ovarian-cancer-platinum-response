@@ -6,13 +6,13 @@ except means/ranges of already-computed AUCs. Does NOT read outputs/results/abla
 
 Main figures
   F1  Coverage, agreement and OS thresholds as tests for platinum resistance across thresholds
-        label_validity/outputs/a11_coverage.csv, a11_kappa_full.csv, a13_threshold_sweep.csv
+        label_validity/outputs/a11_coverage.csv, label_resource_v1_counts.csv, a11_kappa_full.csv, a13_threshold_sweep.csv, a15b_provenance.csv (D)
   F2  Associations with characteristics linked to platinum response and prognosis, under each label (full platinum-treated cohort)
         label_validity/outputs/a8_brca_tests.csv (T1 primary BRCA; T4 CCNE1), a10_tests.csv (T1)
   F3  What classifiers trained on each label predict within TCGA
-        label_validity/outputs/a5_cross_label_repeats.csv
+        label_validity/outputs/a5_cross_label_repeats.csv (A); a16_paired_differences.csv (B)
   F4  (exploratory) Associations with the platinum-free interval and with survival after progression
-        label_validity/outputs/a13_os_decomposition_cox.csv
+        label_validity/outputs/a13b_decomposition_cox.csv (analysis at_risk / unchanged)
 Supporting figures
   S1_Fig  Transfer to GSE63885            label_validity/outputs/a4_transfer_results.csv
   S2_Fig  Feature-selection leakage       outputs/results_pinned_2026-10-29/ablation_*_summary.csv
@@ -46,12 +46,13 @@ BLUES = LinearSegmentedColormap.from_list(
 ORDER = ["label_platinum", "label_pfiplat6", "label_response", "label_os18_all", "label_os24_all"]
 LAB1 = {"label_platinum": "Platinum status (TCGA 2011)", "label_pfiplat6": "PFI from first-line platinum < 6 mo",
         "label_response": "First-course response (PD/SD)", "label_os18_all": "OS < 18 mo", "label_os24_all": "OS < 24 mo",
-        "label_hybrid": "Platinum status or PFI (broad combined)"}
+        "label_hybrid": "Platinum status or PFI (broad combined)",
+        "label_combined_strict": "Platinum status or PFI (provenance-filtered)"}
 LAB2 = {"label_platinum": "Platinum status\n(TCGA 2011)", "label_pfiplat6": "PFI from first-line\nplatinum < 6 mo",
         "label_response": "First-course\nresponse (PD/SD)", "label_os18_all": "OS < 18 mo", "label_os24_all": "OS < 24 mo"}
 SHORT = {"label_platinum": "Platinum\nstatus", "label_pfiplat6": "PFI from\nplatinum", "label_response": "Response\n(PD/SD)",
          "label_os18_all": "OS\n< 18 mo", "label_os24_all": "OS\n< 24 mo"}
-FAMOF = {"label_platinum": "platinum", "label_pfiplat6": "platinum", "label_hybrid": "platinum",
+FAMOF = {"label_platinum": "platinum", "label_pfiplat6": "platinum", "label_hybrid": "platinum", "label_combined_strict": "platinum",
          "label_response": "response", "label_os18_all": "os", "label_os24_all": "os",
          "label_os18": "os", "label_os24": "os"}
 
@@ -108,22 +109,27 @@ def f1():
     ts = pd.read_csv(LV / "a11_os_test_full.csv")
     ts = ts[ts.reference == "label_platinum"]
 
-    fig = plt.figure(figsize=(8.6, 5.6))
+    fig = plt.figure(figsize=(8.6, 5.9))
     gs = fig.add_gridspec(2, 2, height_ratios=[1, 1.05], width_ratios=[1, 1.05], hspace=0.62, wspace=0.55)
-    a, b, c = fig.add_subplot(gs[0, 0]), fig.add_subplot(gs[0, 1]), fig.add_subplot(gs[1, :])
+    a, b = fig.add_subplot(gs[0, 0]), fig.add_subplot(gs[0, 1])
+    gb = gs[1, :].subgridspec(1, 2, width_ratios=[2.2, 1], wspace=0.75)
+    c, d = fig.add_subplot(gb[0]), fig.add_subplot(gb[1])
+    rc = pd.read_csv(LV / "label_resource_v1_counts.csv")
+    rc = rc[(rc.label == "label_combined_strict") & (rc.subset == "platinum_cohort")].iloc[0]
+    cov.loc["label_combined_strict", ["determinate", "pos", "neg"]] = [int(rc.determinate), int(rc.n1), int(rc.n0)]
 
-    rows = ORDER + ["label_hybrid"]
+    rows = ORDER + ["label_hybrid", "label_combined_strict"]
     y = np.arange(len(rows))[::-1]
     for yi, lab in zip(y, rows):
         r = cov.loc[lab]
         col = FAM[FAMOF[lab]]
         a.barh(yi, r.pos, color=col, height=0.62)
         a.barh(yi, r.neg, left=r.pos, color=col, alpha=0.32, height=0.62)
-        a.text(r.determinate + 8, yi, f"{r.determinate}", va="center", fontsize=7.5, color=INK)
-        note("F1A", lab, f"{r.determinate}/489 determinate ({r.pos} non-responder / {r.neg} responder)")
+        a.text(r.determinate + 8, yi, f"{int(r.determinate)} ({int(r.pos)})", va="center", fontsize=7.2, color=INK)
+        note("F1A", lab, f"{int(r.determinate)}/489 determinate ({int(r.pos)} non-responder / {int(r.neg)} responder)")
     a.axvline(489, color=BASE, linewidth=1, linestyle=(0, (3, 2)))
     a.set_yticks(y, [LAB1[l] for l in rows]); a.tick_params(axis="y", labelsize=7)
-    a.set_xlim(0, 540); a.set_xlabel("Platinum-treated patients with the label (of 489)")
+    a.set_xlim(0, 620); a.set_xlabel("Platinum-treated patients with the label (of 489)")
     a.set_title("A  Coverage")
     a.legend(handles=[Patch(color=INK2, label="Non-responder / resistant"), Patch(color=INK2, alpha=0.32, label="Responder")],
              loc="upper center", bbox_to_anchor=(0.35, -0.24), ncol=2, fontsize=7, handlelength=1.2, columnspacing=1)
@@ -158,7 +164,31 @@ def f1():
     c.set_xticks([6, 12, 18, 24, 30, 36, 42, 48, 60]); c.set_xlim(4, 62); c.set_ylim(0, 1.03)
     c.set_xlabel("OS threshold (months from diagnosis)"); c.set_ylabel("Proportion (95% CI)")
     c.set_title("C  OS < threshold as a test for platinum resistance")
-    c.legend(loc="upper center", bbox_to_anchor=(0.5, -0.22), ncol=4, fontsize=7, handletextpad=0.4, columnspacing=1.2)
+    c.legend(loc="upper center", bbox_to_anchor=(0.5, -0.24), ncol=2, fontsize=7, handletextpad=0.4, columnspacing=1.2)
+
+    pv = pd.read_csv(LV / "a15b_provenance.csv")
+    ad = pv[pv.group == "added_by_reconstruction"]
+    recflag = ad.redacted | ad.adj_platinum_stop_missing | ad.later_line_before_event | ad.near_threshold
+    # each patient counted once, in priority order: negative interval > death-dated call > other record flag > near-threshold only
+    neg_ = ad.provenance_class == "negative_interval"
+    death_ = ad.event_source.astype(str).eq("death_counted_as_progression") & ~neg_
+    other_ = (ad.redacted | ad.adj_platinum_stop_missing | ad.later_line_before_event) & ~neg_ & ~death_
+    near_ = ad.near_threshold & ~neg_ & ~death_ & ~other_
+    cats = [("Unflagged, resistant", (ad.provenance_class == "clean_resistant").sum(), FAM["platinum"], 1.0),
+            ("Unflagged, sensitive", (ad.provenance_class == "clean_sensitive").sum(), FAM["platinum"], 0.32),
+            ("Flagged: 150–215 days only", near_.sum(), MUTED, 0.8),
+            ("Flagged: other record\nproblem", other_.sum(), MUTED, 1.0),
+            ("Resistant, dated\nby death only", death_.sum(), MUTED, 0.55),
+            ("Negative interval", neg_.sum(), MUTED, 0.3)]
+    assert sum(int(x[1]) for x in cats) == len(ad)
+    yd = np.arange(len(cats))[::-1]
+    for yi, (nm_, n_, col_, al_) in zip(yd, cats):
+        d.barh(yi, n_, color=col_, alpha=al_, height=0.62)
+        d.text(n_ + 1.5, yi, f"{int(n_)}", va="center", fontsize=7.2, color=INK)
+        note("F1D", nm_.replace("\n", " "), f"{int(n_)} of {len(ad)} added patients")
+    d.set_yticks(yd, [x[0] for x in cats]); d.tick_params(axis="y", labelsize=7)
+    d.set_xlim(0, 80); d.set_xlabel("Patients added by the\nre-derived interval")
+    d.set_title(f"D  Provenance of {len(ad)} added patients")
     save(fig, "F1_coverage_agreement")
 
 
@@ -217,20 +247,36 @@ def f3():
             s = r5[(r5.train_label == tr) & (r5.test_label == te)]
             note("F3", f"{tr}→{te}", f"mean {m[i, j]:.3f}; range over 3 models × 5 repeats {s.auc.min():.3f}–{s.auc.max():.3f}; "
                  f"n {int(s.n.iloc[0])} ({int(s.n_pos.iloc[0])} positive)")
-    fig, a = plt.subplots(figsize=(4.4, 3.4))
+    fig, (a, bx) = plt.subplots(1, 2, figsize=(8.6, 3.4), gridspec_kw=dict(width_ratios=[1.15, 1], wspace=1.05))
     im = heat(a, m, [nm[l] for l in o4], [sh[l] for l in o4], 0.5, 0.75)
     a.tick_params(axis="both", labelsize=7)
     a.set_xlabel("Label predicted (held-out patients)"); a.set_ylabel("Label trained on")
-    a.set_title("Cross-validated AUC within TCGA")
+    a.set_title("A  Cross-validated AUC (descriptive)")
     cb = fig.colorbar(im, ax=a, fraction=0.045, pad=0.03)
     cb.outline.set_visible(False); cb.ax.tick_params(labelsize=7, length=0)
+    pdf = pd.read_csv(LV / "a16_paired_differences.csv").set_index("contrast")
+    cons = [("primary_dAUC24", "Platinum − OS < 24 mo trained\n(predicting platinum status)"),
+            ("dAUC18", "Platinum − OS < 18 mo trained\n(predicting platinum status)"),
+            ("reverse_OS24_target", "OS < 24 mo − platinum trained\n(predicting OS < 24 mo)")]
+    yb = np.arange(len(cons))[::-1]
+    for yi, (k_, lab_) in zip(yb, cons):
+        r = pdf.loc[k_]
+        bx.plot([r.boot_lo, r.boot_hi], [yi, yi], color=INK2, linewidth=1.5, solid_capstyle="round")
+        bx.plot(r.delta_repeat_averaged_scores, yi, "o", color=INK2, markersize=5.5, markeredgecolor="white", zorder=3)
+        note("F3B", k_, f"{r.delta_repeat_averaged_scores:+.3f} [{r.boot_lo:+.3f}, {r.boot_hi:+.3f}], n {int(r.n)} ({int(r.n_pos)} positive)")
+    ref_line(bx, 0)
+    bx.set_yticks(yb, [c_[1] for c_ in cons]); bx.tick_params(axis="y", labelsize=6.8)
+    bx.set_ylim(-0.6, len(cons) - 0.4); bx.set_xlim(-0.3, 0.3)
+    bx.set_xlabel("Difference in AUC (95% bootstrap interval)")
+    bx.set_title("B  Same 134 patients, same folds")
     save(fig, "F3_cross_label_auc")
 
 
 
 # ── F4 (exploratory) ─────────────────────────────────────────────────────────
 def f4():
-    cx = pd.read_csv(LV / "a13_os_decomposition_cox.csv")
+    cx = pd.read_csv(LV / "a13b_decomposition_cox.csv")  # A13b: PFI at risk at end of platinum; survival after progression unchanged
+    cx = cx[cx.analysis.isin(["at_risk", "unchanged"])]
     rows = [("age10", "Age (per 10 years)"), ("residual_subopt", "Residual > 1 cm"), ("resid_any", "Any residual disease"),
             ("stage_iv", "Stage IV"), ("brca_carrier", "BRCA1/2 carrier"), ("ccne1_amp", "CCNE1 amplified"),
             ("aneuploidy_sd", "Aneuploidy Score (per SD)")]
@@ -248,7 +294,7 @@ def f4():
     ax.set_xticks([0.25, 0.5, 1, 2, 4], ["0.25", "0.5", "1", "2", "4"]); ax.set_xlim(0.25, 4)
     ax.set_yticks(y, [r[1] for r in rows]); ax.tick_params(axis="y", labelsize=7.5)
     ax.set_xlabel("Hazard ratio, 95% CI (log)")
-    ax.set_title("Associations with PFI and with survival after progression (exploratory)", fontsize=8.6)
+    ax.set_title("Platinum-free interval and survival after progression (exploratory)", fontsize=8.6)
     ax.legend(loc="upper center", bbox_to_anchor=(0.4, -0.18), ncol=2, fontsize=7, handletextpad=0.3)
     fig.tight_layout()
     save(fig, "F4_os_decomposition")

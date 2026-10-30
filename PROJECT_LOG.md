@@ -7,6 +7,49 @@ into a single manuscript. This log supersedes `archive/PROJECT_LOG_2026-06-22.md
 
 ---
 
+## 2026-10-29 (23:20 ET) — Third review (7.5/10, minor revision for PLOS ONE): round 4
+
+- **Count error (reviewer point 1), fixed.** The "13 flagged only for 150–215 days" figure included 1 death-dated patient. Counted once each, in the order negative interval > death-dated call > other record flag > near-threshold only, the 117 added patients are 1 / 6 / 20 / 12, plus 78 unflagged. The 12 near-only patients are exactly the 367 − 355 difference, checked by patient ID. Fig 1D and its legend were rebuilt accordingly.
+- **Cox flow (point 2):** 489 → 436 with an interval (52 with no first-line platinum stop date, 1 with no PFI time) → 408 at risk. Per-model n and events are in S10 Table. A limitation now states that the decomposition describes patients event-free and under observation at the end of platinum.
+- **Abstract (point 3):** the A16 interval is now called a conditional bootstrap interval without model refitting (abstract 291 words).
+- **Revision history (point 5):** the history in the Methods is shortened to the planned/exploratory distinction and the one material deviation, and the list of failed predictions is shortened. The chronology has moved to the S1 Text introduction ("Analysis history").
+- **Edit script:** `manuscript_v5/apply_review3_round4_2026-10-29.py` (11 edits). The pre-round copy is in the archive folder (`manuscript_v5_src_after_round3b.md`).
+- **Open (point 4):** Zenodo DOI. AI disclosure: the reviews came from an AI conversation, and the AI-use paragraph must name the tool. The paragraph is unchanged until Aaron gives the tool name.
+
+---
+
+## 2026-10-29 (22:55–00:15 ET) — Second review (7/10, major revision): A13b, round-3 revision
+
+- **Second review** of the revised draft: rating 7/10, still major revision; judged plausible for PLOS ONE as a resource and methods-audit paper.
+- **Aaron's decisions:**
+  - descriptive title, "Coverage, agreement and provenance of candidate platinum-response labels in TCGA-OV";
+  - drop all "external review" wording and describe the changes as later revisions;
+  - re-run the decomposition with only the patients at risk.
+- **A13b** (`label_validity/13b_decomposition_at_risk.py`; header and decision rule written 22:50–22:59 ET before the run; VM, lifelines 0.30.0):
+  - A13 had set 28 intervals ≤ 0 days to 1 day: 12 events and 16 censored with no follow-up after the end of platinum.
+  - The platinum-free-interval model now uses the 408 patients at risk at the end of platinum. The clipped model reproduces A13 exactly and is the sensitivity analysis.
+  - No CI changed side of 1 (decision rule: none). The largest HR shift is 0.03.
+- **Round 3** (`manuscript_v5/apply_review2_round3_2026-10-29.py`: 27 targeted edits and 16 vocabulary patterns, plus one clause recorded at the end of the script):
+  - "strict"/"clean" become "provenance-filtered"/"unflagged" (the column names are unchanged), described as a conservative extension whose added calls are not verified;
+  - the source hierarchy is stated;
+  - the rationale for the 150–215-day flag is given, and the 367-patient label without it is reported;
+  - the RNA-seq gain is stated plainly (+22 patients, +2 resistant);
+  - the A16 bounds are described as conditional, and the second environment as a computational-consistency check only;
+  - wording fixes: platinum coverage, BRCA1/2 for first-course response, "binary classifier".
+- **Figures:**
+  - Fig 1A now shows the provenance-filtered bar and class counts; new panel 1D shows the provenance of the 117 added patients;
+  - new panel Fig 3B shows the A16 differences with intervals;
+  - Fig 4 now reads A13b.
+  - Fig 3 width in the docx is now 5.83 in.
+- **Rebuilt:** manuscript, docx, SI (S10 has an A13b sheet; S1 Text has A13b), the label table dictionary, and the README.
+- **Independent audit (round 3):** fresh agent, read-only. Every new number matched; only "no HR changed by more than 0.03" was true only at two decimals (max 0.031). Fixes in `manuscript_v5/apply_review2_round3b_2026-10-29.py` (12 edits): "about 0.03"; 28 = 19 negative (8 events / 11 censored) + 9 zero-day (4 / 5); the conditional qualifier added to the Discussion bound and the one-sided bounds to the Limitations; the 367 sensitivity label located; S10 entry; "added after review" changed to "after the main results were known"; OS composition limited to patients who progress after platinum; Fig 1 legend (dashed line, colour, panel D categories). Fig 1D splits flagged patients into 150–215 days only (13) and other record problems (22). Fig 4 title spelled out. SI: build_SI.py text no longer says "external review"; S1 Text notes that the verbatim A13b/A15–A17 headers call the prompting critiques an "external review" / "second review". README now opens without the question title.
+- **Open:**
+  - whether the AI-use statement should mention AI-assisted critique of drafts;
+  - venue (PLOS ONE vs PLOS Comp Biol), to discuss with Lockhart;
+  - Zenodo DOI; Cocchi PDF.
+
+---
+
 ## 2026-10-29 (22:00–23:30 ET) — External review: A15/A15b/A16/A17, manuscript v5 revised
 
 - **External review of v5 (7 points)**, answered per the approved plan. Pre-specified analyses A15 and A16 were deposited before running (d349b2b, 21:56:39 ET).

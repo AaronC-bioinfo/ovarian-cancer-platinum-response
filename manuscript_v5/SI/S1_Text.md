@@ -2,7 +2,9 @@
 title: "S1 Text. Pre-specified predictions and decision rules for each analysis, with observed outcomes"
 ---
 
-This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such in the summaries; headers were not edited after running. Scripts A8–A10 were deposited in the public repository before they were run (commits d5bd844 and e98b3d9), and A15 and A16, added after an external review, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full.
+This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such in the summaries; headers were not edited after running. Scripts A8–A10 were deposited in the public repository before they were run (commits d5bd844 and e98b3d9), and A15 and A16, added in a later revision, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full. Headers are reproduced unchanged; those of A13b and A15–A17 refer to the critiques of earlier drafts that prompted those analyses as an 'external review' or a 'second review'.
+
+Analysis history (moved from the manuscript's Methods). The study's interpretation changed during the work. An earlier draft concluded, from somatic BRCA1/2 variants and from OS labels analysed only in patients with RNA-seq data, that OS thresholds measure survival rather than platinum response; the publicly deposited analyses with germline variants and the full cohort did not support that conclusion, and the paper was revised. In later revisions, the OS thresholds were reframed as candidate surrogates, the survival decomposition was reported as associations only and restricted to patients at risk at the end of platinum (A13b), the provenance audit was added (A15), and the claim that the training label changes classifier performance was withdrawn when the controlled comparison detected no difference (A16). In the provenance audit, the code omitted one pre-specified flag (an interval within 150–215 days); this was found when the results were scored, and a correction run that adds only that flag (A15b) gives the provenance-filtered label reported in the manuscript (355 patients, against 367 as first run). The descriptive full-cohort tables (agreement, coverage, threshold sweep, cohort characteristics) and the exploratory analyses were added after the main results were known.
 
 # Gate G1–G4: label coverage and sources
 
@@ -849,7 +851,7 @@ Full table with 95% CIs: a4_transfer_results.csv.
 
 # A5: within-TCGA cross-label CV
 
-*Status:* pre-specified; after external review reported as descriptive only, and its decision rule is superseded by the controlled comparison (A16). *Script:* `label_validity/05_cross_label_cv.py`. *Summary:* `label_validity/outputs/05_cross_label_summary.md`.
+*Status:* pre-specified; in a later revision reported as descriptive only, and its decision rule is superseded by the controlled comparison (A16). *Script:* `label_validity/05_cross_label_cv.py`. *Summary:* `label_validity/outputs/05_cross_label_summary.md`.
 
 ## Header (verbatim)
 
@@ -1698,7 +1700,7 @@ Run: python label_validity/12_auc_intervals.py
 
 # A13: exploratory label structure
 
-*Status:* exploratory, post hoc; no predictions. *Script:* `label_validity/13_exploratory_label_structure.py`. *Summary:* `label_validity/outputs/13_exploratory_label_structure_summary.md`.
+*Status:* exploratory, post hoc; no predictions; its decomposition (E4) is superseded by A13b. *Script:* `label_validity/13_exploratory_label_structure.py`. *Summary:* `label_validity/outputs/13_exploratory_label_structure_summary.md`.
 
 ## Header (verbatim)
 
@@ -1818,6 +1820,65 @@ Requires lifelines for E4.
 
 - Redacted among platinum-treated: 38; re-derived interval determinate 389 → 358 (108 resistant); κ with platinum status 0.964 (n 251)
 
+# A13b: Cox decomposition restricted to patients at risk
+
+*Status:* post hoc correction of A13 E4; decision rule written before running. *Script:* `label_validity/13b_decomposition_at_risk.py`. *Summary:* `label_validity/outputs/13b_decomposition_at_risk_summary.md`.
+
+## Header (verbatim)
+
+```text
+label_validity/13b_decomposition_at_risk.py
+───────────────────────────────────────────
+A13b — correction of the A13 E4 Cox decomposition (13_exploratory_label_structure.py), post hoc.
+
+Written 2026-10-29 22:50–22:59 ET, BEFORE this script was run, after a second review of the revised manuscript
+pointed out that A13 set every platinum-free interval below 1 day to 1 day (clip(lower=1)). Checked before
+writing: 436 patients have an interval; 28 are below 1 day (19 negative: 8 with a progression event, 11
+censored; 9 of 0 days: 4 events, 5 censored). Those patients were not at risk after the time origin (end of
+first-line platinum), and 16 of them have no follow-up after it, so the A13 model of the platinum-free
+interval used an unsuitable time origin for them. Not seen: any Cox result without those patients.
+
+Analyses (lifelines CoxPHFitter, univariable, same covariates and coding as A13 E4):
+  PRIMARY (at_risk): platinum-free interval from the end of first-line platinum, only patients with an
+      interval > 0 days (at risk at the origin); event = TCGA-CDR PFI event.
+  SENSITIVITY (clipped_as_A13): the A13 model (intervals < 1 day set to 1 day), recomputed here; it must
+      reproduce label_validity/outputs/a13_os_decomposition_cox.csv (checked by the script).
+  Survival after progression (OS.time − PFI.time, patients with a PFI event and a positive difference;
+      event = OS) does not use the platinum time origin; it is recomputed unchanged and must also reproduce A13.
+
+DECISION RULE (for the manuscript)
+  * The manuscript reports the at-risk model of the platinum-free interval (Fig 4, S10 Table) and the
+    clipped model as a sensitivity analysis.
+  * For each covariate, if the 95% CI for the platinum-free interval excludes 1 in one model and includes 1
+    in the other, the text says so explicitly for that covariate.
+  No predictions are made.
+
+Run (from the repo root): python label_validity/13b_decomposition_at_risk.py --data-root "<...>/OV Data/Project data"
+Outputs → label_validity/outputs/a13b_decomposition_cox.csv, a13b_ENVIRONMENT.txt, 13b_decomposition_at_risk_summary.md
+```
+
+## Summary: results and scorecard (verbatim)
+
+# A13b — Cox decomposition with the platinum-free interval restricted to patients at risk at the end of platinum
+
+Python 3.10.12; lifelines 0.30.0; pandas 2.3.3; numpy 2.2.6
+
+Patients with an interval: 436; excluded from the at-risk model (interval ≤ 0 days): 28 (events 12, censored 16).
+
+Reproduction of A13 (analysis, covariates matched, max |ΔHR|, n identical): clipped_as_A13: 7, 2.22e-16, True; unchanged: 7, 0.00e+00, True
+
+| covariate | PFI, at risk (primary) | PFI, clipped as A13 (sensitivity) | survival after progression |
+|---|---|---|---|
+| age10 | 1.09 [0.98, 1.20], p 0.0993 (408/316) | 1.08 [0.98, 1.19], p 0.114 (436/328) | 1.26 [1.12, 1.42], p 0.000174 (331/237) |
+| stage_iv | 1.29 [0.96, 1.73], p 0.0895 (407/315) | 1.28 [0.96, 1.71], p 0.0904 (435/327) | 1.03 [0.74, 1.43], p 0.863 (331/237) |
+| residual_subopt | 1.08 [0.82, 1.41], p 0.599 (322/261) | 1.11 [0.85, 1.44], p 0.45 (349/273) | 1.41 [1.03, 1.93], p 0.0311 (267/202) |
+| resid_any | 1.64 [1.21, 2.23], p 0.00158 (322/261) | 1.67 [1.23, 2.26], p 0.000953 (349/273) | 1.66 [1.11, 2.48], p 0.0131 (267/202) |
+| brca_carrier | 0.55 [0.38, 0.79], p 0.00141 (236/195) | 0.55 [0.38, 0.79], p 0.00132 (247/202) | 0.68 [0.44, 1.06], p 0.0904 (201/152) |
+| ccne1_amp | 1.58 [1.19, 2.09], p 0.00145 (356/285) | 1.56 [1.19, 2.06], p 0.00143 (384/297) | 1.18 [0.86, 1.63], p 0.297 (294/218) |
+| aneuploidy_sd | 1.23 [1.10, 1.38], p 0.000373 (390/301) | 1.20 [1.07, 1.35], p 0.00131 (418/313) | 1.03 [0.90, 1.17], p 0.706 (317/225) |
+
+Decision rule — covariates whose PFI 95% CI excludes 1 in one model but not the other: none
+
 # A14: cohort characteristics
 
 *Status:* descriptive; no predictions. *Script:* `label_validity/14_cohort_characteristics.py`.
@@ -1836,7 +1897,7 @@ Run: python label_validity/14_cohort_characteristics.py --data-root "<...>/OV Da
 
 # A15: provenance audit of the re-derived interval
 
-*Status:* pre-specified after external review; deposited before running (d349b2b). *Script:* `label_validity/15_reconstruction_provenance.py`. *Summary:* `label_validity/outputs/15_reconstruction_provenance_summary.md`.
+*Status:* pre-specified in a later revision; deposited before running (d349b2b). *Script:* `label_validity/15_reconstruction_provenance.py`. *Summary:* `label_validity/outputs/15_reconstruction_provenance_summary.md`.
 
 ## Header (verbatim)
 
@@ -2046,7 +2107,7 @@ Correction run; no new predictions. A15's predictions and decision rule are scor
 
 # A16: controlled comparison of training labels
 
-*Status:* pre-specified after external review; deposited before running (d349b2b). *Script:* `label_validity/16_controlled_label_comparison.py`. *Summary:* `label_validity/outputs/16_controlled_label_comparison_summary.md`.
+*Status:* pre-specified in a later revision; deposited before running (d349b2b). *Script:* `label_validity/16_controlled_label_comparison.py`. *Summary:* `label_validity/outputs/16_controlled_label_comparison_summary.md`.
 
 ## Header (verbatim)
 

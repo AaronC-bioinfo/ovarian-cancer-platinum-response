@@ -119,7 +119,7 @@ summ = r5.groupby(["train_label", "test_label"]).auc.agg(["mean", "min", "max", 
 rule = (O / "05_cross_label_summary.md").read_text(encoding="utf-8")
 rule_lines = [l for l in rule.splitlines() if l.strip()]
 workbook("S6_Table", "S6 Table. Within-TCGA cross-label AUC (A5): pooled out-of-fold AUC for each training label, test label, model and repeat; "
-         "means and ranges; and the pre-specified decision rule with its outcome (verbatim from the analysis summary). After external review this "
+         "means and ranges; and the pre-specified decision rule with its outcome (verbatim from the analysis summary). In a later revision this "
          "all-patients analysis is reported as descriptive only; the controlled same-patient comparison (A16) is in S1 Text.",
          ["A5: " + rel(O / "a5_cross_label_repeats.csv") + "; summary and rule: " + rel(O / "05_cross_label_summary.md"),
           "Hanley–McNeil intervals (A12, " + rel(O / "a12_auc_intervals.csv") + ") are included for completeness but treat the mean AUC as one AUC and are anti-conservative for the OS labels (review_v4/CODE_ATTACK.md M1); the manuscript reports ranges instead."],
@@ -152,23 +152,24 @@ workbook("S9_Table", "S9 Table. Feature-selection leakage at the 12-, 18- and 24
           "unsupervised_significance": PIN / "ablation_leakage_significance.csv"})
 
 # ── S10 Table: exploratory + Cox ─────────────────────────────────────────────
-workbook("S10_Table", "S10 Table. Exploratory analyses (A13, added after the main results were known): decomposition of overall survival into the "
-         "platinum-free interval and survival after progression; clinical-only models; exclusion of TCGA-CDR redacted records. Also the "
+workbook("S10_Table", "S10 Table. Exploratory analyses (A13, A13b; added after the main results were known): decomposition of overall survival into the "
+         "platinum-free interval (A13b: patients at risk at the end of platinum; the earlier A13 model, which set intervals below 1 day to 1 day, as a sensitivity analysis) and survival after progression; clinical-only models; exclusion of TCGA-CDR redacted records. Also the "
          "pre-specified Cox models of the TCGA-CDR progression-free interval (A3, R survival).",
-         ["A13: " + ", ".join(rel(O / f) for f in ["a13_os_decomposition_cox.csv", "a13_clinical_only_auc.csv", "a13_redaction.csv"]),
+         ["A13b (reported decomposition: platinum-free interval in the 408 patients at risk at the end of platinum; column analysis = at_risk / clipped_as_A13 sensitivity / unchanged): " + rel(O / "a13b_decomposition_cox.csv"),
+          "A13: " + ", ".join(rel(O / f) for f in ["a13_os_decomposition_cox.csv", "a13_clinical_only_auc.csv", "a13_redaction.csv"]) + " (A13 decomposition set intervals below 1 day to 1 day; superseded by A13b)",
           "A3 Cox: " + ", ".join(rel(O / f) for f in ["a3_pfi_cox_hr.csv", "a3_pfi_cox_summary.csv", "a3_pfi_cox_ph.csv"])
           + " (cohort of 432 patients with any 'platin' agent; includes one oxaliplatin-only patient not in the 489)"],
          {"A13_os_decomposition": O / "a13_os_decomposition_cox.csv", "A13_clinical_only_auc": O / "a13_clinical_only_auc.csv",
-          "A13_redaction": O / "a13_redaction.csv", "A3_cox_hr": O / "a3_pfi_cox_hr.csv",
+          "A13_redaction": O / "a13_redaction.csv", "A13b_decomposition": O / "a13b_decomposition_cox.csv", "A3_cox_hr": O / "a3_pfi_cox_hr.csv",
           "A3_cox_summary": O / "a3_pfi_cox_summary.csv", "A3_cox_ph": O / "a3_pfi_cox_ph.csv"})
 
 # ── S11 Table: patient-level label resource ──────────────────────────────────
 workbook("S11_Table", "S11 Table. Patient-level label table, version 1.0 (A17): for each of the 489 platinum-treated patients, every candidate label, "
-         "the strict combined label (recommended; 355 determinate) and the broad combined label (sensitivity analysis; 394), the re-derived "
+         "the provenance-filtered combined label (column label_combined_strict; recommended; 355 determinate) and the broad combined label (sensitivity analysis; 394), the re-derived "
          "platinum-free interval, and the provenance class, event source and flags of each re-derived call (A15, corrected run A15b); with a "
          "data dictionary, class counts, and the OS-threshold test characteristics against the broad and strict combined labels.",
          ["A17: " + ", ".join(rel(O / f) for f in ["label_resource_v1.csv", "label_resource_v1_dictionary.csv", "label_resource_v1_counts.csv"]),
-          "A15b (strict label as recommended): " + ", ".join(rel(O / f) for f in ["a15b_provenance.csv", "a15b_class_by_group.csv", "a15b_resistant_event_source.csv", "a15b_os_test_strict.csv"]),
+          "A15b (provenance-filtered label as recommended): " + ", ".join(rel(O / f) for f in ["a15b_provenance.csv", "a15b_class_by_group.csv", "a15b_resistant_event_source.csv", "a15b_os_test_strict.csv"]),
           "A15 (as first run, before the near-threshold flag was added): " + rel(O / "a15_os_test_strict.csv") + "; scorecard in S1 Text"],
          {"label_table_v1": O / "label_resource_v1.csv", "data_dictionary": O / "label_resource_v1_dictionary.csv",
           "class_counts": O / "label_resource_v1_counts.csv", "A15b_class_by_group": O / "a15b_class_by_group.csv",
@@ -208,25 +209,28 @@ ANALYSES = [
     ("A3: associations with BRCA1/2 and clinical characteristics (somatic BRCA1/2; RNA-seq OS labels)", "03_known_groups.py", "03_known_groups_summary.md", "pre-specified"),
     ("A3b: Cox models of the progression-free interval", "03b_pfi_cox.R", None, "pre-specified"),
     ("A4: transfer to GSE63885", "04_transfer_matrix.py", "04_transfer_summary.md", "pre-specified"),
-    ("A5: within-TCGA cross-label CV", "05_cross_label_cv.py", "05_cross_label_summary.md", "pre-specified; after external review reported as descriptive only, and its decision rule is superseded by the controlled comparison (A16)"),
+    ("A5: within-TCGA cross-label CV", "05_cross_label_cv.py", "05_cross_label_summary.md", "pre-specified; in a later revision reported as descriptive only, and its decision rule is superseded by the controlled comparison (A16)"),
     ("A6: published gene sets", "06_published_genesets.py", "06_published_genesets_summary.md", "pre-specified (supplementary)"),
     ("A8: BRCA1/2 germline + somatic; CCNE1", "08_brca_germline.py", "08_brca_germline_summary.md", "pre-specified; deposited before running (d5bd844)"),
     ("A9: patients without a platinum status", "09_platinum_missingness.py", "09_platinum_missingness_summary.md", "pre-specified; deposited before running (d5bd844)"),
     ("A10: prognostic characteristics, full cohort", "10_prognostic_covariates.py", "10_prognostic_covariates_summary.md", "pre-specified; deposited before running (e98b3d9)"),
     ("A11: full-cohort label table, agreement, OS-as-test", "11_full_cohort_labels.py", "11_full_cohort_labels_summary.md", "descriptive; no predictions"),
     ("A12: approximate AUC intervals", "12_auc_intervals.py", None, "descriptive; no predictions"),
-    ("A13: exploratory label structure", "13_exploratory_label_structure.py", "13_exploratory_label_structure_summary.md", "exploratory, post hoc; no predictions"),
+    ("A13: exploratory label structure", "13_exploratory_label_structure.py", "13_exploratory_label_structure_summary.md", "exploratory, post hoc; no predictions; its decomposition (E4) is superseded by A13b"),
+    ("A13b: Cox decomposition restricted to patients at risk", "13b_decomposition_at_risk.py", "13b_decomposition_at_risk_summary.md", "post hoc correction of A13 E4; decision rule written before running"),
     ("A14: cohort characteristics", "14_cohort_characteristics.py", None, "descriptive; no predictions"),
-    ("A15: provenance audit of the re-derived interval", "15_reconstruction_provenance.py", "15_reconstruction_provenance_summary.md", "pre-specified after external review; deposited before running (d349b2b)"),
+    ("A15: provenance audit of the re-derived interval", "15_reconstruction_provenance.py", "15_reconstruction_provenance_summary.md", "pre-specified in a later revision; deposited before running (d349b2b)"),
     ("A15b: correction run of A15 (near-threshold flag)", "15b_reconstruction_provenance_specfix.py", "15b_reconstruction_provenance_specfix_summary.md", "post hoc correction of an implementation error in A15; no new predictions"),
-    ("A16: controlled comparison of training labels", "16_controlled_label_comparison.py", "16_controlled_label_comparison_summary.md", "pre-specified after external review; deposited before running (d349b2b)"),
+    ("A16: controlled comparison of training labels", "16_controlled_label_comparison.py", "16_controlled_label_comparison_summary.md", "pre-specified in a later revision; deposited before running (d349b2b)"),
     ("A17: patient-level label table (S11 Table)", "17_label_resource.py", None, "descriptive assembly; no predictions"),
 ]
 L = ["---", 'title: "S1 Text. Pre-specified predictions and decision rules for each analysis, with observed outcomes"', "---", "",
      "This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, "
      "descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such "
      "in the summaries; headers were not edited after running. Scripts A8–A10 were deposited in the public repository before they were run "
-     "(commits d5bd844 and e98b3d9), and A15 and A16, added after an external review, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full.", ""]
+     "(commits d5bd844 and e98b3d9), and A15 and A16, added in a later revision, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full. "
+     "Headers are reproduced unchanged; those of A13b and A15–A17 refer to the critiques of earlier drafts that prompted those analyses as an 'external review' or a 'second review'.", "",
+     "Analysis history (moved from the manuscript's Methods). The study's interpretation changed during the work. An earlier draft concluded, from somatic BRCA1/2 variants and from OS labels analysed only in patients with RNA-seq data, that OS thresholds measure survival rather than platinum response; the publicly deposited analyses with germline variants and the full cohort did not support that conclusion, and the paper was revised. In later revisions, the OS thresholds were reframed as candidate surrogates, the survival decomposition was reported as associations only and restricted to patients at risk at the end of platinum (A13b), the provenance audit was added (A15), and the claim that the training label changes classifier performance was withdrawn when the controlled comparison detected no difference (A16). In the provenance audit, the code omitted one pre-specified flag (an interval within 150–215 days); this was found when the results were scored, and a correction run that adds only that flag (A15b) gives the provenance-filtered label reported in the manuscript (355 patients, against 367 as first run). The descriptive full-cohort tables (agreement, coverage, threshold sweep, cohort characteristics) and the exploratory analyses were added after the main results were known.", ""]
 for title, script, summ, status in ANALYSES:
     L += [f"# {title}", "", f"*Status:* {status}. *Script:* `label_validity/{script}`" + (f". *Summary:* `label_validity/outputs/{summ}`" if summ else "") + ".", "",
           "## Header (verbatim)", "", "```text", header(LV / script), "```", ""]

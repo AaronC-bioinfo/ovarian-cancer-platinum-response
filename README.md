@@ -1,6 +1,6 @@
 # Outcome labels for platinum-response prediction in TCGA-OV
 
-Which outcome label should a platinum-response classifier trained on The Cancer Genome Atlas ovarian cancer cohort (TCGA-OV) use? This repository contains the code, analysis outputs and patient-level label table for a study that compares the candidate labels available in TCGA-OV. In 489 platinum-treated patients it compares:
+This repository contains the code, analysis outputs and patient-level label table for a study of the coverage, agreement and provenance of candidate platinum-response labels in The Cancer Genome Atlas ovarian cancer cohort (TCGA-OV). In 489 platinum-treated patients it compares:
 
 - TCGA's published platinum status (2011 release);
 - a platinum-free interval re-derived from the TCGA Clinical Data Resource (TCGA-CDR);
@@ -20,7 +20,7 @@ A manuscript describing the study is in preparation; a preprint link will be add
 
 ## Main results (see the manuscript for details and caveats)
 
-- **Platinum labels:** TCGA's platinum status is determinate for 277 of 489 platinum-treated patients. The re-derived platinum-free interval agrees with it in 268 of 272 shared patients (κ 0.97). Combined, the two label 394 patients (broad combined label). The strict combined label, which adds re-derived calls only where the record is clean, labels 355 (99 resistant) and is the recommended label.
+- **Platinum labels:** TCGA's platinum status is determinate for 277 of 489 platinum-treated patients. The re-derived platinum-free interval agrees with it in 268 of 272 shared patients (κ 0.97). Combined, the two label 394 patients (broad combined label). The provenance-filtered combined label (column `label_combined_strict`), which adds re-derived calls only where the record is unflagged, labels 355 (99 resistant) and is the recommended label; it is a conservative extension of platinum status, and the accuracy of the added calls is not verified.
 - **OS thresholds (candidate survival surrogates, not platinum-response labels) as tests for platinum resistance:**
   - At 18 and 24 months they flag 21% and 39% of resistant patients.
   - Of the flagged patients who have a known status, 82% and 74% are resistant.
@@ -43,7 +43,7 @@ A manuscript describing the study is in preparation; a preprint link will be add
 | `label_os18_all`, `label_os24_all` | Death before 18 / 24 months from diagnosis = 1; alive at the threshold = 0; censored earlier = blank |
 | `label_os18`, `label_os24` | The same OS labels restricted to patients with RNA-seq data |
 
-The recommended label is the strict combined label in the versioned patient-level table `label_validity/outputs/label_resource_v1.csv` (S11 Table; column definitions in `label_resource_v1_dictionary.csv`, class counts in `label_resource_v1_counts.csv`). It uses `label_platinum` where determinate and `label_pfiplat6` only where the re-derived call has a clean provenance record (355 patients, 99 resistant). Provenance of each re-derived call is in `a15b_provenance.csv`: whether the event is a recorded recurrence or progression or a death counted as progression, and flags for redacted records, ambiguous treatment courses and intervals near the 183-day cut-off. The `a15_*` files are the first A15 run, made before the near-threshold flag specified in the A15 header was added to the code (`label_validity/15b_reconstruction_provenance_specfix.py`).
+The recommended label is the provenance-filtered combined label (`label_combined_strict`) in the versioned patient-level table `label_validity/outputs/label_resource_v1.csv` (S11 Table; column definitions in `label_resource_v1_dictionary.csv`, class counts in `label_resource_v1_counts.csv`). It uses `label_platinum` where determinate and `label_pfiplat6` only where the re-derived call has an unflagged provenance record (355 patients, 99 resistant). Provenance of each re-derived call is in `a15b_provenance.csv`: whether the event is a recorded recurrence or progression or a death counted as progression, and flags for redacted records, ambiguous treatment courses and intervals near the 183-day cut-off. The `a15_*` files are the first A15 run, made before the near-threshold flag specified in the A15 header was added to the code (`label_validity/15b_reconstruction_provenance_specfix.py`).
 
 ## Repository layout
 

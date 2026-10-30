@@ -6,6 +6,7 @@
 - F1A label_os18_all: 419/489 determinate (47 non-responder / 372 responder)
 - F1A label_os24_all: 401/489 determinate (78 non-responder / 323 responder)
 - F1A label_hybrid: 394/489 determinate (113 non-responder / 281 responder)
+- F1A label_combined_strict: 355/489 determinate (99 non-responder / 256 responder)
 - F1B κ label_platinum–label_pfiplat6: 0.966 [0.930, 0.992], n=272
 - F1B κ label_platinum–label_response: 0.257 [0.137, 0.380], n=255
 - F1B κ label_platinum–label_os18_all: 0.241 [0.138, 0.350], n=268
@@ -28,6 +29,12 @@
 - F1C OS < 42 mo vs platinum (n 238): sens 60/81=0.741 [0.636,0.824]; spec 113/157=0.720; PPV 60/104=0.577 [0.481,0.667]; null PPV 0.340; kappa 0.431 (kmax 0.799)
 - F1C OS < 48 mo vs platinum (n 233): sens 68/80=0.850 [0.756,0.912]; spec 96/153=0.627; PPV 68/125=0.544 [0.457,0.629]; null PPV 0.343; kappa 0.421 (kmax 0.622)
 - F1C OS < 60 mo vs platinum (n 226): sens 75/79=0.949 [0.877,0.980]; spec 67/147=0.456; PPV 75/155=0.484 [0.407,0.562]; null PPV 0.350; kappa 0.331 (kmax 0.395)
+- F1D Unflagged, resistant: 12 of 117 added patients
+- F1D Unflagged, sensitive: 66 of 117 added patients
+- F1D Flagged: 150–215 days only: 12 of 117 added patients
+- F1D Flagged: other record problem: 20 of 117 added patients
+- F1D Resistant, dated by death only: 6 of 117 added patients
+- F1D Negative interval: 1 of 117 added patients
 - F2A label_platinum: 7/37 vs 54/149; OR 0.412 [0.143, 1.043], p 0.0511
 - F2A label_pfiplat6: 8/47 vs 64/179; OR 0.370 [0.141, 0.867], p 0.0141
 - F2A label_response: 5/51 vs 28/192; OR 0.638 [0.182, 1.804], p 0.493
@@ -64,19 +71,22 @@
 - F3 label_os24→label_pfiplat6: mean 0.618; range over 3 models × 5 repeats 0.568–0.660; n 188 (53 positive)
 - F3 label_os24→label_os18: mean 0.675; range over 3 models × 5 repeats 0.621–0.751; n 206 (22 positive)
 - F3 label_os24→label_os24: mean 0.682; range over 3 models × 5 repeats 0.586–0.756; n 199 (36 positive)
-- F4 age10 / PFI_from_platinum: HR 1.082 [0.981, 1.193], p 0.114, n 436/328
+- F3B primary_dAUC24: -0.005 [-0.105, +0.087], n 134 (39 positive)
+- F3B dAUC18: +0.080 [-0.045, +0.201], n 134 (39 positive)
+- F3B reverse_OS24_target: -0.069 [-0.236, +0.081], n 134 (18 positive)
+- F4 age10 / PFI_from_platinum: HR 1.087 [0.984, 1.201], p 0.0993, n 408/316
 - F4 age10 / survival_after_progression: HR 1.259 [1.116, 1.419], p 0.000174, n 331/237
-- F4 residual_subopt / PFI_from_platinum: HR 1.107 [0.851, 1.439], p 0.45, n 349/273
+- F4 residual_subopt / PFI_from_platinum: HR 1.075 [0.820, 1.409], p 0.599, n 322/261
 - F4 residual_subopt / survival_after_progression: HR 1.411 [1.032, 1.931], p 0.0311, n 267/202
-- F4 resid_any / PFI_from_platinum: HR 1.668 [1.231, 2.259], p 0.000953, n 349/273
+- F4 resid_any / PFI_from_platinum: HR 1.641 [1.207, 2.231], p 0.00158, n 322/261
 - F4 resid_any / survival_after_progression: HR 1.661 [1.112, 2.480], p 0.0131, n 267/202
-- F4 stage_iv / PFI_from_platinum: HR 1.283 [0.962, 1.711], p 0.0904, n 435/327
+- F4 stage_iv / PFI_from_platinum: HR 1.289 [0.962, 1.729], p 0.0895, n 407/315
 - F4 stage_iv / survival_after_progression: HR 1.029 [0.741, 1.429], p 0.863, n 331/237
-- F4 brca_carrier / PFI_from_platinum: HR 0.549 [0.381, 0.791], p 0.00132, n 247/202
+- F4 brca_carrier / PFI_from_platinum: HR 0.546 [0.377, 0.792], p 0.00141, n 236/195
 - F4 brca_carrier / survival_after_progression: HR 0.681 [0.436, 1.062], p 0.0904, n 201/152
-- F4 ccne1_amp / PFI_from_platinum: HR 1.564 [1.188, 2.059], p 0.00143, n 384/297
+- F4 ccne1_amp / PFI_from_platinum: HR 1.579 [1.192, 2.091], p 0.00145, n 356/285
 - F4 ccne1_amp / survival_after_progression: HR 1.184 [0.862, 1.627], p 0.297, n 294/218
-- F4 aneuploidy_sd / PFI_from_platinum: HR 1.203 [1.075, 1.346], p 0.00131, n 418/313
+- F4 aneuploidy_sd / PFI_from_platinum: HR 1.231 [1.098, 1.381], p 0.000373, n 390/301
 - F4 aneuploidy_sd / survival_after_progression: HR 1.026 [0.897, 1.174], p 0.706, n 317/225
 - S1_Fig label_platinum → dfs: mean 0.589, range 0.563–0.616
 - S1_Fig label_platinum → clinical: mean 0.672, range 0.616–0.712
