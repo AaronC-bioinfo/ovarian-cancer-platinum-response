@@ -1,0 +1,5 @@
+PATIENT_ID,label_platinum,src_platinum_status_raw,label_pfiplat6,pfi_from_platinum_d,event_source,provenance_class,redacted,adj_platinum_rows,adj_platinum_stop_missing,later_line_before_event,near_threshold,label_A1,label_A2,label_A3
+TCGA-24-2029,0.0,Sensitive,1.0,154.0,recorded_new_tumour_event:Recurrence,flagged,False,1,False,False,True,1.0,1.0,1.0
+TCGA-29-1774,0.0,Sensitive,1.0,101.0,recorded_new_tumour_event:Recurrence,clean_resistant,False,3,False,False,False,0.0,0.0,1.0
+TCGA-61-2009,0.0,Sensitive,1.0,18.0,recorded_new_tumour_event:Recurrence,clean_resistant,False,1,False,False,False,1.0,1.0,1.0
+TCGA-61-2113,0.0,Sensitive,1.0,148.0,recorded_new_tumour_event:Recurrence,clean_resistant,False,1,False,False,False,1.0,1.0,1.0

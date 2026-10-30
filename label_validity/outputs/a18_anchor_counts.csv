@@ -1,0 +1,9 @@
+item,n
+patients with label_pfiplat6 determinate,389
+  with >1 Adjuvant platinum row,60
+  with overlapping Adjuvant platinum rows,8
+  with >1 Adjuvant platinum row sharing the max STOP_DATE,7
+  with an Adjuvant platinum row missing STOP_DATE,1
+  with an Adjuvant platinum row starting on/after the first Recurrence/Progression row,1
+  with any platinum row of indication Other or missing,6
+cohort patients without any Adjuvant platinum row,23

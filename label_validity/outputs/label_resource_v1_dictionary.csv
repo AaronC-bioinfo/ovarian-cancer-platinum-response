@@ -2,7 +2,7 @@ column,definition
 PATIENT_ID,TCGA patient barcode; the 489 platinum-treated patients (carboplatin or cisplatin in the PanCancer Atlas treatment timeline).
 resource_version,Version of this table.
 in_rnaseq,Patient has PanCancer Atlas RNA-seq (RSEM) data (251 patients).
-label_combined_strict,"RECOMMENDED label (the provenance-filtered combined label of the paper; a conservative extension of platinum status whose added calls are not verified). 1 resistant, 0 sensitive, empty undetermined. TCGA 2011 platinum status where determinate; otherwise label_pfiplat6 only when provenance_class is clean_resistant or clean_sensitive, i.e. unflagged (A15 header definition; script 15b)."
+label_combined_strict,"Provenance-filtered candidate extension of platinum status (preferred of the two combined labels under the pre-specified A15 rule; added calls not verified as accurate). 1 resistant, 0 sensitive, empty undetermined. TCGA 2011 platinum status where determinate; otherwise label_pfiplat6 only when provenance_class is clean_resistant or clean_sensitive, i.e. unflagged (A15 header definition; script 15b)."
 label_combined_broad,"Sensitivity-analysis label: platinum status where determinate, otherwise label_pfiplat6 regardless of provenance."
 label_platinum,"TCGA 2011 published platinum status (ov_tcga_pub), unchanged: 1 Resistant, 0 Sensitive; Tooearly, missing or absent = empty."
 src_platinum_status_raw,Raw platinum-status value in the 2011 release.

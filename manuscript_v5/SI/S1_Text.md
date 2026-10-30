@@ -2,7 +2,7 @@
 title: "S1 Text. Pre-specified predictions and decision rules for each analysis, with observed outcomes"
 ---
 
-This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such in the summaries; headers were not edited after running. Scripts A8–A10 were deposited in the public repository before they were run (commits d5bd844 and e98b3d9), and A15 and A16, added in a later revision, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full. Headers are reproduced unchanged; those of A13b and A15–A17 refer to the critiques of earlier drafts that prompted those analyses as an 'external review' or a 'second review'.
+This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such in the summaries; headers were not edited after running, except the time string in the A18 header (disclosed in the A18 summary, which also notes an inaccurate description of platinum agents in that header). Scripts A8–A10 were deposited in the public repository before they were run (commits d5bd844 and e98b3d9), and A15 and A16, added in a later revision, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full. Headers are reproduced unchanged; those of A13b and A15–A17 refer to the critiques of earlier drafts that prompted those analyses as an 'external review' or a 'second review'.
 
 Analysis history (moved from the manuscript's Methods). The study's interpretation changed during the work. An earlier draft concluded, from somatic BRCA1/2 variants and from OS labels analysed only in patients with RNA-seq data, that OS thresholds measure survival rather than platinum response; the publicly deposited analyses with germline variants and the full cohort did not support that conclusion, and the paper was revised. In later revisions, the OS thresholds were reframed as candidate surrogates, the survival decomposition was reported as associations only and restricted to patients at risk at the end of platinum (A13b), the provenance audit was added (A15), and the claim that the training label changes classifier performance was withdrawn when the controlled comparison detected no difference (A16). In the provenance audit, the code omitted one pre-specified flag (an interval within 150–215 days); this was found when the results were scored, and a correction run that adds only that flag (A15b) gives the provenance-filtered label reported in the manuscript (355 patients, against 367 as first run). The descriptive full-cohort tables (agreement, coverage, threshold sweep, cohort characteristics) and the exploratory analyses were added after the main results were known.
 
@@ -2236,6 +2236,214 @@ Inputs (label_validity/outputs/): labels_full.csv, labels_master.csv (pfi_from_p
 Outputs → label_validity/outputs/label_resource_v1.csv, label_resource_v1_dictionary.csv,
           label_resource_v1_counts.csv
 Run (from the repo root): python label_validity/17_label_resource.py
+```
+
+# A18: sensitivity of the re-derived interval to the treatment anchor
+
+*Status:* post hoc; decision rule written before running. *Script:* `label_validity/18_anchor_sensitivity.py`. *Summary:* `label_validity/outputs/18_anchor_sensitivity_summary.md`.
+
+## Header (verbatim)
+
+```text
+label_validity/18_anchor_sensitivity.py
+───────────────────────────────────────
+A18 — sensitivity of the re-derived platinum-free-interval label (label_pfiplat6) to the treatment anchor.
+Post hoc. Written 2026-10-29 23:55–23:57 ET, BEFORE this script was run, in response to a fourth review
+(point 3: the anchor "stop date of the last platinum regimen marked adjuvant" does not by itself establish the
+end of first-line platinum). Known before writing: the primary anchor is the maximum STOP_DATE of platinum rows
+with REGIMEN_INDICATION == "Adjuvant"; among the 389 patients with label_pfiplat6 determinate, 329 have 1 such
+row, 55 have 2 and 5 have 3; platinum-row indications are Adjuvant 544, Recurrence 150, Progression 116,
+"Other, Specify In Notes" 14, missing 11 (no Neoadjuvant category). Not seen: any label under another anchor.
+
+Platinum rows: AGENT contains "PLATIN" (carboplatin, cisplatin; as in the cohort definition). Days from diagnosis.
+Anchors:
+  A0  primary: max STOP_DATE of Adjuvant platinum rows (must reproduce labels_master pfi_from_platinum_d exactly).
+  A1  earliest end of adjuvant platinum: min STOP_DATE of Adjuvant platinum rows.
+  A2  end of the first platinum regimen regardless of indication: among platinum rows with the earliest
+      START_DATE, the max STOP_DATE.
+  A3  end of adjuvant platinum before any later-line treatment: max STOP_DATE of Adjuvant platinum rows that
+      START before the first row of any agent with REGIMEN_INDICATION Recurrence or Progression (A0 if none).
+Label under each anchor (same rule as label_pfiplat6): interval = CDR PFI.time − anchor; 1 if PFI event and
+interval < 183 days (negative included); 0 if interval ≥ 183; otherwise undetermined.
+Also reported (descriptive): patients with > 1 Adjuvant platinum row; overlapping Adjuvant platinum rows;
+Adjuvant platinum rows with a missing STOP_DATE; ties at the max STOP_DATE; Adjuvant platinum rows starting
+after the first Recurrence/Progression row; platinum rows with indication Other or missing.
+
+DECISION RULE (for the manuscript)
+  * For each alternative anchor, report determinate n, calls changed relative to A0 (among patients determinate
+    under both), and Cohen's κ with A0 and with TCGA platinum status (patients determinate under both).
+  * If any alternative changes more than 5% of the calls determinate under both, the manuscript states in
+    Results that the anchor is a material source of uncertainty and reports that alternative; otherwise the
+    results are reported in Methods in one sentence with details in S1 Text / S11 Table.
+  No predictions are made.
+
+Run (from the repo root): python label_validity/18_anchor_sensitivity.py --data-root "<...>/OV Data/Project data"
+Outputs → label_validity/outputs/a18_anchor_labels.csv, a18_anchor_summary.csv, a18_anchor_counts.csv,
+          18_anchor_sensitivity_summary.md
+```
+
+## Summary: results and scorecard (verbatim)
+
+# A18 — Sensitivity of the re-derived interval label to the treatment anchor
+
+Python 3.10.12; pandas 2.3.3; numpy 2.2.6
+
+Reproduction of labels_master (A0): intervals identical True; labels identical True.
+
+```
+anchor  determinate  resistant  anchor_differs_from_A0  n_both_A0  changed_vs_A0  pct_changed  kappa_A0  n_both_platinum  agree_platinum  kappa_platinum
+    A0          389        115                       0        389              0        0.000     1.000              272             268           0.966
+    A1          389        110                      55        389              5        1.285     0.969              272             267           0.957
+    A2          407        121                      56        389              5        1.285     0.969              276             270           0.950
+    A3          388        114                       0        388              0        0.000     1.000              272             268           0.966
+```
+
+```
+                                                                                  item   n
+                                              patients with label_pfiplat6 determinate 389
+                                                         with >1 Adjuvant platinum row  60
+                                               with overlapping Adjuvant platinum rows   8
+                               with >1 Adjuvant platinum row sharing the max STOP_DATE   7
+                                       with an Adjuvant platinum row missing STOP_DATE   1
+  with an Adjuvant platinum row starting on/after the first Recurrence/Progression row   1
+                                  with any platinum row of indication Other or missing   6
+                                     cohort patients without any Adjuvant platinum row  23
+```
+
+Decision rule — alternatives changing > 5% of calls: none
+
+Note (added after the run): the header first gave its writing time as "23:56–00:05 ET", an estimate made before the run; the script was run at 23:57 ET, so the time string was corrected to 23:55–23:57 ET. Nothing else in the header was changed.
+
+Note 2 (added 2026-10-30 after the run, from an independent audit): the header says platinum rows are "carboplatin, cisplatin; as in the cohort definition". The code matches AGENT containing "PLATIN", as labels_master does, which also includes oxaliplatin (7 rows, 4 adjuvant; the anchor for 3 patients, 2 with a determinate interval). The cohort itself is defined by carboplatin or cisplatin. The results above use the code as written; the header wording is inaccurate and was not changed.
+
+# A19: IPCW analysis of the OS thresholds as tests
+
+*Status:* post hoc; decision rule written before running. *Script:* `label_validity/19_ipcw_os_thresholds.py`. *Summary:* `label_validity/outputs/19_ipcw_os_thresholds_summary.md`.
+
+## Header (verbatim)
+
+```text
+label_validity/19_ipcw_os_thresholds.py
+───────────────────────────────────────
+A19 — censoring-adjusted (inverse probability of censoring weighted, IPCW) sensitivity analysis of the 18- and
+24-month OS thresholds as tests for platinum resistance. Post hoc. Written 2026-10-29 23:57–23:58 ET, BEFORE
+this script was run, in response to a fourth review (point 6: excluding patients censored before the threshold
+can bias threshold labels; Vock et al. 2016). Known before writing: 69 of 489 platinum-treated patients are
+censored before 18 months; the unweighted results (A11): 18 months sensitivity 18/84, specificity 180/184,
+PPV 18/22; 24 months 32/83, 165/176, 32/43 (reference: TCGA platinum status). Not seen: any weighted result.
+
+Population: the 489 platinum-treated patients; OS from PanCancer Atlas OS_MONTHS / OS_STATUS (as the labels).
+Horizon status at t (18, 24 months): known if death before t (label 1) or OS_MONTHS ≥ t (label 0).
+Weights: w = 1 / Ĝ(min(T, t)−), where Ĝ is the probability of remaining uncensored.
+  IPCW-KM: Ĝ from the Kaplan–Meier estimator of the censoring distribution in all 489 patients (primary).
+  IPCW-Cox: Ĝ from a Cox model of censoring on age (per 10 y), stage IV and residual disease > 1 cm, among
+      patients with complete covariates (a3_covariates.csv); others are excluded from this variant.
+Estimands among patients with a determinate platinum status and known horizon status, weighted by w:
+  sensitivity, specificity, PPV of OS < t for platinum resistance. 95% percentile intervals for IPCW-KM from
+  2,000 bootstrap resamples of the 489 patients (Ĝ re-estimated in each; numpy default_rng(42)).
+Limits stated with the results: IPCW assumes censoring independent of the outcome given the model's covariates;
+it does not address the missing platinum status (the bounds in A13 address that) or unmeasured informative censoring.
+
+DECISION RULE (for the manuscript)
+  * If any IPCW-KM or IPCW-Cox estimate differs from the unweighted estimate by more than 0.05, the manuscript
+    reports the IPCW estimates in Results next to the unweighted ones; otherwise it reports them in one
+    sentence, with the table in the Supporting information. Either way it states the limits above.
+  No predictions are made.
+
+Run (from the repo root): python label_validity/19_ipcw_os_thresholds.py --data-root "<...>/OV Data/Project data"
+Outputs → label_validity/outputs/a19_ipcw.csv, a19_ENVIRONMENT.txt, 19_ipcw_os_thresholds_summary.md
+```
+
+## Summary: results and scorecard (verbatim)
+
+# A19 — IPCW sensitivity analysis of the OS thresholds as tests for platinum resistance
+
+Python 3.10.12; lifelines 0.30.0; pandas 2.3.3; numpy 2.2.6
+
+```
+ threshold_months     measure  unweighted  ipcw_km  ipcw_km_lo  ipcw_km_hi  ipcw_cox  n_unweighted  n_cox  censored_before_t  censored_before_t_with_status
+               18 sensitivity       0.214    0.206       0.126       0.294     0.191           268    245                 69                              8
+               18 specificity       0.978    0.979       0.956       0.995     0.977           268    245                 69                              8
+               18         PPV       0.818    0.815       0.641       0.956     0.801           268    245                 69                              8
+               24 sensitivity       0.386    0.369       0.269       0.470     0.348           259    236                 87                             17
+               24 specificity       0.938    0.940       0.904       0.972     0.945           259    236                 87                             17
+               24         PPV       0.744    0.739       0.604       0.872     0.761           259    236                 87                             17
+```
+
+Largest |IPCW − unweighted|: 0.037. Decision rule — any difference > 0.05: False
+
+IPCW assumes censoring independent of the outcome given the covariates; it does not address missing platinum status or unmeasured informative censoring.
+
+# A20: descriptive checks (A16 folds, discordant patients, Cox assumptions)
+
+*Status:* descriptive; no predictions. *Script:* `label_validity/20_documentation_checks.py`. *Summary:* `label_validity/outputs/20_documentation_checks_summary.md`.
+
+## Header (verbatim)
+
+```text
+label_validity/20_documentation_checks.py
+─────────────────────────────────────────
+A20 — descriptive checks requested by a fourth review; no predictions, no decision rules.
+Written 2026-10-30 ~00:00 ET.
+  C1  A16 folds (review point 12): for each repeat and fold of the A16 design (StratifiedKFold, 5 folds,
+      shuffle, random_state = repeat, stratified on platinum status, patients sorted by ID), the numbers of
+      positives in the training and held-out parts for each training label. Patients and order are taken from
+      a16_oof_scores.csv. Fold assignment is recomputed here with scikit-learn 1.7.2; the A16 environment check
+      (a16_env_check_vm/, scikit-learn 1.7.2) reproduced the Windows logistic-regression AUCs exactly in all 180
+      cells, which requires identical folds.
+  C2  The four patients in whom TCGA platinum status and the re-derived interval disagree (review point 2).
+  C3  A13b Cox models (review point 16): proportional-hazards test (lifelines proportional_hazard_test, rank
+      transform) for each univariable model; for continuous covariates (age per 10 y, Aneuploidy Score per SD)
+      the P value of an added quadratic term (functional form).
+Run (from the repo root): python label_validity/20_documentation_checks.py --data-root "<...>/OV Data/Project data"
+Outputs → label_validity/outputs/a20_a16_fold_counts.csv, a20_discordant.csv, a20_cox_checks.csv, 20_documentation_checks_summary.md
+```
+
+## Summary: results and scorecard (verbatim)
+
+# A20 — Descriptive checks (fold counts, discordant patients, Cox assumptions)
+
+Python 3.10.12; scikit-learn 1.7.2; lifelines 0.30.0; pandas 2.3.3
+
+## C1 A16 folds
+
+```
+                patients  train_pos_min  train_pos_max  test_pos_min  test_pos_max  test_folds_without_positive  folds
+label                                                                                                                 
+label_os18           134              3              7             0             4                           22    100
+label_os24           134             11             18             0             7                            3    100
+label_platinum       134             31             32             7             8                            0    100
+```
+
+## C2 Discordant patients
+
+```
+              label_platinum src_platinum_status_raw  label_pfiplat6  pfi_from_platinum_d                          event_source provenance_class  redacted  adj_platinum_rows  adj_platinum_stop_missing  later_line_before_event  near_threshold  label_A1  label_A2  label_A3
+PATIENT_ID                                                                                                                                                                                                                                                                     
+TCGA-24-2029             0.0               Sensitive             1.0                154.0  recorded_new_tumour_event:Recurrence          flagged     False                  1                      False                    False            True       1.0       1.0       1.0
+TCGA-29-1774             0.0               Sensitive             1.0                101.0  recorded_new_tumour_event:Recurrence  clean_resistant     False                  3                      False                    False           False       0.0       0.0       1.0
+TCGA-61-2009             0.0               Sensitive             1.0                 18.0  recorded_new_tumour_event:Recurrence  clean_resistant     False                  1                      False                    False           False       1.0       1.0       1.0
+TCGA-61-2113             0.0               Sensitive             1.0                148.0  recorded_new_tumour_event:Recurrence  clean_resistant     False                  1                      False                    False           False       1.0       1.0       1.0
+```
+
+## C3 Cox checks (A13b models)
+
+```
+                   outcome       covariate   n  events    HR  ph_test_p  quadratic_term_p
+         PFI_from_platinum           age10 408     316 1.087      0.040             0.676
+         PFI_from_platinum        stage_iv 407     315 1.289      0.570               NaN
+         PFI_from_platinum residual_subopt 322     261 1.075      0.916               NaN
+         PFI_from_platinum       resid_any 322     261 1.641      0.229               NaN
+         PFI_from_platinum    brca_carrier 236     195 0.546      0.998               NaN
+         PFI_from_platinum       ccne1_amp 356     285 1.579      0.481               NaN
+         PFI_from_platinum   aneuploidy_sd 390     301 1.231      0.267             0.713
+survival_after_progression           age10 331     237 1.259      0.155             0.567
+survival_after_progression        stage_iv 331     237 1.029      0.760               NaN
+survival_after_progression residual_subopt 267     202 1.411      0.342               NaN
+survival_after_progression       resid_any 267     202 1.661      0.736               NaN
+survival_after_progression    brca_carrier 201     152 0.681      0.309               NaN
+survival_after_progression       ccne1_amp 294     218 1.184      0.168               NaN
+survival_after_progression   aneuploidy_sd 317     225 1.026      0.022             0.281
 ```
 
 # A7: feature-selection leakage rerun in the pinned environment

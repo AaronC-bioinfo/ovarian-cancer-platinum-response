@@ -7,6 +7,49 @@ into a single manuscript. This log supersedes `archive/PROJECT_LOG_2026-06-22.md
 
 ---
 
+## 2026-10-30 (00:00–01:30 ET) — Fourth (in-depth) review: A18–A20, round 5
+
+- **Fourth review:** 7/10 for the science, 6/10 for submission readiness; major revision. Aaron chose to do every item, including IPCW.
+- **Source checks** against PDFs in `OV Data/Project data/Literature/` and PMC; one fresh agent, read-only:
+  - Yang SYC 2018 p. 2: short-term survivors defined by OS of 6 months to 2 years, primary platinum resistance and progression within 6 months of completing platinum.
+  - Villalobos 2018: sensitive / resistant / refractory groups of 212 / 91 / 28; median OS 56.6 / 27.0 / 11.6 months. Resistant means failure 1–6 months after the last platinum dose.
+  - Cocchi 2026 (PMC13443249): reproducibility is limited by variability in patient selection, platinum definitions, data sources and pipelines. DEG variability is "strongly driven by differences in analytical pipelines and cohort definitions". The publisher PDF is still not on file.
+  - Liu 2018: PFI "generally considered a more informative endpoint" for pan-cancer studies; all four endpoints are recommended for OV.
+  - Kilim 2025 Table 1 (primary, multimodal): 0.752 PTRC→TCGA, 0.835 TCGA→PTRC, 0.613 TCGA 5-fold CV.
+  - Gao 2025: the 8:2 split covered TCGA + GSE15622 + GSE51373, with GSE63885 held out.
+  - Gonzalez Bosquet 2021: AUCs not given numerically in the main text or Fig 4.
+  - Reviewer not upheld, so no change: Wang 2025 (no TCGA named in the paper); Gonzalez Bosquet 2016 (CV type is genuinely not stated).
+  - Confirmed as written: Talijanovic "12 definitions" (pp. 16, 22); TCGA 2011 S1 quote (SI pp. 2–3, `label_validity/PLATINUM_STATUS_definition.md`).
+- **A18** `18_anchor_sensitivity.py` (decision rule before the run; run 23:57 ET):
+  - The A0 reproduction of labels_master is exact.
+  - Alternative anchors (earliest adjuvant stop; end of the first platinum regimen; adjuvant rows before any later line) change 0–5 calls (κ ≈ 0.969). Decision rule: Methods sentence only.
+  - Disclosed in the summary: the header time string was corrected after the run, and the header's platinum-agent description is inaccurate (the code includes oxaliplatin, which anchors 3 patients).
+- **A19** `19_ipcw_os_thresholds.py` (decision rule before the run; run 23:58 ET): KM and Cox IPCW. The largest change from the unweighted values is 0.037, so it gets one sentence in Results and a sheet in S2.
+- **A20** `20_documentation_checks.py` (descriptive):
+  - A16 folds: OS18 has 3–7 training positives, and 22 of 100 held-out folds have none.
+  - Discordant-patient table in S11. TCGA-29-1774 flips under 2 of 3 alternative anchors.
+  - PH tests: 2 of 14 with P < 0.05. Quadratic terms: P ≥ 0.28.
+- **Round 5** (`apply_review4_round5_2026-10-30.py`, 44 edits plus an S-list addendum):
+  - "provenance-filtered candidate extension"; the recommendation to readers is now procedural;
+  - κ described as agreement with the published reference;
+  - anchor rules and counts; event types across all 115 resistant calls;
+  - the IPCW, Haldane, A16 averaging and fold-count statements;
+  - "gene-set transfer experiment", with the TCGA discovery overlap disclosed; the leakage result described as "can inflate";
+  - the levels of pre-specification spelled out;
+  - Table 1 search marked non-reproducible;
+  - source corrections, Villalobos/Cocchi comparison, Kilim, Gao and GB2021 Table 1 cells.
+- **Independent audit of round 5:** all A18–A20 outputs reproduce byte for byte. Two errors were introduced this round: the claim that platinum rows were carboplatin/cisplatin only, and S1 Text saying headers were never edited. Both fixed in `apply_review4_round5b_2026-10-30.py` (16 edits), which also covers:
+  - the discordant case described as 2 of 3 anchors;
+  - IPCW exclusion counts with a platinum status (8 / 17) and the assumptions per variant;
+  - "about 0.97"; the A16 interval named consistently;
+  - A13b / A18–A20 placed in the pre-specification levels;
+  - Cocchi wording narrowed to what PMC supports;
+  - power wording; "trained to predict"; benchmark caveat; README fixes.
+- **Not done (minor):** S2 Text (STROBE/STARD) has no IPCW row; the S6/S10 README sheets don't mention the A20 sheets; the GSE63885 processing is still only in S7 and the validation scripts.
+- **Open (Aaron):** commit and push (A18–A20 scripts and outputs, 17 edit, README, SI, PROJECT_LOG); Zenodo DOI; Cocchi publisher PDF; AI-tool name for the disclosure; Table 1 search details, if any exist.
+
+---
+
 ## 2026-10-29 (23:20 ET) — Third review (7.5/10, minor revision for PLOS ONE): round 4
 
 - **Count error (reviewer point 1), fixed.** The "13 flagged only for 150–215 days" figure included 1 death-dated patient. Counted once each, in the order negative interval > death-dated call > other record flag > near-threshold only, the 117 added patients are 1 / 6 / 20 / 12, plus 78 unflagged. The 12 near-only patients are exactly the 367 − 355 difference, checked by patient ID. Fig 1D and its legend were rebuilt accordingly.
