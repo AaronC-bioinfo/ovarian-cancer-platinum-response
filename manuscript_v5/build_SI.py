@@ -123,8 +123,8 @@ workbook("S6_Table", "S6 Table. Within-TCGA cross-label AUC (A5): pooled out-of-
          "means and ranges; and the pre-specified decision rule with its outcome (verbatim from the analysis summary). In a later revision this "
          "all-patients analysis is reported as descriptive only; the controlled same-patient comparison (A16) is in S1 Text.",
          ["A5: " + rel(O / "a5_cross_label_repeats.csv") + "; summary and rule: " + rel(O / "05_cross_label_summary.md"),
-          "Hanley–McNeil intervals (A12, " + rel(O / "a12_auc_intervals.csv") + ") are included for completeness but treat the mean AUC as one AUC and are anti-conservative for the OS labels (review_v4/CODE_ATTACK.md M1); the manuscript reports ranges instead."],
-         {"A20_A16_fold_counts": O / "a20_a16_fold_counts.csv", "A5_by_model_repeat": r5, "A5_mean_range": summ, "A5_summary_verbatim": pd.DataFrame({"line": rule_lines}),
+          "A20 (sheet A20_A16_fold_counts): training and held-out positives per fold for the controlled comparison A16 (S1 Text). A22 (sheet A22_fullpipeline_replicates): out-of-bag AUC differences from 500 bootstrap refits of the whole pipeline (S1 Text). Hanley–McNeil intervals (A12, " + rel(O / "a12_auc_intervals.csv") + ") are included for completeness but treat the mean AUC as one AUC and are anti-conservative for the OS labels (review_v4/CODE_ATTACK.md M1); the manuscript reports ranges instead."],
+         {"A20_A16_fold_counts": O / "a20_a16_fold_counts.csv", "A22_fullpipeline_replicates": O / "a22_fullpipeline_replicates.csv", "A5_by_model_repeat": r5, "A5_mean_range": summ, "A5_summary_verbatim": pd.DataFrame({"line": rule_lines}),
           "A12_hanley_mcneil": O / "a12_auc_intervals.csv"})
 
 # ── S7 Table: GSE63885 transfer ──────────────────────────────────────────────
@@ -132,8 +132,9 @@ gl = (ROOT / "validation" / "GSE63885_label_definitions.md").read_text(encoding=
 workbook("S7_Table", "S7 Table. Transfer to GSE63885 (A4): AUC with 95% bootstrap intervals for every training label, model and GEO label, in the "
          "primary (variant P) and untransformed-expression analyses; GEO label definitions (verbatim).",
          ["A4: " + rel(O / "a4_transfer_results.csv") + "; summary " + rel(O / "04_transfer_summary.md"),
-          "GEO label definitions: " + rel(ROOT / "validation" / "GSE63885_label_definitions.md")],
-         {"A4_transfer": O / "a4_transfer_results.csv", "GSE63885_label_definitions": pd.DataFrame({"line": [l for l in gl if l.strip()]})})
+          "GEO label definitions: " + rel(ROOT / "validation" / "GSE63885_label_definitions.md"),
+          "Per-sample identifiers, histology and labels: validation/outputs/gse63885_label_table.csv (serous_or_undiff marks the 80 analysed samples). Processing: validation/04_probe_mapping.R (GPL570, hgu133plus2.db, highest-mean probe per gene), validation/06_external_validation_v2.py (log2 RMA, z-scored within GEO)."],
+         {"A4_transfer": O / "a4_transfer_results.csv", "GSE63885_samples": ROOT / "validation" / "outputs" / "gse63885_label_table.csv", "GSE63885_label_definitions": pd.DataFrame({"line": [l for l in gl if l.strip()]})})
 
 # ── S8 Table: published gene sets ────────────────────────────────────────────
 workbook("S8_Table", "S8 Table. Gene-set transfer experiment (A6): published gene sets as fixed inputs, not replications of the published models; both sets were selected in data that included TCGA-OV patients. The 10 genes of Chen et al. and the 5 genes of Gao et al., compared with "
@@ -158,6 +159,7 @@ workbook("S10_Table", "S10 Table. Exploratory analyses (A13, A13b; added after t
          "pre-specified Cox models of the TCGA-CDR progression-free interval (A3, R survival).",
          ["A13b (reported decomposition: platinum-free interval in the 408 patients at risk at the end of platinum; column analysis = at_risk / clipped_as_A13 sensitivity / unchanged): " + rel(O / "a13b_decomposition_cox.csv"),
           "A13: " + ", ".join(rel(O / f) for f in ["a13_os_decomposition_cox.csv", "a13_clinical_only_auc.csv", "a13_redaction.csv"]) + " (A13 decomposition set intervals below 1 day to 1 day; superseded by A13b)",
+          "A20: " + rel(O / "a20_cox_checks.csv") + " (proportional-hazards tests and quadratic-term checks for the A13b models)",
           "A3 Cox: " + ", ".join(rel(O / f) for f in ["a3_pfi_cox_hr.csv", "a3_pfi_cox_summary.csv", "a3_pfi_cox_ph.csv"])
           + " (cohort of 432 patients with any 'platin' agent; includes one oxaliplatin-only patient not in the 489)"],
          {"A13_os_decomposition": O / "a13_os_decomposition_cox.csv", "A13_clinical_only_auc": O / "a13_clinical_only_auc.csv",
@@ -171,12 +173,14 @@ workbook("S11_Table", "S11 Table. Patient-level label table, version 1.0 (A17): 
          "data dictionary, class counts, and the OS-threshold test characteristics against the broad and strict combined labels.",
          ["A17: " + ", ".join(rel(O / f) for f in ["label_resource_v1.csv", "label_resource_v1_dictionary.csv", "label_resource_v1_counts.csv"]),
           "A15b (provenance-filtered label as recommended): " + ", ".join(rel(O / f) for f in ["a15b_provenance.csv", "a15b_class_by_group.csv", "a15b_resistant_event_source.csv", "a15b_os_test_strict.csv"]),
-          "A15 (as first run, before the near-threshold flag was added): " + rel(O / "a15_os_test_strict.csv") + "; scorecard in S1 Text"],
+          "A15 (as first run, before the near-threshold flag was added): " + rel(O / "a15_os_test_strict.csv") + "; scorecard in S1 Text",
+          "A18 (anchor sensitivity), A20 (discordant patients), A21 (event-type sensitivity): " + ", ".join(rel(O / f) for f in ["a18_anchor_summary.csv", "a18_anchor_counts.csv", "a20_discordant.csv", "a21_event_type.csv"])],
          {"label_table_v1": O / "label_resource_v1.csv", "data_dictionary": O / "label_resource_v1_dictionary.csv",
           "class_counts": O / "label_resource_v1_counts.csv", "A15b_class_by_group": O / "a15b_class_by_group.csv",
           "A15b_event_source": O / "a15b_resistant_event_source.csv", "A15b_os_test_strict": O / "a15b_os_test_strict.csv",
           "A15_os_test_strict_asrun": O / "a15_os_test_strict.csv", "A20_discordant_patients": O / "a20_discordant.csv",
-          "A18_anchor_summary": O / "a18_anchor_summary.csv", "A18_anchor_counts": O / "a18_anchor_counts.csv"})
+          "A18_anchor_summary": O / "a18_anchor_summary.csv", "A18_anchor_counts": O / "a18_anchor_counts.csv",
+          "A21_event_type": O / "a21_event_type.csv"})
 
 # ── S1 Text: pre-specified predictions and outcomes ─────────────────────────
 def header(path: Path) -> str:
@@ -228,11 +232,13 @@ ANALYSES = [
     ("A18: sensitivity of the re-derived interval to the treatment anchor", "18_anchor_sensitivity.py", "18_anchor_sensitivity_summary.md", "post hoc; decision rule written before running"),
     ("A19: IPCW analysis of the OS thresholds as tests", "19_ipcw_os_thresholds.py", "19_ipcw_os_thresholds_summary.md", "post hoc; decision rule written before running"),
     ("A20: descriptive checks (A16 folds, discordant patients, Cox assumptions)", "20_documentation_checks.py", "20_documentation_checks_summary.md", "descriptive; no predictions"),
+    ("A21: event-type sensitivity of the re-derived interval", "21_event_type_sensitivity.py", "21_event_type_sensitivity_summary.md", "post hoc; decision rule written before running"),
+    ("A22: full-pipeline bootstrap for the controlled comparison", "22_fullpipeline_bootstrap.py", "22_fullpipeline_bootstrap_summary.md", "post hoc; one prediction and a decision rule written before running"),
 ]
 L = ["---", 'title: "S1 Text. Pre-specified predictions and decision rules for each analysis, with observed outcomes"', "---", "",
      "This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, "
      "descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such "
-     "in the summaries; headers were not edited after running, except the time string in the A18 header (disclosed in the A18 summary, which also notes an inaccurate description of platinum agents in that header). Scripts A8–A10 were deposited in the public repository before they were run "
+     "in the summaries; headers were not edited after running, except the time strings in the A18 and A21 headers (disclosed in their summaries; the A18 summary also notes an inaccurate description of platinum agents in that header) and a bug fix in A22 before any result (disclosed in its header). Scripts A8–A10 were deposited in the public repository before they were run "
      "(commits d5bd844 and e98b3d9), and A15 and A16, added in a later revision, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full. "
      "Headers are reproduced unchanged; those of A13b and A15–A17 refer to the critiques of earlier drafts that prompted those analyses as an 'external review' or a 'second review'.", "",
      "Analysis history (moved from the manuscript's Methods). The study's interpretation changed during the work. An earlier draft concluded, from somatic BRCA1/2 variants and from OS labels analysed only in patients with RNA-seq data, that OS thresholds measure survival rather than platinum response; the publicly deposited analyses with germline variants and the full cohort did not support that conclusion, and the paper was revised. In later revisions, the OS thresholds were reframed as candidate surrogates, the survival decomposition was reported as associations only and restricted to patients at risk at the end of platinum (A13b), the provenance audit was added (A15), and the claim that the training label changes classifier performance was withdrawn when the controlled comparison detected no difference (A16). In the provenance audit, the code omitted one pre-specified flag (an interval within 150–215 days); this was found when the results were scored, and a correction run that adds only that flag (A15b) gives the provenance-filtered label reported in the manuscript (355 patients, against 367 as first run). The descriptive full-cohort tables (agreement, coverage, threshold sweep, cohort characteristics) and the exploratory analyses were added after the main results were known.", ""]

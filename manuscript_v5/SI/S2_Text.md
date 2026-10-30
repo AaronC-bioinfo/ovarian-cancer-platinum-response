@@ -12,7 +12,7 @@ This study is a secondary analysis of publicly available TCGA data. STROBE is us
 | 1b | Informative, balanced summary in the abstract | Abstract |
 | 2 | Scientific background and rationale | Introduction, paragraphs 1–3 |
 | 3 | Objectives, including pre-specified hypotheses | Introduction, final paragraph; pre-specified predictions in S1 Text |
-| 4 | Key elements of study design | Methods: Data and cohort; Methods: Pre-specification and analysis history |
+| 4 | Key elements of study design | Methods: Data and cohort; Methods: Pre-specification |
 | 5 | Setting, locations, periods of recruitment, follow-up, data collection | Methods: Data and cohort; TCGA 2011 [1] for recruitment and follow-up |
 | 6a | Eligibility criteria, sources and methods of selection, follow-up | Methods: Data and cohort (platinum agent recorded in the treatment timeline); S4 Table (cohort flow) |
 | 7 | Define outcomes, exposures, predictors, confounders, effect modifiers | Methods: Labels; Methods: Associations with characteristics linked to platinum response and prognosis; Table 2 |
@@ -23,8 +23,8 @@ This study is a secondary analysis of publicly available TCGA data. STROBE is us
 | 12a | All statistical methods, including those for confounding | Methods: Coverage and agreement; Associations with characteristics; Classifiers; Exploratory analyses. These association analyses are univariable, with no adjustment for confounding (the aim is label comparison); the exploratory clinical-only model is a multivariable logistic regression. |
 | 12b | Methods for subgroups and interactions | Same-patient comparisons (Methods: Associations with characteristics linked to platinum response and prognosis); no interaction analyses |
 | 12c | How missing data were addressed | Labels: undetermined patients excluded from each label; Methods: Coverage and agreement (bounds); Results: patients without a platinum status |
-| 12d | Loss to follow-up | OS thresholds exclude patients censored before the threshold (Methods: Labels); Limitations |
-| 12e | Sensitivity analyses | Threshold sweep (6–60 months); combined reference label; exclusion of redacted TCGA-CDR records; any-vs-no residual coding; alternative carrier definitions (S3 Table) |
+| 12d | Loss to follow-up | OS thresholds exclude patients censored before the threshold (Methods: Labels); inverse-probability-of-censoring-weighted sensitivity analysis (Methods: Coverage and agreement; S1 Text, A19); Limitations |
+| 12e | Sensitivity analyses | Threshold sweep (6–60 months); combined reference label; exclusion of redacted TCGA-CDR records; any-vs-no residual coding; alternative carrier definitions (S3 Table); treatment-anchor alternatives (A18); IPCW (A19); decomposition restricted to patients at risk (A13b) |
 | 13a | Numbers at each stage | Methods: Data and cohort; Results (coverage); Table 2; S4 Table |
 | 13b | Reasons for non-participation | Methods: Data and cohort (no treatment record; no carboplatin/cisplatin) |
 | 13c | Flow diagram | Not provided as a figure; flow given in text and S4 Table |
@@ -35,7 +35,7 @@ This study is a secondary analysis of publicly available TCGA data. STROBE is us
 | 16a | Unadjusted estimates with precision | Results; Tables 2–3; Figs 1–4 |
 | 16b | Category boundaries for continuous variables | Methods: Labels (183 days; 18 and 24 months; 6–60 months) |
 | 16c | Absolute risk | Not applicable |
-| 17 | Other analyses | Results: exploratory section; Supporting information (S1–S2 Fig, S6–S10 Tables) |
+| 17 | Other analyses | Results: exploratory section; Supporting information (S1–S2 Fig, S6–S11 Tables) |
 | 18 | Key results | Discussion, paragraph 1 |
 | 19 | Limitations | Limitations |
 | 20 | Cautious interpretation | Discussion; Conclusion |

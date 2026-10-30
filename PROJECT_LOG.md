@@ -7,6 +7,39 @@ into a single manuscript. This log supersedes `archive/PROJECT_LOG_2026-06-22.md
 
 ---
 
+## 2026-10-30 (00:29–01:00 ET) — A21 event-type sensitivity; A22 full-pipeline bootstrap; rounds 6 and 6b
+
+- Aaron asked for both analyses, which round 5 had left out. On the full-pipeline uncertainty, I had chosen the descriptive option the reviewer allowed; that was a judgement call, now reversed.
+- **A21** (`21_event_type_sensitivity.py`; decision rule before the run; run 00:30 ET):
+  - Sets aside the 10 resistant calls dated only by a death or by an unrecorded event type (all among the added patients).
+  - κ is unchanged. OS sensitivity/PPV change by at most 0.042; BRCA1/2 and CCNE1 ORs by at most 0.05; no CI moves across 1. It reproduces the A8 ORs.
+  - The header time string was corrected after the run (disclosed in the summary).
+- **A22** (`22_fullpipeline_bootstrap.py`; prediction and decision rule before the run; started 00:31 ET; 500 replicates in VM chunks, 04:31–04:41 UTC; scikit-learn 1.7.2):
+  - An out-of-bag stratified bootstrap refits the whole A16 pipeline.
+  - Primary ΔAUC24: 95% range −0.183 to +0.157 (median +0.010). ΔAUC18: −0.145 to +0.244. Reverse: −0.233 to +0.218.
+  - P1 held: the interval is wider than the conditional one (0.340 vs 0.193). Decision: it becomes the main uncertainty; no clear difference.
+  - A NaN gene-ranking bug was fixed before any result (disclosed in the header).
+- **Round 6** (`apply_review4_round6_2026-10-30.py`) and **6b** (fixes from the independent audit):
+  - abstract, Methods and Results report the full-pipeline range;
+  - the A21 sentence and the Fig 3B legend; Fig 3B now shows both intervals;
+  - the A22 interval is described as centred on the out-of-bag differences (not on −0.005), with test-set noise and probably conservative;
+  - the secondary contrasts give both intervals;
+  - the environment caveat is stated;
+  - the integrity sentence now covers A18, A21 and A22;
+  - the A16 summary carries a post-run note that its "+0.087 … unlikely" decision text is superseded.
+  - S1 Text gains A21/A22; S6 and S11 gain sheets. Abstract: 299 words.
+- **Open:** commit and push; Table 1 search details; Zenodo after Lockhart; AI paragraph at the end.
+
+---
+
+## 2026-10-30 (00:35 ET) — Cocchi PDF checked; round 5c
+
+- Cocchi 2026 PDF saved (`OV Data/Project data/Literature/10.1177_10732748261468094.pdf`). Its Abstract and Conclusions support both Cocchi sentences. Its Table 1 cross-tabulates Villalobos-based PFI categories against the original TCGA annotation (5 conflicts excluded). It released barcodes and platinum status for cohorts of 230, 201 and 142 patients, plus workflows; the comparison paragraph now says so.
+- `manuscript_v5/apply_review4_round5c_2026-10-30.py` (2 edits): Cocchi release added to the comparison; GSE63885 processing, subset and class counts in Methods (review point 14). Sample identifiers added to S7. A20 sheets noted in the S6/S10 READMEs. S2 Text (STROBE 4, 12d, 12e, 17) updated and rebuilt.
+- Decisions (Aaron): the Zenodo release and DOI wait until the whole revision is done and Lockhart has seen it. The AI-use paragraph is decided at the end.
+
+---
+
 ## 2026-10-30 (00:00–01:30 ET) — Fourth (in-depth) review: A18–A20, round 5
 
 - **Fourth review:** 7/10 for the science, 6/10 for submission readiness; major revision. Aaron chose to do every item, including IPCW.

@@ -2,7 +2,7 @@
 title: "S1 Text. Pre-specified predictions and decision rules for each analysis, with observed outcomes"
 ---
 
-This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such in the summaries; headers were not edited after running, except the time string in the A18 header (disclosed in the A18 summary, which also notes an inaccurate description of platinum agents in that header). Scripts A8–A10 were deposited in the public repository before they were run (commits d5bd844 and e98b3d9), and A15 and A16, added in a later revision, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full. Headers are reproduced unchanged; those of A13b and A15–A17 refer to the critiques of earlier drafts that prompted those analyses as an 'external review' or a 'second review'.
+This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such in the summaries; headers were not edited after running, except the time strings in the A18 and A21 headers (disclosed in their summaries; the A18 summary also notes an inaccurate description of platinum agents in that header) and a bug fix in A22 before any result (disclosed in its header). Scripts A8–A10 were deposited in the public repository before they were run (commits d5bd844 and e98b3d9), and A15 and A16, added in a later revision, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full. Headers are reproduced unchanged; those of A13b and A15–A17 refer to the critiques of earlier drafts that prompted those analyses as an 'external review' or a 'second review'.
 
 Analysis history (moved from the manuscript's Methods). The study's interpretation changed during the work. An earlier draft concluded, from somatic BRCA1/2 variants and from OS labels analysed only in patients with RNA-seq data, that OS thresholds measure survival rather than platinum response; the publicly deposited analyses with germline variants and the full cohort did not support that conclusion, and the paper was revised. In later revisions, the OS thresholds were reframed as candidate surrogates, the survival decomposition was reported as associations only and restricted to patients at risk at the end of platinum (A13b), the provenance audit was added (A15), and the claim that the training label changes classifier performance was withdrawn when the controlled comparison detected no difference (A16). In the provenance audit, the code omitted one pre-specified flag (an interval within 150–215 days); this was found when the results were scored, and a correction run that adds only that flag (A15b) gives the provenance-filtered label reported in the manuscript (355 patients, against 367 as first run). The descriptive full-cohort tables (agreement, coverage, threshold sweep, cohort characteristics) and the exploratory analyses were added after the main results were known.
 
@@ -2215,6 +2215,8 @@ Population: 134 patients in whom platinum status, OS18 and OS24 are all determin
 
 Decision (pre-specified rule): the ΔAUC_24 interval includes 0. The manuscript states that, in the same 134 patients with the same folds, no difference was detected between platinum-trained and OS24-trained models in predicting platinum status, and that a platinum-label advantage larger than +0.087 AUC (the interval's upper bound) is unlikely. It withdraws any claim that label choice changes classifier performance; A5 is reported as descriptive only.
 
+Note (added 2026-10-30, after A22): the decision text above ("a platinum-label advantage larger than +0.087 AUC (the interval's upper bound) is unlikely") rests on the conditional interval, which does not refit the models. The full-pipeline out-of-bag bootstrap (A22) gives a 95% range of -0.18 to +0.16 for the primary contrast, and the manuscript now reports that as the main uncertainty: no clear difference was demonstrated, and differences of up to about 0.16 (platinum label) or 0.18 (OS label) cannot be excluded.
+
 # A17: patient-level label table (S11 Table)
 
 *Status:* descriptive assembly; no predictions. *Script:* `label_validity/17_label_resource.py`.
@@ -2445,6 +2447,149 @@ survival_after_progression    brca_carrier 201     152 0.681      0.309         
 survival_after_progression       ccne1_amp 294     218 1.184      0.168               NaN
 survival_after_progression   aneuploidy_sd 317     225 1.026      0.022             0.281
 ```
+
+# A21: event-type sensitivity of the re-derived interval
+
+*Status:* post hoc; decision rule written before running. *Script:* `label_validity/21_event_type_sensitivity.py`. *Summary:* `label_validity/outputs/21_event_type_sensitivity_summary.md`.
+
+## Header (verbatim)
+
+```text
+label_validity/21_event_type_sensitivity.py
+───────────────────────────────────────────
+A21 — sensitivity of the re-derived interval label to the type of event that dates each resistant call.
+Post hoc. Written 2026-10-30 00:29–00:30 ET, BEFORE this script was run, in response to a fourth review (point 4:
+the TCGA-CDR progression-free interval counts deaths with tumour and new tumour events of any type; distinguish
+documented recurrence/progression from other events in the analyses supporting interpretation). Known before
+writing: of the 115 resistant re-derived calls, 90 are dated by a recorded recurrence, 15 by a recorded progression,
+4 by a new tumour event of unrecorded type and 6 by a death counted as progression (a15b_resistant_event_source.csv).
+Not seen: any result with the restricted label.
+
+Restricted label (label_pfiplat6_rec): label_pfiplat6, but resistant calls not dated by a recorded recurrence or
+progression (death-dated or unrecorded type; 10 patients) are set to undetermined. Sensitive calls are unchanged.
+Recomputed with the restricted label, and compared with the same quantity for label_pfiplat6:
+  Q1  coverage and number resistant;
+  Q2  Cohen's κ with TCGA platinum status (patients with both);
+  Q3  sensitivity and PPV of OS < 18 / 24 months against the broad combined reference built with the label
+      (platinum status where determinate, otherwise the re-derived label) — as A15 P3 (broad: 0.27/0.78, 0.44/0.73);
+  Q4  conditional odds ratios (scipy odds_ratio, kind="conditional", exact 95% CI) for BRCA1/2 carriers (A8 primary
+      definition, sequenced patients) and CCNE1 amplification (GISTIC 2), as in A8 (Table 3: 0.37 (0.14–0.87);
+      1.76 (0.98–3.15) for label_pfiplat6; reproduced here as a check).
+DECISION RULE (for the manuscript)
+  * If any of κ, sensitivity or PPV changes by more than 0.05, or any odds-ratio 95% CI moves to the other side of 1,
+    the manuscript reports the restricted-label results in Results; otherwise in one sentence, with the table in S11.
+  No predictions are made.
+Run (from the repo root): python label_validity/21_event_type_sensitivity.py --data-root "<...>/OV Data/Project data"
+Outputs → label_validity/outputs/a21_event_type.csv, 21_event_type_sensitivity_summary.md
+```
+
+## Summary: results and scorecard (verbatim)
+
+# A21 — Event-type sensitivity of the re-derived interval label
+
+Python 3.10.12; pandas 2.3.3
+
+Patients whose resistant call is set aside: 10
+
+```
+label            label_pfiplat6  label_pfiplat6_rec
+determinate          389.000000          379.000000
+resistant            115.000000          105.000000
+n_with_platinum      272.000000          272.000000
+kappa_platinum         0.966209            0.966209
+os18_n               375.000000          365.000000
+os18_sens              0.268519            0.234694
+os18_sens_lo           0.193949            0.161785
+os18_sens_hi           0.358990            0.327618
+os18_ppv               0.783784            0.741935
+os18_ppv_lo            0.628049            0.567539
+os18_ppv_hi            0.886135            0.862983
+os24_n               360.000000          350.000000
+os24_sens              0.439252            0.412371
+os24_sens_lo           0.348941            0.319573
+os24_sens_hi           0.533774            0.511845
+os24_ppv               0.734375            0.701754
+os24_ppv_lo            0.615171            0.573357
+os24_ppv_hi            0.827036            0.804674
+brca_or                0.370037            0.363598
+brca_lo                0.140612            0.129066
+brca_hi                0.867022            0.890512
+brca_n               226.000000          218.000000
+ccne1_or               1.762615            1.712692
+ccne1_lo               0.976904            0.927169
+ccne1_hi               3.152332            3.123952
+ccne1_n              340.000000          331.000000
+```
+
+Decision rule — changes > 0.05: none; odds-ratio CIs changing side of 1: none
+
+Note (added after the run): the header first gave its writing time as "00:29–00:33 ET", an estimate made before the run; the script was run at 00:30 ET, so the time string was corrected to 00:29–00:30 ET. Nothing else in the header was changed.
+
+# A22: full-pipeline bootstrap for the controlled comparison
+
+*Status:* post hoc; one prediction and a decision rule written before running. *Script:* `label_validity/22_fullpipeline_bootstrap.py`. *Summary:* `label_validity/outputs/22_fullpipeline_bootstrap_summary.md`.
+
+## Header (verbatim)
+
+```text
+label_validity/22_fullpipeline_bootstrap.py
+───────────────────────────────────────────
+A22 — full-pipeline uncertainty for the controlled comparison of training labels (A16). Post hoc.
+Writing started 2026-10-30 00:31 ET, BEFORE this script was run (run times are recorded in the outputs), in
+response to a fourth review (point 11: resampling fixed, averaged out-of-fold scores does not repeat feature
+selection, model fitting, training-sample variation or fold allocation). Known before writing: the A16 results
+(ΔAUC_24 −0.005, conditional interval −0.105 to +0.087; ΔAUC_18 +0.080 [−0.045, +0.201]; reverse on OS24 −0.069
+[−0.236, +0.081]). Not seen: any result of this analysis.
+
+Design (same patients, data and pipeline as A16, 16_controlled_label_comparison.py): 134 patients; log2(RSEM + 1);
+genes shared with GSE63885; per fit, 500 highest-variance genes and StandardScaler computed on the training sample;
+LR, RF, SVM from config/config.yaml. Out-of-bag bootstrap: in each of B = 500 replicates (numpy default_rng(1000 + b)),
+patients are drawn with replacement within the platinum-resistant and platinum-sensitive groups (stratified); the
+whole pipeline is fitted on the drawn sample for each training label (platinum, OS18, OS24) and each model, and the
+patients not drawn (out of bag) are scored. Per replicate, for each contrast as in A16 (primary ΔAUC_24: platinum-
+trained − OS24-trained, target platinum status; ΔAUC_18; reverse on the OS24 target), the AUC difference is computed
+per model on the out-of-bag patients and averaged over the three models; a replicate contributes to a contrast only
+if its out-of-bag target has both classes, and is skipped if any training label has one class in the drawn sample.
+Reported: number of usable replicates; median and 2.5th/97.5th percentiles of the replicate differences (the
+full-pipeline interval); the A16 conditional estimate and interval alongside. Out-of-bag AUCs are pessimistic
+(fits use about 63% of distinct patients); the interval describes variability of the whole procedure, centred on
+the out-of-bag differences.
+
+PREDICTION
+  P1  The full-pipeline 95% interval for ΔAUC_24 is wider than the conditional interval (width 0.192).
+DECISION RULE (for the manuscript)
+  * The full-pipeline interval becomes the main uncertainty reported for the controlled comparison (abstract and
+    Results), with the conditional interval as secondary. If the full-pipeline interval for ΔAUC_24 excludes 0,
+    the text says so; otherwise it states that no clear difference was demonstrated.
+
+Run in chunks (from the repo root): python label_validity/22_fullpipeline_bootstrap.py --data-dir "<...>/ov_tcga_pan_can_atlas_2018" --start 0 --stop 100
+  (repeat for 100–200, …, 400–500), then: python label_validity/22_fullpipeline_bootstrap.py --combine
+Correction before any result: the first attempt (00:31 ET) stopped at replicate 0 with "Input X contains NaN", because numpy
+var() returns NaN for genes with missing values and those sorted first; gene ranking now uses nanvar (as pandas .var()
+in A16). No output was produced by the failed attempt.
+Outputs → label_validity/outputs/a22_chunks/a22_boot_<start>_<stop>.csv, a22_fullpipeline_replicates.csv,
+          a22_ENVIRONMENT.txt, 22_fullpipeline_bootstrap_summary.md
+```
+
+## Summary: results and scorecard (verbatim)
+
+# A22 — Full-pipeline (out-of-bag bootstrap) uncertainty for the controlled label comparison
+
+Python 3.10.12; scikit-learn 1.7.2; numpy 2.2.6; pandas 2.3.3
+
+Chunks run: 2026-10-30 04:31:41 UTC – 2026-10-30 04:41:25 UTC; skipped replicates: 0
+
+```
+           contrast  usable_replicates  oob_median  full_lo  full_hi  full_width  conditional_estimate  conditional_lo  conditional_hi  conditional_width  full_excludes_0
+     primary_dAUC24                500       0.010   -0.183    0.157       0.340                -0.005          -0.105           0.087              0.193            False
+             dAUC18                500       0.063   -0.145    0.244       0.390                 0.080          -0.045           0.201              0.246            False
+reverse_OS24_target                500      -0.004   -0.233    0.218       0.451                -0.069          -0.236           0.081              0.317            False
+```
+
+P1 (full-pipeline interval for ΔAUC_24 wider than the conditional interval): held (0.340 vs 0.193).
+Decision rule: full-pipeline interval for ΔAUC_24 excludes 0: False.
+
+Notes (added after the run): the header's conditional width "0.192" is 0.1925 unrounded (printed 0.193 above). Chunks were run as replicates 0–20, 20–160, 160–300, 300–440 and 440–500 rather than the 100-replicate chunks shown in the header's run line; each replicate has its own seed, so the chunking does not affect the results. The fits used scikit-learn 1.7.2, in which random-forest fits differ slightly from the A16 environment (scikit-learn 1.9.0).
 
 # A7: feature-selection leakage rerun in the pinned environment
 

@@ -71,8 +71,11 @@
 - F3 label_os24→label_pfiplat6: mean 0.618; range over 3 models × 5 repeats 0.568–0.660; n 188 (53 positive)
 - F3 label_os24→label_os18: mean 0.675; range over 3 models × 5 repeats 0.621–0.751; n 206 (22 positive)
 - F3 label_os24→label_os24: mean 0.682; range over 3 models × 5 repeats 0.586–0.756; n 199 (36 positive)
+- F3B primary_dAUC24 full-pipeline: [-0.183, +0.157]
 - F3B primary_dAUC24: -0.005 [-0.105, +0.087], n 134 (39 positive)
+- F3B dAUC18 full-pipeline: [-0.145, +0.244]
 - F3B dAUC18: +0.080 [-0.045, +0.201], n 134 (39 positive)
+- F3B reverse_OS24_target full-pipeline: [-0.233, +0.218]
 - F3B reverse_OS24_target: -0.069 [-0.236, +0.081], n 134 (18 positive)
 - F4 age10 / PFI_from_platinum: HR 1.087 [0.984, 1.201], p 0.0993, n 408/316
 - F4 age10 / survival_after_progression: HR 1.259 [1.116, 1.419], p 0.000174, n 331/237

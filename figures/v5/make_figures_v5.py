@@ -10,7 +10,7 @@ Main figures
   F2  Associations with characteristics linked to platinum response and prognosis, under each label (full platinum-treated cohort)
         label_validity/outputs/a8_brca_tests.csv (T1 primary BRCA; T4 CCNE1), a10_tests.csv (T1)
   F3  What classifiers trained on each label predict within TCGA
-        label_validity/outputs/a5_cross_label_repeats.csv (A); a16_paired_differences.csv (B)
+        label_validity/outputs/a5_cross_label_repeats.csv (A); a16_paired_differences.csv, a22_fullpipeline_replicates.csv (B)
   F4  (exploratory) Associations with the platinum-free interval and with survival after progression
         label_validity/outputs/a13b_decomposition_cox.csv (analysis at_risk / unchanged)
 Supporting figures
@@ -255,20 +255,27 @@ def f3():
     cb = fig.colorbar(im, ax=a, fraction=0.045, pad=0.03)
     cb.outline.set_visible(False); cb.ax.tick_params(labelsize=7, length=0)
     pdf = pd.read_csv(LV / "a16_paired_differences.csv").set_index("contrast")
+    fpb = pd.read_csv(LV / "a22_fullpipeline_replicates.csv")  # A22: whole pipeline refitted in 500 bootstrap samples
     cons = [("primary_dAUC24", "Platinum − OS < 24 mo trained\n(predicting platinum status)"),
             ("dAUC18", "Platinum − OS < 18 mo trained\n(predicting platinum status)"),
             ("reverse_OS24_target", "OS < 24 mo − platinum trained\n(predicting OS < 24 mo)")]
     yb = np.arange(len(cons))[::-1]
     for yi, (k_, lab_) in zip(yb, cons):
         r = pdf.loc[k_]
-        bx.plot([r.boot_lo, r.boot_hi], [yi, yi], color=INK2, linewidth=1.5, solid_capstyle="round")
+        flo, fhi = np.percentile(fpb[k_].dropna(), [2.5, 97.5])
+        bx.plot([flo, fhi], [yi, yi], color=BASE, linewidth=5, solid_capstyle="butt", zorder=1,
+                label="Whole pipeline refitted (500 bootstrap samples)" if yi == yb[0] else None)
+        note("F3B", k_ + " full-pipeline", f"[{flo:+.3f}, {fhi:+.3f}]")
+        bx.plot([r.boot_lo, r.boot_hi], [yi, yi], color=INK2, linewidth=1.5, solid_capstyle="round",
+                label="Patients resampled, models not refitted" if yi == yb[0] else None)
         bx.plot(r.delta_repeat_averaged_scores, yi, "o", color=INK2, markersize=5.5, markeredgecolor="white", zorder=3)
         note("F3B", k_, f"{r.delta_repeat_averaged_scores:+.3f} [{r.boot_lo:+.3f}, {r.boot_hi:+.3f}], n {int(r.n)} ({int(r.n_pos)} positive)")
     ref_line(bx, 0)
     bx.set_yticks(yb, [c_[1] for c_ in cons]); bx.tick_params(axis="y", labelsize=6.8)
     bx.set_ylim(-0.6, len(cons) - 0.4); bx.set_xlim(-0.3, 0.3)
-    bx.set_xlabel("Difference in AUC (95% bootstrap interval)")
-    bx.set_title("B  Same 134 patients, same folds")
+    bx.set_xlabel("Difference in AUC (95% intervals)")
+    bx.legend(loc="upper center", bbox_to_anchor=(0.3, -0.2), ncol=1, fontsize=6.6, handlelength=1.6)
+    bx.set_title("B  Same 134 patients")
     save(fig, "F3_cross_label_auc")
 
 

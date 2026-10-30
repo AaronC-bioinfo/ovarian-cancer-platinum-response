@@ -26,7 +26,7 @@ A manuscript describing the study is in preparation; a preprint link will be add
   - Of the flagged patients who have a known status, 82% and 74% are resistant.
   - Across thresholds from 6 to 60 months, agreement with platinum status is at best moderate (highest κ 0.47).
 - **Expression classifiers** trained on four of the labels predict them only modestly (cross-validated AUC about 0.6–0.7).
-- **Same-patient comparison of training labels (A16):** in 134 patients with the same folds, platinum-trained and 24-month-OS-trained models did not differ detectably in predicting platinum status (difference in AUC −0.005; 95% conditional bootstrap interval, without model refitting, −0.105 to +0.087).
+- **Same-patient comparison of training labels (A16):** in 134 patients with the same folds, platinum-trained and 24-month-OS-trained models did not differ detectably in predicting platinum status (difference in AUC −0.005; 95% interval from 500 bootstrap refits of the whole pipeline −0.18 to +0.16; conditional interval without refitting −0.105 to +0.087).
 
 ## Patient-level label resource
 
@@ -49,7 +49,7 @@ The provenance-filtered combined label (`label_combined_strict`; a candidate ext
 
 | Path | Contents |
 |---|---|
-| `label_validity/00_*.py` … `20_*.py`, `03b_pfi_cox.R` | Analyses. Each script's header states its predictions and decision rules, written before it was run unless marked post hoc, descriptive or exploratory. |
+| `label_validity/00_*.py` … `22_*.py`, `03b_pfi_cox.R` | Analyses. Each script's header states its predictions and decision rules, written before it was run unless marked post hoc, descriptive or exploratory. |
 | `label_validity/outputs/` | All analysis outputs; `*_summary.md` files contain results and post-run prediction scorecards. |
 | `label_validity/G5_literature_label_table.md`, `G6_literature_additions.md` | Literature extraction with verbatim quotations and page locations. |
 | `label_validity/07_ablation_rerun_PRERUN.md`, `outputs/results_pinned_2026-10-29/` | Feature-selection leakage analysis rerun in the pinned environment. |
