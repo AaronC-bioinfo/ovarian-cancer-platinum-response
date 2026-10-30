@@ -1,0 +1,6 @@
+step,n,km_median_os,determinate_platinum_status
+PanCancer clinical patients,585,,
+with any treatment-timeline record,496,,
+no treatment-timeline record (excluded),89,27.61613571,5.0
+treatment record but no carboplatin/cisplatin (excluded),7,51.35286189,2.0
+platinum-treated cohort,489,47.70358681,277.0

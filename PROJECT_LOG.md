@@ -7,6 +7,82 @@ into a single manuscript. This log supersedes `archive/PROJECT_LOG_2026-06-22.md
 
 ---
 
+## 2026-10-30 (early) — SI, reporting checklists, final audit of v5
+
+- **Supporting information** built by `manuscript_v5/build_SI.py` from saved outputs only:
+  - S1–S10 Tables (.xlsx with README sheets; S1 includes the G5/G6 verbatim-quotation sheets);
+  - S1 Text (every script header verbatim plus full summaries);
+  - S2 Text (STROBE + STARD 2015).
+- **A14** (`14_cohort_characteristics.py`, descriptive): cohort characteristics for S4 Table. The A13 environment is recorded in `label_validity/outputs/a13_ENVIRONMENT.txt`.
+- **Final independent audit** (`review_v5/FINAL_AUDIT.md`, `number_ledger.csv`): 160 numbers checked; 125 match, 33 differ only by rounding, 0 mismatch. Blockers B1–B2 and majors M1–M6 were fixed in the text (`manuscript_v5/fix_audit_2026-10-29.py`):
+  - exploratory claims hedged;
+  - "agree at best moderately" replaces "agree poorly";
+  - the post hoc analyses are flagged in Methods;
+  - Cocchi named as the closest prior work;
+  - the sign conventions of the differences are stated;
+  - the limitation on the 89 excluded patients is added;
+  - every S item is cited;
+  - the short title has 37 characters.
+- **Open:**
+  - B3 (Aaron): commit/push all v4–v5 material, then make a Zenodo release; the DOI goes into Data availability.
+  - Cocchi 2026 PDF to confirm the citation.
+  - Lockhart's ORCID.
+  - TIFF/EPS figures at submission.
+  - The AI-use paragraph is kept until Aaron says otherwise.
+
+---
+
+## 2026-10-29 (night) — Red team on v4; A13; G6 literature; manuscript v5
+
+- **Red team** (`review_v4/`: CODE_ATTACK, METHODS_ATTACK, REVIEW_ROUND2, NOVELTY_ATTACK; consolidated in CONSOLIDATED_FINDINGS.md; scratch scripts preserved):
+  - Code and numbers reproduce byte-for-byte.
+  - The interpretive claims failed or were weakened: "not a different construct"; "specific but insensitive" forced by prevalence; PPV conditional on having a status; similarity claimed from underpowered tests.
+  - The A5 verdict was unreported, and the reframe was undisclosed.
+  - Villalobos 2018, Yang SYC 2018 and Talijanovic 2025 were not cited.
+- **A13** (`label_validity/13_exploratory_label_structure.py`; exploratory, post hoc, no predictions; VM, scikit-learn 1.7.2, lifelines 0.30.0):
+  - Cohort flow: 585 → 496 → 489. The 89 without a treatment record have median OS 27.6 months.
+  - Threshold sweep 6–60 months: best κ 0.47 at 36 months.
+  - PPV bounds: 0.38–0.91 at 18 months.
+  - Cox decomposition: BRCA, CCNE1 and aneuploidy act on PFI; age and residual > 1 cm act on survival after progression.
+  - Clinical-only AUC: OS labels 0.62–0.64, platinum status 0.48.
+  - Any-residual coding: platinum status OR 3.22.
+  - Minimum detectable differences; redaction sensitivity (PFI 358, κ 0.964).
+- **G6 literature** (`label_validity/G6_literature_additions.md`; 11 PDFs; 163 quotes machine-checked):
+  - Villalobos did not compare with PLATINUM_STATUS (C1–C4 all no).
+  - Markman 1991 does not source the 6-month cut-off.
+  - Yousefi p. 6 supports "OS noisy".
+- **Manuscript v5** (`manuscript_v5/`, figures `figures/v5/`):
+  - Analysis-history disclosure; A5 verdict reported; threshold-specific claims.
+  - Table 1 expanded to 12 studies; 42 references.
+  - All 169 decimals found in outputs (heuristic check).
+  - The AI-use paragraph is kept until Aaron says otherwise; the Zenodo DOI is a placeholder.
+
+---
+
+## 2026-10-29 (late) — Reviews, A8–A12, reframed manuscript v4
+
+- **Independent reviews** (`review_v3/EDITOR_REVIEW.md`, `PEER_REVIEW.md`) found these problems:
+  - the question was not evident;
+  - the OS labels were set up as a straw man;
+  - BRCA was a weak anchor, and germline calls were already on disk;
+  - the claims about prediction were overstated;
+  - leakage, GEO transfer and the gene sets were off-question;
+  - desk-check failures.
+- **A8 (germline + somatic BRCA; CCNE1), A9 (who lacks platinum status), A10 (prognostic covariates, full cohort):** predictions were pushed to GitHub before each run (d5bd844, e98b3d9). Scorecards are in `label_validity/outputs/08–10_*_summary.md`. Key results:
+  - BRCA OR: platinum 0.41 [0.14, 1.04]; OS18 0.15 [0.00, 0.97]; OS24 0.22 [0.04, 0.75]. Same-patient differences include 0.
+  - Undetermined status: OS no different (p 0.37), but more early deaths and more PD/SD.
+  - OS thresholds: specificity 0.94–0.98, PPV 0.74–0.82, sensitivity 0.21–0.39.
+  - Residual disease and aneuploidy: same-patient differences include 0.
+- **A11 (full-cohort label table, κ, OS-as-test; descriptive) and A12 (Hanley–McNeil AUC intervals; descriptive).**
+- **Reframe (Aaron approved 19:29 ET):** `manuscript_v4/` with the question "Which outcome label should a platinum-response classifier use?" Answer: OS thresholds are specific but insensitive subsets of platinum resistance; the choice trades coverage against sensitivity. Withdrawn from v3: "OS labels measure survival, not platinum response" and "Only the platinum labels show known-groups validity".
+  - Figures: `figures/v4/` (F1–F3; S1 GEO transfer; S2 leakage).
+  - Author summary removed.
+  - The AI-use paragraph is kept until Aaron says otherwise.
+  - The Zenodo DOI is pending release.
+- v3 files are kept unchanged as superseded.
+
+---
+
 ## 2026-10-29 (evening) — v3 draft, independent audit, leakage ablation rerun in the pinned environment
 
 - **v3 manuscript:** `manuscript_v3/manuscript_v3.md` (canonical) → `PLOS_Draft_Chintala_v3_LabelValidity.docx`

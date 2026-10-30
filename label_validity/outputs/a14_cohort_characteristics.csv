@@ -1,0 +1,17 @@
+group,characteristic,value
+platinum-treated (n = 489),patients,489
+platinum-treated (n = 489),"age at diagnosis, median (IQR), years",58 (50–67); n 489
+platinum-treated (n = 489),stage IV,74/488 (15%)
+platinum-treated (n = 489),residual disease > 1 cm,104/379 (27%)
+platinum-treated (n = 489),"Aneuploidy Score, median (IQR)",13 (7–20); n 471
+platinum-treated (n = 489),sequenced in 2011 release,272
+platinum-treated (n = 489),"BRCA1/2 carrier (germline or somatic truncating/splice), of sequenced",55/272
+platinum-treated (n = 489),platinum status determinate,277
+with RNA-seq data,patients,251
+with RNA-seq data,"age at diagnosis, median (IQR), years",57 (50–66); n 251
+with RNA-seq data,stage IV,31/251 (12%)
+with RNA-seq data,residual disease > 1 cm,63/217 (29%)
+with RNA-seq data,"Aneuploidy Score, median (IQR)",13 (8–20); n 241
+with RNA-seq data,sequenced in 2011 release,151
+with RNA-seq data,"BRCA1/2 carrier (germline or somatic truncating/splice), of sequenced",34/151
+with RNA-seq data,platinum status determinate,145

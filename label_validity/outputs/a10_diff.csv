@@ -1,0 +1,5 @@
+covariate,contrast,n,measure,estimate,lo,hi,ci_includes_0
+aneuploidy,label_os18_all − label_platinum,248,Δ rank-biserial r,-0.05713358305758098,-0.3468179697594973,0.20639144296275141,True
+aneuploidy,label_os24_all − label_platinum,248,Δ rank-biserial r,0.10745032163570079,-0.09369788398752982,0.3051912137883125,True
+residual_subopt,label_os18_all − label_platinum,236,Δ log OR (Haldane),0.3700644185487737,-0.6633778245520451,1.2533749589206744,True
+residual_subopt,label_os24_all − label_platinum,236,Δ log OR (Haldane),0.5007052291349747,-0.23247464420307767,1.2088289306286366,True

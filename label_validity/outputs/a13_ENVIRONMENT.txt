@@ -1,0 +1,4 @@
+A13 (13_exploratory_label_structure.py) was run in the cloud-linked Linux VM, 2026-10-29 ~21:00 ET.
+Versions recorded 2026-10-29 from the same VM interpreter (unchanged since the run):
+Python 3.10.12; scikit-learn 1.7.2; lifelines 0.30.0; pandas 2.3.3; numpy 2.2.6; scipy 1.15.3.
+E5 (clinical-only models) uses logistic regression only; the model whose output is known to differ between scikit-learn 1.7.2 and 1.9.0 is the random forest (label_validity/outputs/04a_rf_determinism*.txt).
