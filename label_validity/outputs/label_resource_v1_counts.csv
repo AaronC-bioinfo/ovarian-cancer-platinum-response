@@ -1,0 +1,17 @@
+label,subset,determinate,n1,n0
+label_combined_strict,platinum_cohort,355,99,256
+label_combined_strict,with_rnaseq,167,43,124
+label_combined_broad,platinum_cohort,394,113,281
+label_combined_broad,with_rnaseq,189,51,138
+label_platinum,platinum_cohort,277,87,190
+label_platinum,with_rnaseq,145,41,104
+label_pfiplat6,platinum_cohort,389,115,274
+label_pfiplat6,with_rnaseq,188,53,135
+label_response,platinum_cohort,425,65,360
+label_response,with_rnaseq,219,35,184
+label_os18_all,platinum_cohort,419,47,372
+label_os18_all,with_rnaseq,206,22,184
+label_os24_all,platinum_cohort,401,78,323
+label_os24_all,with_rnaseq,199,36,163
+label_combined_strict_asrun,platinum_cohort,367,104,263
+label_combined_strict_asrun,with_rnaseq,173,45,128

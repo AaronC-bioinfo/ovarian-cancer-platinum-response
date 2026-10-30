@@ -15,13 +15,13 @@ This study is a secondary analysis of publicly available TCGA data. STROBE is us
 | 4 | Key elements of study design | Methods: Data and cohort; Methods: Pre-specification and analysis history |
 | 5 | Setting, locations, periods of recruitment, follow-up, data collection | Methods: Data and cohort; TCGA 2011 [1] for recruitment and follow-up |
 | 6a | Eligibility criteria, sources and methods of selection, follow-up | Methods: Data and cohort (platinum agent recorded in the treatment timeline); S4 Table (cohort flow) |
-| 7 | Define outcomes, exposures, predictors, confounders, effect modifiers | Methods: Labels; Methods: Known-groups associations; Table 2 |
-| 8 | Data sources and measurement for each variable | Methods: Data and cohort; Methods: Labels; Methods: Known-groups associations |
+| 7 | Define outcomes, exposures, predictors, confounders, effect modifiers | Methods: Labels; Methods: Associations with characteristics linked to platinum response and prognosis; Table 2 |
+| 8 | Data sources and measurement for each variable | Methods: Data and cohort; Methods: Labels; Methods: Associations with characteristics linked to platinum response and prognosis |
 | 9 | Efforts to address potential sources of bias | Methods: Coverage and agreement (bounds for missing reference standard); Results (redaction and residual-coding sensitivity analyses); Limitations |
 | 10 | How the study size was arrived at | Fixed by the public cohort; Methods: Data and cohort. No sample-size calculation; minimum detectable differences are reported (S3 Table). |
-| 11 | Handling of quantitative variables | Methods: Known-groups associations (rank-based tests; age per 10 years and Aneuploidy Score per SD in the exploratory Cox models) |
-| 12a | All statistical methods, including those for confounding | Methods: Coverage and agreement; Known-groups associations; Classifiers; Exploratory analyses. Known-groups analyses are univariable, with no adjustment for confounding (the aim is label comparison); the exploratory clinical-only model is a multivariable logistic regression. |
-| 12b | Methods for subgroups and interactions | Same-patient comparisons (Methods: Known-groups associations); no interaction analyses |
+| 11 | Handling of quantitative variables | Methods: Associations with characteristics linked to platinum response and prognosis (rank-based tests; age per 10 years and Aneuploidy Score per SD in the exploratory Cox models) |
+| 12a | All statistical methods, including those for confounding | Methods: Coverage and agreement; Associations with characteristics; Classifiers; Exploratory analyses. These association analyses are univariable, with no adjustment for confounding (the aim is label comparison); the exploratory clinical-only model is a multivariable logistic regression. |
+| 12b | Methods for subgroups and interactions | Same-patient comparisons (Methods: Associations with characteristics linked to platinum response and prognosis); no interaction analyses |
 | 12c | How missing data were addressed | Labels: undetermined patients excluded from each label; Methods: Coverage and agreement (bounds); Results: patients without a platinum status |
 | 12d | Loss to follow-up | OS thresholds exclude patients censored before the threshold (Methods: Labels); Limitations |
 | 12e | Sensitivity analyses | Threshold sweep (6–60 months); combined reference label; exclusion of redacted TCGA-CDR records; any-vs-no residual coding; alternative carrier definitions (S3 Table) |

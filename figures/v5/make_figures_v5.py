@@ -7,11 +7,11 @@ except means/ranges of already-computed AUCs. Does NOT read outputs/results/abla
 Main figures
   F1  Coverage, agreement and OS thresholds as tests for platinum resistance across thresholds
         label_validity/outputs/a11_coverage.csv, a11_kappa_full.csv, a13_threshold_sweep.csv
-  F2  Known-groups associations under each label (full platinum-treated cohort)
+  F2  Associations with characteristics linked to platinum response and prognosis, under each label (full platinum-treated cohort)
         label_validity/outputs/a8_brca_tests.csv (T1 primary BRCA; T4 CCNE1), a10_tests.csv (T1)
   F3  What classifiers trained on each label predict within TCGA
         label_validity/outputs/a5_cross_label_repeats.csv
-  F4  (exploratory) Where each characteristic acts: platinum-free interval vs survival after progression
+  F4  (exploratory) Associations with the platinum-free interval and with survival after progression
         label_validity/outputs/a13_os_decomposition_cox.csv
 Supporting figures
   S1_Fig  Transfer to GSE63885            label_validity/outputs/a4_transfer_results.csv
@@ -46,7 +46,7 @@ BLUES = LinearSegmentedColormap.from_list(
 ORDER = ["label_platinum", "label_pfiplat6", "label_response", "label_os18_all", "label_os24_all"]
 LAB1 = {"label_platinum": "Platinum status (TCGA 2011)", "label_pfiplat6": "PFI from first-line platinum < 6 mo",
         "label_response": "First-course response (PD/SD)", "label_os18_all": "OS < 18 mo", "label_os24_all": "OS < 24 mo",
-        "label_hybrid": "Platinum status or PFI (combined)"}
+        "label_hybrid": "Platinum status or PFI (broad combined)"}
 LAB2 = {"label_platinum": "Platinum status\n(TCGA 2011)", "label_pfiplat6": "PFI from first-line\nplatinum < 6 mo",
         "label_response": "First-course\nresponse (PD/SD)", "label_os18_all": "OS < 18 mo", "label_os24_all": "OS < 24 mo"}
 SHORT = {"label_platinum": "Platinum\nstatus", "label_pfiplat6": "PFI from\nplatinum", "label_response": "Response\n(PD/SD)",
@@ -248,7 +248,7 @@ def f4():
     ax.set_xticks([0.25, 0.5, 1, 2, 4], ["0.25", "0.5", "1", "2", "4"]); ax.set_xlim(0.25, 4)
     ax.set_yticks(y, [r[1] for r in rows]); ax.tick_params(axis="y", labelsize=7.5)
     ax.set_xlabel("Hazard ratio, 95% CI (log)")
-    ax.set_title("Where each characteristic acts (exploratory)")
+    ax.set_title("Associations with PFI and with survival after progression (exploratory)", fontsize=8.6)
     ax.legend(loc="upper center", bbox_to_anchor=(0.4, -0.18), ncol=2, fontsize=7, handletextpad=0.3)
     fig.tight_layout()
     save(fig, "F4_os_decomposition")

@@ -2,7 +2,7 @@
 title: "S1 Text. Pre-specified predictions and decision rules for each analysis, with observed outcomes"
 ---
 
-This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such in the summaries; headers were not edited after running. Scripts A8–A10 were deposited in the public repository before they were run (commits d5bd844 and e98b3d9). The leakage rerun (A7) has its own pre-run note, reproduced in full.
+This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such in the summaries; headers were not edited after running. Scripts A8–A10 were deposited in the public repository before they were run (commits d5bd844 and e98b3d9), and A15 and A16, added after an external review, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full.
 
 # Gate G1–G4: label coverage and sources
 
@@ -522,7 +522,7 @@ label_pfiplat6 label_response 175      0.726  0.190     0.036     0.357
 
 Supplement (12m): see rows with supplement = True in a2_pairwise_agreement.csv and a2_os_sens_spec.csv.
 
-# A3: known groups (somatic BRCA1/2; RNA-seq OS labels)
+# A3: associations with BRCA1/2 and clinical characteristics (somatic BRCA1/2; RNA-seq OS labels)
 
 *Status:* pre-specified. *Script:* `label_validity/03_known_groups.py`. *Summary:* `label_validity/outputs/03_known_groups_summary.md`.
 
@@ -849,7 +849,7 @@ Full table with 95% CIs: a4_transfer_results.csv.
 
 # A5: within-TCGA cross-label CV
 
-*Status:* pre-specified. *Script:* `label_validity/05_cross_label_cv.py`. *Summary:* `label_validity/outputs/05_cross_label_summary.md`.
+*Status:* pre-specified; after external review reported as descriptive only, and its decision rule is superseded by the controlled comparison (A16). *Script:* `label_validity/05_cross_label_cv.py`. *Summary:* `label_validity/outputs/05_cross_label_summary.md`.
 
 ## Header (verbatim)
 
@@ -1832,6 +1832,349 @@ A14 — descriptive (no predictions): baseline characteristics of the 489 platin
 Inputs: label_validity/outputs/labels_full.csv, a3_covariates.csv, a8_carriers.csv; ov_tcga_pub case list (sequenced).
 Output → label_validity/outputs/a14_cohort_characteristics.csv
 Run: python label_validity/14_cohort_characteristics.py --data-root "<...>/OV Data/Project data"
+```
+
+# A15: provenance audit of the re-derived interval
+
+*Status:* pre-specified after external review; deposited before running (d349b2b). *Script:* `label_validity/15_reconstruction_provenance.py`. *Summary:* `label_validity/outputs/15_reconstruction_provenance_summary.md`.
+
+## Header (verbatim)
+
+```text
+label_validity/15_reconstruction_provenance.py
+──────────────────────────────────────────────
+A15 — patient-level provenance audit of the re-derived platinum-free-interval label (label_pfiplat6),
+especially in the patients it ADDS to TCGA's published platinum status, and a "strict" combined label.
+
+Written 2026-10-29 ~22:15 ET, BEFORE the run, in response to an external review of manuscript v5 (point 2:
+"agreement in the overlap does not establish accuracy in the additional 117 patients … audit the added
+cases, the four disagreements, ambiguous treatment courses, and event types"; TCGA-CDR's progression-free
+interval counts new tumour events and death with tumour).
+
+DISCLOSURE — seen before writing: the label counts (labels_full.csv: 394 combined, 117 added, 4 disagreements,
+8 negative intervals classed resistant, 11 undetermined); that 38 platinum-treated patients have a redacted
+TCGA-CDR record (A13); that 6 resistant calls are deaths with tumour (red-team code audit, m2); the CDR column
+values (new_tumor_event_type: Recurrence 294, Progression of Disease 34). Not seen: any per-patient provenance
+class, the flags below, or any result with the strict label.
+
+Population: the 489 platinum-treated patients; focus on patients with label_pfiplat6 determinate.
+For each such patient (sources: TCGA-CDR; PanCanAtlas treatment timeline):
+  event_source (resistant calls): "recorded_new_tumour_event" if new_tumor_event_dx_days_to equals PFI.time
+      (± 1 day) — with its type (Recurrence / Progression of Disease); "death_counted_as_progression" if there is
+      no matching new tumour event and death_days_to equals PFI.time (± 1 day); otherwise "unclear".
+  negative_interval: PFI.time before the end of first-line platinum.
+  flags: redacted CDR record; an adjuvant platinum row with a missing STOP_DATE (stop date taken from other rows);
+      a later-line treatment (REGIMEN_INDICATION Progression / Recurrence) STARTED before the recorded PFI event
+      (or, for sensitive patients, before day 183 after the end of platinum), which suggests that progression was
+      recorded late; interval within 150–215 days (near the 183-day cut-off).
+  provenance_class: "clean_resistant" (recorded new tumour event after the end of platinum, no flag);
+      "clean_sensitive" (interval ≥ 183 days, no flag); "flagged" (any flag, a death-only event or an unclear event);
+      "negative_interval" (progression recorded before the end of platinum; reported separately).
+Strict combined label: TCGA platinum status where determinate; otherwise label_pfiplat6 only for
+      clean_resistant / clean_sensitive patients.
+
+PREDICTIONS
+  P1  ≥ 75% of the resistant calls among the ADDED patients are backed by a recorded new tumour event
+      (not death-only or unclear).
+  P2  The strict combined label covers ≥ 370 of the 489 patients.
+  P3  Against the strict combined label, sensitivity and PPV of the 18- and 24-month OS thresholds are each
+      within 0.05 of their values against the broad combined label (sensitivity 0.27 / 0.44; PPV 0.78 / 0.73).
+  P4  At least 2 of the 4 disagreements between platinum status and the re-derived interval carry a flag or
+      an interval within 150–215 days.
+
+DECISION RULES (for the manuscript)
+  * The manuscript reports the provenance classes of the added patients and of the 4 disagreements.
+  * If P1 fails, or if more than 20% of the added patients are not clean, the manuscript recommends the
+    STRICT combined label and reports the broad one as a sensitivity analysis; otherwise it reports both,
+    recommending the broad label with the provenance table.
+  * Whatever the result, the per-patient provenance table is released with the label resource.
+
+Run (from the repo root; no model fitting): python label_validity/15_reconstruction_provenance.py --data-root "<...>/OV Data/Project data"
+Outputs → label_validity/outputs/a15_provenance.csv (per patient), a15_class_by_group.csv, a15_resistant_event_source.csv,
+          a15_os_test_strict.csv, a15_label_combined_strict.csv, 15_reconstruction_provenance_summary.md
+```
+
+## Summary: results and scorecard (verbatim)
+
+# A15 — Provenance of the re-derived platinum-free-interval label
+
+Re-derived interval determinate: 389; overlap with platinum status: 272; added by reconstruction: 117 (26 resistant).
+
+## Provenance class by group and label
+
+```
+provenance_class                             clean_resistant  clean_sensitive  flagged  negative_interval  All
+group                        label_pfiplat6                                                                   
+added_by_reconstruction      0.0                           0               73       18                  0   91
+                             1.0                          17                0        8                  1   26
+overlap_with_platinum_status 0.0                           0              160       23                  0  183
+                             1.0                          75                0        7                  7   89
+All                                                       92              233       56                  8  389
+```
+
+## Event source of resistant calls
+
+```
+event_source                  death_counted_as_progression  recorded_new_tumour_event:Progression of Disease  recorded_new_tumour_event:Recurrence  recorded_new_tumour_event:nan  All
+group                                                                                                                                                                                 
+added_by_reconstruction                                  6                                                 3                                    13                              4   26
+overlap_with_platinum_status                             0                                                12                                    77                              0   89
+All                                                      6                                                15                                    90                              4  115
+```
+
+Added resistant calls backed by a recorded new tumour event: 20/26.
+Added patients classed clean: 90/117.
+Strict combined label: 367 determinate (104 resistant / 263 sensitive).
+
+## The disagreements between platinum status and the re-derived interval
+
+```
+                                     group  label_platinum  label_pfiplat6  pfi_from_platinum_d                          event_source provenance_class  redacted  adj_platinum_rows  adj_platinum_stop_missing  later_line_before_event  near_threshold  disagreement src_platinum_status_raw
+PATIENT_ID                                                                                                                                                                                                                                                                                   
+TCGA-24-2029  overlap_with_platinum_status             0.0             1.0                154.0  recorded_new_tumour_event:Recurrence  clean_resistant     False                  1                      False                    False            True          True               Sensitive
+TCGA-29-1774  overlap_with_platinum_status             0.0             1.0                101.0  recorded_new_tumour_event:Recurrence  clean_resistant     False                  3                      False                    False           False          True               Sensitive
+TCGA-61-2009  overlap_with_platinum_status             0.0             1.0                 18.0  recorded_new_tumour_event:Recurrence  clean_resistant     False                  1                      False                    False           False          True               Sensitive
+TCGA-61-2113  overlap_with_platinum_status             0.0             1.0                148.0  recorded_new_tumour_event:Recurrence  clean_resistant     False                  1                      False                    False           False          True               Sensitive
+```
+
+## OS thresholds as tests: broad vs strict combined reference
+
+- label_os18_all vs label_hybrid (n 375): sensitivity 29/108 = 0.27 [0.19, 0.36]; PPV 29/37 = 0.78 [0.63, 0.89]
+- label_os24_all vs label_hybrid (n 360): sensitivity 47/107 = 0.44 [0.35, 0.53]; PPV 47/64 = 0.73 [0.62, 0.83]
+- label_os18_all vs label_combined_strict (n 349): sensitivity 24/99 = 0.24 [0.17, 0.34]; PPV 24/30 = 0.80 [0.63, 0.90]
+- label_os24_all vs label_combined_strict (n 335): sensitivity 40/98 = 0.41 [0.32, 0.51]; PPV 40/53 = 0.75 [0.62, 0.85]
+
+## Prediction scorecard
+
+~~(to be completed after the run)~~
+
+Run 2026-10-29 ~22:00 ET in the cloud-linked VM (no model fitting), after the script with its predictions and decision rules was committed (d349b2b, 21:56:39 ET; now on GitHub main). All outputs have modification time 22:00:17 ET. The script does not record package versions; the VM's current interpreter is Python 3.10.12, pandas 2.3.3, numpy 2.2.6 (checked ~22:15 ET, after the run).
+
+Correction to the script header: it says "Written 2026-10-29 ~22:15 ET, BEFORE the run". That time was a wrong estimate. The script was committed at 21:56:39 ET (d349b2b), so it was written before then. The commit timestamp is authoritative, and the run followed it.
+
+Deviation (found when filling this scorecard): the header lists "interval within 150–215 days (near the 183-day cut-off)" among the flags, and defines "clean" as "no flag". The code (line 114) builds `any_flag` from the redacted record, the missing adjuvant stop date and the later-line flag only; `near_threshold` is computed but does not enter `provenance_class`. As implemented, 12 added patients with an interval of 150–215 days (5 resistant, 7 sensitive) are classed clean and enter the strict label. Under the header's definition:
+- added patients not clean would be 39/117 (33%) instead of 27/117 (23%);
+- the strict combined label would cover 355 patients (99 resistant / 256 sensitive) instead of 367 (104 / 263).
+P1 and P4 do not depend on this (P4 counts flags and near-threshold intervals separately). P2 fails under either definition. The decision rule outcome is the same under either definition.
+
+Resolution (Aaron, 2026-10-29, before the 15b run): the manuscript follows the header's definition. `15b_reconstruction_provenance_specfix.py` is this script with near_threshold added to any_flag and nothing else changed; it was run at 22:25 ET (outputs `a15b_*`, `15b_reconstruction_provenance_specfix_summary.md`). It gives 78/117 added patients clean and a strict combined label of 355 (99 resistant / 256 sensitive). Against that label, OS18 sensitivity is 0.23 [0.16, 0.33] and PPV 0.79 [0.60, 0.90]; OS24 sensitivity 0.41 [0.31, 0.51] and PPV 0.75 [0.61, 0.84]. These are still within 0.05 of the broad-label values, so P3 holds under either definition. The as-run label (367) is kept unchanged as `a15_label_combined_strict.csv`.
+
+- **P1 — held (narrowly).** 20/26 resistant calls among the added patients (77%) are backed by a recorded new tumour event (Recurrence 13, Progression of Disease 3, type missing 4); threshold ≥ 75%. The other 6 are deaths counted as progression; none is unclear.
+- **P2 — FAILED (narrowly).** The strict combined label covers 367 of 489 patients (104 resistant / 263 sensitive); predicted ≥ 370.
+- **P3 — held.** Broad → strict combined reference: OS18 sensitivity 0.27 → 0.24, PPV 0.78 → 0.80; OS24 sensitivity 0.44 → 0.41, PPV 0.73 → 0.75. All within 0.05.
+- **P4 — FAILED.** 1 of the 4 disagreements has a flag or a near-threshold interval: TCGA-24-2029 (154 d). The other three, TCGA-29-1774 (101 d), TCGA-61-2009 (18 d) and TCGA-61-2113 (148 d), are clean resistant calls (recorded Recurrence, no flag) that TCGA's platinum status records as Sensitive. They are not reconstruction artefacts that this audit can detect, and the available data do not explain them.
+
+Decision (pre-specified rule): P1 held, but 27/117 (23%) of the added patients are not clean (> 20%; 33% under the header's definition). The manuscript therefore recommends the STRICT combined label (355, per the resolution above) as primary and reports the broad combined label (394) as a sensitivity analysis. It reports the provenance classes of the added patients and of the 4 disagreements, and the per-patient provenance table is released with the label resource.
+
+# A15b: correction run of A15 (near-threshold flag)
+
+*Status:* post hoc correction of an implementation error in A15; no new predictions. *Script:* `label_validity/15b_reconstruction_provenance_specfix.py`. *Summary:* `label_validity/outputs/15b_reconstruction_provenance_specfix_summary.md`.
+
+## Header (verbatim)
+
+```text
+label_validity/15b_reconstruction_provenance_specfix.py
+───────────────────────────────────────────────────────
+A15b — correction run of A15 (15_reconstruction_provenance.py, committed d349b2b) so that the code matches
+A15's pre-registered definition.
+
+Written 2026-10-29 ~22:35 ET, AFTER the A15 run (22:00 ET) and after its results were seen. While filling the
+A15 scorecard we found that A15's header lists "interval within 150–215 days (near the 183-day cut-off)" among
+the flags and defines "clean" as "no flag", but the code left near_threshold out of any_flag. Aaron decided
+(2026-10-29) that the manuscript follows the header's definition. This script is A15 with exactly one change to
+the analysis: near_threshold enters any_flag. Outputs carry the prefix a15b_ so A15's outputs are kept unchanged.
+No new predictions are made; A15's P1–P4 and decision rule are scored in 15_reconstruction_provenance_summary.md.
+
+Run (from the repo root; no model fitting): python label_validity/15b_reconstruction_provenance_specfix.py --data-root "<...>/OV Data/Project data"
+Outputs → label_validity/outputs/a15b_provenance.csv, a15b_class_by_group.csv, a15b_resistant_event_source.csv,
+          a15b_os_test_strict.csv, a15b_label_combined_strict.csv, 15b_reconstruction_provenance_specfix_summary.md
+```
+
+## Summary: results and scorecard (verbatim)
+
+# A15b — Provenance of the re-derived platinum-free-interval label (correction run: near-threshold intervals flagged, per A15's header)
+
+Re-derived interval determinate: 389; overlap with platinum status: 272; added by reconstruction: 117 (26 resistant).
+
+## Provenance class by group and label
+
+```
+provenance_class                             clean_resistant  clean_sensitive  flagged  negative_interval  All
+group                        label_pfiplat6                                                                   
+added_by_reconstruction      0.0                           0               66       25                  0   91
+                             1.0                          12                0       13                  1   26
+overlap_with_platinum_status 0.0                           0              143       40                  0  183
+                             1.0                          61                0       21                  7   89
+All                                                       73              209       99                  8  389
+```
+
+## Event source of resistant calls
+
+```
+event_source                  death_counted_as_progression  recorded_new_tumour_event:Progression of Disease  recorded_new_tumour_event:Recurrence  recorded_new_tumour_event:nan  All
+group                                                                                                                                                                                 
+added_by_reconstruction                                  6                                                 3                                    13                              4   26
+overlap_with_platinum_status                             0                                                12                                    77                              0   89
+All                                                      6                                                15                                    90                              4  115
+```
+
+Added resistant calls backed by a recorded new tumour event: 20/26.
+Added patients classed clean: 78/117.
+Strict combined label: 355 determinate (99 resistant / 256 sensitive).
+
+## The disagreements between platinum status and the re-derived interval
+
+```
+                                     group  label_platinum  label_pfiplat6  pfi_from_platinum_d                          event_source provenance_class  redacted  adj_platinum_rows  adj_platinum_stop_missing  later_line_before_event  near_threshold  disagreement src_platinum_status_raw
+PATIENT_ID                                                                                                                                                                                                                                                                                   
+TCGA-24-2029  overlap_with_platinum_status             0.0             1.0                154.0  recorded_new_tumour_event:Recurrence          flagged     False                  1                      False                    False            True          True               Sensitive
+TCGA-29-1774  overlap_with_platinum_status             0.0             1.0                101.0  recorded_new_tumour_event:Recurrence  clean_resistant     False                  3                      False                    False           False          True               Sensitive
+TCGA-61-2009  overlap_with_platinum_status             0.0             1.0                 18.0  recorded_new_tumour_event:Recurrence  clean_resistant     False                  1                      False                    False           False          True               Sensitive
+TCGA-61-2113  overlap_with_platinum_status             0.0             1.0                148.0  recorded_new_tumour_event:Recurrence  clean_resistant     False                  1                      False                    False           False          True               Sensitive
+```
+
+## OS thresholds as tests: broad vs strict combined reference
+
+- label_os18_all vs label_hybrid (n 375): sensitivity 29/108 = 0.27 [0.19, 0.36]; PPV 29/37 = 0.78 [0.63, 0.89]
+- label_os24_all vs label_hybrid (n 360): sensitivity 47/107 = 0.44 [0.35, 0.53]; PPV 47/64 = 0.73 [0.62, 0.83]
+- label_os18_all vs label_combined_strict (n 340): sensitivity 22/94 = 0.23 [0.16, 0.33]; PPV 22/28 = 0.79 [0.60, 0.90]
+- label_os24_all vs label_combined_strict (n 327): sensitivity 38/93 = 0.41 [0.31, 0.51]; PPV 38/51 = 0.75 [0.61, 0.84]
+
+## Note
+
+Correction run; no new predictions. A15's predictions and decision rule are scored in 15_reconstruction_provenance_summary.md.
+
+# A16: controlled comparison of training labels
+
+*Status:* pre-specified after external review; deposited before running (d349b2b). *Script:* `label_validity/16_controlled_label_comparison.py`. *Summary:* `label_validity/outputs/16_controlled_label_comparison_summary.md`.
+
+## Header (verbatim)
+
+```text
+label_validity/16_controlled_label_comparison.py
+────────────────────────────────────────────────
+A16 — controlled comparison of training labels for expression classifiers: same patients, same outer
+folds, paired AUC differences with patient-bootstrap confidence intervals.
+
+Written 2026-10-29 ~22:10 ET, BEFORE the run, in response to an external review of manuscript v5
+(point 4: "the classifier experiment does not cleanly isolate the effect of label choice … report paired
+uncertainty for the AUC differences"). A5 compared labels on different patient sets and class balances;
+its pre-specified rule found a label effect of +0.060 that reached 0.05 in only 3 of 5 repeats.
+
+DISCLOSURE — seen before writing: all A5 results (a5_cross_label_repeats.csv). Not seen: any analysis
+restricted to a common patient set, any paired difference, any bootstrap interval for a difference.
+
+Population: platinum-treated patients with RNA-seq data (labels_master in_rnaseq) in whom label_platinum,
+label_os18 and label_os24 are ALL determinate. Every label is therefore trained and evaluated on exactly
+the same patients.
+Pipeline: identical to A5 (05_cross_label_cv.py): log2(RSEM + 1); the genes shared with GSE63885;
+500 highest-variance genes and StandardScaler fitted on the training fold only; LR, RF, SVM from
+config/config.yaml (balanced class weights, seed 42).
+Folds: 20 repeats of stratified 5-fold CV (stratified on label_platinum; random_state = repeat). In each
+training fold, one model per training label is fitted on the same training patients; all are scored on the
+same held-out patients.
+Quantities (all on the same patients):
+  * Per repeat: pooled out-of-fold AUC for each training label × model × target label.
+  * Primary: ΔAUC_24 = AUC(platinum-trained → platinum status) − AUC(OS24-trained → platinum status),
+    mean over the three models. Secondary: ΔAUC_18 (OS18-trained), and the reverse on the OS24 target:
+    AUC(OS24-trained → OS24) − AUC(platinum-trained → OS24).
+  * Uncertainty: for each model, out-of-fold scores are averaged over the 20 repeats (one score per patient);
+    the mean-over-models ΔAUC is recomputed in 2,000 bootstrap resamples of patients stratified by the target
+    label (numpy default_rng(42)); 95% percentile interval. The spread of ΔAUC across repeats is reported
+    separately and is NOT a confidence interval.
+
+PREDICTIONS
+  Q1  Mean ΔAUC_24 (platinum-trained minus OS24-trained, on platinum status) lies between 0 and +0.10.
+  Q2  The 95% bootstrap interval for ΔAUC_24 includes 0.
+  Q3  ΔAUC_18 > 0, with a 95% interval that includes 0.
+  Q4  Reverse on the OS24 target: AUC(OS24-trained) − AUC(platinum-trained) > 0, with a 95% interval
+      that includes 0.
+
+DECISION RULES (for the manuscript)
+  * If the ΔAUC_24 interval excludes 0 (positive), the manuscript states that, in the same patients,
+    platinum-trained models predicted platinum status better than OS-trained models, with the estimate and
+    interval.
+  * If it includes 0, the manuscript states that a difference larger than the interval's upper bound is
+    unlikely but that no difference was detected, and it withdraws any claim that label choice changes
+    classifier performance; A5 is then reported as descriptive only.
+
+Run (Windows host, pinned environment; from the repo root):
+  & "C:\\Users\\AMAC_WORK\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" label_validity\\16_controlled_label_comparison.py --data-dir "C:\\PROJECTS\\OV Data\\Project data\\ov_tcga_pan_can_atlas_2018"
+Outputs → label_validity/outputs/a16_repeats.csv, a16_oof_scores.csv, a16_paired_differences.csv,
+          a16_ENVIRONMENT.txt, 16_controlled_label_comparison_summary.md
+```
+
+## Summary: results and scorecard (verbatim)
+
+# A16 — Controlled comparison of training labels (same patients, same folds)
+
+Python 3.14.5; scikit-learn 1.9.0; numpy 2.4.6; pandas 3.0.3
+Patients: 134 (platinum-resistant 39; OS18 7; OS24 18). 20 × 5-fold CV; 2000 stratified patient bootstraps.
+
+## Mean AUC over 3 models and 20 repeats (min–max across model × repeat)
+
+```
+                                mean    min    max
+train_label    test_label                         
+label_os18     label_os18      0.573  0.155  0.813
+               label_os24      0.588  0.318  0.741
+               label_platinum  0.540  0.473  0.619
+label_os24     label_os18      0.641  0.468  0.755
+               label_os24      0.620  0.409  0.724
+               label_platinum  0.619  0.541  0.666
+label_platinum label_os18      0.593  0.399  0.721
+               label_os24      0.655  0.453  0.770
+               label_platinum  0.602  0.392  0.703
+```
+
+## Paired differences (mean over models; scores averaged over repeats)
+
+- primary_dAUC24 (label_platinum − label_os24 on label_platinum): -0.005 [-0.105, +0.087]; CI includes 0: True; per-repeat mean -0.016 (range -0.107 to +0.071; ≥ 0.05 in 2/20)
+- dAUC18 (label_platinum − label_os18 on label_platinum): +0.080 [-0.045, +0.201]; CI includes 0: True; per-repeat mean +0.063 (range -0.014 to +0.145; ≥ 0.05 in 13/20)
+- reverse_OS24_target (label_os24 − label_platinum on label_os24): -0.069 [-0.236, +0.081]; CI includes 0: True; per-repeat mean -0.034 (range -0.169 to +0.045; ≥ 0.05 in 0/20)
+
+## Prediction scorecard
+
+~~(to be completed after the run)~~
+
+Run 2026-10-29 21:57–21:59 ET on the Windows host (Python 3.14.5; scikit-learn 1.9.0; numpy 2.4.6; pandas 3.0.3; a16_ENVIRONMENT.txt), after the script with its predictions and decision rules was committed (d349b2b, 21:56:39 ET; now on GitHub main). Output modification times run from 21:57:04 (a16_ENVIRONMENT.txt) to 21:59:39 (a16_paired_differences.csv, this summary, a16_run_log.txt).
+
+Correction to the script header: it says "Written 2026-10-29 ~22:10 ET, BEFORE the run". That time was a wrong estimate. The script was committed at 21:56:39 ET (d349b2b), so it was written before then. The commit timestamp is authoritative, and the run followed it.
+
+Deviation: the script stopped with a UnicodeEncodeError at its final `print` (line 180), because the Windows cp1252 console cannot encode U+2212 (minus sign; traceback in a16_run_log.txt). This summary is written on line 179, before the print, and contains every pre-specified section; all outputs have modification times at or before the crash (21:59:39). No number is affected. Future runs set `PYTHONIOENCODING=utf-8`.
+
+Environment check (run after the scorecard was first drafted, 2026-10-29 ~22:25 ET): the same script was rerun unchanged in the cloud-linked VM (Python 3.10.12; scikit-learn 1.7.2; numpy 2.2.6; pandas 2.3.3); outputs in `a16_env_check_vm/`. Logistic regression and SVM AUCs are identical in all 180 model × label × repeat cells each; Random Forest AUCs differ by up to 0.136 in single cells. Paired differences, Windows → VM: ΔAUC_24 −0.005 → −0.008 [−0.106, +0.086]; ΔAUC_18 +0.080 → +0.074 [−0.050, +0.194]; reverse on OS24 −0.069 → −0.072 [−0.236, +0.077]. Every interval still includes 0 and every prediction scores the same; the Windows run remains the reported result.
+
+Population: 134 patients in whom platinum status, OS18 and OS24 are all determinate (platinum-resistant 39; OS18 7; OS24 18). With only 7 OS18 positives, the OS18-trained models are unstable (OS18-trained → OS18 AUC 0.155–0.813 across model × repeat).
+
+- **Q1 — FAILED.** ΔAUC_24 (platinum-trained − OS24-trained, on platinum status): −0.005 [−0.105, +0.087]; predicted between 0 and +0.10. Per-repeat mean −0.016 (range −0.107 to +0.071; ≥ 0.05 in 2/20).
+- **Q2 — held.** The 95% bootstrap interval for ΔAUC_24 includes 0.
+- **Q3 — held.** ΔAUC_18 (platinum-trained − OS18-trained, on platinum status): +0.080 [−0.045, +0.201]; > 0, interval includes 0. Per-repeat mean +0.063 (range −0.014 to +0.145; ≥ 0.05 in 13/20).
+- **Q4 — FAILED (opposite direction).** On the OS24 target, OS24-trained − platinum-trained: −0.069 [−0.236, +0.081]; predicted > 0. The interval includes 0. Per-repeat mean −0.034 (range −0.169 to +0.045; ≥ 0.05 in 0/20).
+
+Decision (pre-specified rule): the ΔAUC_24 interval includes 0. The manuscript states that, in the same 134 patients with the same folds, no difference was detected between platinum-trained and OS24-trained models in predicting platinum status, and that a platinum-label advantage larger than +0.087 AUC (the interval's upper bound) is unlikely. It withdraws any claim that label choice changes classifier performance; A5 is reported as descriptive only.
+
+# A17: patient-level label table (S11 Table)
+
+*Status:* descriptive assembly; no predictions. *Script:* `label_validity/17_label_resource.py`.
+
+## Header (verbatim)
+
+```text
+label_validity/17_label_resource.py
+───────────────────────────────────
+Builds the versioned, patient-level label resource released with the paper (S11 Table; Zenodo record).
+Written 2026-10-29 ~22:45 ET, after A15/A15b/A16, in response to point 6 of the external review of manuscript
+v5 (make the label table the main deliverable). Descriptive assembly only: no new analysis, no predictions.
+Every column is copied from an existing output; nothing is recomputed except the counts table (event types missing in TCGA-CDR are written as type_not_recorded).
+
+Inputs (label_validity/outputs/): labels_full.csv, labels_master.csv (pfi_from_platinum_d),
+  a15b_provenance.csv (provenance class, event source and flags, header definition of "clean"),
+  a15b_label_combined_strict.csv (strict combined label, primary; 355 determinate),
+  a15_label_combined_strict.csv (strict label as first run, before the near-threshold correction; 367).
+Outputs → label_validity/outputs/label_resource_v1.csv, label_resource_v1_dictionary.csv,
+          label_resource_v1_counts.csv
+Run (from the repo root): python label_validity/17_label_resource.py
 ```
 
 # A7: feature-selection leakage rerun in the pinned environment

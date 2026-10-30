@@ -1,0 +1,4 @@
+group,death_counted_as_progression,recorded_new_tumour_event:Progression of Disease,recorded_new_tumour_event:Recurrence,recorded_new_tumour_event:nan,All
+added_by_reconstruction,6,3,13,4,26
+overlap_with_platinum_status,0,12,77,0,89
+All,6,15,90,4,115

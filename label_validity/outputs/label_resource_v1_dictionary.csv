@@ -1,0 +1,22 @@
+column,definition
+PATIENT_ID,TCGA patient barcode; the 489 platinum-treated patients (carboplatin or cisplatin in the PanCancer Atlas treatment timeline).
+resource_version,Version of this table.
+in_rnaseq,Patient has PanCancer Atlas RNA-seq (RSEM) data (251 patients).
+label_combined_strict,"RECOMMENDED label. 1 resistant, 0 sensitive, empty undetermined. TCGA 2011 platinum status where determinate; otherwise label_pfiplat6 only when provenance_class is clean_resistant or clean_sensitive (A15 header definition; script 15b)."
+label_combined_broad,"Sensitivity-analysis label: platinum status where determinate, otherwise label_pfiplat6 regardless of provenance."
+label_platinum,"TCGA 2011 published platinum status (ov_tcga_pub), unchanged: 1 Resistant, 0 Sensitive; Tooearly, missing or absent = empty."
+src_platinum_status_raw,Raw platinum-status value in the 2011 release.
+label_pfiplat6,"Platinum-free interval re-derived from TCGA-CDR PFI.time minus the stop date of the last adjuvant platinum regimen: 1 if progression < 183 days after end of platinum (including negative intervals), 0 if >= 183 days, empty if censored earlier."
+pfi_from_platinum_d,Re-derived platinum-free interval in days (negative = progression recorded before the end of platinum).
+group,For patients with label_pfiplat6 determinate: overlap_with_platinum_status or added_by_reconstruction.
+provenance_class,"clean_resistant (recorded new tumour event, no flag); clean_sensitive (interval >= 183 days, no flag); flagged (any flag, or a resistant call from a death counted as progression); negative_interval."
+event_source,For resistant calls: recorded_new_tumour_event:<type> (new_tumor_event_dx_days_to equals PFI.time +/- 1 day) or death_counted_as_progression; type_not_recorded = event recorded without a type.
+redacted,Flag: TCGA-CDR record marked Redacted.
+adj_platinum_stop_missing,Flag: an adjuvant platinum row lacks a STOP_DATE.
+later_line_before_event,Flag: a later-line (Progression/Recurrence) regimen started before the recorded event (sensitive: before day 183 after platinum).
+near_threshold,Flag: interval within 150-215 days of the end of platinum.
+disagreement,label_platinum and label_pfiplat6 both determinate and different (4 patients).
+label_response,"First-course response: 1 stable or progressive disease, 0 complete or partial response (TCGA-CDR, then ov_tcga_pub, then timeline)."
+label_os18_all,"1 death before 18 months from diagnosis, 0 survival beyond; empty if censored earlier. A candidate survival surrogate, not a platinum-response label."
+label_os24_all,"As label_os18_all, at 24 months."
+label_combined_strict_asrun,"Strict label as first run (A15, before the correction that flags near-threshold intervals); kept for transparency, not recommended."

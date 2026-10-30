@@ -7,6 +7,31 @@ into a single manuscript. This log supersedes `archive/PROJECT_LOG_2026-06-22.md
 
 ---
 
+## 2026-10-29 (22:00–23:30 ET) — External review: A15/A15b/A16/A17, manuscript v5 revised
+
+- **External review of v5 (7 points)**, answered per the approved plan. Pre-specified analyses A15 and A16 were deposited before running (d349b2b, 21:56:39 ET).
+- **A16** (controlled label comparison; Windows host, pinned environment, 21:57–21:59 ET): 134 patients, the same folds for every label. ΔAUC_24 −0.005 [−0.105, +0.087]. Q1 FAILED, Q2 held, Q3 held, Q4 FAILED (opposite direction). Decision rule: no difference detected; the claim that label choice changes classifier performance is withdrawn; A5 is descriptive only.
+  - Deviation: crash at the final `print` (cp1252 console, U+2212) after the summary was written; no number affected.
+  - VM environment check (scikit-learn 1.7.2), `label_validity/outputs/a16_env_check_vm/`: LR and SVM identical; RF cells differ by up to 0.136; all conclusions unchanged.
+- **A15** (provenance audit; VM, 22:00 ET): P1 held (20/26), P2 FAILED (367 < 370), P3 held, P4 FAILED (1/4). Decision rule triggered: the strict combined label is recommended, the broad label (394) is a sensitivity analysis.
+  - Deviation found while scoring: the header lists the 150–215-day interval as a flag, but the code left it out of `any_flag`.
+- **A15b** (`15b_reconstruction_provenance_specfix.py`, correction run, 22:25 ET; Aaron chose the header definition): strict label 355 (99 / 256); 78/117 added patients clean; P3 still holds. The `a15_*` outputs are kept unchanged.
+- **A17** (`17_label_resource.py`): versioned patient-level label table `label_resource_v1.csv` + dictionary + counts → S11 Table.
+- **Scorecards** filled in `15_…_summary.md` and `16_…_summary.md`, including corrections of the script-header times (headers said ~22:10/~22:15 ET; commit d349b2b is 21:56:39 ET).
+- **Manuscript** (`manuscript_v5/apply_external_review_2026-10-29.py`, 35 exact replacements; pre-review files in `manuscript_v5/archive_pre_external_review_2026-10-29/`):
+  - title: "provenance" replaces "validity";
+  - OS thresholds framed as candidate surrogates from our own earlier analyses;
+  - A15/A15b results; strict label in Table 2;
+  - Fig 4 retitled as associations (exploratory), with the handling of negative intervals and deaths stated;
+  - A16 null result; A5 descriptive;
+  - "markers do not resolve the comparison"; OR 0.64 reported as "no clear evidence of association";
+  - label table (S11) named in the abstract (271 words) and the conclusion.
+- **Rebuilt:** `manuscript_v5.md`, the docx, the SI (S11 Table; A15/A15b/A16/A17 in S1 Text), Fig 4 (title only; plotted values unchanged), and S2 Text headings. README points to the strict label and the label table.
+- **Independent audit:** fresh agent, read-only. All new A15b/A16/label-table numbers matched except one: the decomposition floors 28 intervals below 1 day (19 negative, 9 zero), not 8 — fixed. The should-fix items were applied in `manuscript_v5/apply_external_review_round2_2026-10-29.py` (20 edits): the precise "clean" definition (3 added patients not clean only because of death-dated events); broad vs strict wording; the GSE63885 comparison marked descriptive; the A16 interval described as conditional on the fitted models, two-sided (+0.09 / −0.11), with fold stratification and the per-repeat mean −0.016 stated; the earlier v1.0.0 release cited (Zenodo 10.5281/zenodo.20802754); leftover decomposition contrasts removed. S11 OS columns renamed `label_os18_all`/`label_os24_all` to match `labels_full.csv`; missing event types written as `type_not_recorded`; README results updated (strict label, A16). Not changed: OS-labelled patients still called "non-responders" in tables; "label-validity" in Author contributions (Aaron to decide).
+- **Open:** Zenodo release and DOI; Cocchi 2026 PDF; AI-use paragraph decision; Lockhart email.
+
+---
+
 ## 2026-10-30 (early) — SI, reporting checklists, final audit of v5
 
 - **Supporting information** built by `manuscript_v5/build_SI.py` from saved outputs only:

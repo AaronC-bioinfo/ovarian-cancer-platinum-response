@@ -9,7 +9,7 @@ S1 Text is assembled verbatim from the analysis-script headers (pre-specified pr
 decision rules) and the post-run sections of the analysis summaries.
 
 Run from the repo root:  python manuscript_v5/build_SI.py   (needs pandas + openpyxl; pandoc for S1 Text .docx)
-Outputs → manuscript_v5/SI/S1_Table.xlsx … S10_Table.xlsx, S1_Text.md (+ .docx if pandoc is available)
+Outputs → manuscript_v5/SI/S1_Table.xlsx … S11_Table.xlsx, S1_Text.md (+ .docx if pandoc is available)
 Does not read outputs/results/ablation_split_variance_summary.csv.
 """
 import re
@@ -76,7 +76,7 @@ workbook("S1_Table", "S1 Table. Full literature extraction for Table 1, with ver
 
 # ── S2 Table: agreement and OS-as-test ────────────────────────────────────────
 workbook("S2_Table", "S2 Table. Pairwise agreement and OS-threshold test characteristics: full cohort (A11), patients with RNA-seq data and the "
-         "12-month threshold (A2), against platinum status and the combined label, and at every threshold from 6 to 60 months (A13, exploratory).",
+         "12-month threshold (A2), against platinum status and the broad combined label, and at every threshold from 6 to 60 months (A13, exploratory).",
          ["A11: " + rel(O / "a11_kappa_full.csv") + ", " + rel(O / "a11_os_test_full.csv") + ", " + rel(O / "a11_coverage.csv"),
           "A2: " + rel(O / "a2_pairwise_agreement.csv") + ", " + rel(O / "a2_os_sens_spec.csv") + " (OS labels in the RNA-seq subset; column 'supplement' marks 12-month rows)",
           "A13: " + rel(O / "a13_threshold_sweep.csv") + " (null_ppv / null_specificity = values with no platinum information; max_sensitivity = bound set by prevalence)",
@@ -119,7 +119,8 @@ summ = r5.groupby(["train_label", "test_label"]).auc.agg(["mean", "min", "max", 
 rule = (O / "05_cross_label_summary.md").read_text(encoding="utf-8")
 rule_lines = [l for l in rule.splitlines() if l.strip()]
 workbook("S6_Table", "S6 Table. Within-TCGA cross-label AUC (A5): pooled out-of-fold AUC for each training label, test label, model and repeat; "
-         "means and ranges; and the pre-specified decision rule with its outcome (verbatim from the analysis summary).",
+         "means and ranges; and the pre-specified decision rule with its outcome (verbatim from the analysis summary). After external review this "
+         "all-patients analysis is reported as descriptive only; the controlled same-patient comparison (A16) is in S1 Text.",
          ["A5: " + rel(O / "a5_cross_label_repeats.csv") + "; summary and rule: " + rel(O / "05_cross_label_summary.md"),
           "Hanley–McNeil intervals (A12, " + rel(O / "a12_auc_intervals.csv") + ") are included for completeness but treat the mean AUC as one AUC and are anti-conservative for the OS labels (review_v4/CODE_ATTACK.md M1); the manuscript reports ranges instead."],
          {"A5_by_model_repeat": r5, "A5_mean_range": summ, "A5_summary_verbatim": pd.DataFrame({"line": rule_lines}),
@@ -161,6 +162,19 @@ workbook("S10_Table", "S10 Table. Exploratory analyses (A13, added after the mai
           "A13_redaction": O / "a13_redaction.csv", "A3_cox_hr": O / "a3_pfi_cox_hr.csv",
           "A3_cox_summary": O / "a3_pfi_cox_summary.csv", "A3_cox_ph": O / "a3_pfi_cox_ph.csv"})
 
+# ── S11 Table: patient-level label resource ──────────────────────────────────
+workbook("S11_Table", "S11 Table. Patient-level label table, version 1.0 (A17): for each of the 489 platinum-treated patients, every candidate label, "
+         "the strict combined label (recommended; 355 determinate) and the broad combined label (sensitivity analysis; 394), the re-derived "
+         "platinum-free interval, and the provenance class, event source and flags of each re-derived call (A15, corrected run A15b); with a "
+         "data dictionary, class counts, and the OS-threshold test characteristics against the broad and strict combined labels.",
+         ["A17: " + ", ".join(rel(O / f) for f in ["label_resource_v1.csv", "label_resource_v1_dictionary.csv", "label_resource_v1_counts.csv"]),
+          "A15b (strict label as recommended): " + ", ".join(rel(O / f) for f in ["a15b_provenance.csv", "a15b_class_by_group.csv", "a15b_resistant_event_source.csv", "a15b_os_test_strict.csv"]),
+          "A15 (as first run, before the near-threshold flag was added): " + rel(O / "a15_os_test_strict.csv") + "; scorecard in S1 Text"],
+         {"label_table_v1": O / "label_resource_v1.csv", "data_dictionary": O / "label_resource_v1_dictionary.csv",
+          "class_counts": O / "label_resource_v1_counts.csv", "A15b_class_by_group": O / "a15b_class_by_group.csv",
+          "A15b_event_source": O / "a15b_resistant_event_source.csv", "A15b_os_test_strict": O / "a15b_os_test_strict.csv",
+          "A15_os_test_strict_asrun": O / "a15_os_test_strict.csv"})
+
 # ── S1 Text: pre-specified predictions and outcomes ─────────────────────────
 def header(path: Path) -> str:
     t = path.read_text(encoding="utf-8")
@@ -191,10 +205,10 @@ ANALYSES = [
     ("Gate, post hoc: response-field sources", "00b_gate_posthoc_response_sources.py", "00b_posthoc_summary.md", "post hoc"),
     ("A1: label construction", "01_labels_master.py", "01_labels_summary.md", "pre-specified"),
     ("A2: agreement (RNA-seq OS labels)", "02_label_agreement.py", "02_agreement_summary.md", "pre-specified"),
-    ("A3: known groups (somatic BRCA1/2; RNA-seq OS labels)", "03_known_groups.py", "03_known_groups_summary.md", "pre-specified"),
+    ("A3: associations with BRCA1/2 and clinical characteristics (somatic BRCA1/2; RNA-seq OS labels)", "03_known_groups.py", "03_known_groups_summary.md", "pre-specified"),
     ("A3b: Cox models of the progression-free interval", "03b_pfi_cox.R", None, "pre-specified"),
     ("A4: transfer to GSE63885", "04_transfer_matrix.py", "04_transfer_summary.md", "pre-specified"),
-    ("A5: within-TCGA cross-label CV", "05_cross_label_cv.py", "05_cross_label_summary.md", "pre-specified"),
+    ("A5: within-TCGA cross-label CV", "05_cross_label_cv.py", "05_cross_label_summary.md", "pre-specified; after external review reported as descriptive only, and its decision rule is superseded by the controlled comparison (A16)"),
     ("A6: published gene sets", "06_published_genesets.py", "06_published_genesets_summary.md", "pre-specified (supplementary)"),
     ("A8: BRCA1/2 germline + somatic; CCNE1", "08_brca_germline.py", "08_brca_germline_summary.md", "pre-specified; deposited before running (d5bd844)"),
     ("A9: patients without a platinum status", "09_platinum_missingness.py", "09_platinum_missingness_summary.md", "pre-specified; deposited before running (d5bd844)"),
@@ -203,12 +217,16 @@ ANALYSES = [
     ("A12: approximate AUC intervals", "12_auc_intervals.py", None, "descriptive; no predictions"),
     ("A13: exploratory label structure", "13_exploratory_label_structure.py", "13_exploratory_label_structure_summary.md", "exploratory, post hoc; no predictions"),
     ("A14: cohort characteristics", "14_cohort_characteristics.py", None, "descriptive; no predictions"),
+    ("A15: provenance audit of the re-derived interval", "15_reconstruction_provenance.py", "15_reconstruction_provenance_summary.md", "pre-specified after external review; deposited before running (d349b2b)"),
+    ("A15b: correction run of A15 (near-threshold flag)", "15b_reconstruction_provenance_specfix.py", "15b_reconstruction_provenance_specfix_summary.md", "post hoc correction of an implementation error in A15; no new predictions"),
+    ("A16: controlled comparison of training labels", "16_controlled_label_comparison.py", "16_controlled_label_comparison_summary.md", "pre-specified after external review; deposited before running (d349b2b)"),
+    ("A17: patient-level label table (S11 Table)", "17_label_resource.py", None, "descriptive assembly; no predictions"),
 ]
 L = ["---", 'title: "S1 Text. Pre-specified predictions and decision rules for each analysis, with observed outcomes"', "---", "",
      "This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, "
      "descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such "
      "in the summaries; headers were not edited after running. Scripts A8–A10 were deposited in the public repository before they were run "
-     "(commits d5bd844 and e98b3d9). The leakage rerun (A7) has its own pre-run note, reproduced in full.", ""]
+     "(commits d5bd844 and e98b3d9), and A15 and A16, added after an external review, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full.", ""]
 for title, script, summ, status in ANALYSES:
     L += [f"# {title}", "", f"*Status:* {status}. *Script:* `label_validity/{script}`" + (f". *Summary:* `label_validity/outputs/{summ}`" if summ else "") + ".", "",
           "## Header (verbatim)", "", "```text", header(LV / script), "```", ""]
