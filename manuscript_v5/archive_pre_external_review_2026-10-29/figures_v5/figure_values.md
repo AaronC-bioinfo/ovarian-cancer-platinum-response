@@ -1,0 +1,97 @@
+# Values plotted in figures/v5 (for the number audit)
+
+- F1A label_platinum: 277/489 determinate (87 non-responder / 190 responder)
+- F1A label_pfiplat6: 389/489 determinate (115 non-responder / 274 responder)
+- F1A label_response: 425/489 determinate (65 non-responder / 360 responder)
+- F1A label_os18_all: 419/489 determinate (47 non-responder / 372 responder)
+- F1A label_os24_all: 401/489 determinate (78 non-responder / 323 responder)
+- F1A label_hybrid: 394/489 determinate (113 non-responder / 281 responder)
+- F1B κ label_platinum–label_pfiplat6: 0.966 [0.930, 0.992], n=272
+- F1B κ label_platinum–label_response: 0.257 [0.137, 0.380], n=255
+- F1B κ label_platinum–label_os18_all: 0.241 [0.138, 0.350], n=268
+- F1B κ label_platinum–label_os24_all: 0.370 [0.248, 0.486], n=259
+- F1B κ label_pfiplat6–label_response: 0.213 [0.105, 0.321], n=353
+- F1B κ label_pfiplat6–label_os18_all: 0.314 [0.212, 0.413], n=371
+- F1B κ label_pfiplat6–label_os24_all: 0.441 [0.340, 0.545], n=356
+- F1B κ label_response–label_os18_all: 0.259 [0.127, 0.391], n=371
+- F1B κ label_response–label_os24_all: 0.250 [0.123, 0.370], n=358
+- F1B κ label_os18_all–label_os24_all: 0.710 [0.608, 0.797], n=401
+- F1C OS < 6 mo vs platinum (n 276): sens 2/87=0.023 [0.006,0.080]; spec 189/189=1.000; PPV 2/2=1.000 [0.342,1.000]; null PPV 0.315; kappa 0.031 (kmax 0.031)
+- F1C OS < 9 mo vs platinum (n 274): sens 4/86=0.047 [0.018,0.114]; spec 188/188=1.000; PPV 4/4=1.000 [0.510,1.000]; null PPV 0.314; kappa 0.063 (kmax 0.063)
+- F1C OS < 12 mo vs platinum (n 274): sens 9/86=0.105 [0.056,0.187]; spec 188/188=1.000; PPV 9/9=1.000 [0.701,1.000]; null PPV 0.314; kappa 0.138 (kmax 0.138)
+- F1C OS < 15 mo vs platinum (n 271): sens 12/84=0.143 [0.084,0.233]; spec 184/187=0.984; PPV 12/15=0.800 [0.548,0.930]; null PPV 0.310; kappa 0.164 (kmax 0.231)
+- F1C OS < 18 mo vs platinum (n 268): sens 18/84=0.214 [0.140,0.313]; spec 180/184=0.978; PPV 18/22=0.818 [0.615,0.927]; null PPV 0.313; kappa 0.241 (kmax 0.328)
+- F1C OS < 21 mo vs platinum (n 265): sens 29/84=0.345 [0.252,0.452]; spec 174/181=0.961; PPV 29/36=0.806 [0.650,0.902]; null PPV 0.317; kappa 0.362 (kmax 0.506)
+- F1C OS < 24 mo vs platinum (n 259): sens 32/83=0.386 [0.288,0.493]; spec 165/176=0.938; PPV 32/43=0.744 [0.598,0.851]; null PPV 0.320; kappa 0.370 (kmax 0.594)
+- F1C OS < 30 mo vs platinum (n 249): sens 38/82=0.463 [0.360,0.571]; spec 147/167=0.880; PPV 38/58=0.655 [0.527,0.764]; null PPV 0.329; kappa 0.371 (kmax 0.764)
+- F1C OS < 36 mo vs platinum (n 243): sens 52/81=0.642 [0.533,0.738]; spec 134/162=0.827; PPV 52/80=0.650 [0.541,0.745]; null PPV 0.333; kappa 0.471 (kmax 0.991)
+- F1C OS < 42 mo vs platinum (n 238): sens 60/81=0.741 [0.636,0.824]; spec 113/157=0.720; PPV 60/104=0.577 [0.481,0.667]; null PPV 0.340; kappa 0.431 (kmax 0.799)
+- F1C OS < 48 mo vs platinum (n 233): sens 68/80=0.850 [0.756,0.912]; spec 96/153=0.627; PPV 68/125=0.544 [0.457,0.629]; null PPV 0.343; kappa 0.421 (kmax 0.622)
+- F1C OS < 60 mo vs platinum (n 226): sens 75/79=0.949 [0.877,0.980]; spec 67/147=0.456; PPV 75/155=0.484 [0.407,0.562]; null PPV 0.350; kappa 0.331 (kmax 0.395)
+- F2A label_platinum: 7/37 vs 54/149; OR 0.412 [0.143, 1.043], p 0.0511
+- F2A label_pfiplat6: 8/47 vs 64/179; OR 0.370 [0.141, 0.867], p 0.0141
+- F2A label_response: 5/51 vs 28/192; OR 0.638 [0.182, 1.804], p 0.493
+- F2A label_os18_all: 1/51 vs 23/195; OR 0.150 [0.004, 0.973], p 0.0341
+- F2A label_os24_all: 3/50 vs 43/192; OR 0.222 [0.042, 0.745], p 0.00779
+- F2B label_platinum: 22/56 vs 65/221; OR 1.550 [0.799, 2.969], p 0.197
+- F2B label_pfiplat6: 28/70 vs 74/270; OR 1.763 [0.977, 3.152], p 0.0563
+- F2B label_response: 13/80 vs 43/290; OR 1.114 [0.519, 2.262], p 0.727
+- F2B label_os18_all: 12/79 vs 26/285; OR 1.781 [0.776, 3.887], p 0.144
+- F2B label_os24_all: 22/78 vs 45/276; OR 2.012 [1.061, 3.749], p 0.0221
+- F2C label_platinum: n 252; OR 1.116 [0.586, 2.090], p 0.762
+- F2C label_pfiplat6: n 310; OR 1.251 [0.709, 2.184], p 0.415
+- F2C label_response: n 335; OR 2.549 [1.314, 4.912], p 0.0035
+- F2C label_os18_all: n 328; OR 2.858 [1.300, 6.292], p 0.00473
+- F2C label_os24_all: n 318; OR 2.410 [1.282, 4.504], p 0.0038
+- F2D label_platinum: aneuploidy r +0.125, q 0.258, n 265
+- F2D label_pfiplat6: aneuploidy r +0.211, q 0.00665, n 373
+- F2D label_response: aneuploidy r -0.031, q 0.72, n 409
+- F2D label_os18_all: aneuploidy r +0.205, q 0.0372, n 404
+- F2D label_os24_all: aneuploidy r +0.253, q 0.00147, n 386
+- F3 label_platinum→label_platinum: mean 0.634; range over 3 models × 5 repeats 0.564–0.689; n 145 (41 positive)
+- F3 label_platinum→label_pfiplat6: mean 0.617; range over 3 models × 5 repeats 0.583–0.659; n 188 (53 positive)
+- F3 label_platinum→label_os18: mean 0.578; range over 3 models × 5 repeats 0.526–0.640; n 206 (22 positive)
+- F3 label_platinum→label_os24: mean 0.630; range over 3 models × 5 repeats 0.586–0.692; n 199 (36 positive)
+- F3 label_pfiplat6→label_platinum: mean 0.593; range over 3 models × 5 repeats 0.543–0.629; n 145 (41 positive)
+- F3 label_pfiplat6→label_pfiplat6: mean 0.608; range over 3 models × 5 repeats 0.569–0.634; n 188 (53 positive)
+- F3 label_pfiplat6→label_os18: mean 0.592; range over 3 models × 5 repeats 0.562–0.624; n 206 (22 positive)
+- F3 label_pfiplat6→label_os24: mean 0.623; range over 3 models × 5 repeats 0.581–0.680; n 199 (36 positive)
+- F3 label_os18→label_platinum: mean 0.552; range over 3 models × 5 repeats 0.493–0.603; n 145 (41 positive)
+- F3 label_os18→label_pfiplat6: mean 0.585; range over 3 models × 5 repeats 0.541–0.634; n 188 (53 positive)
+- F3 label_os18→label_os18: mean 0.631; range over 3 models × 5 repeats 0.568–0.688; n 206 (22 positive)
+- F3 label_os18→label_os24: mean 0.651; range over 3 models × 5 repeats 0.531–0.699; n 199 (36 positive)
+- F3 label_os24→label_platinum: mean 0.597; range over 3 models × 5 repeats 0.561–0.650; n 145 (41 positive)
+- F3 label_os24→label_pfiplat6: mean 0.618; range over 3 models × 5 repeats 0.568–0.660; n 188 (53 positive)
+- F3 label_os24→label_os18: mean 0.675; range over 3 models × 5 repeats 0.621–0.751; n 206 (22 positive)
+- F3 label_os24→label_os24: mean 0.682; range over 3 models × 5 repeats 0.586–0.756; n 199 (36 positive)
+- F4 age10 / PFI_from_platinum: HR 1.082 [0.981, 1.193], p 0.114, n 436/328
+- F4 age10 / survival_after_progression: HR 1.259 [1.116, 1.419], p 0.000174, n 331/237
+- F4 residual_subopt / PFI_from_platinum: HR 1.107 [0.851, 1.439], p 0.45, n 349/273
+- F4 residual_subopt / survival_after_progression: HR 1.411 [1.032, 1.931], p 0.0311, n 267/202
+- F4 resid_any / PFI_from_platinum: HR 1.668 [1.231, 2.259], p 0.000953, n 349/273
+- F4 resid_any / survival_after_progression: HR 1.661 [1.112, 2.480], p 0.0131, n 267/202
+- F4 stage_iv / PFI_from_platinum: HR 1.283 [0.962, 1.711], p 0.0904, n 435/327
+- F4 stage_iv / survival_after_progression: HR 1.029 [0.741, 1.429], p 0.863, n 331/237
+- F4 brca_carrier / PFI_from_platinum: HR 0.549 [0.381, 0.791], p 0.00132, n 247/202
+- F4 brca_carrier / survival_after_progression: HR 0.681 [0.436, 1.062], p 0.0904, n 201/152
+- F4 ccne1_amp / PFI_from_platinum: HR 1.564 [1.188, 2.059], p 0.00143, n 384/297
+- F4 ccne1_amp / survival_after_progression: HR 1.184 [0.862, 1.627], p 0.297, n 294/218
+- F4 aneuploidy_sd / PFI_from_platinum: HR 1.203 [1.075, 1.346], p 0.00131, n 418/313
+- F4 aneuploidy_sd / survival_after_progression: HR 1.026 [0.897, 1.174], p 0.706, n 317/225
+- S1_Fig label_platinum → dfs: mean 0.589, range 0.563–0.616
+- S1_Fig label_platinum → clinical: mean 0.672, range 0.616–0.712
+- S1_Fig label_pfiplat6 → dfs: mean 0.596, range 0.552–0.625
+- S1_Fig label_pfiplat6 → clinical: mean 0.707, range 0.670–0.745
+- S1_Fig label_response → dfs: mean 0.564, range 0.558–0.574
+- S1_Fig label_response → clinical: mean 0.601, range 0.547–0.630
+- S1_Fig label_os18 → dfs: mean 0.560, range 0.545–0.581
+- S1_Fig label_os18 → clinical: mean 0.493, range 0.421–0.550
+- S1_Fig label_os24 → dfs: mean 0.626, range 0.610–0.645
+- S1_Fig label_os24 → clinical: mean 0.521, range 0.484–0.575
+- S2_Fig LR, 18 mo: supervised inflation +0.0645; unsupervised +0.0086
+- S2_Fig RF, 18 mo: supervised inflation +0.2260; unsupervised +0.0300
+- S2_Fig SVM, 18 mo: supervised inflation +0.3384; unsupervised +0.0239
+- S2_Fig LR, 24 mo: supervised inflation +0.2193; unsupervised -0.0039
+- S2_Fig RF, 24 mo: supervised inflation +0.1197; unsupervised +0.0148
+- S2_Fig SVM, 24 mo: supervised inflation +0.2804; unsupervised -0.0397
+- S2_Fig means (18/24 mo): supervised +0.2080; unsupervised +0.0056

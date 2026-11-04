@@ -1,9 +1,40 @@
 # Project Log — Ovarian Cancer Platinum Response
 
-**Last updated:** 2026-10-29
+**Last updated:** 2026-11-03
 **Status:** Analysis complete across Findings 1–6 and Enhancements 3–5. Consolidating
 into a single manuscript. This log supersedes `archive/PROJECT_LOG_2026-06-22.md`
 (kept for history).
+
+---
+
+## 2026-11-03 (evening ET) — Review 5 (pre-preprint) applied; sole-author manuscript
+
+- **Authorship:** Dr. Lockhart declined co-authorship (email 2026-11-02); the paper is sole-author. He will see the work at a walkthrough meeting.
+- **Review:** `claude/REVIEW5_PLOS_preprint_2026-11-03.md` (project doc), two passes, the second against this repo; verdict NOT READY for editorial reasons only, every traced number matches its output.
+- `manuscript_v5/apply_review5_preprint_2026-11-03.py` (20 edits, each asserted to match once): Lockhart removed from byline and contributions; "the author" ×3; full sole-author CRediT list; `[[ZENODO_DOI]]` ×2 → concept DOI 10.5281/zenodo.20802753 (resolves to the latest version; ref 9 keeps the v1.0.0 version DOI 20802754); A9 sentence restricted to the 2011 release with CIs for OR 1.70 / 2.63 / 0.49 (`a9_group_tests.csv`); sign convention of the three controlled contrasts (`16_controlled_label_comparison.py` header); scikit-learn 1.7.2 exceptions pointed to S1 Text; gene-set null pool 15,484 genes; 10 calls = 6 death + 4 unrecorded (`a15b_resistant_event_source.csv`); "expression (mRNA or protein)"; the 7 non-carboplatin/cisplatin exclusions (`a13_cohort_flow.csv`); germline source and non-random sequenced subset; abstract "for what they measure" (298 words).
+- **`build_docx.py` fixes:** pandoc writes an empty `<w:sectPr />`, so the earlier regex put `lnNumType` outside it and the PDF had no line numbers. The section now carries US Letter, 1-inch margins and continuous line numbers. Table 1 is set on its own landscape section (no more mid-word breaks).
+- S1 Text: "the authors' earlier work" → "the author's" in `SI/S1_Text_analysis_history.md` and `SI/S1_Text.md`; S1_Text.docx regenerated with pandoc (same command as `build_SI.py`).
+- **Rebuilt:** `manuscript_v5.md`, docx, PDF (LibreOffice, 43 pages). Pre-edit copies in `manuscript_v5/archive_pre_review5_2026-11-03/`.
+- **Resolved without edits:** 47.7 months is correct in both places; refs 2 ("4 of 39", number ledger N015), 8 ("12 definitions", pp. 16, 22), 13 (212/91/28) and 14 (Cocchi PDF on file under its DOI) were already checked against sources (2026-10-30 entries, `review_v5/FINAL_AUDIT.md`).
+- **Open (Aaron):** commit and push all v5 material (figures/v5, SI, and the untracked `manuscript_v5/` sources), tag a release so Zenodo mints the new version, before the bioRxiv upload; #13 symbol convention (Fig 2 vs Table 3, needs a figure redraw); AI-use statement; affiliation.
+
+---
+
+## 2026-10-30 (09:10–09:45 ET) — Verification pass and journal format (Aaron's instructions)
+
+- **References:** all 45 checked against Crossref/Zenodo/arXiv records (fresh agent): authors, titles, journals, years, volumes, pages and DOIs all match; DOI strings are bare identifiers with no parameters or traces. One cosmetic fix: en dash in the Lisowska 2014 title. The two URLs (GitHub repo; cancer.gov/tcga) resolve.
+- **Figures:** every plotted value in Figs 1–4 and every cell of Table 3 recomputed from the source CSVs (a11, a13_threshold_sweep, a15b, a8, a10, a5, a16, a13b, label_resource_v1_counts): all match.
+- **Text:** the "Use of AI tools" section removed (wording to be agreed with the co-author first); Author contributions now give only AMAC's role, with CL's left for him to state (`apply_round9_format_2026-10-30.py`).
+- **Format (PLOS ONE):** section order now … Acknowledgments, References, Supporting information, Figure legends, Tables; `build_docx.py` uses `reference_plos.docx` (Times New Roman 12 pt, double-spaced, 1-inch margins, black headings) and adds continuous line numbers. PDF rebuilt from the docx (42 pages).
+
+---
+
+## 2026-10-30 (09:00 ET) — Sixth review (8/10, minor revision): round 8, wording and Fig 3
+
+- **Sixth review (of revision 7):** minor revision on the text; acceptance contingent on the archive and supplements. No further analyses requested, and none done.
+- **Round 8** (`manuscript_v5/apply_review6_round8_2026-10-30.py`, 11 edits + Fig 3 legend): abstract drops the out-of-bag numbers and calls the comparison inconclusive (294 words); "variably reported"; "none of these comparisons changed whether its interval included 1"; the anchor sentences now distinguish changed classifications from lost determinacy (all 78 additions determinate and unchanged under A1–A3; 1 of the 78 undetermined under the carboplatin/cisplatin restriction); four "no difference" sentences softened; the cross-validation rule reworded; TCGA 2011 quote given its SI page (pp. 2–3).
+- **Fig 3B** now has two rows per contrast: the cross-validated estimate with its conditional interval, and the out-of-bag median with its percentile range.
+- **Decision (with Aaron):** stop the AI review rounds here; Lockhart's read is next. Remaining blockers are outside the text: the Zenodo release (after Lockhart) and the AI-use paragraph.
 
 ---
 

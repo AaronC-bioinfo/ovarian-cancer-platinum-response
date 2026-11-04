@@ -7,11 +7,17 @@ Grouped bar chart comparing clean vs. leaky AUC for supervised F-score
 selection across all 9 model × threshold combinations, with the
 unsupervised variance (clean) baseline overlaid as a reference line.
 
+2026-10-29: the unsupervised baseline now reads outputs/results/clean_auc_table.csv
+(the authoritative 2026-08-20 leak-free re-run, = manuscript Table 2). The former
+default, ablation_split_variance_summary.csv, is a stale orphan (fixes/phase1_provenance.md)
+and must not be used. The embedded figure title was removed; the title lives in the
+manuscript legend.
+
 Usage:
     python figures/figure2_ablation.py \
-        --supervised results/ablation_supervised_leakage_summary.csv \
-        --variance   results/ablation_split_variance_summary.csv \
-        --out        figures/figure2_ablation.png
+        --supervised outputs/results/ablation_supervised_leakage_summary.csv \
+        --variance   outputs/results/clean_auc_table.csv \
+        --out        figures/v2/fig1_leakage_ablation.png
 
 Outputs:
     figures/figure2_ablation.png  (300 dpi, publication-ready)
@@ -122,8 +128,8 @@ def make_figure(clean, leaky, variance, out_path: Path):
         # Chance line
         ax.axhline(0.5, color=GREY, linewidth=0.9, linestyle="--",
                    zorder=2, alpha=0.7)
-        ax.text(n_models - 0.45, 0.502, "Chance", fontsize=7,
-                color=GREY, va="bottom")
+        ax.text(-0.5, 0.502, "Chance", fontsize=7,
+                color=GREY, va="bottom", ha="left")
 
         # Panel formatting
         ax.set_xlim(-0.55, n_models - 0.45)
@@ -156,12 +162,6 @@ def make_figure(clean, leaky, variance, out_path: Path):
         frameon=False,
     )
 
-    fig.suptitle(
-        "Figure 2. Feature selection leakage inflates reported AUC\n"
-        "Red annotations show AUC inflation (leaky − clean) for supervised F-score selection",
-        fontsize=10, y=1.10, color=GREY,
-    )
-
     plt.savefig(out_path, dpi=300, bbox_inches="tight",
                 facecolor="white", edgecolor="none")
     plt.close()
@@ -170,9 +170,9 @@ def make_figure(clean, leaky, variance, out_path: Path):
 
 def main():
     parser = argparse.ArgumentParser(description="Generate Figure 2 — ablation leakage chart")
-    parser.add_argument("--supervised", default="results/ablation_supervised_leakage_summary.csv")
-    parser.add_argument("--variance",   default="results/ablation_split_variance_summary.csv")
-    parser.add_argument("--out",        default="figures/figure2_ablation.png")
+    parser.add_argument("--supervised", default="outputs/results/ablation_supervised_leakage_summary.csv")
+    parser.add_argument("--variance",   default="outputs/results/clean_auc_table.csv")
+    parser.add_argument("--out",        default="figures/v2/fig1_leakage_ablation.png")
     args = parser.parse_args()
 
     out_path = Path(args.out)

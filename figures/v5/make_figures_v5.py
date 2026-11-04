@@ -259,23 +259,26 @@ def f3():
     cons = [("primary_dAUC24", "Platinum − OS < 24 mo trained\n(predicting platinum status)"),
             ("dAUC18", "Platinum − OS < 18 mo trained\n(predicting platinum status)"),
             ("reverse_OS24_target", "OS < 24 mo − platinum trained\n(predicting OS < 24 mo)")]
-    yb = np.arange(len(cons))[::-1]
+    yb = np.arange(len(cons))[::-1] * 2.0   # two rows per contrast
     for yi, (k_, lab_) in zip(yb, cons):
         r = pdf.loc[k_]
-        flo, fhi = np.percentile(fpb[k_].dropna(), [2.5, 97.5])
-        bx.plot([flo, fhi], [yi, yi], color=BASE, linewidth=5, solid_capstyle="butt", zorder=1,
-                label="Out-of-bag refits of the whole pipeline (2.5th–97.5th percentiles; sensitivity analysis)" if yi == yb[0] else None)
-        note("F3B", k_ + " full-pipeline", f"[{flo:+.3f}, {fhi:+.3f}]")
-        bx.plot([r.boot_lo, r.boot_hi], [yi, yi], color=INK2, linewidth=1.5, solid_capstyle="round",
-                label="Conditional 95% interval (patients resampled, models not refitted)" if yi == yb[0] else None)
-        bx.plot(r.delta_repeat_averaged_scores, yi, "o", color=INK2, markersize=5.5, markeredgecolor="white", zorder=3)
+        v = fpb[k_].dropna(); flo, fmed, fhi = np.percentile(v, [2.5, 50, 97.5])
+        # row 1: cross-validated estimate with conditional interval
+        bx.plot([r.boot_lo, r.boot_hi], [yi + 0.35, yi + 0.35], color=INK2, linewidth=1.5, solid_capstyle="round",
+                label="Cross-validated estimate, conditional 95% interval (models not refitted)" if yi == yb[0] else None)
+        bx.plot(r.delta_repeat_averaged_scores, yi + 0.35, "o", color=INK2, markersize=5.5, markeredgecolor="white", zorder=3)
+        # row 2: out-of-bag median with percentile range
+        bx.plot([flo, fhi], [yi - 0.35, yi - 0.35], color=MUTED, linewidth=1.5, linestyle=(0, (3, 2)),
+                label="Out-of-bag refits: median, 2.5th–97.5th percentile range" if yi == yb[0] else None)
+        bx.plot(fmed, yi - 0.35, "s", color=MUTED, markersize=5, markeredgecolor="white", zorder=3)
         note("F3B", k_, f"{r.delta_repeat_averaged_scores:+.3f} [{r.boot_lo:+.3f}, {r.boot_hi:+.3f}], n {int(r.n)} ({int(r.n_pos)} positive)")
+        note("F3B", k_ + " out-of-bag", f"median {fmed:+.3f} [{flo:+.3f}, {fhi:+.3f}]")
     ref_line(bx, 0)
     bx.set_yticks(yb, [c_[1] for c_ in cons]); bx.tick_params(axis="y", labelsize=6.8)
-    bx.set_ylim(-0.6, len(cons) - 0.4); bx.set_xlim(-0.3, 0.3)
-    bx.set_xlabel("Difference in AUC (95% intervals)")
-    bx.legend(loc="upper center", bbox_to_anchor=(0.3, -0.2), ncol=1, fontsize=6.6, handlelength=1.6)
+    bx.set_ylim(-1.0, yb[0] + 1.0); bx.set_xlim(-0.3, 0.3)
+    bx.set_xlabel("Difference in AUC")
     bx.set_title("B  Same 134 patients")
+    bx.legend(loc="upper center", bbox_to_anchor=(0.3, -0.2), ncol=1, fontsize=6.4, handlelength=1.8)
     save(fig, "F3_cross_label_auc")
 
 
