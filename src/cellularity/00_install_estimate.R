@@ -28,7 +28,7 @@ if (!requireNamespace("estimate", quietly = TRUE)) {
 ## and if BOTH fail, fall back to TIMER2.0 web portal
 ## (https://timer.cistrome.org/) which computes comparable purity
 ## estimates without a local R package — this was already flagged as
-## a contingency in the Enhancement 3 handoff.
+## a contingency in the Enhancement 3 plan.
 
 library(estimate)
 

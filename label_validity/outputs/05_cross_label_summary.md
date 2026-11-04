@@ -78,7 +78,7 @@ Ceiling 0.634; label effect +0.060; platform effect +0.045 (vs A4 GEO dfs 0.589)
 **Decision rule: label mismatch SUPPORTED; platform/cohort shift not supported.**
 ## Post-run notes (added after the run; header predictions unchanged)
 
-Run by Aaron on the host (sklearn 1.9.0), 2026-10-29 16:35 ET. A VM dry run (sklearn 1.7.2, 1 repeat) was made after the predictions were committed, as a smoke test only; its numbers are not used.
+Run by the author on the host (sklearn 1.9.0), 2026-10-29 16:35 ET. A VM dry run (sklearn 1.7.2, 1 repeat) was made after the predictions were committed, as a smoke test only; its numbers are not used.
 
 ### Scorecard
 - P1 held: OS24→OS24 0.682 (0.62–0.72); platinum→platinum 0.634 (0.52–0.65).

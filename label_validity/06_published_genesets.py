@@ -2,7 +2,7 @@
 label_validity/06_published_genesets.py
 ───────────────────────────────────────
 Q2 analysis A6 (supplementary) — published gene sets as fixed inputs
-(claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §4, optional A6; Aaron chose to run it 2026-10-29).
+(analysis plan, 2026-10-29, §4, optional A6; the author chose to run it 2026-10-29).
 
 Question: used as fixed inputs to this project's leakage-free pipeline, do two
 published platinum-response gene sets predict platinum status better than

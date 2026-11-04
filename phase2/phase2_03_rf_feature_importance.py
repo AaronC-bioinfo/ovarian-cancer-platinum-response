@@ -255,4 +255,4 @@ print(f"    rf_feature_importances_full.csv")
 for top_n in [50, 100, 200, 500]:
     print(f"    top{top_n}_genes.txt")
 print("══════════════════════════════════════════════")
-print("Done. Paste full output into chat.")
+print("Done.")

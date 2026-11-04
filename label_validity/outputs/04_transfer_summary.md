@@ -41,7 +41,7 @@ Full table with 95% CIs: a4_transfer_results.csv.
 
 ### C1 failure — explained
 - Only the 12 Random Forest rows differed from `validation/outputs/external_validation_v2_results.csv` (max |Δ| 0.160); all 24 LR and SVM rows matched exactly (Δ = 0.000), so data, gene selection, labels and patient alignment are identical.
-- `validation/outputs/external_validation_v2_summary.md` records **"sklearn 1.7.2"**: the v2 external validation was run in an earlier session's VM, not in the pinned host environment (sklearn 1.9.0).
+- `validation/outputs/external_validation_v2_summary.md` records **"sklearn 1.7.2"**: the v2 external validation was run earlier in a VM, not in the pinned host environment (sklearn 1.9.0).
 - `04a_rf_determinism_check.py` (same code, same data, 12m / variant S / clinical): host Python 3.14.5 + sklearn 1.9.0 + numpy 2.4.6 → AUC 0.4711 in 6/6 fits (n_jobs −1 and 1); VM Python 3.10.12 + sklearn 1.7.2 + numpy 2.2.6 → 0.6312 in 6/6 fits = the v2 value. Both environments are deterministic; RF output differs between the two sklearn versions. (`04a_rf_determinism.txt`, `04a_rf_determinism_VM.txt`.)
 - Conclusion: the harness did not change; the reference file was produced under a different sklearn version. A4 (host, pinned 1.9.0) is interpretable. **Consequence for v2:** the RF rows of the v2 external validation (S1 Table, manuscript text) are from sklearn 1.7.2 and must be replaced by the pinned-environment values — the label_os12/18/24 rows of `a4_transfer_results.csv`.
 

@@ -126,4 +126,4 @@ if (length(key_cols) >= 2) {
 }
 
 cat("\n══════════════════════════════════════════════\n")
-cat("Done. Paste full output into chat.\n")
+cat("Done.\n")

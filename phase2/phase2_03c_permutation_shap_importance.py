@@ -49,8 +49,8 @@ from src.preprocessing import (
 from src.features import select_high_variance_genes, scale_features
 
 # ── Paths ──────────────────────────────────────────────────────────────────
-# NOTE: config.yaml's data.data_dir is a stale sandbox path from a previous
-# Cowork session. phase2_03.py and phase2_03b.py both bypass it and hardcode
+# NOTE: config.yaml's data.data_dir is a stale path from an earlier
+# environment. phase2_03.py and phase2_03b.py both bypass it and hardcode
 # the real local path — we do the same here for consistency.
 DATA_DIR = Path(
     "D:/ALIENWARE/WORK DATA/George Mason/Course Work/"
@@ -395,4 +395,4 @@ print(corr_df.to_string(index=False))
 print()
 print(overlap_df[["pair", "top_n", "overlap_count", "only_in_a", "only_in_b"]].to_string(index=False))
 print(f"\nOutput files written to: {PHASE2_OUT}")
-print("Done. Paste full output into chat.")
+print("Done.")

@@ -3,7 +3,7 @@
 label_validity/00_gate_pfi_coverage.py
 ──────────────────────────────────────
 Q2 reorganisation, decision gate G1–G3
-(claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §3).
+(analysis plan, 2026-10-29, §3).
 
 Descriptive counts and cross-tabs only. No models, no p-values, no scipy.
 Cohorts are rebuilt with the repo's own functions (src.data_loader,

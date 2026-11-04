@@ -222,5 +222,5 @@ cat(sprintf("    %s\n", ph_csv))
 cat(sprintf("    %s\n", km_png))
 cat(sprintf("    %s\n", handoff_csv))
 cat("==============================================================================\n")
-cat("Done. Paste full output into chat.\n")
+cat("Done.\n")
 

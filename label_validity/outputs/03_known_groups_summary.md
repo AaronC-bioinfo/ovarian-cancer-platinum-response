@@ -63,7 +63,7 @@ Supplement: label_os12 rows in a3_known_groups.csv (supplement = True). Covariat
 - **Correction to the header's disclosure (P3):** TCGA 2011 SI Methods S1 (section "Surgical outcome is associated with OS, PFS, and platinum status") states verbatim: "We found no association between platinum status and surgical cytoreduction when defined traditionally as optimal or suboptimal." The association it reports is for microscopic residual disease vs more than microscopic ("P = 0.003, df=2, Odds ratio = 3.1"). The header summarised this loosely; the observed OR 1.12 for optimal vs suboptimal reproduces TCGA's own null. Microscopic-only was not pre-specified and is not tested here.
 - **Pattern (descriptive):** residual disease is associated with label_response (OR 2.55, q 0.021) and label_os18 (OR 3.60, q 0.041) but not label_platinum; aneuploidy with OS labels and the PFI-from-platinum label but not the published platinum label.
 
-## A3 part 2 — PFI Cox (03b_pfi_cox.R, run by Aaron on host R 4.6.0, 2026-10-29)
+## A3 part 2 — PFI Cox (03b_pfi_cox.R, run by the author on host R 4.6.0, 2026-10-29)
 
 v2 Cox cohort (n = 432, 317 PFI events; BRCA subset 335, 28 mutant). Endpoint CDR PFI; formula unchanged from phase2/src/hrd. One pre-run bug fix (cox.zph could not rebuild the model frame; `coxph` now called via `do.call`) — no change to models or predictions.
 

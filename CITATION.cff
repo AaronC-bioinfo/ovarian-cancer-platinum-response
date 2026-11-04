@@ -1,21 +1,23 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata below."
 type: software
-title: "Ovarian Cancer Platinum Response: ML Pipeline with Feature-Selection Leakage Analysis"
-version: 1.0.0
+title: "Outcome labels for platinum-response prediction in TCGA-OV: code, analysis outputs and patient-level label table"
+version: 2.0.0
 doi: 10.5281/zenodo.20802753
-date-released: "2026-06-22"
+date-released: "2026-11-04"
 authors:
   - family-names: Chintala
     given-names: Aaron Michael Anuroop
     affiliation: "George Mason University, School of Systems Biology"
 abstract: >
-  A modular, reproducible machine learning pipeline for predicting platinum
-  chemotherapy response in ovarian cancer using TCGA RNA-seq gene expression
-  data. Includes a paired ablation study quantifying AUC inflation from
-  feature-selection leakage (supervised vs. unsupervised), bootstrap
-  confidence intervals, nested cross-validation, and a construct-validity
-  investigation of OS-threshold proxy labels against clinical response data.
+  Code, analysis outputs and a versioned patient-level label table for a study of
+  the coverage, agreement and provenance of candidate platinum-response labels in
+  489 platinum-treated TCGA ovarian cancer patients: TCGA's published platinum
+  status, a platinum-free interval re-derived from the TCGA Clinical Data Resource,
+  first-course response, and overall-survival thresholds evaluated as candidate
+  surrogates. Includes the manuscript source, supporting information and figures.
+  Release v1.0.0 (10.5281/zenodo.20802754) is the earlier expression classifier
+  that this release supersedes.
 keywords:
   - bioinformatics
   - machine learning

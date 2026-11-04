@@ -24,7 +24,7 @@ find_col <- function(df, candidates, label) {
     stop("Could not find a column for '", label, "' in cox_patients_with_risk.csv.\n",
          "Looked for: ", paste(candidates, collapse = ", "), "\n",
          "Actual columns are: ", paste(names(df), collapse = ", "), "\n",
-         "Paste that column list back and I'll fix the mapping.")
+         "Update the column mapping to match.")
   }
   hit[1]
 }
@@ -76,7 +76,7 @@ cat("Patients with both clinical covariates and purity score:", nrow(merged), "\
 
 if (nrow(merged) == 0) {
   stop("Still 0 matches after dot/dash normalization. Compare the sample ",
-       "ID lines printed above and paste them back -- there may be a ",
+       "ID lines printed above -- there may be a ",
        "different format mismatch (e.g. extra whitespace, a sample-type ",
        "suffix, or case sensitivity beyond what normalize_id() strips).")
 }

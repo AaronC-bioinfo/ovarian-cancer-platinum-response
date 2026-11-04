@@ -2,13 +2,13 @@
 """
 label_validity/13_exploratory_label_structure.py
 ────────────────────────────────────────────────
-A13 — EXPLORATORY, POST HOC. Written 2026-10-29 ~21:00 ET AFTER the v4 red-team review
+A13 — EXPLORATORY, POST HOC. Written 2026-10-29 ~21:00 ET AFTER the v4 internal review
 (review_v4/METHODS_ATTACK.md, CODE_ATTACK.md), whose scratch analyses had already shown most of these
 results (review_v4/scratch_methods/). There are no predictions and no decision rules: every quantity
 below is reported whatever it shows, and the manuscript labels it exploratory.
 
 Purpose: answer the reviewers' questions about what the OS-threshold labels measure, re-implementing
-the red-team analyses as one documented script that reads only committed inputs.
+the internal-review analyses as one documented script that reads only committed inputs.
   E1  Cohort flow: TCGA-OV patients in the PanCancer clinical file → treatment record → platinum agent.
   E2  Threshold sweep: OS < t months (t = 6 … 60) as a test for platinum resistance (reference:
       platinum status; and the combined label). n, sensitivity, specificity, PPV, NPV (Wilson 95% CI),

@@ -3,7 +3,7 @@
 label_validity/01_labels_master.py
 ──────────────────────────────────
 Q2 analysis A1 — label construction
-(claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §4; label decision 2026-10-29).
+(analysis plan, 2026-10-29, §4; label decision 2026-10-29).
 
 One tidy table, one row per platinum-treated patient (exact-match cohort, n=489),
 every label with its provenance. Downstream scripts (A2–A5) read only this file.
@@ -18,7 +18,7 @@ Output: label_validity/outputs/labels_master.csv
 
 Labels (1 = non-responder / resistant, 0 = responder / sensitive, NA = undetermined)
 ──────────────────────────────────────────────────────────────────────────────────
-  label_platinum   PRIMARY (Aaron, 2026-10-29). ov_tcga_pub PLATINUM_STATUS:
+  label_platinum   PRIMARY (author's decision, 2026-10-29). ov_tcga_pub PLATINUM_STATUS:
                    Resistant → 1, Sensitive → 0; Tooearly, Missing, absent → NA.
                    The TCGA 2011 wording of this definition is NOT yet quoted
                    verbatim (open item); the field is used as published.

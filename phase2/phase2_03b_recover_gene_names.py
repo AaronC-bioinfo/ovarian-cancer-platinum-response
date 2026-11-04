@@ -192,4 +192,4 @@ for _, row in imp_df.head(10).iterrows():
           f"importance={row['mean_importance']:.6f}  "
           f"(±{row['std_importance']:.6f})")
 print("\n══════════════════════════════════════════════")
-print("Done. Paste full output into chat.")
+print("Done.")

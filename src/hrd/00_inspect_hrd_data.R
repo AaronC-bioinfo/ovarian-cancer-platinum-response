@@ -16,7 +16,7 @@ cat("Files available in TCGA-OV data directory:\n")
 cat("============================================\n")
 print(list.files(tcga_path))
 
-## ---- Clinical sample file (per Enhancement 3/4 handoff, HRD + BRCA
+## ---- Clinical sample file (per the Enhancement 3/4 plan, HRD + BRCA
 ## status are expected here) ----
 sample_file  <- file.path(tcga_path, "data_clinical_sample.txt")
 patient_file <- file.path(tcga_path, "data_clinical_patient.txt")
@@ -95,6 +95,6 @@ cat("Files matching 'mutation' in filename:\n")
 print(mutation_candidates)
 cat("============================================\n")
 
-cat("\nDone. Review the candidate column lists above, then tell me which\n")
-cat("columns actually hold HRD score and BRCA1/2 status so I can write\n")
+cat("\nDone. Review the candidate column lists above to identify the\n")
+cat("columns that hold HRD score and BRCA1/2 status before writing\n")
 cat("02_cox_model_with_hrd.R against the real column names.\n")

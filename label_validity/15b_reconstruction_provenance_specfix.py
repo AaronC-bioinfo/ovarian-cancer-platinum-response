@@ -7,7 +7,7 @@ A15's pre-registered definition.
 
 Written 2026-10-29 ~22:35 ET, AFTER the A15 run (22:00 ET) and after its results were seen. While filling the
 A15 scorecard we found that A15's header lists "interval within 150–215 days (near the 183-day cut-off)" among
-the flags and defines "clean" as "no flag", but the code left near_threshold out of any_flag. Aaron decided
+the flags and defines "clean" as "no flag", but the code left near_threshold out of any_flag. The author decided
 (2026-10-29) that the manuscript follows the header's definition. This script is A15 with exactly one change to
 the analysis: near_threshold enters any_flag. Outputs carry the prefix a15b_ so A15's outputs are kept unchanged.
 No new predictions are made; A15's P1–P4 and decision rule are scored in 15_reconstruction_provenance_summary.md.

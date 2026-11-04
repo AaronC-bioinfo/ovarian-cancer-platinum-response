@@ -3,7 +3,7 @@
 validation/00_gse63885_labels.py
 ────────────────────────────────
 Q2 reorganisation, decision gate G4
-(claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §3).
+(analysis plan, 2026-10-29, §3).
 
 Parses data/external/GSE63885_series_matrix.txt directly (not the R-derived
 CSVs), records the two response definitions VERBATIM from the GEO

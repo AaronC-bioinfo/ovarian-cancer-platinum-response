@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ovarian-cancer-platinum-response"
-version = "1.0.0"
-description = "ML pipeline for predicting platinum chemotherapy response in ovarian cancer using TCGA RNA-seq data, with empirical quantification of feature-selection leakage and label construct-validity investigation."
+version = "2.0.0"
+description = "Coverage, agreement and provenance of candidate platinum-response labels in TCGA-OV: analyses, outputs and a patient-level label table."
 readme = "README.md"
 license = {file = "LICENSE"}
 authors = [

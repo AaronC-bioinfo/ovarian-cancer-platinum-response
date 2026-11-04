@@ -1,7 +1,7 @@
 ## ============================================================
 ## label_validity/03b_pfi_cox.R
 ## Q2 analysis A3, part 2 — Cox model for PFI (time to progression)
-## (claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §4, A3)
+## (analysis plan, 2026-10-29, §4, A3)
 ##
 ## Reuses the v2 Cox code with ONLY the endpoint swapped:
 ##   * phase2/phase2_02_cox_model.R  — cohort and covariates (log1p(TMB) + aneuploidy)

@@ -64,7 +64,7 @@ Gao2025_5   label_pfiplat6 Logistic Regression       0.517       0.521          
 - Gao2025_5 / label_pfiplat6 / E3_geo_clinical: not distinguishable from random gene sets of the same size
 ## Post-run notes (added after the run; header predictions unchanged)
 
-Run by Aaron on the host (sklearn 1.9.0), 2026-10-29 ~17:05 ET. One pre-run design fix: null pool restricted to genes with complete data (15,484 of 15,994), after a 20-draw VM smoke test hit NaN values; smoke-test results were not inspected.
+Run by the author on the host (sklearn 1.9.0), 2026-10-29 ~17:05 ET. One pre-run design fix: null pool restricted to genes with complete data (15,484 of 15,994), after a 20-draw VM smoke test hit NaN values; smoke-test results were not inspected.
 
 ### Scorecard
 - P1 held: Chen set within TCGA, platinum label, LR AUC 0.735 vs random median 0.500 (95th pct 0.599); p = 0.001 (no random set reached it), q = 0.006. Same for PFI-from-platinum: 0.687, q = 0.006.

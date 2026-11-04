@@ -2,7 +2,7 @@
 label_validity/05_cross_label_cv.py
 ───────────────────────────────────
 Q2 analysis A5 — within-TCGA cross-label prediction
-(claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §4, A5).
+(analysis plan, 2026-10-29, §4, A5).
 
 Question: inside TCGA-OV alone, do models trained on one label predict another
 label in held-out patients? This separates "label mismatch" from "platform /

@@ -12,7 +12,7 @@ interval counts new tumour events and death with tumour).
 
 DISCLOSURE — seen before writing: the label counts (labels_full.csv: 394 combined, 117 added, 4 disagreements,
 8 negative intervals classed resistant, 11 undetermined); that 38 platinum-treated patients have a redacted
-TCGA-CDR record (A13); that 6 resistant calls are deaths with tumour (red-team code audit, m2); the CDR column
+TCGA-CDR record (A13); that 6 resistant calls are deaths with tumour (internal code review, m2); the CDR column
 values (new_tumor_event_type: Recurrence 294, Progression of Disease 34). Not seen: any per-patient provenance
 class, the flags below, or any result with the strict label.
 

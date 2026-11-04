@@ -201,4 +201,4 @@ for db in DATABASES:
               f"genes: {genes_str}")
 
 print(f"\n{'='*56}")
-print("Done. Paste full output into chat.")
+print("Done.")

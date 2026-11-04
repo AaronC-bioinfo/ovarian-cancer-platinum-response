@@ -2,7 +2,7 @@
 label_validity/04_transfer_matrix.py
 ────────────────────────────────────
 Q2 analysis A4 — label-transfer matrix
-(claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §4, A4).
+(analysis plan, 2026-10-29, §4, A4).
 
 Question: does a classifier trained on TCGA-OV with a platinum-response label
 transfer to GSE63885 better than one trained on an OS-threshold label?

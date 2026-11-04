@@ -3,7 +3,7 @@
 label_validity/02_label_agreement.py
 ────────────────────────────────────
 Q2 analysis A2 — how the response labels relate to each other
-(claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §4, A2).
+(analysis plan, 2026-10-29, §4, A2).
 
 Reads only label_validity/outputs/labels_master.csv (A1).
 

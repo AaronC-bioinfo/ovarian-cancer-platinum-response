@@ -3,6 +3,22 @@
 All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.0.0] — 2026-11-04
+
+### Changed
+- The study is now a label-validity analysis: coverage, agreement and provenance of candidate
+  platinum-response labels in TCGA-OV (`label_validity/`, analyses A1–A23), replacing the v1.0.0
+  interpretation of overall-survival thresholds as platinum-response labels.
+- Manuscript source, build scripts and supporting information in `manuscript_v5/`; figures in `figures/v5/`.
+
+### Added
+- Versioned patient-level label table with the provenance of each re-derived call
+  (`label_validity/outputs/label_resource_v1.csv`, S11 Table).
+
+### Removed
+- Superseded drafts, audits, reviews and analyses are no longer part of the released tree
+  (earlier tracked versions remain in the repository history).
+
 ## [1.0.0] — 2025-12-01
 
 ### Added

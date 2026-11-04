@@ -14,7 +14,7 @@ For each label, the study measures:
 - associations with characteristics linked to platinum response (*BRCA1/2*, *CCNE1*) and to prognosis;
 - what cross-validated expression classifiers trained on each label predict.
 
-A manuscript describing the study is in preparation; a preprint link will be added here.
+The manuscript (`manuscript_v5/`) is being posted as a bioRxiv preprint; the link will be added here.
 
 > **Note on earlier versions.** The repository began as an expression classifier that defined platinum response as survival beyond 12, 18 or 24 months (release v1.0.0, Zenodo [10.5281/zenodo.20802754](https://doi.org/10.5281/zenodo.20802754)). The present study shows that those OS-threshold labels agree at best moderately with platinum status, so that interpretation is superseded. The earlier pipeline (`src/`, `run.py`, `run_ablation_study.py`) is kept because the current analyses reuse it. Its original description is in `docs/README_v1_classifier.md`.
 

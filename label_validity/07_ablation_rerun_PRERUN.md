@@ -3,7 +3,7 @@
 Written 2026-10-29 ~18:20 ET, **before** the rerun. Do not edit after the run; add results under "Post-run" at the bottom.
 
 ## Why
-The independent audit (`audit_v3/AUDIT_REPORT_v3.md`, blocker B1) found that the leakage result in v3 (abstract, Results "Feature-selection leakage…", Fig 4) comes from `outputs/results/ablation_*` files dated 2026-06-18. No record shows which scikit-learn version produced them, and RF/SVM output in this pipeline changes between scikit-learn versions (`label_validity/outputs/04a_rf_determinism*.txt`). Aaron chose option (a) on 2026-10-29: rerun the existing ablation **unchanged** on the host in the pinned environment, regenerate Fig 4, and describe the ablation's own preprocessing in the Methods.
+The independent audit (`audit_v3/AUDIT_REPORT_v3.md`, blocker B1) found that the leakage result in v3 (abstract, Results "Feature-selection leakage…", Fig 4) comes from `outputs/results/ablation_*` files dated 2026-06-18. No record shows which scikit-learn version produced them, and RF/SVM output in this pipeline changes between scikit-learn versions (`label_validity/outputs/04a_rf_determinism*.txt`). The author chose option (a) on 2026-10-29: rerun the existing ablation **unchanged** on the host in the pinned environment, regenerate Fig 4, and describe the ablation's own preprocessing in the Methods.
 
 ## What is run (no code changes)
 - Script: `run_ablation_study.py` (unchanged), with `src/ablation.py` and `src/preprocessing.py` (unchanged).
@@ -33,7 +33,7 @@ The independent audit (`audit_v3/AUDIT_REPORT_v3.md`, blocker B1) found that the
 - The Methods will describe this analysis's own preprocessing (raw RSEM, all genes) and say that it differs from the classifier pipeline used in A4–A6.
 - `figures/v3/make_figures_v3.py` will read F4 inputs from `outputs/results_pinned_2026-10-29/`.
 
-## Commands (Aaron, PowerShell, from the repo root)
+## Commands (PowerShell, from the repo root)
 ```powershell
 cd C:\PROJECTS\ovarian-cancer-platinum-response
 $PY = "C:\Users\AMAC_WORK\AppData\Local\Python\pythoncore-3.14-64\python.exe"
@@ -46,7 +46,7 @@ Get-Content outputs\results_pinned_2026-10-29\run_log.txt -Tail 15
 
 ## Deviation 1 (2026-10-29 ~18:22 ET, before the full rerun)
 - First host run (18:15) completed the unsupervised ablation, then crashed in the supervised ablation. scikit-learn 1.9.0 (via narwhals) rejects DataFrames with duplicate column names. The RSEM file has duplicate gene symbols, including 13 blank symbols read as "nan". `f_classif` received such a DataFrame. Log: `outputs/results_pinned_2026-10-29/run_log.txt` (copied to `run_log_attempt1_crashed.txt`; its CSVs to `attempt1_crashed/`).
-- Change, approved by Aaron 18:19 ET: `src/ablation.py` l.62 `f_classif(X_filled, y)` → `f_classif(X_filled.to_numpy(), y)`; l.233–234 (supervised loop only) `scaler.fit_transform(Xtr)` / `scaler.transform(Xte)` → `.to_numpy()` inputs. The arrays have the same column order, so the computation is unchanged.
+- Change, made by the author at 18:19 ET: `src/ablation.py` l.62 `f_classif(X_filled, y)` → `f_classif(X_filled.to_numpy(), y)`; l.233–234 (supervised loop only) `scaler.fit_transform(Xtr)` / `scaler.transform(Xte)` → `.to_numpy()` inputs. The arrays have the same column order, so the computation is unchanged.
 - Equivalence check (VM, scikit-learn 1.7.2, scratch copies outside the repo): `run_supervised_leakage_ablation` at 18 months, 3 repeats, original vs patched → identical output (`DataFrame.equals` True; max |ΔAUC| 0).
 - Observed in the same check: LR and SVM AUCs equal the June raw file for seeds 42–44, but RF differs. So the June run was not scikit-learn 1.7.2 either.
 - First-run unsupervised results (seen before this change): LR rows identical to June (P1 holds for the unsupervised ablation); 18/24-month mean inflation +0.0056. The full rerun regenerates these deterministically.

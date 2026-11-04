@@ -13,7 +13,7 @@ germline calls (Mutation_Status == "Germline": 51 BRCA1/2 rows).
 DISCLOSURE — what was seen before these predictions were written
   * Count of germline/somatic BRCA rows in ov_tcga_pub (BRCA1 26 germline / 11 somatic; BRCA2 25 / 10;
     germline rows all truncating or splice).
-  * One exploratory tabulation (main session, 2026-10-29 ~18:55 ET), carrier = any non-silent
+  * One exploratory tabulation (2026-10-29 ~18:55 ET), carrier = any non-silent
     germline or somatic BRCA1/2, patients in ov_tcga_pub cases_sequenced, OS labels from the
     RNA-seq subset only (labels_master), sample OR / Fisher p:
       platinum 8/41 vs 53/145 (OR 0.42, p 0.058); pfiplat6 9/51 vs 63/175 (0.38, 0.016);

@@ -3,7 +3,7 @@
 label_validity/03_known_groups.py
 ─────────────────────────────────
 Q2 analysis A3, part 1 — known-groups validity of each response label
-(claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §4, A3).
+(analysis plan, 2026-10-29, §4, A3).
 
 Question: does each label separate patients along characteristics that a
 platinum-response label should track (somatic BRCA1/2), and along ones an

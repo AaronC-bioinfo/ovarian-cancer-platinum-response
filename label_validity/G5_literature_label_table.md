@@ -1,6 +1,6 @@
 # G5 — How published expression classifiers labelled platinum response in ovarian cancer (Table 1 source data)
 
-> **Main-session verification (2026-10-29).** Spot-checked against publisher HTML in a separate fetch: Gao 2025 "71 classified as sensitive and 333 classified as resistant", the 404 = 287 + 117 pooling, the 8:2 split and AUCs 1 / 0.993 / 0.989 — match. Chen 2022 PFI definition, "212 out of 230 samples (161 sensitivity vs. 51 resistance)", sensitivity/specificity "1 and 0.839", PPV "0.899", validation "41sensitivity vs. 30 resistance" and "34 resistant and 41sensitive" — match; 51/69 = 0.739 ≠ 0.839 confirmed. Li 2022 "287 of which had known platinum sensitivity" and absence of a cutoff — match. Other quotes not yet re-checked; joined quotes (fetch returns ≤125-char pieces) still need a PDF check before printing.
+> **Verification (2026-10-29).** Spot-checked against publisher HTML in a separate fetch: Gao 2025 "71 classified as sensitive and 333 classified as resistant", the 404 = 287 + 117 pooling, the 8:2 split and AUCs 1 / 0.993 / 0.989 — match. Chen 2022 PFI definition, "212 out of 230 samples (161 sensitivity vs. 51 resistance)", sensitivity/specificity "1 and 0.839", PPV "0.899", validation "41sensitivity vs. 30 resistance" and "34 resistant and 41sensitive" — match; 51/69 = 0.739 ≠ 0.839 confirmed. Li 2022 "287 of which had known platinum sensitivity" and absence of a cutoff — match. Other quotes not yet re-checked; joined quotes (fetch returns ≤125-char pieces) still need a PDF check before printing.
 >
 > **Cross-reference to our data (label_validity/outputs/gate_g2_platinum_sources.csv, row all_patients):** cBioPortal ov_tcga_pub `PLATINUM_STATUS` is Resistant or Sensitive for exactly **287** patients (90 R / 197 S) — the same TCGA n reported by Li 2022 and Gao 2025. This suggests, but does not prove, that both used this field. With 197 sensitive in TCGA alone, Gao's pooled "71 sensitive / 333 resistant" (n = 404) cannot be correct as printed; the class names appear swapped. Report as an internal inconsistency, not an accusation (rule 5).
 
@@ -360,7 +360,7 @@ These are not inconsistencies within any one paper.
 
 ## 4. Appendix — TCGA Research Network 2011 (Nature 474:609–615) PLATINUM STATUS definitions
 
-**Result: the defining text for the categories "Resistant", "Sensitive", "Tooearly" and "Missing" was not reachable from a primary source in this session.**
+**Result: the defining text for the categories "Resistant", "Sensitive", "Tooearly" and "Missing" was not reachable from a primary source in this check.**
 
 **What the main text says.** Source: NCBI PMC-OA BioC full text, PMC3163504. This copy ended partway through Table 1 and does not include the Supplementary Information.
 - Introduction:
@@ -380,7 +380,7 @@ These are not inconsistencies within any one paper.
 - https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3163504/supplementaryFiles (rate-limited twice, with requests about 2 minutes apart)
 - https://api.gdc.cancer.gov/data/945fd4d0-b015-4203-adac-04d39f89fa9e: this is the GDC-hosted clinical Table S1.2 as HTML. It came back as binary and was unreadable, and direct download of the .xlsx version (…/e0d199f4-64ee-4795-977c-9e9b233f6338) was blocked by the egress proxy.
 - https://gdc.cancer.gov/about-data/publications/ov_2011: the publication page. It lists the files but does not define platinum status.
-- pmc.ncbi.nlm.nih.gov returned a reCAPTCHA page for every PMC article URL in this session.
+- pmc.ncbi.nlm.nih.gov returned a reCAPTCHA page for every PMC article URL during this check.
 
 **Secondary sources:** none verified. No definition from a secondary paper is given here.
 
@@ -424,7 +424,7 @@ These are not inconsistencies within any one paper.
 
 ---
 
-## 6. Update from local supplements (main session, 2026-10-29, ~16:20 ET)
+## 6. Update from local supplements (2026-10-29, ~16:20 ET)
 
 Files in `C:\PROJECTS\OV Data\Project data\Literature\`, read locally.
 
@@ -435,7 +435,7 @@ Files in `C:\PROJECTS\OV Data\Project data\Literature\`, read locally.
 - Joined-quote check against PDFs: still to do before printing.
 
 
-## 7. Quote check against local PDFs (main session, 2026-10-29, ~17:20 ET)
+## 7. Quote check against local PDFs (2026-10-29, ~17:20 ET)
 
 Script: every quoted passage (≥ 15 characters) split at `[…]`, normalised (case, punctuation, line-break hyphenation, ligatures) and searched in `pdftotext` output of the publisher PDF.
 - 76 quotes checkable against a local PDF: 71 matched exactly.

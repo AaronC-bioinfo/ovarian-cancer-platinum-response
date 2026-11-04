@@ -2,9 +2,9 @@
 title: "S1 Text. Pre-specified predictions and decision rules for each analysis, with observed outcomes, and the analysis history and deviations"
 ---
 
-This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such in the summaries; headers were not edited after running, except the time strings in the A18 and A21 headers (disclosed in their summaries; the A18 summary also notes an inaccurate description of platinum agents in that header) and a bug fix in A22 before any result (disclosed in its header); A22's decision rule was not followed (see its status line). Scripts A8–A10 were deposited in the public repository before they were run (commits d5bd844 and e98b3d9), and A15 and A16, added in a later revision, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full. Headers are reproduced unchanged; those of A13b and A15–A17 refer to the critiques of earlier drafts that prompted those analyses as an 'external review' or a 'second review'.
+This file reproduces, verbatim, the header of each analysis script (written before the analysis was run, unless marked post hoc, descriptive or exploratory) and its full summary (results, and post-run notes and scorecards). Text added after a run is marked as such in the summaries; headers were not edited after running, except the time strings in the A18 and A21 headers (disclosed in their summaries; the A18 summary also notes an inaccurate description of platinum agents in that header) and a bug fix in A22 before any result (disclosed in its header); A22's decision rule was not followed (see its status line). For this release, references to internal working documents and sessions and the author's name in headers and summaries were replaced by neutral wording (for example 'analysis plan, 2026-10-29'); the original wording is in the repository history. Scripts A8–A10 were deposited in the public repository before they were run (commits d5bd844 and e98b3d9), and A15 and A16, added in a later revision, in commit d349b2b. The leakage rerun (A7) has its own pre-run note, reproduced in full. Apart from that wording, headers are reproduced unchanged; those of A13b and A15–A17 refer to the critiques of earlier drafts that prompted those analyses as an 'external review' or a 'second review'.
 
-Analysis history (moved from the manuscript's Methods). The study's interpretation changed during the work. An earlier draft concluded, from somatic BRCA1/2 variants and from OS labels analysed only in patients with RNA-seq data, that OS thresholds measure survival rather than platinum response; the publicly deposited analyses with germline variants and the full cohort did not support that conclusion, and the paper was revised. In later revisions, the OS thresholds were reframed as candidate surrogates, the survival decomposition was reported as associations only and restricted to patients at risk at the end of platinum (A13b), the provenance audit was added (A15), and the claim that the training label changes classifier performance was withdrawn when the controlled comparison detected no difference (A16). In the provenance audit, the code omitted one pre-specified flag (an interval within 150–215 days); this was found when the results were scored, and a correction run that adds only that flag (A15b) gives the provenance-filtered label reported in the manuscript (355 patients, against 367 as first run). The descriptive full-cohort tables (agreement, coverage, threshold sweep, cohort characteristics) and the exploratory analyses were added after the main results were known.
+Analysis history (moved from the manuscript's Methods). The study's interpretation changed during the work. An earlier draft concluded, from somatic BRCA1/2 variants and from OS labels analysed only in patients with RNA-seq data, that OS thresholds measure survival rather than platinum response; the publicly deposited analyses with germline variants and the full cohort did not support that conclusion, and the paper was revised. In later revisions, the OS thresholds were reframed as candidate surrogates, the survival decomposition was reported as associations only and restricted to patients at risk at the end of platinum (A13b), the provenance audit was added (A15), and the claim that the training label changes classifier performance was withdrawn when the controlled comparison detected no difference (A16). In the provenance audit, the code omitted one pre-specified flag (an interval within 150–215 days); this was found when the results were scored, and a correction run that adds only that flag (A15b) gives the provenance-filtered label reported in the manuscript (355 patients, against 367 as first run). The descriptive full-cohort tables (agreement, coverage, threshold sweep, cohort characteristics) and the exploratory analyses were added after the main results were known. Script headers and run commands are reproduced verbatim and contain local file paths; superseded material they mention (for example `figures/v3/`) is not part of this release, and intermediate files under `outputs/results/` are not distributed.
 
 # Analysis history and deviations
 
@@ -57,7 +57,7 @@ All scikit-learn analyses were run in one pinned environment (Python 3.14.5, sci
 label_validity/00_gate_pfi_coverage.py
 ──────────────────────────────────────
 Q2 reorganisation, decision gate G1–G3
-(claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §3).
+(analysis plan, 2026-10-29, §3).
 
 Descriptive counts and cross-tabs only. No models, no p-values, no scipy.
 Cohorts are rebuilt with the repo's own functions (src.data_loader,
@@ -363,7 +363,7 @@ TCGA-61-2096                 NaN      1.0           421.0                       
 label_validity/01_labels_master.py
 ──────────────────────────────────
 Q2 analysis A1 — label construction
-(claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §4; label decision 2026-10-29).
+(analysis plan, 2026-10-29, §4; label decision 2026-10-29).
 
 One tidy table, one row per platinum-treated patient (exact-match cohort, n=489),
 every label with its provenance. Downstream scripts (A2–A5) read only this file.
@@ -378,7 +378,7 @@ Output: label_validity/outputs/labels_master.csv
 
 Labels (1 = non-responder / resistant, 0 = responder / sensitive, NA = undetermined)
 ──────────────────────────────────────────────────────────────────────────────────
-  label_platinum   PRIMARY (Aaron, 2026-10-29). ov_tcga_pub PLATINUM_STATUS:
+  label_platinum   PRIMARY (author's decision, 2026-10-29). ov_tcga_pub PLATINUM_STATUS:
                    Resistant → 1, Sensitive → 0; Tooearly, Missing, absent → NA.
                    The TCGA 2011 wording of this definition is NOT yet quoted
                    verbatim (open item); the field is used as published.
@@ -459,7 +459,7 @@ Open item: TCGA 2011 wording of PLATINUM_STATUS not yet quoted verbatim.
 label_validity/02_label_agreement.py
 ────────────────────────────────────
 Q2 analysis A2 — how the response labels relate to each other
-(claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §4, A2).
+(analysis plan, 2026-10-29, §4, A2).
 
 Reads only label_validity/outputs/labels_master.csv (A1).
 
@@ -575,7 +575,7 @@ Supplement (12m): see rows with supplement = True in a2_pairwise_agreement.csv a
 label_validity/03_known_groups.py
 ─────────────────────────────────
 Q2 analysis A3, part 1 — known-groups validity of each response label
-(claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §4, A3).
+(analysis plan, 2026-10-29, §4, A3).
 
 Question: does each label separate patients along characteristics that a
 platinum-response label should track (somatic BRCA1/2), and along ones an
@@ -702,7 +702,7 @@ Supplement: label_os12 rows in a3_known_groups.csv (supplement = True). Covariat
 - **Correction to the header's disclosure (P3):** TCGA 2011 SI Methods S1 (section "Surgical outcome is associated with OS, PFS, and platinum status") states verbatim: "We found no association between platinum status and surgical cytoreduction when defined traditionally as optimal or suboptimal." The association it reports is for microscopic residual disease vs more than microscopic ("P = 0.003, df=2, Odds ratio = 3.1"). The header summarised this loosely; the observed OR 1.12 for optimal vs suboptimal reproduces TCGA's own null. Microscopic-only was not pre-specified and is not tested here.
 - **Pattern (descriptive):** residual disease is associated with label_response (OR 2.55, q 0.021) and label_os18 (OR 3.60, q 0.041) but not label_platinum; aneuploidy with OS labels and the PFI-from-platinum label but not the published platinum label.
 
-## A3 part 2 — PFI Cox (03b_pfi_cox.R, run by Aaron on host R 4.6.0, 2026-10-29)
+## A3 part 2 — PFI Cox (03b_pfi_cox.R, run by the author on host R 4.6.0, 2026-10-29)
 
 v2 Cox cohort (n = 432, 317 PFI events; BRCA subset 335, 28 mutant). Endpoint CDR PFI; formula unchanged from phase2/src/hrd. One pre-run bug fix (cox.zph could not rebuild the model frame; `coxph` now called via `do.call`) — no change to models or predictions.
 
@@ -730,7 +730,7 @@ Scorecard: P1 held (aneuploidy HR > 1, p < 0.05; TMB CI includes 1 in the full c
 ============================================================
  label_validity/03b_pfi_cox.R
  Q2 analysis A3, part 2 — Cox model for PFI (time to progression)
- (claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §4, A3)
+ (analysis plan, 2026-10-29, §4, A3)
 
  Reuses the v2 Cox code with ONLY the endpoint swapped:
    * phase2/phase2_02_cox_model.R  — cohort and covariates (log1p(TMB) + aneuploidy)
@@ -777,7 +777,7 @@ Scorecard: P1 held (aneuploidy HR > 1, p < 0.05; TMB CI includes 1 in the full c
 label_validity/04_transfer_matrix.py
 ────────────────────────────────────
 Q2 analysis A4 — label-transfer matrix
-(claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §4, A4).
+(analysis plan, 2026-10-29, §4, A4).
 
 Question: does a classifier trained on TCGA-OV with a platinum-response label
 transfer to GSE63885 better than one trained on an OS-threshold label?
@@ -875,7 +875,7 @@ Full table with 95% CIs: a4_transfer_results.csv.
 
 ### C1 failure — explained
 - Only the 12 Random Forest rows differed from `validation/outputs/external_validation_v2_results.csv` (max |Δ| 0.160); all 24 LR and SVM rows matched exactly (Δ = 0.000), so data, gene selection, labels and patient alignment are identical.
-- `validation/outputs/external_validation_v2_summary.md` records **"sklearn 1.7.2"**: the v2 external validation was run in an earlier session's VM, not in the pinned host environment (sklearn 1.9.0).
+- `validation/outputs/external_validation_v2_summary.md` records **"sklearn 1.7.2"**: the v2 external validation was run earlier in a VM, not in the pinned host environment (sklearn 1.9.0).
 - `04a_rf_determinism_check.py` (same code, same data, 12m / variant S / clinical): host Python 3.14.5 + sklearn 1.9.0 + numpy 2.4.6 → AUC 0.4711 in 6/6 fits (n_jobs −1 and 1); VM Python 3.10.12 + sklearn 1.7.2 + numpy 2.2.6 → 0.6312 in 6/6 fits = the v2 value. Both environments are deterministic; RF output differs between the two sklearn versions. (`04a_rf_determinism.txt`, `04a_rf_determinism_VM.txt`.)
 - Conclusion: the harness did not change; the reference file was produced under a different sklearn version. A4 (host, pinned 1.9.0) is interpretable. **Consequence for v2:** the RF rows of the v2 external validation (S1 Table, manuscript text) are from sklearn 1.7.2 and must be replaced by the pinned-environment values — the label_os12/18/24 rows of `a4_transfer_results.csv`.
 
@@ -900,7 +900,7 @@ Full table with 95% CIs: a4_transfer_results.csv.
 label_validity/05_cross_label_cv.py
 ───────────────────────────────────
 Q2 analysis A5 — within-TCGA cross-label prediction
-(claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §4, A5).
+(analysis plan, 2026-10-29, §4, A5).
 
 Question: inside TCGA-OV alone, do models trained on one label predict another
 label in held-out patients? This separates "label mismatch" from "platform /
@@ -1037,7 +1037,7 @@ Ceiling 0.634; label effect +0.060; platform effect +0.045 (vs A4 GEO dfs 0.589)
 **Decision rule: label mismatch SUPPORTED; platform/cohort shift not supported.**
 ## Post-run notes (added after the run; header predictions unchanged)
 
-Run by Aaron on the host (sklearn 1.9.0), 2026-10-29 16:35 ET. A VM dry run (sklearn 1.7.2, 1 repeat) was made after the predictions were committed, as a smoke test only; its numbers are not used.
+Run by the author on the host (sklearn 1.9.0), 2026-10-29 16:35 ET. A VM dry run (sklearn 1.7.2, 1 repeat) was made after the predictions were committed, as a smoke test only; its numbers are not used.
 
 ### Scorecard
 - P1 held: OS24→OS24 0.682 (0.62–0.72); platinum→platinum 0.634 (0.52–0.65).
@@ -1062,7 +1062,7 @@ Run by Aaron on the host (sklearn 1.9.0), 2026-10-29 16:35 ET. A VM dry run (skl
 label_validity/06_published_genesets.py
 ───────────────────────────────────────
 Q2 analysis A6 (supplementary) — published gene sets as fixed inputs
-(claude/HANDOFF_Ovarian_Q2_Reorg_2026-10-29.md §4, optional A6; Aaron chose to run it 2026-10-29).
+(analysis plan, 2026-10-29, §4, optional A6; the author chose to run it 2026-10-29).
 
 Question: used as fixed inputs to this project's leakage-free pipeline, do two
 published platinum-response gene sets predict platinum status better than
@@ -1194,7 +1194,7 @@ Gao2025_5   label_pfiplat6 Logistic Regression       0.517       0.521          
 - Gao2025_5 / label_pfiplat6 / E3_geo_clinical: not distinguishable from random gene sets of the same size
 ## Post-run notes (added after the run; header predictions unchanged)
 
-Run by Aaron on the host (sklearn 1.9.0), 2026-10-29 ~17:05 ET. One pre-run design fix: null pool restricted to genes with complete data (15,484 of 15,994), after a 20-draw VM smoke test hit NaN values; smoke-test results were not inspected.
+Run by the author on the host (sklearn 1.9.0), 2026-10-29 ~17:05 ET. One pre-run design fix: null pool restricted to genes with complete data (15,484 of 15,994), after a 20-draw VM smoke test hit NaN values; smoke-test results were not inspected.
 
 ### Scorecard
 - P1 held: Chen set within TCGA, platinum label, LR AUC 0.735 vs random median 0.500 (95th pct 0.599); p = 0.001 (no random set reached it), q = 0.006. Same for PFI-from-platinum: 0.687, q = 0.006.
@@ -1228,7 +1228,7 @@ germline calls (Mutation_Status == "Germline": 51 BRCA1/2 rows).
 DISCLOSURE — what was seen before these predictions were written
   * Count of germline/somatic BRCA rows in ov_tcga_pub (BRCA1 26 germline / 11 somatic; BRCA2 25 / 10;
     germline rows all truncating or splice).
-  * One exploratory tabulation (main session, 2026-10-29 ~18:55 ET), carrier = any non-silent
+  * One exploratory tabulation (2026-10-29 ~18:55 ET), carrier = any non-silent
     germline or somatic BRCA1/2, patients in ov_tcga_pub cases_sequenced, OS labels from the
     RNA-seq subset only (labels_master), sample OR / Fisher p:
       platinum 8/41 vs 53/145 (OR 0.42, p 0.058); pfiplat6 9/51 vs 63/175 (0.38, 0.016);
@@ -1748,13 +1748,13 @@ Run: python label_validity/12_auc_intervals.py
 ```text
 label_validity/13_exploratory_label_structure.py
 ────────────────────────────────────────────────
-A13 — EXPLORATORY, POST HOC. Written 2026-10-29 ~21:00 ET AFTER the v4 red-team review
+A13 — EXPLORATORY, POST HOC. Written 2026-10-29 ~21:00 ET AFTER the v4 internal review
 (review_v4/METHODS_ATTACK.md, CODE_ATTACK.md), whose scratch analyses had already shown most of these
 results (review_v4/scratch_methods/). There are no predictions and no decision rules: every quantity
 below is reported whatever it shows, and the manuscript labels it exploratory.
 
 Purpose: answer the reviewers' questions about what the OS-threshold labels measure, re-implementing
-the red-team analyses as one documented script that reads only committed inputs.
+the internal-review analyses as one documented script that reads only committed inputs.
   E1  Cohort flow: TCGA-OV patients in the PanCancer clinical file → treatment record → platinum agent.
   E2  Threshold sweep: OS < t months (t = 6 … 60) as a test for platinum resistance (reference:
       platinum status; and the combined label). n, sensitivity, specificity, PPV, NPV (Wilson 95% CI),
@@ -1955,7 +1955,7 @@ interval counts new tumour events and death with tumour).
 
 DISCLOSURE — seen before writing: the label counts (labels_full.csv: 394 combined, 117 added, 4 disagreements,
 8 negative intervals classed resistant, 11 undetermined); that 38 platinum-treated patients have a redacted
-TCGA-CDR record (A13); that 6 resistant calls are deaths with tumour (red-team code audit, m2); the CDR column
+TCGA-CDR record (A13); that 6 resistant calls are deaths with tumour (internal code review, m2); the CDR column
 values (new_tumor_event_type: Recurrence 294, Progression of Disease 34). Not seen: any per-patient provenance
 class, the flags below, or any result with the strict label.
 
@@ -2059,7 +2059,7 @@ Deviation (found when filling this scorecard): the header lists "interval within
 - the strict combined label would cover 355 patients (99 resistant / 256 sensitive) instead of 367 (104 / 263).
 P1 and P4 do not depend on this (P4 counts flags and near-threshold intervals separately). P2 fails under either definition. The decision rule outcome is the same under either definition.
 
-Resolution (Aaron, 2026-10-29, before the 15b run): the manuscript follows the header's definition. `15b_reconstruction_provenance_specfix.py` is this script with near_threshold added to any_flag and nothing else changed; it was run at 22:25 ET (outputs `a15b_*`, `15b_reconstruction_provenance_specfix_summary.md`). It gives 78/117 added patients clean and a strict combined label of 355 (99 resistant / 256 sensitive). Against that label, OS18 sensitivity is 0.23 [0.16, 0.33] and PPV 0.79 [0.60, 0.90]; OS24 sensitivity 0.41 [0.31, 0.51] and PPV 0.75 [0.61, 0.84]. These are still within 0.05 of the broad-label values, so P3 holds under either definition. The as-run label (367) is kept unchanged as `a15_label_combined_strict.csv`.
+Resolution (author, 2026-10-29, before the 15b run): the manuscript follows the header's definition. `15b_reconstruction_provenance_specfix.py` is this script with near_threshold added to any_flag and nothing else changed; it was run at 22:25 ET (outputs `a15b_*`, `15b_reconstruction_provenance_specfix_summary.md`). It gives 78/117 added patients clean and a strict combined label of 355 (99 resistant / 256 sensitive). Against that label, OS18 sensitivity is 0.23 [0.16, 0.33] and PPV 0.79 [0.60, 0.90]; OS24 sensitivity 0.41 [0.31, 0.51] and PPV 0.75 [0.61, 0.84]. These are still within 0.05 of the broad-label values, so P3 holds under either definition. The as-run label (367) is kept unchanged as `a15_label_combined_strict.csv`.
 
 - **P1 — held (narrowly).** 20/26 resistant calls among the added patients (77%) are backed by a recorded new tumour event (Recurrence 13, Progression of Disease 3, type missing 4); threshold ≥ 75%. The other 6 are deaths counted as progression; none is unclear.
 - **P2 — FAILED (narrowly).** The strict combined label covers 367 of 489 patients (104 resistant / 263 sensitive); predicted ≥ 370.
@@ -2082,7 +2082,7 @@ A15's pre-registered definition.
 
 Written 2026-10-29 ~22:35 ET, AFTER the A15 run (22:00 ET) and after its results were seen. While filling the
 A15 scorecard we found that A15's header lists "interval within 150–215 days (near the 183-day cut-off)" among
-the flags and defines "clean" as "no flag", but the code left near_threshold out of any_flag. Aaron decided
+the flags and defines "clean" as "no flag", but the code left near_threshold out of any_flag. The author decided
 (2026-10-29) that the manuscript follows the header's definition. This script is A15 with exactly one change to
 the analysis: near_threshold enters any_flag. Outputs carry the prefix a15b_ so A15's outputs are kept unchanged.
 No new predictions are made; A15's P1–P4 and decision rule are scored in 15_reconstruction_provenance_summary.md.
@@ -2733,7 +2733,7 @@ Note (added after the run): the header's "Writing started 2026-10-30 01:05 ET" i
 Written 2026-10-29 ~18:20 ET, **before** the rerun. Do not edit after the run; add results under "Post-run" at the bottom.
 
 ## Why
-The independent audit (`audit_v3/AUDIT_REPORT_v3.md`, blocker B1) found that the leakage result in v3 (abstract, Results "Feature-selection leakage…", Fig 4) comes from `outputs/results/ablation_*` files dated 2026-06-18. No record shows which scikit-learn version produced them, and RF/SVM output in this pipeline changes between scikit-learn versions (`label_validity/outputs/04a_rf_determinism*.txt`). Aaron chose option (a) on 2026-10-29: rerun the existing ablation **unchanged** on the host in the pinned environment, regenerate Fig 4, and describe the ablation's own preprocessing in the Methods.
+The independent audit (`audit_v3/AUDIT_REPORT_v3.md`, blocker B1) found that the leakage result in v3 (abstract, Results "Feature-selection leakage…", Fig 4) comes from `outputs/results/ablation_*` files dated 2026-06-18. No record shows which scikit-learn version produced them, and RF/SVM output in this pipeline changes between scikit-learn versions (`label_validity/outputs/04a_rf_determinism*.txt`). The author chose option (a) on 2026-10-29: rerun the existing ablation **unchanged** on the host in the pinned environment, regenerate Fig 4, and describe the ablation's own preprocessing in the Methods.
 
 ## What is run (no code changes)
 - Script: `run_ablation_study.py` (unchanged), with `src/ablation.py` and `src/preprocessing.py` (unchanged).
@@ -2763,7 +2763,7 @@ The independent audit (`audit_v3/AUDIT_REPORT_v3.md`, blocker B1) found that the
 - The Methods will describe this analysis's own preprocessing (raw RSEM, all genes) and say that it differs from the classifier pipeline used in A4–A6.
 - `figures/v3/make_figures_v3.py` will read F4 inputs from `outputs/results_pinned_2026-10-29/`.
 
-## Commands (Aaron, PowerShell, from the repo root)
+## Commands (PowerShell, from the repo root)
 ```powershell
 cd C:\PROJECTS\ovarian-cancer-platinum-response
 $PY = "C:\Users\AMAC_WORK\AppData\Local\Python\pythoncore-3.14-64\python.exe"
@@ -2776,7 +2776,7 @@ Get-Content outputs\results_pinned_2026-10-29\run_log.txt -Tail 15
 
 ## Deviation 1 (2026-10-29 ~18:22 ET, before the full rerun)
 - First host run (18:15) completed the unsupervised ablation, then crashed in the supervised ablation. scikit-learn 1.9.0 (via narwhals) rejects DataFrames with duplicate column names. The RSEM file has duplicate gene symbols, including 13 blank symbols read as "nan". `f_classif` received such a DataFrame. Log: `outputs/results_pinned_2026-10-29/run_log.txt` (copied to `run_log_attempt1_crashed.txt`; its CSVs to `attempt1_crashed/`).
-- Change, approved by Aaron 18:19 ET: `src/ablation.py` l.62 `f_classif(X_filled, y)` → `f_classif(X_filled.to_numpy(), y)`; l.233–234 (supervised loop only) `scaler.fit_transform(Xtr)` / `scaler.transform(Xte)` → `.to_numpy()` inputs. The arrays have the same column order, so the computation is unchanged.
+- Change, made by the author at 18:19 ET: `src/ablation.py` l.62 `f_classif(X_filled, y)` → `f_classif(X_filled.to_numpy(), y)`; l.233–234 (supervised loop only) `scaler.fit_transform(Xtr)` / `scaler.transform(Xte)` → `.to_numpy()` inputs. The arrays have the same column order, so the computation is unchanged.
 - Equivalence check (VM, scikit-learn 1.7.2, scratch copies outside the repo): `run_supervised_leakage_ablation` at 18 months, 3 repeats, original vs patched → identical output (`DataFrame.equals` True; max |ΔAUC| 0).
 - Observed in the same check: LR and SVM AUCs equal the June raw file for seeds 42–44, but RF differs. So the June run was not scikit-learn 1.7.2 either.
 - First-run unsupervised results (seen before this change): LR rows identical to June (P1 holds for the unsupervised ablation); 18/24-month mean inflation +0.0056. The full rerun regenerates these deterministically.
