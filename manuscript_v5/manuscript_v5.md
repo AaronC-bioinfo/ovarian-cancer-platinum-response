@@ -114,6 +114,10 @@ The timing of specification varied. Initial label-analysis predictions were writ
 
 Two material deviations occurred. The provenance-audit code omitted the pre-specified 150–215-day flag. The reported label comes from a correction run that added only this flag. The out-of-bag analysis also departed from its pre-specified rule, which designated its range as the main uncertainty measure, because that analysis estimates a different quantity. S1 Text documents analysis identifiers (A1–A23), predictions, outcomes including failed predictions, software environments and development history. Reporting follows STROBE [41] and, for OS thresholds evaluated as tests, STARD 2015 [42] (S2 Text).
 
+### Use of AI tools
+
+Generative AI tools were used for three tasks only: debugging and testing code, rephrasing manuscript text and the literature search. Claude (Anthropic) was used to debug and test code; ChatGPT (OpenAI) was used to rephrase manuscript text; and Perplexity was used to search for candidate studies for the literature review. AI tools were not used to generate or alter data. Code changes were checked by rerunning the affected scripts and the test suite, rephrased text was checked against its intended meaning, and every label definition, class size and reported result taken from a study was verified against its full text and supplements. The author takes full responsibility for the content of this article.
+
 ## Results
 
 ### Studies label patients in different ways
