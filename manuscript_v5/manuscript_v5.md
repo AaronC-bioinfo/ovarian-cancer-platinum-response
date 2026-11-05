@@ -6,7 +6,7 @@ Short title: Platinum-response labels in TCGA-OV
 
 ¹ School of Systems Biology, George Mason University, Manassas, VA, USA
 
-\* Corresponding author: michaelanuroop@gmail.com (AMAC)
+\* Corresponding author: aaronmichael1489@gmail.com (AMAC)
 
 ORCID (AMAC): 0009-0009-0062-6453
 
